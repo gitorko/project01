@@ -7,9 +7,6 @@ import java.util.stream.Collectors;
 
 import org.junit.jupiter.api.Test;
 
-/**
- * https://www.baeldung.com/java-copy-hashmap
- */
 public class ImmutablePuzzleFix {
 
     @Test

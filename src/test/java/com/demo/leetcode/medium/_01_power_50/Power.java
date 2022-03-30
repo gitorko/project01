@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 /**
- * [50. Pow(x, n) - MEDIUM](https://leetcode.com/problems/powx-n/)
+ * [50. Pow x, n - MEDIUM](https://leetcode.com/problems/powx-n/)
  *
  * - recursion n/2
  * - math

@@ -6,9 +6,6 @@ import java.util.Map;
 
 import org.junit.jupiter.api.Test;
 
-/**
- * https://www.baeldung.com/java-copy-hashmap
- */
 public class ImmutablePuzzle {
 
     @Test

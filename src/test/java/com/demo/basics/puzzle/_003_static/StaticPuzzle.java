@@ -3,32 +3,31 @@ package com.demo.basics.puzzle._003_static;
 import org.junit.jupiter.api.Test;
 
 public class StaticPuzzle {
+
     @Test
     public void test() {
-        Student student = new Student("Dan");
-        Student.reset1(student);
-        System.out.println(student.getName());
-        student.reset2(student);
-        System.out.println(student.getName());
+        Employee employee1 = new Employee("Dan", "ABC");
+        Employee employee2 = new Employee("John", "DEF");
+        System.out.println(employee1.getName() + ", " + employee1.getCompany());
+        System.out.println(employee2.getName() + ", " + employee2.getCompany());
     }
 
 }
-class Student {
+class Employee {
     String name;
+    static String company;
 
-    public Student(String name) {
+    public Employee(String name, String company) {
         this.name = name;
+        Employee.company = company;
     }
 
     public String getName() {
         return name;
     }
 
-    public void reset2(Student student) {
-        student = new Student("NO_NAME");
+    public String getCompany() {
+        return company;
     }
 
-    public static void reset1(Student student) {
-        student = new Student("NO_NAME");
-    }
 }

@@ -1,9 +1,8 @@
-package com.demo.basics.puzzle._006_threadlocal;
+package com.demo.basics.puzzle._008_threadlocal;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
@@ -11,9 +10,10 @@ import java.util.concurrent.Executors;
 
 import org.junit.jupiter.api.Test;
 
-public class ThreadPuzzle {
+public class ThreadPuzzleFix {
 
-    SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+    public static ThreadLocal<SimpleDateFormat> df =
+            ThreadLocal.withInitial(() -> new SimpleDateFormat("dd/MM/yyyy"));
 
     @Test
     public void test() {
@@ -28,8 +28,8 @@ public class ThreadPuzzle {
         for (String doj : joinDates) {
             executor.execute(() -> {
                 try {
-                    Date dojDt = df.parse(doj);
-                    System.out.println("Saving : " + dojDt);
+                    SimpleDateFormat localDf = ThreadPuzzleFix.df.get();
+                    System.out.println(localDf.parse(doj));
                 } catch (ParseException e) {
                     //e.printStackTrace();
                 } finally {

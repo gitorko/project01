@@ -63,28 +63,28 @@
 61. Batch vs Stream data processing vs Micro Batch
 62. RabbitMQ - fanout, direct, topic, header, default
 
-Distributed Transaction:
+* Distributed Transaction:
 https://www.youtube.com/watch?v=jGJT1FRYGcY&ab_channel=ThorbenJanssen
 https://www.youtube.com/watch?v=S4FnmSeRpAY&ab_channel=TechDummiesNarendraL
 
-Paxos:
+* Paxos:
 https://www.youtube.com/watch?v=WX4gjowx45E&ab_channel=Wandida%2CEPFL
 https://www.youtube.com/watch?v=s8JqcZtvnsM&ab_channel=Computerphile
 
-Indexing:
+* Indexing:
 https://www.youtube.com/watch?v=-qNSXK7s7_w&ab_channel=HusseinNasser
 
-Rest API:
+* Rest API:
 https://blog.devgenius.io/best-practice-and-cheat-sheet-for-rest-api-design-6a6e12dfa89f
 
-Kafka
+* Kafka
 https://www.youtube.com/watch?v=LN_HcJVbySw&ab_channel=HusseinNasser
 
-Rabbit MQ
+* Rabbit MQ
 https://www.youtube.com/watch?v=Cie5v59mrTg&t=127s
 https://www.youtube.com/watch?v=O1PgqUqZKTA&ab_channel=HusseinNasser
 https://www.upsolver.com/blog/kafka-versus-rabbitmq-architecture-performance-use-case
 https://tanzu.vmware.com/developer/blog/understanding-the-differences-between-rabbitmq-vs-kafka/
 
-Rabbit MQ Streams
+* Rabbit MQ Streams
 https://blog.rabbitmq.com/posts/2021/07/rabbitmq-streams-overview
