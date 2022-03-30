@@ -6,10 +6,6 @@ import java.util.concurrent.TimeUnit;
 
 import org.junit.jupiter.api.Test;
 
-/**
- * https://www.callicoder.com/java-concurrency-multithreading-basics/
- * Instance lock vs class lock
- */
 public class InstanceClassLockPuzzle {
 
     @Test

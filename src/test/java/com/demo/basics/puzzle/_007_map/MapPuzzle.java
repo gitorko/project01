@@ -6,9 +6,6 @@ import java.util.Objects;
 
 import org.junit.jupiter.api.Test;
 
-/**
- * Memory leak in java, key has to be immutable
- */
 public class MapPuzzle {
 
     @Test
