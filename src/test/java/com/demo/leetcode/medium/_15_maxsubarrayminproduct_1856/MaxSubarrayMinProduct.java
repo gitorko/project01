@@ -1,0 +1,50 @@
+package com.demo.leetcode.medium._15_maxsubarrayminproduct_1856;
+
+import java.util.Stack;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+/**
+ * [1856. Maximum Subarray Min-Product - MEDIUM](https://leetcode.com/problems/maximum-subarray-min-product/)
+ *
+ * - monotonic stack
+ * - prefix sum
+ *
+ * PRACTICE
+ *
+ * https://www.youtube.com/watch?v=YLesLbNkyjA&ab_channel=NeetCode
+ */
+public class MaxSubarrayMinProduct {
+
+    @Test
+    public void test() {
+        int[] nums = {1, 2, 3, 2};
+        Assertions.assertEquals(14, maxSumMinProduct(nums));
+    }
+
+    /**
+     * Time: O(n)
+     * Space: O(n)
+     */
+    public int maxSumMinProduct(int[] nums) {
+        long result = 0;
+        Stack<Integer> stack = new Stack<>();
+        long[] prefix = new long[nums.length + 1];
+
+        //prefix sum
+        for (int i = 0; i < nums.length; i++)
+            prefix[i + 1] = prefix[i] + nums[i];
+
+        for (int i = 0; i <= nums.length; i++) {
+            while (!stack.isEmpty() && (i == nums.length || nums[stack.peek()] > nums[i])) {
+                int minVal = nums[stack.pop()];
+                long sum = stack.isEmpty() ? prefix[i] : prefix[i] - prefix[stack.peek() + 1];
+                result = Math.max(result, minVal * sum);
+            }
+            stack.push(i);
+        }
+
+        return (int) (result % 1000000007);
+    }
+}
