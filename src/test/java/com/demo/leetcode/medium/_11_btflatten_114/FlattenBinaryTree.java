@@ -20,9 +20,18 @@ import org.junit.jupiter.api.Test;
 public class FlattenBinaryTree {
 
     @Test
-    public void test() {
+    public void test1() {
         TreeNode root = TreeNodeUtil.insertLevelOrder(Arrays.asList(1, 2, 5, 3, 4, null, 6));
+        TreeNodeUtil.printTree(root);
         List<Integer> expected = Arrays.asList(1, 2, 3, 4, 5, 6);
+        flatten(root);
+        Assertions.assertEquals(expected, TreeNodeUtil.levelOrderTraversal(root));
+    }
+
+    @Test
+    public void test2() {
+        TreeNode root = TreeNodeUtil.insertLevelOrder(Arrays.asList(1, 2, 3));
+        List<Integer> expected = Arrays.asList(1, 2, 3);
         flatten(root);
         Assertions.assertEquals(expected, TreeNodeUtil.levelOrderTraversal(root));
     }

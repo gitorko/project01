@@ -25,8 +25,8 @@ public class CustomArrayList {
 
     class MyList<T> {
         int index = 0;
-        int DEFAULT_CAPACITY = 10;
-        Object[] arr = new Object[DEFAULT_CAPACITY];
+        int capacity = 10;
+        Object[] arr = new Object[capacity];
 
         public void add(T element) {
             System.out.println("Adding: " + element);

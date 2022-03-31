@@ -1,15 +1,17 @@
 package com.demo.basics.concurrency._13_commonwords;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
+import lombok.SneakyThrows;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -17,61 +19,62 @@ import org.junit.jupiter.api.Test;
 /**
  * [Common Words multi thread - MEDIUM]()
  *
+ * - map reduce
  * - multi thread
  * - Find the most common word. Dont consider banned words.
  */
 public class MostCommonWordThread {
 
+    @SneakyThrows
     @Test
     public void test() {
-        String input = "Bob hit! a ball, the? hit BALL flew far after it was hit.";
-        String[] banned = {"hit"};
-        bannedSet = new HashSet<>(Arrays.asList(banned));
-        findCommonWord(input, banned);
-        Assertions.assertEquals(2, mapRef.get("ball"));
+        String input = "Bob hit! a ball.\nThe ball flew far after it was hit.\nIt landed outside the field.";
+        Set bannedSet = Set.of("hit");
+        Map<String, Integer> result = findCommonWord(input, bannedSet);
+        Assertions.assertEquals(2, result.get("ball"));
     }
 
-    Map<String, Integer> mapRef = new ConcurrentHashMap<>();
-    Set<String> bannedSet = null;
-
-    public void findCommonWord(String input, String[] banned) {
-        ExecutorService svc = Executors.newCachedThreadPool();
-        List<Runnable> jobs = new ArrayList<>();
-        int startIndex = 0;
-        int chunkIndex = input.indexOf(" ", 10);
-        while (true) {
-            String chunk = input.substring(startIndex, chunkIndex);
-            Runnable runnable = () -> {
-                mostCommonWord(chunk);
-            };
-            jobs.add(runnable);
-            startIndex = chunkIndex;
-            chunkIndex = input.indexOf(" ", chunkIndex + 10);
-            chunkIndex = chunkIndex == -1 ? input.length() : chunkIndex;
-            if (startIndex == input.length())
-                break;
+    public Map<String, Integer> findCommonWord(String input, Set banned) throws ExecutionException, InterruptedException {
+        ExecutorService executor = Executors.newCachedThreadPool();
+        Map<String, Integer> mapRef = new HashMap<>();
+        List<Future<Map<String, Integer>>> futureLst = new ArrayList<>();
+        for (String line : input.split("\n")) {
+            System.out.println("Submitting Job: " + line);
+            Future<Map<String, Integer>> future = executor.submit(new ProcessingJob(line, banned));
+            futureLst.add(future);
         }
-
-        for (Runnable job : jobs) {
-            svc.execute(job);
-        }
-
-        svc.shutdown();
-        while (!svc.isTerminated()) {
-        }
-
-        mapRef.entrySet().forEach(e -> {
-            System.out.println("Key: " + e.getKey() + ", Value: " + e.getValue());
-        });
-    }
-
-    public void mostCommonWord(String input) {
-        input = input.replaceAll("[^\\w||\\s]", "").toLowerCase();
-        String[] tokens = input.split(" ");
-        for (String token : tokens) {
-            if (!bannedSet.contains(token) && !token.equals("")) {
-                mapRef.compute(token, (key, value) -> value == null ? 1 : value + 1);
+        for (Future<Map<String, Integer>> future : futureLst) {
+            Map<String, Integer> resultMap = future.get();
+            for (Map.Entry<String, Integer> result : resultMap.entrySet()) {
+                mapRef.put(result.getKey(), mapRef.getOrDefault(result.getKey(), 0) + result.getValue());
             }
+        }
+        executor.shutdown();
+        System.out.println(Thread.currentThread() + ":" + mapRef);
+        return mapRef;
+    }
+
+    class ProcessingJob implements Callable<Map<String, Integer>> {
+        String line;
+        Set bannedSet;
+
+        public ProcessingJob(String line, Set bannedSet) {
+            this.line = line;
+            this.bannedSet = bannedSet;
+        }
+
+        @Override
+        public Map<String, Integer> call() throws Exception {
+            Map<String, Integer> mapRef = new HashMap<>();
+            line = line.replaceAll("[^\\w||\\s]", "").toLowerCase();
+            String[] tokens = line.split(" ");
+            for (String token : tokens) {
+                if (!bannedSet.contains(token) && !token.equals("")) {
+                    mapRef.put(token, mapRef.getOrDefault(token, 0) + 1);
+                }
+            }
+            System.out.println(Thread.currentThread() + ":" + mapRef);
+            return mapRef;
         }
     }
 }

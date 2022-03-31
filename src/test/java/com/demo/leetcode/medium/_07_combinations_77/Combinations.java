@@ -13,6 +13,8 @@ import org.junit.jupiter.api.Test;
  * - backtracking
  *
  * PRACTICE
+ *
+ * https://www.youtube.com/watch?v=q0s6m7AiM7o&ab_channel=NeetCode
  */
 public class Combinations {
 
@@ -30,21 +32,23 @@ public class Combinations {
     }
 
     List<List<Integer>> result;
+    int n;
 
     public List<List<Integer>> combine(int n, int k) {
+        this.n = n;
         result = new ArrayList<>();
-        backtrack(n, k, 1, new ArrayList<>());
+        backtrack(k, 1, new ArrayList<>());
         return result;
     }
 
-    private void backtrack(int n, int k, int s, List<Integer> temp) {
+    private void backtrack(int k, int s, List<Integer> temp) {
         if (k == 0) {
             result.add(new ArrayList<>(temp));
             return;
         }
         for (int i = s; i <= n; i++) {
             temp.add(i);
-            backtrack(n, k - 1, i + 1, temp);
+            backtrack(k - 1, i + 1, temp);
             temp.remove(temp.size() - 1);
         }
     }

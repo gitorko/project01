@@ -96,6 +96,9 @@ public class BlogGen {
                     try (BufferedReader br = Files.newBufferedReader(Paths.get(f))) {
                         while (br.ready()) {
                             String line = br.readLine();
+                            if(line.contains("[Queries]")) {
+                                line = "{% ghcode https://github.com/gitorko/project01/blob/main/src/test/java/com/demo/sql/queries/employee-queries.sql %}";
+                            }
                             System.out.println(line);
                         }
                     }

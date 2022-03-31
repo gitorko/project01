@@ -60,7 +60,7 @@ public class PCLock {
 
     class MyBlockingQueue<E> {
         private Queue<E> queue = new LinkedList<>();
-        private int QUEUE_SIZE = 5;
+        private int size = 5;
         private Lock lock = new ReentrantLock(true);
         private Condition notFull = lock.newCondition();
         private Condition notEmpty = lock.newCondition();
@@ -68,7 +68,7 @@ public class PCLock {
         public void put(E e) {
             lock.lock();
             try {
-                if (queue.size() == QUEUE_SIZE) {
+                if (queue.size() == size) {
                     notFull.await();
                 }
                 queue.add(e);

@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
  * [9. Palindrome Number - EASY](https://leetcode.com/problems/palindrome-number/)
  *
  * - math, result * 10 + x % 10; without converting to string.
+ * - SIMILAR_TO: [7. Reverse Integer - EASY](https://leetcode.com/problems/reverse-integer/)
  *
  * https://www.youtube.com/watch?v=yubRKwixN-U&ab_channel=NeetCode
  */

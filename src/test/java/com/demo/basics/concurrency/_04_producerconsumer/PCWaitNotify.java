@@ -45,12 +45,12 @@ public class PCWaitNotify {
 
     class MyBlockingQueue<E> {
         private Queue<E> queue = new LinkedList<>();
-        private int QUEUE_SIZE = 5;
+        private int size = 5;
 
         public void put(E e) {
             synchronized (queue) {
                 try {
-                    if (queue.size() == QUEUE_SIZE) {
+                    if (queue.size() == size) {
                         queue.wait();
                     }
                     queue.add(e);
