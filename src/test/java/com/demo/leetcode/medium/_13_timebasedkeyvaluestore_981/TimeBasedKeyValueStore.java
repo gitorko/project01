@@ -47,13 +47,13 @@ public class TimeBasedKeyValueStore {
             int right = valueList.size();
 
             while (left < right) {
-                int m = (left + right) / 2;
-                if (valueList.get(m).timestamp > timestamp)
-                    right = m;
+                int mid = (left + right) / 2;
+                if (valueList.get(mid).timestamp > timestamp)
+                    right = mid;
                 else
-                    left = m + 1;
+                    left = mid + 1;
             }
-
+            //there is no zero index
             return left == 0 ? "" : valueList.get(left - 1).value;
         }
 

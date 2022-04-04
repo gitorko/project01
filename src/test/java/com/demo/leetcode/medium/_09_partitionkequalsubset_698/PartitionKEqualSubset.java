@@ -10,6 +10,9 @@ import org.junit.jupiter.api.Test;
  * [698. Partition to K Equal Sum Subsets - MEDIUM](https://leetcode.com/problems/partition-to-k-equal-sum-subsets/)
  *
  * - backtracking
+ * - SIMILAR_TO: [416. Partition Equal Subset Sum - MEDIUM](https://leetcode.com/problems/partition-equal-subset-sum/)
+ *
+ * PRACTICE
  *
  * https://www.youtube.com/watch?v=mBk4I0X46oI&ab_channel=NeetCode
  */

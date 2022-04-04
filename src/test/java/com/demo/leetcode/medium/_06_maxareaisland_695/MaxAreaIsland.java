@@ -39,9 +39,13 @@ public class MaxAreaIsland {
         int result = 0;
         rowLength = grid.length;
         colLength = grid[0].length;
-        for (int i = 0; i < rowLength; i++)
-            for (int j = 0; j < colLength; j++)
-                if (grid[i][j] > 0) result = Math.max(result, dfs(i, j));
+        for (int i = 0; i < rowLength; i++) {
+            for (int j = 0; j < colLength; j++) {
+                if (grid[i][j] > 0) {
+                    result = Math.max(result, dfs(i, j));
+                }
+            }
+        }
         return result;
     }
 

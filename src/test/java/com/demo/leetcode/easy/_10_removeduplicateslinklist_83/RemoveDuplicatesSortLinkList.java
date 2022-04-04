@@ -9,6 +9,8 @@ import org.junit.jupiter.api.Test;
  * [83. Remove Duplicates from Sorted List - EASY](https://leetcode.com/problems/remove-duplicates-from-sorted-list/)
  *
  * - two while loop
+ *
+ * https://www.youtube.com/watch?v=p10f-VpO4nE&ab_channel=NeetCode
  */
 public class RemoveDuplicatesSortLinkList {
 
@@ -21,11 +23,16 @@ public class RemoveDuplicatesSortLinkList {
         Assertions.assertArrayEquals(expected, ListNodeUtil.toArray(result));
     }
 
+    /**
+     * Time: O(n)
+     * Space: O(1)
+     */
     public ListNode deleteDuplicates(ListNode head) {
         ListNode curr = head;
         while (curr != null) {
-            while (curr.next != null && curr.val == curr.next.val)
+            while (curr.next != null && curr.val == curr.next.val) {
                 curr.next = curr.next.next;
+            }
             curr = curr.next;
         }
         return head;

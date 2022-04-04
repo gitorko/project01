@@ -10,14 +10,24 @@ import org.junit.jupiter.api.Test;
  * - Sliding window, two hashmap.
  * - avoiding checking 2 maps each time, maintaining a single matches counter.
  * - compare hashmap each time making it O(n) instead of O(26*n) if we
+ * - SIMILAR_TO: [438. Find All Anagrams in a String - MEDIUM](https://leetcode.com/problems/find-all-anagrams-in-a-string/)
  *
  * https://www.youtube.com/watch?v=UbyhOgBN834&ab_channel=NeetCode
  */
 public class PermutationIn2String {
     @Test
-    public void test() {
+    public void test1() {
         Assertions.assertTrue(checkInclusion("ab", "eidbaooo"));
+    }
+
+    @Test
+    public void test2() {
         Assertions.assertFalse(checkInclusion("ab", "eidboaoo"));
+    }
+
+    @Test
+    public void test3() {
+        Assertions.assertTrue(checkInclusion("a", "ab"));
     }
 
     /**
@@ -41,30 +51,35 @@ public class PermutationIn2String {
         for (int i = 0; i < 26; i++) {
             if (s1map[i] == s2map[i]) matches++;
         }
+        if (matches == 26) {
+            return true;
+        }
 
         //since first window already initialized above we start from next window size
-        int start = s1.length();
-        int end = s2.length();
         int left = 0;
-        for (int right = start; right < end; right++, left++) {
-            if (matches == 26) return true;
-
+        int right = s1.length();
+        while (right < s2.length()) {
             //Add the new char
-            int index = s2.charAt(right) - 'a';
-            s2map[index]++;
-            if (s1map[index] == s2map[index]) {
+            int rIndex = s2.charAt(right) - 'a';
+            s2map[rIndex]++;
+            if (s2map[rIndex] == s1map[rIndex]) {
                 matches++;
-            } else if (s1map[index] + 1 == s2map[index]) {
+            } else if (s2map[rIndex] - 1 == s1map[rIndex]) {
                 matches--;
             }
 
             //Remove left side char
-            index = s2.charAt(left) - 'a';
-            s2map[index]--;
-            if (s1map[index] == s2map[index]) {
+            int lIndex = s2.charAt(left) - 'a';
+            s2map[lIndex]--;
+            if (s2map[lIndex] == s1map[lIndex]) {
                 matches++;
-            } else if (s1map[index] - 1 == s2map[index]) {
+            } else if (s2map[lIndex] + 1 == s1map[lIndex]) {
                 matches--;
+            }
+            left++;
+            right++;
+            if (matches == 26)  {
+                return true;
             }
         }
         return matches == 26;

@@ -35,6 +35,7 @@ https://codeshare.io/
 19. Segment Tree
 20. Prefix Tree / Trie
 21. Cyclic sort
+22. Bit Manipulation
 25. Generic
 
 # Pattern

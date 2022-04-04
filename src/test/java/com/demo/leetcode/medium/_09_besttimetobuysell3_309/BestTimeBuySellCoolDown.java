@@ -28,6 +28,8 @@ public class BestTimeBuySellCoolDown {
 
     /**
      * Recursion with cache
+     * Time: O(n)
+     * Space: O(n)
      */
     Map<String, Integer> dp;
     int[] prices;
@@ -61,6 +63,8 @@ public class BestTimeBuySellCoolDown {
 
     /**
      * Iterative DP
+     * Time: O(n)
+     * Space: O(1)
      */
     public int maxProfit2(int[] prices) {
         int sell = 0;

@@ -14,7 +14,6 @@ import org.junit.jupiter.api.Test;
  *
  * PRACTICE
  *
- * https://www.youtube.com/watch?v=F7wqWbqYn9g&ab_channel=AdityaVerma
  * https://www.youtube.com/watch?v=Mjy4hd2xgrs&ab_channel=NeetCode
  */
 public class CoinChange2 {

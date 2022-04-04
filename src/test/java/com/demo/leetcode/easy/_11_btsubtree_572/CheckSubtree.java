@@ -33,8 +33,9 @@ public class CheckSubtree {
             return false; //big tree empty
         } else if (root.val == subRoot.val && isSameTree(root, subRoot)) {
             return true;
+        } else {
+            return isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot);
         }
-        return isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot);
     }
 
     private boolean isSameTree(TreeNode p, TreeNode q) {

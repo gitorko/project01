@@ -10,10 +10,12 @@ import org.junit.jupiter.api.Test;
 /**
  * [416. Partition Equal Subset Sum - MEDIUM](https://leetcode.com/problems/partition-equal-subset-sum/)
  *
+ * - two set
  * - SIMILAR_TO: [698. Partition to K Equal Sum Subsets - MEDIUM](https://leetcode.com/problems/partition-to-k-equal-sum-subsets/)
  * - SIMILAR_TO: Subset Sum Problem
  *
- * https://www.youtube.com/watch?v=_gPcYovP7wc&ab_channel=AdityaVerma
+ * PRACTICE
+ *
  * https://www.youtube.com/watch?v=IsvocB5BJhw&ab_channel=NeetCode
  */
 public class PartitionSubsetSum {
@@ -36,7 +38,7 @@ public class PartitionSubsetSum {
         int target = sum / 2;
         Set<Integer> dp = new HashSet<>();
         dp.add(0);
-        for (int i = nums.length - 1; i >= 0; i--) {
+        for (int i = 0; i < nums.length; i++) {
             Set<Integer> nextDp = new HashSet<>();
             for (int t : dp) {
                 if (t + nums[i] == target) return true;
@@ -50,7 +52,7 @@ public class PartitionSubsetSum {
 
     /**
      * Time: O(nk)
-     * Space: O(k)
+     * Space: O(nk)
      */
     public boolean canPartition2(int[] nums) {
         int sum = Arrays.stream(nums).sum();

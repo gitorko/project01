@@ -4,8 +4,8 @@
 2. Functional & Non-functional requirement.
 3. LRU + Caching
 4. Read vs write db, replication
-5. Sharding
-6. Http2, Websocket, long polling
+5. HDFS
+6. Http2, Websocket, long polling, short polling
 7. Consistent Hashing
 8. Zookeeper leader election quorum
 9. Chunking file
@@ -13,7 +13,7 @@
 11. CAP
 12. ACID
 13. Distributed transaction, Saga
-14. Two phase & Three phase commit
+14. Two phase (prepare & commit) & Three phase commit (prepare, pre-commit & commit)
 15. Isolation level - READ_UNCOMMITED, READ_COMMITED, READ_REPEATABLE, READ_SERIALIZABLE
 16. Horizontal partition, Vertical Partition
 17. Sharding
@@ -27,12 +27,12 @@
 25. Eventual consistency vs Strong consistency
 26. Spatial cache, temporal cache, distributed cache.
 27. Locking
-28. Write Through Cache vs Write Back Cache
+28. Write around vs Write Through Cache vs Write Back Cache
 29. Horizontal vs Vertical scaling
 30. Authentication vs authorization
 31. TTL
 32. HTTPS, TLS Internal
-33. Loadbalancer, Gateway
+33. Loadbalancer
 34. Map Reduce
 35. CAS - compare and swap
 36. Client side load balancing
@@ -50,7 +50,7 @@
 48. Service Mesh
 49. JVM, Garbage collectors
 50. Fork Join - work stealing
-51. Block chain
+51. Block chain - distributed ledger
 52. Indexing - Btree, B+tree, BitMap
 53. Concurrent HashMap Internals
 54. Rate limiting - token bucket, leaky bucket,fixed window, sliding log
@@ -88,3 +88,14 @@ https://tanzu.vmware.com/developer/blog/understanding-the-differences-between-ra
 
 * Rabbit MQ Streams
 https://blog.rabbitmq.com/posts/2021/07/rabbitmq-streams-overview
+  
+* Long polling vs Short polling vs Websocket
+https://www.youtube.com/watch?v=ZBM28ZPlin8&ab_channel=BeABetterDev
+
+* CAP Theorem
+https://www.youtube.com/watch?v=KmGy3sU6Xw8
+  
+* Rate limit
+https://www.youtube.com/watch?v=9CIjoWPwAhU&ab_channel=BeABetterDev
+https://www.youtube.com/watch?v=FU4WlwfS3G0&ab_channel=SystemDesignInterview
+
