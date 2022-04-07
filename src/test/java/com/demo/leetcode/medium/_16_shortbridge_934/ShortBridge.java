@@ -39,14 +39,14 @@ public class ShortBridge {
         paint();
 
         //queue contains coordinates to do bfs
-        Queue<int[]> q = new LinkedList<>();
+        Queue<int[]> queue = new LinkedList<>();
         boolean[][] visited = new boolean[rowLen][colLen];
 
         //initialize queue with all coordinates with number 2
         for (int i = 0; i < rowLen; i++) {
             for (int j = 0; j < colLen; j++) {
                 if (matrix[i][j] == 2) {
-                    q.add(new int[]{i, j});
+                    queue.add(new int[]{i, j});
                     visited[i][j] = true;
                 }
             }
@@ -54,31 +54,31 @@ public class ShortBridge {
 
         int level = 0;
         //level order bfs
-        while (!q.isEmpty()) {
-            int size = q.size();
+        while (!queue.isEmpty()) {
+            int size = queue.size();
             while (size > 0) {
-                int[] cur = q.poll();
+                int[] cur = queue.poll();
                 int x = cur[0];
                 int y = cur[1];
                 //found, then return
                 if (matrix[x][y] == 1) {
                     return level - 1;
                 }
-                //add all neighbours at level
+                //add all neighbours at level, remember to check out of bounds and visited case
                 if (x - 1 >= 0 && !visited[x - 1][y]) {
-                    q.add(new int[]{x - 1, y});
+                    queue.add(new int[]{x - 1, y});
                     visited[x - 1][y] = true;
                 }
                 if (x + 1 < rowLen && !visited[x + 1][y]) {
-                    q.add(new int[]{x + 1, y});
+                    queue.add(new int[]{x + 1, y});
                     visited[x + 1][y] = true;
                 }
                 if (y - 1 >= 0 && !visited[x][y - 1]) {
-                    q.add(new int[]{x, y - 1});
+                    queue.add(new int[]{x, y - 1});
                     visited[x][y - 1] = true;
                 }
                 if (y + 1 < colLen && !visited[x][y + 1]) {
-                    q.add(new int[]{x, y + 1});
+                    queue.add(new int[]{x, y + 1});
                     visited[x][y + 1] = true;
                 }
                 size--;

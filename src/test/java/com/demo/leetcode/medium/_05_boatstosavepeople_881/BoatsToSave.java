@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 /**
  * [881. Boats to Save People - MEDIUM](https://leetcode.com/problems/boats-to-save-people/)
  *
- * - two pointer
+ * - sort, two pointer
  *
  * https://www.youtube.com/watch?v=XbaxWuHIWUs&ab_channel=NeetCode
  */
@@ -28,7 +28,8 @@ public class BoatsToSave {
         int right = people.length - 1;
 
         while (left <= right) {
-            int remain = limit - people[right--];
+            int remain = limit - people[right];
+            right--;
             result++;
             if (left <= right && people[left] <= remain) left++;
         }

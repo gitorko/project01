@@ -44,6 +44,8 @@ public class BTTraversalIterative {
     /**
      * One stack, 2 while loop
      *
+     * MEMORIZE
+     *
      * Time: O(N)
      * Space: O(h)
      */

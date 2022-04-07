@@ -8,7 +8,8 @@ import org.junit.jupiter.api.Test;
 /**
  * [1968. Array With Elements Not Equal to Average of Neighbors - MEDIUM](https://leetcode.com/problems/array-with-elements-not-equal-to-average-of-neighbors/)
  *
- * - Wiggle Sort
+ * - wiggle Sort
+ * - SIMILAR_TO: [280. Wiggle Sort - MEDIUM](https://leetcode.com/problems/wiggle-sort/)
  *
  * https://www.youtube.com/watch?v=Wmb3YdVYfqM&ab_channel=NeetCode
  */
@@ -27,11 +28,9 @@ public class ArrayNotAvgNeighbour {
      * The average of a and c where a < b < c will be between a and c and hence remove this possibility.
      */
     public int[] rearrangeArray(int[] nums) {
-        for(int i = 1; i < nums.length - 1; i++){
-            if((nums[i - 1] < nums[i] && nums[i] < nums[i + 1]) || (nums[i - 1] > nums[i] && nums[i] > nums[i + 1])){
-                int tmp = nums[i];
-                nums[i] = nums[i + 1];
-                nums[i + 1] = tmp;
+        for (int i = 1; i < nums.length - 1; i++) {
+            if ((nums[i - 1] < nums[i] && nums[i] < nums[i + 1]) || (nums[i - 1] > nums[i] && nums[i] > nums[i + 1])) {
+                swap(nums, i, i + 1);
             }
         }
         return nums;
@@ -45,10 +44,14 @@ public class ArrayNotAvgNeighbour {
     public int[] rearrangeArray2(int[] nums) {
         Arrays.sort(nums);
         for (int i = 1; i < nums.length; i += 2) {
-            int tmp = nums[i];
-            nums[i] = nums[i - 1];
-            nums[i - 1] = tmp;
+            swap(nums, i, i - 1);
         }
         return nums;
+    }
+
+    private void swap(int[] nums, int i, int j) {
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
     }
 }

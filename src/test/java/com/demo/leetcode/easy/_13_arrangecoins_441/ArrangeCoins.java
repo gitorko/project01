@@ -18,7 +18,7 @@ public class ArrangeCoins {
     }
 
     /**
-     * Time: O(logN).
+     * Time: O(log(n))
      * Space: O(1).
      */
     public int arrangeCoins(int n) {

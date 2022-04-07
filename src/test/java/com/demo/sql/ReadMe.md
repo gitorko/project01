@@ -17,5 +17,5 @@ docker stop pg-container
 docker start pg-container
 ```
 
-[Setup](https://github.com/gitorko/project01/blob/master/src/test/java/com/demo/sql/setup/setup.sql)
+[DB Seed Data SQL](https://github.com/gitorko/project01/blob/master/src/test/java/com/demo/sql/setup/setup.sql)
 [Queries](https://github.com/gitorko/project01/blob/master/src/test/java/com/demo/sql/queries/employee-queries.sql)

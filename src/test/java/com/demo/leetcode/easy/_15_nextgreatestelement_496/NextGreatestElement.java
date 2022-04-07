@@ -15,7 +15,6 @@ import org.junit.jupiter.api.Test;
  * PRACTICE
  *
  * https://www.youtube.com/watch?v=68a1Dc_qVq4&ab_channel=NeetCode
- * https://www.youtube.com/watch?v=NXOOYYwpbg4&ab_channel=AdityaVerma
  */
 public class NextGreatestElement {
 
@@ -36,23 +35,23 @@ public class NextGreatestElement {
     }
 
     /**
-     * Time: O(n)
+     * Time: O(m+n)
      * Space: O(n)
      */
     public int[] nextGreaterElement(int[] nums1, int[] nums2) {
-        Map<Integer, Integer> numToNextGreater = new HashMap<>();
+        Map<Integer, Integer> map = new HashMap<>();
         // decreasing stack
         Stack<Integer> stack = new Stack<>();
 
         for (int num : nums2) {
             while (!stack.isEmpty() && stack.peek() < num) {
-                numToNextGreater.put(stack.pop(), num);
+                map.put(stack.pop(), num);
             }
             stack.push(num);
         }
 
         for (int i = 0; i < nums1.length; i++) {
-            nums1[i] = numToNextGreater.getOrDefault(nums1[i], -1);
+            nums1[i] = map.getOrDefault(nums1[i], -1);
         }
         return nums1;
     }

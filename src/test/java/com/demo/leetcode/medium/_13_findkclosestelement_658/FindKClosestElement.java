@@ -38,10 +38,11 @@ public class FindKClosestElement {
 
     /**
      * Time: O(log(n - k) + k)
-     * Space: O(K)
+     * Space: O(k)
      */
     public List<Integer> findClosestElements(int[] arr, int k, int x) {
         int left = 0;
+        //right index is less by k
         int right = arr.length - k;
         while (left < right) {
             int mid = (left + right) / 2;

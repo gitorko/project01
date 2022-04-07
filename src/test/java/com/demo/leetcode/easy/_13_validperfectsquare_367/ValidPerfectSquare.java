@@ -30,21 +30,23 @@ public class ValidPerfectSquare {
 
     /**
      * Time: O(log(n))
+     * Space: O(1)
      */
     public boolean isPerfectSquare(int num) {
         long left = 1l;
         long right = num;
         //use = to cover edge case when only one number
-        while (left < right) {
+        while (left <= right) {
             //use long to avoid overflow
             long mid = (left + right) / 2;
             if (mid * mid < num) {
                 left = mid + 1;
+            } else if (mid * mid > num) {
+                right = mid - 1;
             } else {
-                right = mid;
+                return true;
             }
         }
-        return left * left == num;
+        return false;
     }
-
 }

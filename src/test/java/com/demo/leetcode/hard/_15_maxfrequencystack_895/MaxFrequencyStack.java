@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 /**
  * [895. Maximum Frequency Stack - HARD](https://leetcode.com/problems/maximum-frequency-stack/)
  *
- * - map + stack
+ * - count map + map of stack
  *
  * PRACTICE
  *
@@ -41,11 +41,11 @@ public class MaxFrequencyStack {
      * Time: O(1)
      */
     class FreqStack {
-        private int maxFreq = 0;
+        int maxFreq = 0;
         //[val, sum]
-        private Map<Integer, Integer> count = new HashMap<>();
+        Map<Integer, Integer> count = new HashMap<>();
         //[sum, values]
-        private Map<Integer, Stack<Integer>> countToStack = new HashMap<>();
+        Map<Integer, Stack<Integer>> countToStack = new HashMap<>();
 
         public void push(int val) {
             count.put(val, count.getOrDefault(val, 0) + 1);

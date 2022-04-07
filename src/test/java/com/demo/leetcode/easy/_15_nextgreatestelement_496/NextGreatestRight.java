@@ -6,17 +6,14 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 /**
- * [Nearest greater to right - EASY]()
+ * [Nearest Greater to Right - EASY]()
  *
  * - start from reverse, use stack
- * - SIMILAR_TO: Nearest Greater to Right
  * - SIMILAR_TO: Nearest Greater to Left
  * - SIMILAR_TO: Nearest Smaller to Right
  * - SIMILAR_TO: Nearest Smaller to Left
  *
  * PRACTICE
- *
- * https://www.youtube.com/watch?v=NXOOYYwpbg4&ab_channel=AdityaVerma
  */
 public class NextGreatestRight {
 
