@@ -1,7 +1,5 @@
 package com.demo.leetcode.medium._01_wigglesort_280;
 
-import java.util.Arrays;
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -10,18 +8,18 @@ import org.junit.jupiter.api.Test;
  * https://www.lintcode.com/problem/508/
  *
  * - wiggle Sort
+ * - start from 1, even odd
  * - SIMILAR_TO: [1968. Array With Elements Not Equal to Average of Neighbors - MEDIUM](https://leetcode.com/problems/array-with-elements-not-equal-to-average-of-neighbors/)
  *
- * https://www.youtube.com/watch?v=Wmb3YdVYfqM&ab_channel=NeetCode
+ * https://www.youtube.com/watch?v=vGsyTE4s34w&ab_channel=NeetCode
  */
 public class WiggleSort {
 
     @Test
     public void test() {
         int[] nums = {3, 5, 2, 1, 6, 4};
-        int[] expected = {1, 6, 2, 5, 3, 4};
+        int[] expected = {3, 5, 1, 6, 2, 4};
         wiggleSort(nums);
-        System.out.println(Arrays.toString(nums));
         Assertions.assertArrayEquals(expected, nums);
     }
 

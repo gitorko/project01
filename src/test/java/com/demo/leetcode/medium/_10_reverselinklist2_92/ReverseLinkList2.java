@@ -45,7 +45,7 @@ public class ReverseLinkList2 {
             curr = curr.next;
         }
 
-        //reverse list
+        //reverse list for given window
         ListNode prev = null;
         for (int i = 0; i < right - left + 1; i++) {
             ListNode tempNext = curr.next;

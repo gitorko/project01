@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 /**
  * [523. Continuous Subarray Sum - MEDIUM](https://leetcode.com/problems/continuous-subarray-sum/)
  *
- * - pre-sum
+ * - pre-sum map
  *
  * PRACTICE
  *

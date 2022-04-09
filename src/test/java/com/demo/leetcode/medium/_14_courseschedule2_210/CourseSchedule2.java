@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
 /**
  * [210. Course Schedule II - MEDIUM](https://leetcode.com/problems/course-schedule-ii/)
  *
- * - topological sort
+ * - topological sort (DFS)
  * - SIMILAR_TO: [207. Course Schedule - MEDIUM](https://leetcode.com/problems/course-schedule/)
  *
  * https://www.youtube.com/watch?v=Akt3glAwyfY&ab_channel=NeetCode

@@ -31,6 +31,7 @@ public class RomanToInteger {
         roman['D'] = 500;
         roman['M'] = 1000;
 
+        //loop only till length -1 as we compare i + 1
         for (int i = 0; i < s.length() - 1; i++)
             if (roman[s.charAt(i)] < roman[s.charAt(i + 1)])
                 result -= roman[s.charAt(i)];

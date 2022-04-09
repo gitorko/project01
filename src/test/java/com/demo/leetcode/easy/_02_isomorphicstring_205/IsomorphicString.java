@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
  * [205. Isomorphic Strings - EASY](https://leetcode.com/problems/isomorphic-strings/)
  *
  * - two map
+ * - SIMILAR_TO: [290. Word Pattern - EASY](https://leetcode.com/problems/word-pattern/)
  *
  * https://www.youtube.com/watch?v=7yF-U1hLEqQ&ab_channel=NeetCode
  */
@@ -25,13 +26,14 @@ public class IsomorphicString {
      * Space: O(128) = O(1)
      */
     public boolean isIsomorphic(String s, String t) {
-        Map<Character, Integer> charToIndex_s = new HashMap<>();
-        Map<Character, Integer> charToIndex_t = new HashMap<>();
+        Map<Character, Integer> sMap = new HashMap<>();
+        Map<Character, Integer> tMap = new HashMap<>();
 
-        for (Integer i = 0; i < s.length(); i++)
-            if (charToIndex_s.put(s.charAt(i), i) != charToIndex_t.put(t.charAt(i), i))
+        for (Integer i = 0; i < s.length(); i++) {
+            if (sMap.put(s.charAt(i), i) != tMap.put(t.charAt(i), i)) {
                 return false;
-
+            }
+        }
         return true;
     }
 }

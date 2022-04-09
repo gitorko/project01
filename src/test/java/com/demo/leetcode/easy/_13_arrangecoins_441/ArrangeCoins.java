@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
  * [441. Arranging Coins - EASY](https://leetcode.com/problems/arranging-coins/)
  *
  * - binary search, gauss
+ * - use long to avoid overflow
  *
  * https://www.youtube.com/watch?v=5rHz_6s2Buw&ab_channel=NeetCode
  */

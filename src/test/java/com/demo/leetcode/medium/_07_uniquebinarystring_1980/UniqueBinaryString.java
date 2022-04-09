@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 /**
  * [1980. Find Unique Binary String - MEDIUM](https://leetcode.com/problems/find-unique-binary-string/)
  *
- * - Cantor's diagonal
+ * - cantor's diagonal
  *
  * https://www.youtube.com/watch?v=aHqn4Dynd1k&ab_channel=NeetCode
  */

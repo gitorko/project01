@@ -9,8 +9,8 @@ import java.util.List;
 import java.util.Queue;
 import java.util.Stack;
 
-import com.demo.common.TreeNodeUtil;
 import com.demo.common.TreeNode;
+import com.demo.common.TreeNodeUtil;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

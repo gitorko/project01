@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 /**
  * [367. Valid Perfect Square - EASY](https://leetcode.com/problems/valid-perfect-square/)
  *
- * - binary search, Cant use Math.sqrt
+ * - binary search
  * - handle overflow on mid * mid
  *
  * https://www.youtube.com/watch?v=Cg_wWPHJ2Sk&ab_channel=NeetCode

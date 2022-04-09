@@ -8,7 +8,8 @@ import org.junit.jupiter.api.Test;
 /**
  * [853. Car Fleet - MEDIUM](https://leetcode.com/problems/car-fleet/)
  *
- * - reverse sort by reaching time
+ * - reaching time
+ * - reverse sort by position
  *
  * https://www.youtube.com/watch?v=Pr6T-3yB9RM&ab_channel=NeetCode
  */

@@ -10,9 +10,11 @@ import org.junit.jupiter.api.Test;
 /**
  * [112. Path Sum - EASY](https://leetcode.com/problems/path-sum/)
  *
- * - if the tree has a root-to-leaf path such that adding up all the values along the path equals targetSum
- * - DFS, pre-order
- * - remember to reduce target on each recursion
+ * - dfs, pre-order
+ * - reduce target on each recursion
+ * - SIMILAR_TO: [113. Path Sum II - MEDIUM](https://leetcode.com/problems/path-sum-ii/)
+ *
+ * PRACTICE
  *
  * https://www.youtube.com/watch?v=LSKQyOz_P8I&ab_channel=NeetCode
  */
@@ -27,11 +29,13 @@ public class PathSum1BT {
 
     /**
      * Time: O(n)
-     * Space: O(h) (worst case: height=n, balanced binary tree h=log(n)
+     * Space: O(h) worst case: height=n, balanced binary tree h=log(n)
      */
     public boolean hasPathSum(TreeNode root, int targetSum) {
-        if (root == null) return false;
-        if (root.left == null && root.right == null && targetSum - root.val == 0) return true;
+        if (root == null)
+            return false;
+        if (root.left == null && root.right == null && targetSum - root.val == 0)
+            return true;
         return hasPathSum(root.left, targetSum - root.val) || hasPathSum(root.right, targetSum - root.val);
     }
 }

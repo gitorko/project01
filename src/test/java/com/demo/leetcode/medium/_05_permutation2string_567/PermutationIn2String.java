@@ -6,10 +6,8 @@ import org.junit.jupiter.api.Test;
 /**
  * [567. Permutation in String - MEDIUM](https://leetcode.com/problems/permutation-in-string/)
  *
- * - matches
  * - Sliding window, two hashmap.
  * - avoiding checking 2 maps each time, maintaining a single matches counter.
- * - compare hashmap each time making it O(n) instead of O(26*n) if we
  * - SIMILAR_TO: [438. Find All Anagrams in a String - MEDIUM](https://leetcode.com/problems/find-all-anagrams-in-a-string/)
  *
  * https://www.youtube.com/watch?v=UbyhOgBN834&ab_channel=NeetCode
@@ -59,7 +57,7 @@ public class PermutationIn2String {
         int left = 0;
         int right = s1.length();
         while (right < s2.length()) {
-            //Add the new char
+            //Add the new char to right side
             int rIndex = s2.charAt(right) - 'a';
             s2map[rIndex]++;
             if (s2map[rIndex] == s1map[rIndex]) {
@@ -68,7 +66,7 @@ public class PermutationIn2String {
                 matches--;
             }
 
-            //Remove left side char
+            //Remove char from left side
             int lIndex = s2.charAt(left) - 'a';
             s2map[lIndex]--;
             if (s2map[lIndex] == s1map[lIndex]) {

@@ -8,6 +8,8 @@ import org.junit.jupiter.api.Test;
  *
  * - two map
  *
+ * PRACTICE
+ *
  * https://www.youtube.com/watch?v=G9xeB2-7PqY&ab_channel=NeetCode
  */
 public class MaxBalloons {
@@ -26,16 +28,16 @@ public class MaxBalloons {
      */
     public int maxNumberOfBalloons(String text) {
         String word = "balloon";
-        //initialize map
-        int[] chars = new int[26];
-        for (char c : text.toCharArray()) {
-            chars[c - 'a']++;
-        }
-
         //initialize word map
         int[] wordcount = new int[26];
         for (char c : word.toCharArray()) {
             wordcount[c - 'a']++;
+        }
+
+        //initialize map
+        int[] chars = new int[26];
+        for (char c : text.toCharArray()) {
+            chars[c - 'a']++;
         }
 
         //instead of max set to input text length

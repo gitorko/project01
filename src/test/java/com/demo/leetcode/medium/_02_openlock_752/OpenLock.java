@@ -15,7 +15,7 @@ import org.junit.jupiter.api.Test;
  * [752. Open the Lock - MEDIUM](https://leetcode.com/problems/open-the-lock/)
  *
  * - bfs
- * - Visited and dead ends are treated same.
+ * - visited and dead ends are treated same.
  *
  * https://www.youtube.com/watch?v=Pzg3bCDY87w&ab_channel=NeetCode
  */
@@ -35,10 +35,9 @@ public class OpenLock {
     public int openLock(String[] deadends, String target) {
         Queue<String> queue = new LinkedList<>();
         Set<String> visited = new HashSet<>(Arrays.asList(deadends));
-        int depth = -1;
+        int depth = 0;
         queue.addAll(Arrays.asList("0000"));
         while (!queue.isEmpty()) {
-            depth++;
             int size = queue.size();
             while (size > 0) {
                 String node = queue.poll();
@@ -54,6 +53,7 @@ public class OpenLock {
                 queue.addAll(getSuccessors(node));
                 size--;
             }
+            depth++;
         }
         return -1;
     }

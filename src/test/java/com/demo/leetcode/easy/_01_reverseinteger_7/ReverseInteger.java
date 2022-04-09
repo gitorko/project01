@@ -7,7 +7,10 @@ import org.junit.jupiter.api.Test;
  * [7. Reverse Integer - EASY](https://leetcode.com/problems/reverse-integer/)
  *
  * - mod by 10, divide by 10
+ * - check overflow
  * - SIMILAR_TO: [9. Palindrome Number - EASY](https://leetcode.com/problems/palindrome-number/)
+ *
+ * https://www.youtube.com/watch?v=HAgLH58IgJQ&ab_channel=NeetCode
  */
 public class ReverseInteger {
 

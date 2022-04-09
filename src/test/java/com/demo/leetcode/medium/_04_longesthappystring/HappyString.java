@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
  *
  * - max heap with int pair
  * - string builder
- * - curr[1] == 0 break
+ * - break when count is zero
  *
  * PRACTICE
  *

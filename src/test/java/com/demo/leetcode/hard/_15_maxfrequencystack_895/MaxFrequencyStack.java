@@ -58,7 +58,7 @@ public class MaxFrequencyStack {
             int val = countToStack.get(maxFreq).pop();
             count.put(val, count.getOrDefault(val, 0) - 1);
             if (countToStack.get(maxFreq).isEmpty())
-                --maxFreq;
+                maxFreq--;
             return val;
         }
     }

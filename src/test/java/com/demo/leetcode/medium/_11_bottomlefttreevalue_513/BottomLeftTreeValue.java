@@ -25,14 +25,15 @@ public class BottomLeftTreeValue {
     }
 
     public int findBottomLeftValue(TreeNode root) {
-        Queue<TreeNode> q = new LinkedList<>(Arrays.asList(root));
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
         TreeNode node = null;
-        while (!q.isEmpty()) {
-            node = q.poll();
+        while (!queue.isEmpty()) {
+            node = queue.poll();
             if (node.right != null)
-                q.offer(node.right);
+                queue.offer(node.right);
             if (node.left != null)
-                q.offer(node.left);
+                queue.offer(node.left);
         }
         return node.val;
     }

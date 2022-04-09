@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
  *
  * - binary search
  *
- * REVIEW
+ * PRACTICE
  *
  * https://www.youtube.com/watch?v=YUF3_eBdzsk&ab_channel=NeetCode
  */

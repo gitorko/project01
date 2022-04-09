@@ -8,11 +8,11 @@ import org.junit.jupiter.api.Test;
 /**
  * [402. Remove K Digits - MEDIUM](https://leetcode.com/problems/remove-k-digits/)
  *
- * - monotonic stack, keep stack in increasing order
+ * - monotonic stack
  *
  * https://www.youtube.com/watch?v=cFabMOnJaq0&ab_channel=NeetCode
  */
-public class RemoveKdigits {
+public class RemoveKDigits {
 
     @Test
     public void test() {
@@ -54,5 +54,4 @@ public class RemoveKdigits {
             return result.replaceFirst("^0+(?!$)", "");
         }
     }
-
 }

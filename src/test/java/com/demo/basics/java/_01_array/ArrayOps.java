@@ -24,6 +24,13 @@ public class ArrayOps {
     }
 
     @Test
+    public void test_removeDuplicatesArray() {
+        int[] nums = {1, 3, 4, 2, 4, 5, 3};
+        nums = Arrays.stream(nums).sorted().distinct().toArray();
+        System.out.println(Arrays.toString(nums));
+    }
+
+    @Test
     public void test_shuffleArray() {
         List<Integer> intList = Arrays.asList(1, 2, 3, 4, 5, 6, 7);
         Collections.shuffle(intList);

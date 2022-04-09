@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
  * [374. Guess Number Higher or Lower - EASY](https://leetcode.com/problems/guess-number-higher-or-lower/)
  *
  * - binary search
+ * - mid overflow left + (right - left) / 2;
  *
  * https://www.youtube.com/watch?v=xW4QsTtaCa4&ab_channel=NeetCode
  */
@@ -29,20 +30,21 @@ public class GuessNumber {
     int guess;
 
     public int guessNumber(int n) {
-        int low = 1, high = n;
-        while (low < high) {
-            int mid = low + (high - low) / 2;
+        int left = 1;
+        int right = n;
+        while (left < right) {
+            int mid = left + (right - left) / 2;
             if (guess(mid) == 0) {
                 System.out.println("Number is: " + mid);
                 return mid;
             } else if (guess(mid) == 1) {
-                low = mid + 1;
+                left = mid + 1;
             } else {
-                high = mid - 1;
+                right = mid - 1;
             }
         }
-        System.out.println("Number is: " + low);
-        return low;
+        System.out.println("Number is: " + left);
+        return left;
     }
 
     private int guess(int num) {

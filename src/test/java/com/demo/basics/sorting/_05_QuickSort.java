@@ -12,6 +12,8 @@ import org.junit.jupiter.api.Test;
  * - recursive sort left and right
  * - no additional space, in-place sorting compared to merge sort
  * - Will run into stack overflow if the array is too large.
+ *
+ * MEMORIZE
  */
 public class _05_QuickSort {
 
@@ -36,33 +38,21 @@ public class _05_QuickSort {
         if (left >= right) {
             return;
         }
-        int pivot = nums[(left + right) / 2];
-        int index = partition(nums, left, right, pivot);
-
-        quicksort(nums, left, index - 1);
-        quicksort(nums, index, right);
+        int pivot = partition(nums, left, right);
+        quicksort(nums, left, pivot - 1);
+        quicksort(nums, pivot + 1, right);
     }
 
-    private int partition(int[] nums, int left, int right, int pivot) {
+    private int partition(int[] nums, int left, int right) {
+        int pivot = left;
         while (left <= right) {
-
-            // Walk from the left until we find a number greater than the pivot, or hit the right pointer.
-            while (nums[left] < pivot) {
-                left++;
-            }
-
-            // Walk from the right until we find a number less than the pivot, or hit the left pointer.
-            while (nums[right] > pivot) {
-                right--;
-            }
-
-            if (left <= right) {
-                swap(nums, left, right);
-                left++;
-                right--;
-            }
+            while (left <= right && nums[left] <= nums[pivot]) left++;
+            while (left <= right && nums[right] > nums[pivot]) right--;
+            if (left > right) break;
+            swap(nums, left, right);
         }
-        return left;
+        swap(nums, right, pivot);
+        return right;
     }
 
     private void swap(int nums[], int i, int j) {

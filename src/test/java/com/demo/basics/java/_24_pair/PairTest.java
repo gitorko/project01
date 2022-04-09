@@ -1,7 +1,6 @@
 package com.demo.basics.java._24_pair;
 
 import java.util.AbstractMap;
-import java.util.Map;
 
 import org.junit.jupiter.api.Test;
 

@@ -10,6 +10,8 @@ import org.junit.jupiter.api.Test;
  * - recursive algorithm + pick a mid
  * - uses extra memory.
  * - good for large sorting.
+ *
+ * MEMORIZE
  */
 public class _04_MergeSort {
 
@@ -45,7 +47,9 @@ public class _04_MergeSort {
         int temp[] = new int[end - start + 1];
 
         // crawlers for both intervals and for temp
-        int i = start, j = mid + 1, k = 0;
+        int i = start;
+        int j = mid + 1;
+        int k = 0;
 
         // traverse both arrays and in each iteration add smaller of both elements in temp
         while (i <= mid && j <= end) {

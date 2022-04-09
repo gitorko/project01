@@ -9,7 +9,8 @@ import org.junit.jupiter.api.Test;
  * - sliding window
  * - remember to reduce total
  * - use Integer.MAX_VALUE
- * - brute force 2 for loop takes O(n^2)
+ *
+ * PRACTICE
  *
  * https://www.youtube.com/watch?v=aYqYMIqZx5s&ab_channel=NeetCode
  */

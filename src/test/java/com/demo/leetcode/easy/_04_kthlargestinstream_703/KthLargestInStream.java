@@ -9,12 +9,9 @@ import org.junit.jupiter.api.Test;
 /**
  * [703. Kth Largest Element in a Stream - EASY](https://leetcode.com/problems/kth-largest-element-in-a-stream/)
  *
- * - heap, adding to heap O(log n)
- * - option 1: Sort the array each time and use binary search to find the kth largest.
- * - option 2: use min heap (priority queue)
+ * - min heap
  *
  * https://www.youtube.com/watch?v=hOjcdrqMoQ8&ab_channel=NeetCode
- * https://leetcode.com/problems/kth-largest-element-in-a-stream/solution/
  */
 public class KthLargestInStream {
 
@@ -31,10 +28,12 @@ public class KthLargestInStream {
 
     /**
      * Time: O(n-k) * log(n)
+     * option 1: Sort the array each time and use binary search to find the kth largest.
+     * option 2: use min heap (priority queue)
      */
     class KthLargest {
-        private int k;
-        private PriorityQueue<Integer> heap;
+        int k;
+        PriorityQueue<Integer> heap;
 
         public KthLargest(int k, int[] nums) {
             this.k = k;

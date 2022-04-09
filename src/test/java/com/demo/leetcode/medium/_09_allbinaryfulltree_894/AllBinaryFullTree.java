@@ -31,6 +31,7 @@ public class AllBinaryFullTree {
     private Map<Integer, List<TreeNode>> dp = new HashMap<>();
 
     public List<TreeNode> allPossibleFBT(int n) {
+        //cant make full binary tree with even nodes
         if (n % 2 == 0)
             return new ArrayList<>();
         if (n == 1)
@@ -41,12 +42,13 @@ public class AllBinaryFullTree {
         List<TreeNode> result = new ArrayList<>();
         for (int leftCount = 0; leftCount < n; leftCount++) {
             int rightCount = n - 1 - leftCount;
-            for (TreeNode left : allPossibleFBT(leftCount))
+            for (TreeNode left : allPossibleFBT(leftCount)) {
                 for (TreeNode right : allPossibleFBT(rightCount)) {
                     result.add(new TreeNode(0));
                     result.get(result.size() - 1).left = left;
                     result.get(result.size() - 1).right = right;
                 }
+            }
         }
         dp.put(n, result);
         return result;

@@ -2,10 +2,10 @@ package com.demo.basics.java._21_guava.eventbus.async;
 
 import java.util.concurrent.Executors;
 
-import com.google.common.eventbus.AsyncEventBus;
-import com.google.common.eventbus.EventBus;
 import com.demo.basics.java._21_guava.eventbus.sync.CustomEvent;
 import com.demo.basics.java._21_guava.eventbus.sync.SyncEventListener;
+import com.google.common.eventbus.AsyncEventBus;
+import com.google.common.eventbus.EventBus;
 
 public class AsyncEventBusMain {
 

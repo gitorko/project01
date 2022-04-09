@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 /**
  * [473. Matchsticks to Square - MEDIUM](https://leetcode.com/problems/matchsticks-to-square/)
  *
+ * - backtracking
  * - SIMILAR_TO: [698. Partition to K Equal Sum Subsets - MEDIUM](https://leetcode.com/problems/partition-to-k-equal-sum-subsets/)
  *
  * https://www.youtube.com/watch?v=hUe0cUKV-YY&ab_channel=NeetCode
@@ -43,6 +44,7 @@ public class MatchStickSquare {
         nums = input;
         int sum = Arrays.stream(nums).sum();
 
+        //optimization
         nums = Arrays.stream(nums)
                 .boxed()
                 .sorted(Comparator.reverseOrder())
@@ -67,8 +69,9 @@ public class MatchStickSquare {
             if (seen[j] || subsetSum + nums[j] > target)
                 continue;
             seen[j] = true;
-            if (backtrack(j + 1, k, subsetSum + nums[j]))
+            if (backtrack(j + 1, k, subsetSum + nums[j])) {
                 return true;
+            }
             seen[j] = false;
         }
         return false;

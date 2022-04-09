@@ -8,7 +8,6 @@ import org.junit.jupiter.api.Test;
 /**
  * [435. Non-overlapping Intervals - MEDIUM](https://leetcode.com/problems/non-overlapping-intervals/)
  *
- * - remove min end
  * - sort by starting point
  * - take the min of the end value
  *

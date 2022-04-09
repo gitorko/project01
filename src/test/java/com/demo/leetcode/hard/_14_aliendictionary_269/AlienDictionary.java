@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 /**
  * [269. Alien Dictionary - HARD](https://leetcode.com/problems/alien-dictionary/)
  *
- * - topological sort
+ * - topological sort (BFS)
  *
  * https://www.youtube.com/watch?v=6kTZYvNNyps&ab_channel=NeetCode
  */
@@ -26,7 +26,7 @@ public class AlienDictionary {
 
     @Test
     public void test2() {
-        String[] words = {"zy","zx"};
+        String[] words = {"zy", "zx"};
         Assertions.assertEquals("yxz", alienOrder(words));
     }
 

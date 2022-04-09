@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 /**
  * [983. Minimum Cost For Tickets - MEDIUM](https://leetcode.com/problems/minimum-cost-for-tickets/)
  *
- * - queue
+ * - two queue, two math.min
  *
  * PRACTICE
  *

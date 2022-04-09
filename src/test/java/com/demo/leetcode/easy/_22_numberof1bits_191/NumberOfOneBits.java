@@ -1,4 +1,4 @@
-package com.demo.leetcode.easy._01_numberof1bits_191;
+package com.demo.leetcode.easy._22_numberof1bits_191;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

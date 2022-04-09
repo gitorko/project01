@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 /**
  * [83. Remove Duplicates from Sorted List - EASY](https://leetcode.com/problems/remove-duplicates-from-sorted-list/)
  *
- * - two while loop
+ * - nested while loop
  *
  * https://www.youtube.com/watch?v=p10f-VpO4nE&ab_channel=NeetCode
  */

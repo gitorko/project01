@@ -13,8 +13,6 @@ import org.junit.jupiter.api.Test;
  * - backtracking
  * - out of bound, 0 check, 255 check
  *
- * PRACTICE
- *
  * https://www.youtube.com/watch?v=61tN4YEdiTM&ab_channel=NeetCode
  */
 public class RestoreIpAddress {

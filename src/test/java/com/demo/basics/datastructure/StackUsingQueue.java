@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 /**
  * [225. Implement Stack using Queues - EASY](https://leetcode.com/problems/implement-stack-using-queues/)
  *
- * - Push rearranges the queue again each time, so pop is O(1)
+ * - push rearranges the queue again each time, so pop is O(1)
  *
  * https://www.youtube.com/watch?v=rW4vm0-DLYc&ab_channel=NeetCode
  */
@@ -34,8 +34,10 @@ public class StackUsingQueue {
 
             //Remove from front of queue and add to back till the last but one element.
             int n = q.size();
-            while (n-- > 1)
+            while (n > 1) {
                 q.add(q.poll());
+                n--;
+            }
         }
 
         // Removes the element on top of the stack.

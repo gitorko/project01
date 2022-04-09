@@ -11,6 +11,9 @@ import org.junit.jupiter.api.Test;
  *
  * - stack
  * - index of nearest greater to left - i
+ * - SIMILAR_TO: [Nearest Greater to Right - EASY]()
+ *
+ * PRACTICE
  *
  * https://www.youtube.com/watch?v=slYh0ZNEqSw&ab_channel=NeetCode
  */
@@ -37,9 +40,13 @@ public class StockSpan {
         Assertions.assertEquals(6, stockSpanner.next(85));
     }
 
+    /**
+     * Time: O(n)
+     * Space: O(n)
+     */
     public int[] stockSpanner(int[] nums) {
         // (nearest great element, index)
-        Stack<Integer[]> stack = new Stack<>();
+        Stack<int[]> stack = new Stack<>();
         int[] result = new int[nums.length];
 
         for (int i = 0; i < nums.length; i++) {
@@ -52,7 +59,7 @@ public class StockSpan {
             if (!stack.isEmpty() && stack.peek()[0] > nums[i]) {
                 result[i] = i - stack.peek()[1];
             }
-            stack.push(new Integer[]{nums[i], i});
+            stack.push(new int[]{nums[i], i});
         }
         return result;
     }

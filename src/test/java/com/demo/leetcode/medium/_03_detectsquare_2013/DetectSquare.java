@@ -1,4 +1,4 @@
-package com.demo.leetcode.medium._01_detectsquare_2013;
+package com.demo.leetcode.medium._03_detectsquare_2013;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +9,8 @@ import org.junit.jupiter.api.Test;
 /**
  * [2013. Detect Squares - MEDIUM](https://leetcode.com/problems/detect-squares/)
  *
- * - map
+ * - map to count duplicate
+ * - list to hold points
  *
  * PRACTICE
  *
@@ -30,11 +31,12 @@ public class DetectSquare {
     }
 
     class DetectSquares {
-        int[][] cntPoints = new int[1001][1001];
+        //as there can be duplicate point
+        int[][] pointCountMap = new int[1001][1001];
         List<int[]> points = new ArrayList<>();
 
         public void add(int[] p) {
-            cntPoints[p[0]][p[1]] += 1;
+            pointCountMap[p[0]][p[1]] += 1;
             points.add(p);
         }
 
@@ -47,7 +49,8 @@ public class DetectSquare {
                 int y2 = point[1];
                 if (Math.abs(x1 - x2) == 0 || Math.abs(x1 - x2) != Math.abs(y1 - y2))
                     continue;
-                result += cntPoints[x1][y2] * cntPoints[x2][y1];
+                //opposite points
+                result += pointCountMap[x1][y2] * pointCountMap[x2][y1];
             }
             return result;
         }

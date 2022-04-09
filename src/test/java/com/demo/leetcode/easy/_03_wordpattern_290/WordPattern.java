@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
  * [290. Word Pattern - EASY](https://leetcode.com/problems/word-pattern/)
  *
  * - use 2 map
+ * - SIMILAR_TO: [205. Isomorphic Strings - EASY](https://leetcode.com/problems/isomorphic-strings/)
  *
  * https://www.youtube.com/watch?v=W_akoecmCbM&ab_channel=NeetCode
  */

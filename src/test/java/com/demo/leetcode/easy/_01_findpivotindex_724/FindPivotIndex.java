@@ -26,12 +26,12 @@ public class FindPivotIndex {
      */
     public int pivotIndex(int[] nums) {
         int sum = Arrays.stream(nums).sum();
-        int prefix = 0;
+        int prefixSum = 0;
 
         for (int i = 0; i < nums.length; i++) {
-            if (prefix == sum - prefix - nums[i])
+            if (prefixSum == sum - prefixSum - nums[i])
                 return i;
-            prefix += nums[i];
+            prefixSum += nums[i];
         }
         return -1;
     }

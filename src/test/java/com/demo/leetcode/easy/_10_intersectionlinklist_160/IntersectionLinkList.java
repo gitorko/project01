@@ -9,8 +9,6 @@ import org.junit.jupiter.api.Test;
  * [160. Intersection of Two Linked Lists - EASY](https://leetcode.com/problems/intersection-of-two-linked-lists/)
  *
  * - Two pointer - loop 2 times
- * - Add l1 to hashset and check if l2 present. Extra memory.
- * - Find length of l1, l2, move one pointer ahead of l2-l1. then when they meet its the intersection.
  * - Reset the pointer to head so the list is iterated twice but time complexity is same.
  *
  * https://www.youtube.com/watch?v=D0X0BONOQhI&ab_channel=NeetCode

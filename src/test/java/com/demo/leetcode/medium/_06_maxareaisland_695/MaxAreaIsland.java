@@ -24,11 +24,9 @@ public class MaxAreaIsland {
     }
 
     /**
-     * Time: O(N * M) where N and M are the lengths of the sides of the grid
-     * Space: O(L) where L is the size of the largest island, representing the maximum recursion stack
-     * Space is O(N * M + L) if we create an N * M matrix dp cache in order to not modify the input
-     *
-     * we can replace the 1s with 0s to prevent "finding" the same land twice.
+     * Time: O(n * m) where n and m are the lengths of the sides of the grid
+     * Space: O(l) where l is the size of the largest island, representing the maximum recursion stack
+     * Space is O(n * m + l) if we create an N * M matrix dp cache in order to not modify the input
      */
     int rowLength;
     int colLength;
@@ -50,7 +48,8 @@ public class MaxAreaIsland {
     }
 
     private int dfs(int i, int j) {
-        if (i < 0 || j < 0 || i >= rowLength || j >= colLength || grid[i][j] < 1) return 0;
+        if (i < 0 || j < 0 || i >= rowLength || j >= colLength || grid[i][j] < 1)
+            return 0;
         //prevent land cells from being traversed and counted more than once.
         grid[i][j] = 0;
         return 1 + dfs(i - 1, j) + dfs(i, j - 1) + dfs(i + 1, j) + dfs(i, j + 1);

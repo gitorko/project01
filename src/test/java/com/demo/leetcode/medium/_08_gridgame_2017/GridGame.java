@@ -9,26 +9,34 @@ import org.junit.jupiter.api.Test;
  * [2017. Grid Game - MEDIUM](https://leetcode.com/problems/grid-game/)
  *
  * - pre-sum
+ * - result is max at start
  *
  * https://www.youtube.com/watch?v=N4wDSOw65hI&ab_channel=NeetCode
  */
 public class GridGame {
 
     @Test
-    public void test() {
+    public void test1() {
         int[][] grid = {{2, 5, 4}, {1, 5, 1}};
         Assertions.assertEquals(4, gridGame(grid));
     }
 
+    @Test
+    public void test2() {
+        int[][] grid = {{1000, 1, 1}, {1, 1, 1}};
+        Assertions.assertEquals(1, gridGame(grid));
+    }
+
+    @Test
+    public void test3() {
+        int[][] grid = {{1, 1, 1}, {1000, 1, 1}};
+        Assertions.assertEquals(2, gridGame(grid));
+    }
+
     /**
-     * Since the robots cannot go up, we need to find the best point i for the first robot to go down.
-     * For the second robot, we only have two choices - go down right away, or stay up till the end.
-     * For a point i, the second robot can either collect bottom = sum(grid[1][0] .. grid[1][i - 1]) if it goes down, or top = sum(grid[0][i + 1] ... grid[0][n - 1]) otherwise.
-     * We can compute those values using prefix/suffix sum in O(1), and then find the minimum of max(top, bottom).
-     * Note that the prefix/suffix sum can overflow int, so we need to use a long.
-     *
      * Time: O(n)
      * Space: O(1)
+     * simulation is for second robot hence pick min
      */
     public long gridGame(int[][] grid) {
         int n = grid[0].length;

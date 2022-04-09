@@ -9,7 +9,8 @@ import org.junit.jupiter.api.Test;
 /**
  * [494. Target Sum - MEDIUM](https://leetcode.com/problems/target-sum/)
  *
- * - dp
+ * - dp of index+total, recursion
+ * - return 1 or 0 if true
  *
  * PRACTICE
  *
@@ -24,6 +25,10 @@ public class TargetSum {
         Assertions.assertEquals(5, findTargetSumWays(nums, target));
     }
 
+    /**
+     * Time: O(sum(nums) * n)
+     * Space: O(sum(nums) * n)
+     */
     int[] nums;
     int target;
     Map<String, Integer> dp = new HashMap();

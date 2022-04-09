@@ -9,7 +9,9 @@ import org.junit.jupiter.api.Test;
 /**
  * [673. Number of Longest Increasing Subsequence - MEDIUM](https://leetcode.com/problems/number-of-longest-increasing-subsequence/)
  *
- * - start from reverse, length + count dp
+ * - start from reverse, LIS
+ * - map dp
+ * - local max length, local max count
  * - SIMILAR_TO: [300. Longest Increasing Subsequence - MEDIUM](https://leetcode.com/problems/longest-increasing-subsequence/)
  *
  * PRACTICE
@@ -26,39 +28,43 @@ public class NumberOfLongestIncreasingSubseq {
 
     @Test
     public void test2() {
-        int nums[] = {2,2,2,2,2};
+        int nums[] = {2, 2, 2, 2, 2};
         Assertions.assertEquals(5, findNumberOfLIS(nums));
     }
 
+    /**
+     * Time: O(n^2)
+     * Space: O(n)
+     */
     public int findNumberOfLIS(int[] nums) {
         Map<Integer, int[]> dp = new HashMap<>();
-        int result = 0;
-        int lenLIS = 0;
+        int maxCount = 0;
+        int maxLen = 0;
 
         for (int i = nums.length - 1; i >= 0; i--) {
-            //max will be the number itself so alway init to 1
-            int maxLen = 1;
-            int maxCount = 1;
+            //max will be the number itself so always init to 1
+            int localMaxLen = 1;
+            int localMaxCount = 1;
             for (int j = i + 1; j < nums.length; j++) {
                 if (nums[i] < nums[j]) {
                     int length = dp.get(j)[0];
                     int count = dp.get(j)[1];
-                    if (length + 1 > maxLen) {
-                        maxLen = length + 1;
-                        maxCount = count;
-                    } else if (length + 1 == maxLen) {
-                        maxCount += count;
+                    if (length + 1 > localMaxLen) {
+                        localMaxLen = length + 1;
+                        localMaxCount = count;
+                    } else if (length + 1 == localMaxLen) {
+                        localMaxCount += count;
                     }
                 }
             }
-            if (maxLen > lenLIS) {
-                lenLIS = maxLen;
-                result = maxCount;
-            } else if (maxLen == lenLIS) {
-                result += maxCount;
+            if (localMaxLen > maxLen) {
+                maxLen = localMaxLen;
+                maxCount = localMaxCount;
+            } else if (localMaxLen == maxLen) {
+                maxCount += localMaxCount;
             }
-            dp.put(i, new int[]{maxLen, maxCount});
+            dp.put(i, new int[]{localMaxLen, localMaxCount});
         }
-        return result;
+        return maxCount;
     }
 }

@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
  * [934. Shortest Bridge - MEDIUM](https://leetcode.com/problems/shortest-bridge/)
  *
  * - dfs + bfs
+ * - visited
  * - paint first island as 2 using dfs, then add all such nodes to queue. Use bfs to find the next 1 island.
  *
  * https://www.youtube.com/watch?v=gkINMhbbIbU&ab_channel=NeetCode

@@ -31,7 +31,7 @@ public class TimeBasedKeyValueStore {
     }
 
     class TimeMap {
-        private Map<String, List<Pair>> map = new HashMap<>();
+        Map<String, List<Pair>> map = new HashMap<>();
 
         public void set(String key, String value, int timestamp) {
             map.putIfAbsent(key, new ArrayList<>());
@@ -44,20 +44,19 @@ public class TimeBasedKeyValueStore {
                 return "";
 
             int left = 0;
-            int right = valueList.size();
-
-            while (left < right) {
+            int right = valueList.size() - 1;
+            String result = "";
+            while (left <= right) {
                 int mid = (left + right) / 2;
-                if (valueList.get(mid).timestamp > timestamp)
-                    right = mid;
-                else
+                if (valueList.get(mid).timestamp > timestamp) {
+                    right = mid - 1;
+                } else {
+                    result = valueList.get(mid).value;
                     left = mid + 1;
+                }
             }
-            //there is no zero index
-            return left == 0 ? "" : valueList.get(left - 1).value;
+            return result;
         }
-
-
     }
 
     class Pair {

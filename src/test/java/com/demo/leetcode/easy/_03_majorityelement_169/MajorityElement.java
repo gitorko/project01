@@ -20,12 +20,14 @@ public class MajorityElement {
     public void test() {
         int[] nums = {3, 2, 3};
         Assertions.assertEquals(3, majorityElement(nums));
+        Assertions.assertEquals(3, majorityElement2(nums));
     }
 
     @Test
     public void test2() {
         int[] nums = {6, 5, 5};
         Assertions.assertEquals(5, majorityElement(nums));
+        Assertions.assertEquals(5, majorityElement2(nums));
     }
 
     /**
@@ -34,17 +36,17 @@ public class MajorityElement {
      * one pass
      */
     public int majorityElement(int[] nums) {
-        Map<Integer, Integer> map = new HashMap<>();
-        int result = 0;
+        Map<Integer, Integer> mapCount = new HashMap<>();
+        int majority = 0;
         int maxCount = 0;
         for (int i = 0; i < nums.length; i++) {
-            map.put(nums[i], map.getOrDefault(nums[i], 0) + 1);
-            if (map.get(nums[i]) > maxCount) {
-                result = nums[i];
+            mapCount.put(nums[i], mapCount.getOrDefault(nums[i], 0) + 1);
+            if (mapCount.get(nums[i]) > maxCount) {
+                majority = nums[i];
+                maxCount = mapCount.get(nums[i]);
             }
-            maxCount = Math.max(maxCount, map.get(nums[i]));
         }
-        return result;
+        return majority;
     }
 
     /**
@@ -53,18 +55,19 @@ public class MajorityElement {
      * Space: O(1)
      */
     public int majorityElement2(int[] nums) {
-        int major = nums[0];
+        int majority = nums[0];
         int count = 1;
+        //start from 2nd element
         for (int i = 1; i < nums.length; i++) {
             if (count == 0) {
                 count++;
-                major = nums[i];
-            } else if (major == nums[i]) {
+                majority = nums[i];
+            } else if (majority == nums[i]) {
                 count++;
             } else {
                 count--;
             }
         }
-        return major;
+        return majority;
     }
 }

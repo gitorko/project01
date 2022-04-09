@@ -60,21 +60,24 @@ public class OperationOnTree {
 
         public boolean lock(int num, int user) {
             //if no lock held lock for user
-            if (locked.containsKey(num)) return false;
+            if (locked.containsKey(num))
+                return false;
             locked.put(num, user);
             return true;
         }
 
         public boolean unlock(int num, int user) {
             //contains lock, lock is held by same user then unlock
-            if (!locked.containsKey(num) || locked.get(num) != user) return false;
+            if (!locked.containsKey(num) || locked.get(num) != user)
+                return false;
             locked.remove(num, user);
             return true;
         }
 
         public boolean upgrade(int num, int user) {
             //if node holds a lock return
-            if (locked.containsKey(num)) return false;
+            if (locked.containsKey(num))
+                return false;
 
             // check if all the ancestor nodes are unlocked.
             int curr = num;
@@ -87,7 +90,8 @@ public class OperationOnTree {
             // check if num has at least one locked descendant
             int tmp = locked.size();
             dfs(num);
-            if (tmp == locked.size()) return false;
+            if (tmp == locked.size())
+                return false;
 
             locked.put(num, user);
             return true;

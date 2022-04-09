@@ -1,4 +1,4 @@
-package com.demo.leetcode.medium._07_parenthesisvalid_wild_678;
+package com.demo.leetcode.medium._18_parenthesisvalid_wild_678;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -8,8 +8,6 @@ import org.junit.jupiter.api.Test;
  *
  * - two variables (leftMin, leftMax)
  * - greedy
- *
- * PRACTICE
  *
  * https://www.youtube.com/watch?v=QhPdNS143Qg&ab_channel=NeetCode
  */

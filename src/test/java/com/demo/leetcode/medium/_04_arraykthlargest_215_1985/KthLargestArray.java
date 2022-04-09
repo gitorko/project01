@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
  * - quick select
  * - option 1: Sort array in O(n*log(n)) and return length-k
  * - option 2: Use min heap (priority queue)
- * - option 3: Quick select
+ * - option 3: quick select
  *
  * PRACTICE
  *
@@ -24,19 +24,17 @@ import org.junit.jupiter.api.Test;
 public class KthLargestArray {
 
     @Test
-    public void test() {
+    public void test1() {
         int nums[] = new int[]{3, 2, 1, 5, 6, 4};
         int k = 2;
-        Assertions.assertEquals(5, findKthLargest1(nums, k));
-        Assertions.assertEquals(5, findKthLargest2(nums, k));
-        Assertions.assertEquals(5, findKthLargest3(nums, k));
+        Assertions.assertEquals(5, findKthLargest(nums, k));
+    }
 
-        nums = new int[]{3, 2, 3, 1, 2, 4, 5, 5, 6};
-        k = 4;
-        Assertions.assertEquals(4, findKthLargest1(nums, k));
-        Assertions.assertEquals(4, findKthLargest2(nums, k));
-        Assertions.assertEquals(4, findKthLargest3(nums, k));
-
+    @Test
+    public void test2() {
+        int nums[] = new int[]{3, 2, 3, 1, 2, 4, 5, 5, 6};
+        int k = 4;
+        Assertions.assertEquals(4, findKthLargest(nums, k));
     }
 
     /**
@@ -52,10 +50,10 @@ public class KthLargestArray {
     }
 
     /**
-     * min-heap - heap all elements in O(N) then pop k times so each pop on heap takes log(N) so k*log(n)
+     * min-heap - heap all elements in O(N) then pop k times so each pop on heap takes log(n) so k*log(n)
      * You can also pop while adding to heap so need another loop.
      *
-     * Time: O(n * log(k))
+     * Time: O(k * log(n))
      * Space: O(k)
      */
     public int findKthLargest2(int[] nums, int k) {
@@ -79,38 +77,29 @@ public class KthLargestArray {
      * So how can we improve the above solution and make it O(N) guaranteed?
      * If we randomize the input, it will be guaranteed Time: O(n)
      */
-    public int findKthLargest3(int[] nums, int k) {
-        k = nums.length - k;
+    public int findKthLargest(int[] nums, int k) {
         int left = 0;
         int right = nums.length - 1;
+        int index = nums.length - k;
         while (left < right) {
-            int j = partition(nums, left, right);
-            if (j < k) {
-                left = j + 1;
-            } else if (j > k) {
-                right = j - 1;
-            } else {
-                break;
-            }
+            int pivot = partition(nums, left, right);
+            if (pivot < index) left = pivot + 1;
+            else if (pivot > index) right = pivot - 1;
+            else return nums[pivot];
         }
-        return nums[k];
+        return nums[left];
     }
 
     private int partition(int[] nums, int left, int right) {
-        int i = left;
-        //right most element is the pivot
-        int j = right + 1;
-        while (true) {
-            while (i < right && nums[++i] < nums[left]) ;
-            while (j > left && nums[left] < nums[--j]) ;
-            if (i >= j) {
-                break;
-            }
-            swap(nums, i, j);
+        int pivot = left;
+        while (left <= right) {
+            while (left <= right && nums[left] <= nums[pivot]) left++;
+            while (left <= right && nums[right] > nums[pivot]) right--;
+            if (left > right) break;
+            swap(nums, left, right);
         }
-        //swapping the pivot value.
-        swap(nums, left, j);
-        return j;
+        swap(nums, right, pivot);
+        return right;
     }
 
     private void swap(int[] a, int i, int j) {
@@ -120,7 +109,7 @@ public class KthLargestArray {
     }
 
     private void shuffle(int a[]) {
-        final Random random = new Random();
+        Random random = new Random();
         for (int ind = 1; ind < a.length; ind++) {
             final int r = random.nextInt(ind + 1);
             swap(a, ind, r);

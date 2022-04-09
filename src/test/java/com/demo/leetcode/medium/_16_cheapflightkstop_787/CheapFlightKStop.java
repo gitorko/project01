@@ -10,6 +10,8 @@ import org.junit.jupiter.api.Test;
  *
  * - bellman-ford
  *
+ * PRACTICE
+ *
  * https://www.youtube.com/watch?v=5eIK3zUdYmE&ab_channel=NeetCode
  */
 public class CheapFlightKStop {
@@ -25,8 +27,8 @@ public class CheapFlightKStop {
     }
 
     /**
-     * Time: O(∣E∣+∣V∣log∣E∣)
-     * Space: O(nk)
+     * Time: O(e*k)
+     * Space: O(e*k)
      */
     public int findCheapestPrice(int n, int[][] flights, int src, int dst, int k) {
         int[] cost = new int[n];

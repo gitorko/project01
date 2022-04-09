@@ -11,8 +11,8 @@ import org.junit.jupiter.api.Test;
 /**
  * [90. Subsets II - MEDIUM](https://leetcode.com/problems/subsets-ii/)
  *
- * - backtracking,skip,i+1
- * - sort and skip duplicates
+ * - backtracking
+ * - sort and skip duplicates,i+1
  *
  * https://www.youtube.com/watch?v=Vn2v6ajA7U0&ab_channel=NeetCode
  */
@@ -48,7 +48,8 @@ public class SubsetHasDuplicates {
         result.add(new ArrayList<>(tempList));
         for (int i = start; i < nums.length; i++) {
             // skip duplicates
-            if (i > start && nums[i] == nums[i - 1]) continue;
+            if (i > start && nums[i] == nums[i - 1])
+                continue;
             tempList.add(nums[i]);
             backtrack(tempList, i + 1);
             tempList.remove(tempList.size() - 1);

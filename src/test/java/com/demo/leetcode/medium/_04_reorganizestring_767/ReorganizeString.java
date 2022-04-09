@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
  * [767. Reorganize String - MEDIUM](https://leetcode.com/problems/reorganize-string/)
  * [358. Rearrange String k Distance Apart - MEDIUM](https://leetcode.com/problems/rearrange-string-k-distance-apart/)
  *
- * - max heap,queue,string builder
+ * - map + max heap + queue + string builder
  * - SIMILAR_TO: [621. Task Scheduler - MEDIUM](https://leetcode.com/problems/task-scheduler/)
  *
  * PRACTICE
@@ -43,9 +43,9 @@ public class ReorganizeString {
         }
         //max heap
         PriorityQueue<Map.Entry<Character, Integer>> pq = new PriorityQueue<>((a, b) -> (b.getValue() - a.getValue()));
+        Queue<Map.Entry<Character, Integer>> queue = new LinkedList<>();
         pq.addAll(map.entrySet());
         StringBuilder sb = new StringBuilder();
-        Queue<Map.Entry<Character, Integer>> queue = new LinkedList<>();
         while (!pq.isEmpty()) {
             //fetch and add to result
             Map.Entry<Character, Integer> entry = pq.poll();
@@ -55,6 +55,7 @@ public class ReorganizeString {
             entry.setValue(entry.getValue() - 1);
 
             queue.offer(entry);
+            //k value can be changed to make this problem rearrange by k distance
             int k = 1;
             while (queue.size() > k) {
                 Map.Entry<Character, Integer> temp = queue.poll();

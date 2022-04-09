@@ -6,6 +6,9 @@ import org.junit.jupiter.api.Test;
 /**
  * [622. Design Circular Queue - MEDIUM](https://leetcode.com/problems/design-circular-queue/)
  *
+ * - mod, count
+ * - front & rear pointer
+ *
  * https://www.youtube.com/watch?v=aBbsfn863oA&ab_channel=NeetCode
  */
 public class CircularQueue {

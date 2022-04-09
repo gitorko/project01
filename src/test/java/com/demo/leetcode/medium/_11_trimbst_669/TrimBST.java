@@ -11,8 +11,7 @@ import org.junit.jupiter.api.Test;
 /**
  * [669. Trim a Binary Search Tree - MEDIUM](https://leetcode.com/problems/trim-a-binary-search-tree/)
  *
- * - recursion
- * - root node out of bound
+ * - bst, hence if left is less than low go right. right is greater than high go left.
  *
  * PRACTICE
  *

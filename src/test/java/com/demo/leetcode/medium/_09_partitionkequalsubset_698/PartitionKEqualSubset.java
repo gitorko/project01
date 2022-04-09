@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
  *
  * - backtracking
  * - SIMILAR_TO: [416. Partition Equal Subset Sum - MEDIUM](https://leetcode.com/problems/partition-equal-subset-sum/)
+ * - SIMILAR_TO: [473. Matchsticks to Square - MEDIUM](https://leetcode.com/problems/matchsticks-to-square/)
  *
  * PRACTICE
  *
@@ -36,6 +37,7 @@ public class PartitionKEqualSubset {
         nums = input;
         int sum = Arrays.stream(nums).sum();
 
+        //optimization
         nums = Arrays.stream(nums)
                 .boxed()
                 .sorted(Comparator.reverseOrder())

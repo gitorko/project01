@@ -12,6 +12,8 @@ import org.junit.jupiter.api.Test;
  *
  * - two pointer
  *
+ * PRACTICE
+ *
  * https://www.youtube.com/watch?v=B7m8UmZE-vw&ab_channel=NeetCode
  */
 public class PartitionLabel {
@@ -33,7 +35,7 @@ public class PartitionLabel {
         int[] rightmost = new int[26];
 
         //last index of char
-        for (int i = 0; i < s.length(); ++i)
+        for (int i = 0; i < s.length(); i++)
             rightmost[s.charAt(i) - 'a'] = i;
 
         int left = 0;

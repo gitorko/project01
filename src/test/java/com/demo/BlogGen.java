@@ -71,7 +71,7 @@ public class BlogGen {
                 int counter = 1;
                 for (String f : files) {
                     String groupType = "";
-                    if(map.getKey().contains("Easy") ||map.getKey().contains("Medium") || map.getKey().contains("Hard")) {
+                    if (map.getKey().contains("Easy") || map.getKey().contains("Medium") || map.getKey().contains("Hard")) {
                         groupType = f.substring(f.indexOf("_"), f.lastIndexOf("/")).substring(1, 3);
                     }
                     try (BufferedReader br = Files.newBufferedReader(Paths.get(f))) {
@@ -100,7 +100,7 @@ public class BlogGen {
                                     leetcode = "[" + problem.substring(0, problem.lastIndexOf("-")).trim() + "]" + url;
                                 }
                                 String type = problem.substring(problem.lastIndexOf("-")).replaceAll("-", "").trim();
-                                if(!groupType.isBlank()) {
+                                if (!groupType.isBlank()) {
                                     System.out.println(String.format("|%s|%s|%s|%s - %s|", counter++, leetcode, "[Solution](" + baseUrl + f + ")", type, typeMap.get(groupType)));
                                 } else {
                                     System.out.println(String.format("|%s|%s|%s|%s|", counter++, leetcode, "[Solution](" + baseUrl + f + ")", type));
@@ -140,5 +140,52 @@ public class BlogGen {
             }
             System.out.println();
         }
+    }
+
+    @SneakyThrows
+    @Test
+    public void nonNeetCode() {
+        Map<String, Path> paths = new LinkedHashMap<>();
+        paths.put("LeetCode - Easy", Paths.get("src/test/java/com/demo/leetcode/easy"));
+        paths.put("LeetCode - Medium", Paths.get("src/test/java/com/demo/leetcode/medium"));
+        paths.put("LeetCode - Hard", Paths.get("src/test/java/com/demo/leetcode/hard"));
+        for (Map.Entry<String, Path> map : paths.entrySet()) {
+            try (Stream<Path> stream = Files.walk(map.getValue(), Integer.MAX_VALUE)) {
+                List<String> files = stream
+                        .map(String::valueOf)
+                        .filter(f -> f.endsWith(".java"))
+                        .sorted()
+                        .collect(Collectors.toList());
+                for (String f : files) {
+                    boolean found = false;
+                    String result = "";
+                    try (BufferedReader br = Files.newBufferedReader(Paths.get(f))) {
+                        while (br.ready()) {
+                            String line = br.readLine();
+                            if (!line.startsWith(" *")) continue;
+                            if (line.contains("TYPE")) continue;
+                            if (line.contains("PRACTICE")) continue;
+                            if (line.contains("lintcode")) continue;
+                            if (line.startsWith(" */")) break;
+                            if (line.startsWith("public")) break;
+                            line = line.replaceAll("\\*", "").trim();
+                            if (line.isBlank()) continue;
+
+                            if (line.contains("NeetCode")) {
+                                found = true;
+                            }
+                            if (line.startsWith("[")) {
+                                result = line;
+                            }
+                        }
+                    }
+                    if (!found) {
+                        System.out.println(result);
+                    }
+                }
+            }
+            System.out.println();
+        }
+        System.out.println();
     }
 }

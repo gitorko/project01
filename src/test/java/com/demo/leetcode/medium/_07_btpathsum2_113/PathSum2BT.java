@@ -15,6 +15,7 @@ import org.junit.jupiter.api.Test;
  * - dfs, preorder + backtracking + remove from path
  * - remember to reduce target on each recursion
  * - remember to remove node from path
+ * - SIMILAR_TO: [112. Path Sum - EASY](https://leetcode.com/problems/path-sum/)
  *
  * PRACTICE
  */
@@ -40,7 +41,8 @@ public class PathSum2BT {
     }
 
     public void dfs(TreeNode root, int targetSum, List<Integer> path) {
-        if (root == null) return;
+        if (root == null)
+            return;
         path.add(root.val);
 
         //Leaf node reached & target matches

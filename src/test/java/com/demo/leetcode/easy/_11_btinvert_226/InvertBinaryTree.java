@@ -3,8 +3,8 @@ package com.demo.leetcode.easy._11_btinvert_226;
 import java.util.Arrays;
 import java.util.List;
 
-import com.demo.common.TreeNodeUtil;
 import com.demo.common.TreeNode;
+import com.demo.common.TreeNodeUtil;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

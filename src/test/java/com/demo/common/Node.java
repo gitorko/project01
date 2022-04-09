@@ -3,8 +3,6 @@ package com.demo.common;
 import java.util.ArrayList;
 import java.util.List;
 
-import lombok.Data;
-
 public class Node {
     public final int val;
     public List<Node> neighbors;

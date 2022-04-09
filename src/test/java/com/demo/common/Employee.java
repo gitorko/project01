@@ -3,10 +3,6 @@ package com.demo.common;
 import java.util.Comparator;
 import java.util.Objects;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-
 public class Employee implements Comparable<Employee> {
 
     public String name;

@@ -48,14 +48,14 @@ public class FourSum {
         return result;
     }
 
-    public void backtrack(ArrayList<Integer> tempList, int sum, int start, int k) {
+    public void backtrack(ArrayList<Integer> tempList, int target, int start, int k) {
         if (k != 2) {
             for (int i = start; i < nums.length - k + 1; i++) {
                 //remove duplicate combinations
                 if (i > start && nums[i] == nums[i - 1])
                     continue;
                 tempList.add(nums[i]);
-                backtrack(tempList, sum - nums[i], i + 1, k - 1);
+                backtrack(tempList, target - nums[i], i + 1, k - 1);
                 tempList.remove(tempList.size() - 1);
             }
         }
@@ -63,9 +63,9 @@ public class FourSum {
         int left = start;
         int right = nums.length - 1;
         while (left < right) {
-            if (nums[left] + nums[right] < sum) {
+            if (nums[left] + nums[right] < target) {
                 left++;
-            } else if (nums[left] + nums[right] > sum) {
+            } else if (nums[left] + nums[right] > target) {
                 right--;
             } else {
                 if(tempList.size() == 2) {
