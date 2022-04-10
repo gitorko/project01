@@ -13,13 +13,10 @@ import org.junit.jupiter.api.Test;
 /**
  * InOrder traversal with inplace tree modification
  *
- * HINT:
  * InOrder traversal with inplace tree modification
  * https://www.geeksforgeeks.org/inorder-tree-traversal-without-recursion-and-without-stack/
  * Inorder traversal without stack and recursion.
  * Although the tree is modified through the traversal, it is reverted back to its original shape
- *
- * TYPE: HARD
  *
  * https://www.youtube.com/watch?v=wGXB9OWhPTg
  */

@@ -38,7 +38,7 @@ public class LongestSubstringKDistinct {
                 //reduce the count of the left side tree
                 map.put(s.charAt(left), map.get(s.charAt(left)) - 1);
                 //after reducing the count if it becomes 0 remove from the map.
-                if (map.get(s.charAt(left)) != null && map.get(s.charAt(left)) == 0) map.remove(s.charAt(left));
+                if (map.get(s.charAt(left)) == 0) map.remove(s.charAt(left));
                 left++;
             }
             total = Math.max(total, right - left + 1);

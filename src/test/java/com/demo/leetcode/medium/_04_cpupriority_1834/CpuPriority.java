@@ -10,8 +10,9 @@ import org.junit.jupiter.api.Test;
  * [1834. Single-Threaded CPU - MEDIUM](https://leetcode.com/problems/single-threaded-cpu/)
  *
  * - heap
+ * - fast forward time, add index
  *
- * PRACTICE
+ * PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=RR1n-d4oYqE&ab_channel=NeetCode
  */

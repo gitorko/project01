@@ -17,6 +17,8 @@ import org.junit.jupiter.api.Test;
  * - topological sort (DFS)
  * - SIMILAR_TO: [207. Course Schedule - MEDIUM](https://leetcode.com/problems/course-schedule/)
  *
+ * PRACTICE: P2
+ *
  * https://www.youtube.com/watch?v=Akt3glAwyfY&ab_channel=NeetCode
  * https://www.youtube.com/watch?v=ddTC4Zovtbc&ab_channel=TusharRoy-CodingMadeSimple
  */
@@ -43,20 +45,20 @@ public class CourseSchedule2 {
      */
     Set<Integer> cycleSet;
     Set<Integer> visitedSet;
-    Map<Integer, List<Integer>> preMap;
+    Map<Integer, List<Integer>> adjacencyMap;
     List<Integer> result;
 
     public int[] findOrder(int numCourses, int[][] prerequisites) {
-        preMap = new HashMap<>();
+        adjacencyMap = new HashMap<>();
         cycleSet = new HashSet<>();
         visitedSet = new HashSet<>();
         result = new ArrayList<>();
         for (int i = 0; i < prerequisites.length; i++) {
             Integer course1 = prerequisites[i][0];
             Integer course2 = prerequisites[i][1];
-            List<Integer> courses = preMap.getOrDefault(course1, new ArrayList<>());
+            List<Integer> courses = adjacencyMap.getOrDefault(course1, new ArrayList<>());
             courses.add(course2);
-            preMap.put(course1, courses);
+            adjacencyMap.put(course1, courses);
         }
         for (int i = 0; i < numCourses; i++) {
             if (!dfs(i)) return new int[]{};
@@ -67,7 +69,7 @@ public class CourseSchedule2 {
     }
 
     public boolean dfs(Integer course) {
-        List<Integer> preReqs = preMap.getOrDefault(course, Collections.emptyList());
+        List<Integer> preReqs = adjacencyMap.getOrDefault(course, Collections.emptyList());
         if (cycleSet.contains(course)) {
             return false;
         }

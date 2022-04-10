@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
  * - sort + sliding window
  * - nums[right] * windowSize > total + k
  *
- * PRACTICE
+ * PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=vgBrQ0NM5vE&ab_channel=NeetCode
  */
@@ -43,7 +43,6 @@ public class FrequencyOfMostFrequent {
             result = Math.max(result, windowSize);
             right++;
         }
-
         return result;
     }
 }

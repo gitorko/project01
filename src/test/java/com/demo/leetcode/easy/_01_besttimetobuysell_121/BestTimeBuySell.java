@@ -31,6 +31,7 @@ public class BestTimeBuySell {
     public int maxProfit(int[] prices) {
         int currSum = 0;
         int maxSoFar = 0;
+        //start from 2nd price
         for (int i = 1; i < prices.length; i++) {
             if (currSum < 0) {
                 currSum = 0;

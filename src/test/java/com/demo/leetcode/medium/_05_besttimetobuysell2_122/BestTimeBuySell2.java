@@ -25,6 +25,7 @@ public class BestTimeBuySell2 {
      */
     public int maxProfit(int[] prices) {
         int maxprofit = 0;
+        //start from 2nd and compare to previous
         for (int i = 1; i < prices.length; i++) {
             if (prices[i] > prices[i - 1])
                 maxprofit += prices[i] - prices[i - 1];

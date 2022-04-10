@@ -21,7 +21,7 @@ public class MaxRemoveableChars {
     }
 
     /**
-     * Time: O(nlogn)
+     * Time: O(n log(k))
      * Space: O(n)
      */
     public int maximumRemovals(String s, String p, int[] removable) {

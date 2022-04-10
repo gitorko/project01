@@ -12,8 +12,7 @@ import org.junit.jupiter.api.Test;
 /**
  * [404. Sum of Left Leaves - EASY](https://leetcode.com/problems/sum-of-left-leaves/)
  *
- * - recursive, DFS
- * - BFS
+ * - bfs
  *
  * PRACTICE
  *

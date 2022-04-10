@@ -12,10 +12,9 @@ import org.junit.jupiter.api.Test;
  *
  * - merge all overlapping intervals, and return an array of the non-overlapping intervals that cover all the intervals in the input
  * - sort interval
- * - draw number line
  * - add to result and modify reference
  *
- * PRACTICE
+ * PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=44H3cEC2fFM&ab_channel=NeetCode
  */
@@ -93,10 +92,10 @@ public class MergeInterval {
         //add to result but later modify the reference
         result.add(previousPair);
         for (int i = 1; i < intervals.length; i++) {
-            int start = intervals[i][0];
-            int end = intervals[i][1];
-            if (start <= previousPair[1]) {
-                previousPair[1] = Math.max(end, previousPair[1]);
+            int newStart = intervals[i][0];
+            int newEnd = intervals[i][1];
+            if (newStart <= previousPair[1]) {
+                previousPair[1] = Math.max(newEnd, previousPair[1]);
                 //dont add to result yet.
             } else {
                 previousPair = intervals[i];

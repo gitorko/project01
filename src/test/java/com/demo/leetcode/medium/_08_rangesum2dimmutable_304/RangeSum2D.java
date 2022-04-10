@@ -1,4 +1,4 @@
-package com.demo.leetcode.medium._09_rangesum2dimmutable_304;
+package com.demo.leetcode.medium._08_rangesum2dimmutable_304;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -6,9 +6,10 @@ import org.junit.jupiter.api.Test;
 /**
  * [304. Range Sum Query 2D - Immutable - MEDIUM](https://leetcode.com/problems/range-sum-query-2d-immutable/)
  *
- * - dynamic program, cache matrix with extra row, col
+ * - pre-sum dp
+ * - cache matrix with extra row, col
  *
- * PRACTICE
+ * PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=7mL8KJ4Pi70&ab_channel=jayatitiwari
  */

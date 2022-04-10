@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
 /**
  * [261. Graph Valid Tree - MEDIUM](https://leetcode.com/problems/graph-valid-tree/)
  *
- * - dfs
+ * - bfs
  * - SIMILAR_TO: [1466. Reorder Routes to Make All Paths Lead to the City Zero - MEDIUM](https://leetcode.com/problems/reorder-routes-to-make-all-paths-lead-to-the-city-zero/)
  *
  * https://www.youtube.com/watch?v=bXsUuownnoQ&ab_channel=NeetCode
@@ -52,8 +52,9 @@ public class GraphValidTree {
         seen.add(0);
         queue.add(0);
 
-        for (int i = 0; i < n; ++i)
+        for (int i = 0; i < n; i++){
             adjacencyMap.computeIfAbsent(i, k -> new HashSet<>());
+        }
 
         //adjacency list
         for (int[] c : edges) {

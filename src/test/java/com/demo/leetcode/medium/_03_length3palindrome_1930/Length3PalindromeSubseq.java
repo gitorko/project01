@@ -10,9 +10,9 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 /**
- * [1930. Unique Length-3 Palindromic Subsequences - MEDIUM](https://leetcode.com/problems/unique-length-3-palindromic-subsequences/)
+ * [1930. Unique Length 3 Palindromic Subsequences - MEDIUM](https://leetcode.com/problems/unique-length-3-palindromic-subsequences/)
  *
- * - set
+ * - set + map
  * - odd length palindrome
  *
  * https://www.youtube.com/watch?v=3THUt0vAFLU&ab_channel=NeetCode

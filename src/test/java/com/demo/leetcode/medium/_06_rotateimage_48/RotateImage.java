@@ -23,7 +23,6 @@ public class RotateImage {
     /**
      * Time: O(n^2)
      * Space: O(1)
-     * firstly transpose the matrix and then flip it symmetrically
      */
     public void rotate(int[][] matrix) {
         for (int i = 0; i < matrix.length; i++) {

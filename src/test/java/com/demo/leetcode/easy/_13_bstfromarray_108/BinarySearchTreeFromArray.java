@@ -11,10 +11,9 @@ import org.junit.jupiter.api.Test;
 /**
  * [108. Convert Sorted Array to Binary Search Tree - EASY](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/)
  *
- * - binary search
- * - recursion
+ * - recursion, partition at mid
  *
- * PRACTICE
+ * PRACTICE: P1
  */
 public class BinarySearchTreeFromArray {
 
@@ -37,14 +36,14 @@ public class BinarySearchTreeFromArray {
         return head;
     }
 
-    private TreeNode helper(int[] nums, int low, int high) {
-        if (low > high) {
+    private TreeNode helper(int[] nums, int left, int right) {
+        if (left > right) {
             return null;
         }
-        int mid = (low + high) / 2;
+        int mid = (left + right) / 2;
         TreeNode node = new TreeNode(nums[mid]);
-        node.left = helper(nums, low, mid - 1);
-        node.right = helper(nums, mid + 1, high);
+        node.left = helper(nums, left, mid - 1);
+        node.right = helper(nums, mid + 1, right);
         return node;
     }
 }

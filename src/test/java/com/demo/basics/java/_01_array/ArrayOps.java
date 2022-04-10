@@ -110,7 +110,7 @@ public class ArrayOps {
     }
 
     @Test
-    public void test_copyPartofArray() {
+    public void test_copyPartOfArray() {
         int[] arr = {1, 2, 3, 4, 5, 6, 7};
         List<Integer> result = Arrays.stream(arr, 5, 6).boxed().collect(Collectors.toList());
         System.out.println(result);

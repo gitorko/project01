@@ -6,8 +6,9 @@ import org.junit.jupiter.api.Test;
 /**
  * [41. First Missing Positive - HARD](https://leetcode.com/problems/first-missing-positive/)
  *
- * - 3 for loops
- * - Sort and iterate - n*log(n)
+ * - option1: sort and iterate - n*log(n)
+ * - option2: cyclic sort, ignore out of bounds
+ * - SIMILAR_TO: [448. Find All Numbers Disappeared in an Array - EASY](https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/)
  *
  * https://www.youtube.com/watch?v=8g78yfzMlao&ab_channel=NeetCode
  */
@@ -55,6 +56,7 @@ public class MissingPositive {
             }
         }
 
+        //starts from 1 but check previous element
         for (int i = 1; i <= nums.length; i++) {
             if (nums[i - 1] >= 0) {
                 return i;

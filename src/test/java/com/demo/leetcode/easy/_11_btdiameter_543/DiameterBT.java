@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
  * - post order traversal
  * - max height (left + right) + 1
  *
- * PRACTICE
+ * PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=bkxqA8Rfv04&ab_channel=NeetCode
  */
@@ -38,7 +38,8 @@ public class DiameterBT {
     }
 
     private int maxDepth(TreeNode root) {
-        if (root == null) return 0;
+        if (root == null)
+            return 0;
 
         int left = maxDepth(root.left);
         int right = maxDepth(root.right);

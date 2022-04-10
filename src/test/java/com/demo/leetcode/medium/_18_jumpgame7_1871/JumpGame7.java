@@ -9,7 +9,9 @@ import org.junit.jupiter.api.Test;
 /**
  * [1871. Jump Game VII - MEDIUM](https://leetcode.com/problems/jump-game-vii/)
  *
- * - queue, farthest
+ * - queue bfs, farthest
+ *
+ * https://www.youtube.com/watch?v=v1HpZUnQ4Yo&ab_channel=NeetCode
  */
 public class JumpGame7 {
 
@@ -41,7 +43,8 @@ public class JumpGame7 {
         while (!queue.isEmpty()) {
             int i = queue.poll();
             int start = Math.max(i + minJump, farthest + 1);
-            for (int j = start; j < Math.min(i + maxJump + 1, s.length()); j++) {
+            int end = Math.min(i + maxJump + 1, s.length());
+            for (int j = start; j < end; j++) {
                 if (s.charAt(j) == '0') {
                     queue.offer(j);
                     if (j == s.length() - 1) return true;

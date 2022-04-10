@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
  * - binary search, ceil
  * - SIMILAR_TO: [1011. Capacity To Ship Packages Within D Days - MEDIUM](https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/)
  *
- * PRACTICE
+ * PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=U2SozAs9RzA&ab_channel=NeetCode
  */

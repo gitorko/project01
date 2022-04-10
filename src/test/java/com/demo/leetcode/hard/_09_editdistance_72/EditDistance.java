@@ -9,6 +9,8 @@ import org.junit.jupiter.api.Test;
  * - min of 3 sides
  * - SIMILAR_TO: [1143. Longest Common Subsequence - MEDIUM](https://leetcode.com/problems/longest-common-subsequence/)
  *
+ * PRACTICE: P1
+ *
  * https://www.youtube.com/watch?v=XYi2-LPrwm4&ab_channel=NeetCode
  */
 public class EditDistance {

@@ -7,8 +7,9 @@ import org.junit.jupiter.api.Test;
  * [424. Longest Repeating Character Replacement - MEDIUM](https://leetcode.com/problems/longest-repeating-character-replacement/)
  *
  * - set + sliding, window-maxCount>k
+ * - SIMILAR_TO: [1838. Frequency of the Most Frequent Element - MEDIUM](https://leetcode.com/problems/frequency-of-the-most-frequent-element/)
  *
- * PRACTICE
+ * PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=gqXU1UyA8pk&ab_channel=NeetCode
  */

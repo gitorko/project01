@@ -14,6 +14,8 @@ import org.junit.jupiter.api.Test;
  * - option1: Use heap
  * - option2: Two array comparison
  *
+ * PRACTICE
+ *
  * https://www.youtube.com/watch?v=FdzJmTCVyJU&ab_channel=NeetCode
  * https://www.youtube.com/watch?v=tNhiD4SaumY&ab_channel=DEEPTITALESRA
  */
@@ -98,7 +100,7 @@ public class MinMeetingRoom2 {
         // Sort by ascending starting point
         Arrays.sort(intervals, (i1, i2) -> Integer.compare(i1[0], i2[0]));
         PriorityQueue<Integer> queue = new PriorityQueue<>();
-        //add first interval to heap.
+        //add first interval end time to heap.
         queue.add(intervals[0][1]);
         //iterate from 2nd interval
         for (int i = 1; i < intervals.length; i++) {

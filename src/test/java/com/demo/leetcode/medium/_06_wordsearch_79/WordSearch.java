@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
  * - dfs + visited, backtracking
  * - remember to remove from visited
  *
- * PRACTICE
+ * PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=pfiQ_PS1g8E&ab_channel=NeetCode
  */

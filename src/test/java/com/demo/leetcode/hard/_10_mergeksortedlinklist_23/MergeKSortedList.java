@@ -46,9 +46,9 @@ public class MergeKSortedList {
             return lists[start];
         } else if (start < end) {
             int mid = (start + end) / 2;
-            ListNode left = mergeKLists(lists, start, mid);
-            ListNode right = mergeKLists(lists, mid + 1, end);
-            return mergeTwoLists(left, right);
+            ListNode leftList = mergeKLists(lists, start, mid);
+            ListNode rightList = mergeKLists(lists, mid + 1, end);
+            return mergeTwoLists(leftList, rightList);
         } else {
             return null;
         }

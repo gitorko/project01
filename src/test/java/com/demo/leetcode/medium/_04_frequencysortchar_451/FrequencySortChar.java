@@ -1,4 +1,4 @@
-package com.demo.leetcode.medium._04_frequencysort_1636;
+package com.demo.leetcode.medium._04_frequencysortchar_451;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
  * - set, check previous, number line
  * - SIMILAR_TO: [674. Longest Continuous Increasing Subsequence - EASY](https://leetcode.com/problems/longest-continuous-increasing-subsequence/)
  *
- * PRACTICE
+ * PRACTICE: P3
  *
  * https://www.youtube.com/watch?v=P6RZZMu_maU&ab_channel=NeetCode
  */

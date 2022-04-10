@@ -9,8 +9,6 @@ import org.junit.jupiter.api.Test;
  * - dfs, set to -1 for already visited
  * - edge case to return 0 when grid[i][j] is -1
  *
- * PRACTICE
- *
  * https://www.youtube.com/watch?v=fISIuAFRM2s&ab_channel=NeetCode
  */
 public class IslandPerimeter {
@@ -32,22 +30,26 @@ public class IslandPerimeter {
         if (grid == null) return 0;
         rowLen = grid.length;
         colLen = grid[0].length;
-        for (int i = 0; i < rowLen; i++)
-            for (int j = 0; j < colLen; j++)
+        for (int i = 0; i < rowLen; i++) {
+            for (int j = 0; j < colLen; j++) {
                 if (grid[i][j] == 1) {
                     return dfs(i, j, grid);
                 }
+            }
+        }
         return 0;
     }
 
     private int dfs(int i, int j, int[][] grid) {
 
-        if (i < 0 || j < 0 || i >= rowLen || j >= colLen || grid[i][j] == 0) return 1;
+        if (i < 0 || j < 0 || i >= rowLen || j >= colLen || grid[i][j] == 0)
+            return 1;
 
         //return if edge is -1 as already processed.
-        if (grid[i][j] == -1) return 0;
+        if (grid[i][j] == -1)
+            return 0;
 
-        //Here we are setting to -1 so that we dont count the perimeter, if we set to 0 then it will add to perimeter.
+        //set to -1 so that we dont count the perimeter, if we set to 0 then it will add to perimeter.
         grid[i][j] = -1;
 
         int count = 0;

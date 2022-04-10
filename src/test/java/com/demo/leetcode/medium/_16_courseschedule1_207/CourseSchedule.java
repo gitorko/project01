@@ -17,7 +17,7 @@ import org.junit.jupiter.api.Test;
  * - dfs, adjacency list
  * - SIMILAR_TO: [210. Course Schedule II - MEDIUM](https://leetcode.com/problems/course-schedule-ii/)
  *
- * PRACTICE
+ * PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=EgI5nU9etnU&ab_channel=NeetCode
  */
@@ -55,17 +55,17 @@ public class CourseSchedule {
      * Time: O(n+p)
      */
     Set<Integer> cycleSet;
-    Map<Integer, List<Integer>> preMap;
+    Map<Integer, List<Integer>> adjacencyMap;
 
     public boolean canFinish(int numCourses, int[][] prerequisites) {
-        preMap = new HashMap<>();
+        adjacencyMap = new HashMap<>();
         cycleSet = new HashSet<>();
         for (int i = 0; i < prerequisites.length; i++) {
             Integer course1 = prerequisites[i][0];
             Integer course2 = prerequisites[i][1];
-            List<Integer> courses = preMap.getOrDefault(course1, new ArrayList<>());
+            List<Integer> courses = adjacencyMap.getOrDefault(course1, new ArrayList<>());
             courses.add(course2);
-            preMap.put(course1, courses);
+            adjacencyMap.put(course1, courses);
         }
 
         for (int i = 0; i < numCourses; i++) {
@@ -75,7 +75,7 @@ public class CourseSchedule {
     }
 
     public boolean dfs(Integer course) {
-        List<Integer> preReqs = preMap.getOrDefault(course, Collections.emptyList());
+        List<Integer> preReqs = adjacencyMap.getOrDefault(course, Collections.emptyList());
 
         //already visited.
         if (cycleSet.contains(course)) {
@@ -91,7 +91,7 @@ public class CourseSchedule {
         }
         cycleSet.remove(course);
         //remember to set the preReq to empty
-        preMap.put(course, Collections.emptyList());
+        adjacencyMap.put(course, Collections.emptyList());
         return true;
     }
 

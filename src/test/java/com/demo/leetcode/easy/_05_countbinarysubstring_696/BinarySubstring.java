@@ -8,6 +8,8 @@ import org.junit.jupiter.api.Test;
  *
  * - two pointer, curr, prev
  *
+ * PRACTICE
+ *
  * https://www.youtube.com/watch?v=MGPHPadxhtQ&ab_channel=AlgorithmsMadeEasy
  */
 public class BinarySubstring {

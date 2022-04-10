@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
  * [2. Add Two Numbers - EASY](https://leetcode.com/problems/add-two-numbers/)
  *
  * - dummy node
- * - carry, mod 10
+ * - carry, mod 10, divide by 10
  * - SIMILAR_TO: [67. Add Binary - EASY](https://leetcode.com/problems/add-binary/)
  *
  * https://www.youtube.com/watch?v=wgFPrzTjm7s&ab_channel=NeetCode

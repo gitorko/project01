@@ -36,21 +36,21 @@ public class RotateLinkList {
 
         //get the length of linked list, dont do it in a different function as you need the tail.
         ListNode tail = head;
-        int len = 1;
+        int length = 1;
         while (tail.next != null) {
             tail = tail.next;
-            len++;
+            length++;
         }
 
         //if k is greater than lenght then mod
-        k = k % len;
+        k = k % length;
         if (k == 0)
             return head;
 
         //move to pivot to previous node and rotate
         //length - k - 1 as we want to be one node behind.
         ListNode curr = head;
-        for (int i = 0; i < len - k - 1; i++) {
+        for (int i = 0; i < length - k - 1; i++) {
             curr = curr.next;
         }
 

@@ -8,8 +8,6 @@ import org.junit.jupiter.api.Test;
 /**
  * [221. Maximal Square - MEDIUM](https://leetcode.com/problems/maximal-square/)
  *
- * - right+down+diagonal dfs, fill -1
- * - dfs, cache holds square length not area
  * - 1 + Math.min(right, down, diagonal)
  *
  * PRACTICE
@@ -26,25 +24,48 @@ public class MaximalSquare {
                 {'1', '1', '1', '1', '1'},
                 {'1', '0', '0', '1', '0'}};
         Assertions.assertEquals(4, maximalSquare(matrix));
+        Assertions.assertEquals(4, maximalSquare2(matrix));
     }
 
     /**
      * Time: O(m*n)
      * Space: O(m*n)
      */
-    int row;
-    int col;
+    public int maximalSquare(char[][] matrix) {
+        int rowLength = matrix.length;
+        int colLength = matrix[0].length;
+        int[][] dp = new int[rowLength][colLength];
+        int maxLength = 0;
+        for (int i = rowLength - 1; i >= 0; i--) {
+            for (int j = colLength - 1; j >= 0; j--) {
+                //last row or last column case or if cell is zero case
+                if (i == rowLength - 1 || j == colLength - 1 || matrix[i][j] == '0')
+                    dp[i][j] = matrix[i][j] == '1' ? 1 : 0;
+                else
+                    dp[i][j] = 1 + Math.min(dp[i + 1][j + 1], Math.min(dp[i + 1][j], dp[i][j + 1]));
+                maxLength = Math.max(maxLength, dp[i][j]);
+            }
+        }
+        return maxLength * maxLength;
+    }
+
+    /**
+     * Time: O(m*n)
+     * Space: O(m*n)
+     */
+    int rowLength;
+    int colLength;
     int dp[][];
     char[][] matrix;
     int maxLen;
 
-    public int maximalSquare(char[][] input) {
-        matrix = input;
-        row = matrix.length;
-        col = matrix[0].length;
-        dp = new int[row][col];
+    public int maximalSquare2(char[][] matrix) {
+        this.matrix = matrix;
+        rowLength = matrix.length;
+        colLength = matrix[0].length;
+        dp = new int[rowLength][colLength];
         maxLen = 0;
-        for (int i = 0; i < row; i++)
+        for (int i = 0; i < rowLength; i++)
             Arrays.fill(dp[i], -1);
         dfs(0, 0);
         return maxLen * maxLen;
@@ -52,7 +73,7 @@ public class MaximalSquare {
 
     public int dfs(int i, int j) {
         //beyond boundary return 0
-        if (i >= row || j >= col) {
+        if (i >= rowLength || j >= colLength) {
             return 0;
         }
         //not in cache

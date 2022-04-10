@@ -39,6 +39,7 @@ public class DecodeString {
                 while (!stack.peek().equals("[")) {
                     sb.insert(0,stack.pop());
                 }
+                //remove '['
                 stack.pop();
                 StringBuilder number = new StringBuilder();
                 while (!stack.isEmpty() && Character.isDigit(stack.peek().charAt(0))) {

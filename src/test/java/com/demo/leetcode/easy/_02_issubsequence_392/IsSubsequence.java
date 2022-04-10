@@ -8,8 +8,6 @@ import org.junit.jupiter.api.Test;
  *
  * - two pointer
  *
- * PRACTICE
- *
  * https://www.youtube.com/watch?v=99RVfqklbCE&ab_channel=NeetCode
  */
 public class IsSubsequence {

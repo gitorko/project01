@@ -12,9 +12,9 @@ import org.junit.jupiter.api.Test;
 /**
  * [347. Top K Frequent Elements - MEDIUM](https://leetcode.com/problems/top-k-frequent-elements/)
  *
- * - bucket sort or heap
- * - option 1: Sort + store in map - Time O(n * log(n))
- * - option 2: Sort + store in max heap + pop k times - Time O(k * log(n))
+ * - bucket sort or max heap
+ * - option 1: sort + store in map - Time O(n * log(n))
+ * - option 2: sort + store in max heap + pop k times - Time O(k * log(n))
  * - option 3: Bucket sort with count as index O(n)
  * - SIMILAR_TO: [451. Sort Characters By Frequency - MEDIUM](https://leetcode.com/problems/sort-characters-by-frequency/)
  *
@@ -38,18 +38,25 @@ public class TopKFrequentElementInArray {
         Assertions.assertArrayEquals(expected, topKFrequent2(nums, k));
     }
 
+    @Test
+    public void test3() {
+        int nums[] = {4, 1, -1, 2, -1, 2, 3}, k = 2;
+        int expected[] = {-1, 2};
+        Assertions.assertArrayEquals(expected, topKFrequent(nums, k));
+        Assertions.assertArrayEquals(expected, topKFrequent2(nums, k));
+    }
+
     /**
-     * Sort + Store in map
+     * max heap
      * Time: O(n * log(n))
      */
     public int[] topKFrequent(int[] nums, int k) {
         Map<Integer, Integer> frequencyMap = new HashMap<>();
-        for (int n : nums)
+        for (int n : nums) {
             frequencyMap.put(n, frequencyMap.getOrDefault(n, 0) + 1);
-
+        }
         PriorityQueue<Map.Entry<Integer, Integer>> pq = new PriorityQueue<>((a, b) -> b.getValue() - a.getValue());
         pq.addAll(frequencyMap.entrySet());
-
         List<Integer> result = new ArrayList<>();
         while (!pq.isEmpty() && k > 0) {
             Map.Entry e = pq.poll();

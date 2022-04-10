@@ -10,13 +10,12 @@ import org.junit.jupiter.api.Test;
 /**
  * [15. 3Sum - MEDIUM](https://leetcode.com/problems/3sum/)
  *
- * - sort input array, two pointer needs sorted array
- * - for loop till i-2
+ * - sort, two pointer needs sorted array
+ * - outer loop till i-2, skip duplicate
  *
- * PRACTICE
+ * PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=jzZsG8n2R9A&ab_channel=NeetCode
- * https://www.youtube.com/watch?v=qJSPYnS35SE&t=55s&ab_channel=NickWhite
  */
 public class ThreeSum {
 
@@ -42,6 +41,7 @@ public class ThreeSum {
     public List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> result = new LinkedList<>();
         Arrays.sort(nums);
+        //important for outer loop till n-2
         for (int i = 0; i < nums.length - 2; i++) {
             if (i > 0 && nums[i] == nums[i - 1]) {
                 // skip same result

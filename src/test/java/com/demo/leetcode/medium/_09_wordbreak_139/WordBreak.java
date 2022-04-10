@@ -13,11 +13,11 @@ import org.junit.jupiter.api.Test;
 /**
  * [139. Word Break - MEDIUM](https://leetcode.com/problems/word-break/)
  *
- * - map + boolean dp from reverse, break when dp[i] true
- * - dp[length] = true, dp[i] = dp[i + word.length()];
- * - start from reverse of given string to find dp
+ * - option1: dp, start from reverse
+ * - break when dp[i] true
+ * - option2: can be solved by bfs
  *
- * PRACTICE
+ * PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=Sx9NNgInc3A&ab_channel=NeetCode
  */
@@ -86,24 +86,28 @@ public class WordBreak {
 
     /**
      * BFS approach
+     * - SIMILAR_TO: [55. Jump Game - MEDIUM](https://leetcode.com/problems/jump-game/)
      */
     public boolean wordBreak3(String s, List<String> wordDict) {
         Set<String> dict = new HashSet<>(wordDict);
 
-        if (dict.contains(s)) return true;
+        //when the whole word is present in dict
+        if (dict.contains(s))
+            return true;
 
         Queue<Integer> queue = new LinkedList<>();
         queue.offer(0);
         // use a set to record checked index to avoid repeated work.
-        // This is the key to reduce the running time to O(N^2).
         Set<Integer> visited = new HashSet<>();
         visited.add(0);
         while (!queue.isEmpty()) {
             int index = queue.poll();
             for (int i = index + 1; i <= s.length(); i++) {
-                if (visited.contains(i)) continue;
+                if (visited.contains(i))
+                    continue;
                 if (dict.contains(s.substring(index, i))) {
-                    if (i == s.length()) return true;
+                    if (i == s.length())
+                        return true;
                     queue.offer(i);
                     visited.add(i);
                 }

@@ -11,9 +11,8 @@ import org.junit.jupiter.api.Test;
  *
  * - Two heap, (max heap, min heap)
  * - Heap, Adding to heap O(log N), removing is also O(log N), find is O(1)
- * - brute force, keep single array in sorted order. insertion takes O(N)
  *
- * PRACTICE
+ * PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=itmhHWaHupI&ab_channel=NeetCode
  */
@@ -33,10 +32,10 @@ public class MedianFromDataStream {
     class MedianFinder {
 
         //small is max heap
-        private PriorityQueue<Integer> small = new PriorityQueue<>(Collections.reverseOrder());
+        PriorityQueue<Integer> small = new PriorityQueue<>(Collections.reverseOrder());
         //large is min heap
-        private PriorityQueue<Integer> large = new PriorityQueue<>();
-        private boolean even = true;
+        PriorityQueue<Integer> large = new PriorityQueue<>();
+        boolean even = true;
 
         public double findMedian() {
             if (even)

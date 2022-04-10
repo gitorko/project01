@@ -10,11 +10,11 @@ import org.junit.jupiter.api.Test;
  * [673. Number of Longest Increasing Subsequence - MEDIUM](https://leetcode.com/problems/number-of-longest-increasing-subsequence/)
  *
  * - start from reverse, LIS
- * - map dp
+ * - map dp(count+length)
  * - local max length, local max count
  * - SIMILAR_TO: [300. Longest Increasing Subsequence - MEDIUM](https://leetcode.com/problems/longest-increasing-subsequence/)
  *
- * PRACTICE
+ * PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=Tuc-rjJbsXU&ab_channel=NeetCode
  */

@@ -16,7 +16,7 @@ public class LastStoneWeight {
 
     @Test
     public void test() {
-        int [] stones = {2,7,4,1,8,1};
+        int[] stones = {2, 7, 4, 1, 8, 1};
         Assertions.assertEquals(1, lastStoneWeight(stones));
     }
 
@@ -25,6 +25,7 @@ public class LastStoneWeight {
      * Space O(n)
      */
     public int lastStoneWeight(int[] stones) {
+        //max heap
         PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> b - a);
         for (int a : stones)
             pq.offer(a);

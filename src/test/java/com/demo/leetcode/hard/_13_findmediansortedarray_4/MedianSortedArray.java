@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
  * - option1: merge 2 array and find median. Time: O(m+n), Space: O(m+n)
  * - option2: binary search O(log(m+n))
  *
- * PRACTICE
+ * PRACTICE: P3
  *
  * https://www.youtube.com/watch?v=q6IEA26hvXc&ab_channel=NeetCode
  * https://www.youtube.com/watch?v=LPFhl65R7ww&ab_channel=TusharRoy-CodingMadeSimple

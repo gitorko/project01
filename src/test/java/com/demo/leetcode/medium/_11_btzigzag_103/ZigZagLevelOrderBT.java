@@ -40,9 +40,9 @@ public class ZigZagLevelOrderBT {
         boolean even = true;
         queue.offer(root);
         while (!queue.isEmpty()) {
-            int levelNum = queue.size();
+            int size = queue.size();
             List<Integer> subList = new ArrayList<>();
-            while (levelNum > 0) {
+            while (size > 0) {
                 if (even) {
                     TreeNode node = queue.pollFirst();
                     subList.add(node.val);
@@ -58,7 +58,7 @@ public class ZigZagLevelOrderBT {
                     if (node.left != null)
                         queue.addFirst(node.left);
                 }
-                levelNum--;
+                size--;
             }
             even = !even;
             result.add(subList);

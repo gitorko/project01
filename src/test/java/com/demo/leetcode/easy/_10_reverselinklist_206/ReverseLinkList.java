@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
  * - Recursion - head.next.next
  *
  * PRACTICE
+ * MEMORIZE
  *
  * https://www.youtube.com/watch?v=G0_I-ZF0S38&ab_channel=NeetCode
  */

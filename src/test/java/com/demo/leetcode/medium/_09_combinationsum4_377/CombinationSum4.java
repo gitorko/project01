@@ -26,6 +26,7 @@ public class CombinationSum4 {
     /**
      * Bottom up
      * Time: O(m*n) m is target value, n is input
+     * Space: O(m*n)
      */
     public int combinationSum4bottomUp(int[] nums, int target) {
         int[] dp = new int[target + 1];
@@ -43,28 +44,32 @@ public class CombinationSum4 {
 
     /**
      * Top Down
+     * Time: O(m*n)
+     * Space: O(m*n)
      */
     private int[] dp;
+    int[] nums;
 
     public int combinationSum4(int[] nums, int target) {
+        this.nums = nums;
         dp = new int[target + 1];
         Arrays.fill(dp, -1);
         dp[0] = 1;
-        return helper(nums, target);
+        return helper(target);
     }
 
-    private int helper(int[] nums, int target) {
+    private int helper(int target) {
         if (dp[target] != -1) {
             return dp[target];
         }
-        int res = 0;
+        int result = 0;
         for (int i = 0; i < nums.length; i++) {
             if (target >= nums[i]) {
-                res += helper(nums, target - nums[i]);
+                result += helper(target - nums[i]);
             }
         }
-        dp[target] = res;
-        return res;
+        dp[target] = result;
+        return result;
     }
 
 }

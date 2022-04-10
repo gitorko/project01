@@ -35,17 +35,13 @@ public class PairSumSorted {
         int right = numbers.length - 1;
         while (left < right) {
             if (numbers[left] + numbers[right] == target)
-                break;
+                return new int[]{left + 1, right + 1};
             else if (numbers[left] + numbers[right] > target)
                 right--;
             else
                 left++;
         }
-        if (left == right) {
-            //if both are equal then there is no pair hence return -1
-            return new int[]{-1, -1};
-        }
-        return new int[]{left + 1, right + 1};
+        return new int[]{-1, -1};
     }
 
 }

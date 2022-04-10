@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
  *
  * - backtracking + check palindrome
  *
- * PRACTICE
+ * PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=3jvWodd7ht0&ab_channel=NeetCode
  */
@@ -31,8 +31,8 @@ public class PalindromePartition {
     List<List<String>> result;
     String s;
 
-    public List<List<String>> partition(String input) {
-        this.s = input;
+    public List<List<String>> partition(String s) {
+        this.s = s;
         result = new ArrayList<>();
         backtrack(new ArrayList<>(), 0);
         return result;

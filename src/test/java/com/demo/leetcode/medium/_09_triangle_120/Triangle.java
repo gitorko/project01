@@ -9,7 +9,9 @@ import org.junit.jupiter.api.Test;
 /**
  * [120. Triangle - MEDIUM](https://leetcode.com/problems/triangle/)
  *
- * - dynamic program
+ * - dynamic program, from bottom
+ * - min of bottom
+ * - SIMILAR_TO: [118. Pascal's Triangle - EASY](https://leetcode.com/problems/pascals-triangle/)
  *
  * PRACTICE
  *

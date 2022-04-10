@@ -34,13 +34,14 @@ public class HandOfStraights {
 
         for (int start : count.keySet()) {
             int value = count.get(start);
-            if (value > 0)
+            if (value > 0) {
                 for (int i = start; i < start + groupSize; i++) {
                     //decrement
                     count.put(i, count.getOrDefault(i, 0) - value);
                     if (count.get(i) < 0)
                         return false;
                 }
+            }
         }
         return true;
     }

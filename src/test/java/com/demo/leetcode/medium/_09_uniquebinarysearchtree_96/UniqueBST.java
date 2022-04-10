@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
  * - nothing to do with BST, its a DP problem
  * - two for loop
  *
- * PRACTICE
+ * PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=Ox0TenN3Zpg&ab_channel=NeetCode
  */

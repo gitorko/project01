@@ -10,16 +10,12 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 /**
- * 49. https://leetcode.com/problems/group-anagrams/ |49. Group Anagrams |map char count
+ * [49. Group Anagrams - MEDIUM](https://leetcode.com/problems/group-anagrams/)
  *
- * HINT:
- *  - map that stores char + list of string
- *  - String.valueOf(charCount)
+ * - map that stores char + list of string
+ * - String.valueOf(charCount)
  *
- * TYPE: MEDIUM(1/5)
- * PRACTICE
- *
- * Brute force sort each string and compare Time: O(m * n log (n))
+ * PRACTICE: P3
  *
  * https://www.youtube.com/watch?v=vzdNOK2oB2E&ab_channel=NeetCode
  */

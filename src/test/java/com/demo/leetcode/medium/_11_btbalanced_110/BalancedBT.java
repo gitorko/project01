@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
  *
  * - math.abs, return -1
  *
- * PRACTICE
+ * PRACTICE: P3
  *
  * https://www.youtube.com/watch?v=QfJsau0ItOY&ab_channel=NeetCode
  */
@@ -64,9 +64,11 @@ public class BalancedBT {
         if (rightHeight == -1)
             return -1;
 
-        if (Math.abs(leftHeight - rightHeight) > 1)
+        if (Math.abs(leftHeight - rightHeight) > 1) {
             return -1;
-        return Math.max(leftHeight, rightHeight) + 1;
+        } else {
+            return Math.max(leftHeight, rightHeight) + 1;
+        }
     }
 
     /**

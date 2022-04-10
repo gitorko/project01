@@ -14,7 +14,10 @@ import org.junit.jupiter.api.Test;
  * [1584. Min Cost to Connect All Points - MEDIUM](https://leetcode.com/problems/min-cost-to-connect-all-points/)
  *
  * - prim algo
+ * - min heap
  * - SIMILAR_TO: [743. Network Delay Time - MEDIUM](https://leetcode.com/problems/network-delay-time/)
+ *
+ * PRACTICE
  *
  * https://www.youtube.com/watch?v=f7JOBJIC-NA&ab_channel=NeetCode
  */

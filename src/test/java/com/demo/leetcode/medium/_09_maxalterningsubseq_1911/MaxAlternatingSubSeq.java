@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
  * [1911. Maximum Alternating Subsequence Sum - MEDIUM](https://leetcode.com/problems/maximum-alternating-subsequence-sum/)
  *
  * - dp 2d
+ * - tempEven, tempOdd
  *
  * PRACTICE
  *
@@ -42,21 +43,23 @@ public class MaxAlternatingSubSeq {
      * Space: O(n)
      */
     long[][] dp;
+    int[] nums;
 
     public long maxAlternatingSum2(int[] nums) {
         dp = new long[nums.length + 1][2];
-        dfs(0, true, nums);
+        this.nums = nums;
+        dfs(0, true);
         return dp[0][0];
     }
 
-    private long dfs(int i, boolean even, int[] nums) {
+    private long dfs(int i, boolean even) {
         if (i == nums.length)
             return 0;
         if (dp[i][even ? 0 : 1] != 0)
             return dp[i][even ? 0 : 1];
 
-        int total = even ? nums[i] : -1 * nums[i];
-        long result = Math.max(total + dfs(i + 1, !even, nums), dfs(i + 1, even, nums));
+        int num = even ? nums[i] : -1 * nums[i];
+        long result = Math.max(num + dfs(i + 1, !even), dfs(i + 1, even));
         dp[i][even ? 0 : 1] = result;
         return dp[i][even ? 0 : 1];
     }

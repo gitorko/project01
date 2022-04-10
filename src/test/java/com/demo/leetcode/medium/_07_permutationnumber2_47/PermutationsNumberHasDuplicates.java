@@ -10,7 +10,8 @@ import org.junit.jupiter.api.Test;
 /**
  * [47. Permutations II - MEDIUM](https://leetcode.com/problems/permutations-ii/)
  *
- * - backtracking
+ * - sort, backtracking
+ * - SIMILAR_TO: [46. Permutations - MEDIUM](https://leetcode.com/problems/permutations/)
  *
  * PRACTICE
  *

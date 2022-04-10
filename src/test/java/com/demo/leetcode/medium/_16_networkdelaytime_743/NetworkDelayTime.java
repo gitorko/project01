@@ -14,10 +14,9 @@ import org.junit.jupiter.api.Test;
  * [743. Network Delay Time - MEDIUM](https://leetcode.com/problems/network-delay-time/)
  *
  * - dijkstra, shortest path
- * - bfs, heap
- * - min heap
+ * - bfs, min heap of cost, visited
  *
- * PRACTICE
+ * PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=EaphyqKU4PQ&ab_channel=NeetCode
  */
@@ -59,16 +58,17 @@ public class NetworkDelayTime {
 
         while (!queue.isEmpty()) {
             int[] cur = queue.poll();
-            int curDist = cur[0];
+            int curCost = cur[0];
             int curNode = cur[1];
-            if (visited.contains(curNode)) continue;
+            if (visited.contains(curNode))
+                continue;
 
             visited.add(curNode);
-            result = curDist;
+            result = curCost;
             n--;
             if (adjacencyMap.containsKey(curNode)) {
                 for (Map.Entry<Integer, Integer> next : adjacencyMap.get(curNode).entrySet()) {
-                    queue.add(new int[]{curDist + next.getValue(), next.getKey()});
+                    queue.add(new int[]{curCost + next.getValue(), next.getKey()});
                 }
             }
         }

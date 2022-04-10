@@ -29,7 +29,7 @@ https://codeshare.io/
 13. Binary Search
 14. Topological Sort
 15. Stack & Monotonic Stack
-16. Graph
+16. Graph & Matrix
 17. Thread
 18. Greedy
 19. Segment Tree

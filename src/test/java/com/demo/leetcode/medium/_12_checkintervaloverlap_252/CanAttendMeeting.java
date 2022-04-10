@@ -53,6 +53,7 @@ public class CanAttendMeeting {
         Arrays.sort(intervals, (i1, i2) -> Integer.compare(i1[0], i2[0]));
 
         int previousEnd = intervals[0][1];
+        //start from 2nd interval
         for (int i = 1; i < intervals.length; i++) {
             int start = intervals[i][0];
             int end = intervals[i][1];

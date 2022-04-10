@@ -8,8 +8,6 @@ import org.junit.jupiter.api.Test;
  *
  * - swap
  *
- * PRACTICE
- *
  * https://www.youtube.com/watch?v=aayNRwUN3Do&ab_channel=NeetCode
  */
 public class MoveZero {

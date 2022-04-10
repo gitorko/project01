@@ -47,7 +47,8 @@ public class SpiralMatrix {
     private void dfs(int i, int j, boolean up) {
 
         //if visited or out of boundary
-        if (i < 0 || i >= rowLength || j < 0 || j >= colLength || visited[i][j]) return;
+        if (i < 0 || i >= rowLength || j < 0 || j >= colLength || visited[i][j])
+            return;
 
         visited[i][j] = true;
         result.add(matrix[i][j]);

@@ -8,7 +8,8 @@ import org.junit.jupiter.api.Test;
 /**
  * [19. Remove Nth Node From End of List - MEDIUM](https://leetcode.com/problems/remove-nth-node-from-end-of-list/)
  *
- * - dummy node + (left, right+n) pointer
+ * - dummy node
+ * - left, right+n pointer, left node one behind
  *
  * https://www.youtube.com/watch?v=XVuQxVej6y8&ab_channel=NeetCode
  */

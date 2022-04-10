@@ -7,6 +7,9 @@ import org.junit.jupiter.api.Test;
  * [1888. Minimum Number of Flips to Make the Binary String Alternating - MEDIUM](https://leetcode.com/problems/minimum-number-of-flips-to-make-the-binary-string-alternating/)
  *
  * - sliding window
+ * - add the string twice
+ *
+ * PRACTICE
  *
  * https://www.youtube.com/watch?v=MOeuK6gaC2A&ab_channel=NeetCode
  */

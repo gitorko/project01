@@ -6,9 +6,14 @@ import org.junit.jupiter.api.Test;
 /**
  * [307. Range Sum Query - Mutable - MEDIUM](https://leetcode.com/problems/range-sum-query-mutable/)
  *
- * - segment tree
+ * - option1: segment tree
+ * - option2: fenwick tree (BIT binary index tree)
+ * - option3: sqrt Decomposition.
+ * - SIMILAR_TO: [303. Range Sum Query - Immutable - EASY](https://leetcode.com/problems/range-sum-query-immutable/)
  *
- * PRACTICE
+ * PRACTICE: P1
+ *
+ * https://www.youtube.com/watch?v=CWDQJGaN1gY&ab_channel=TusharRoy-CodingMadeSimple
  */
 public class RangeSumMutable {
 
@@ -22,8 +27,10 @@ public class RangeSumMutable {
     }
 
     /**
-     * classic Dynamic Range Sum Query problem, to query sum in range efficiently where elements can be updated dynamically.
-     * problem can be solved in various approaches such as: Segment Tree, BIT, Sqrt Decomposition.
+     * Time:
+     * Constructor: O(n log(n))
+     * update, sumRange: O(log(n))
+     * Space: O(n)
      *
      * In BIT structure, there are 2 basic operations:
      * addValue(idx, value): Add an amount of value into element at index idx (1-based indexing), time: O(logN)

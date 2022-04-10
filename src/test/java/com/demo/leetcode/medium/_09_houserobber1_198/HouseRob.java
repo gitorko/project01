@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
  *
  * - rob = max (arr[0] + rob(2..n), rob(1..n))
  *
- * PRACTICE
+ * PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=73r3KWiEvyk&ab_channel=NeetCode
  */

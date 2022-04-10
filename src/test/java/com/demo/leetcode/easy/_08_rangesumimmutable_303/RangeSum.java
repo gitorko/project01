@@ -9,6 +9,8 @@ import org.junit.jupiter.api.Test;
  * - prefix sum
  * - SIMILAR_TO: [Ones in Range - MEDIUM]()
  *
+ * PRACTICE: P1
+ *
  * https://www.youtube.com/watch?v=FoLSpCsQ0rA&ab_channel=jayatitiwari
  */
 public class RangeSum {

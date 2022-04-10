@@ -11,7 +11,6 @@ import org.junit.jupiter.api.Test;
  * [22. Generate Parentheses - MEDIUM](https://leetcode.com/problems/generate-parentheses/)
  *
  * - open+close counter, backtracking
- * - backtracking
  * - if n = 3 then string can be of length 3 * 2 = 6. 3 opening, 3 closing
  * - open and close counter
  * - can add ( only if open < n

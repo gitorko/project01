@@ -1,4 +1,4 @@
-package com.demo.leetcode.hard._16_wordbreak_127;
+package com.demo.leetcode.hard._16_wordladder_127;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -21,7 +21,7 @@ import org.junit.jupiter.api.Test;
  *
  * https://www.youtube.com/watch?v=h9iTnkgv05E&ab_channel=NeetCode
  */
-public class WordBreak {
+public class WordLadder {
 
     @Test
     public void test1() {

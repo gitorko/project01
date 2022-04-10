@@ -57,16 +57,16 @@ public class SetMatrixZero {
      * Space: O(1)
      */
     public void setZeroes(int[][] matrix) {
-        int row = matrix.length;
-        int col = matrix[0].length;
+        int rowLength = matrix.length;
+        int colLength = matrix[0].length;
         boolean rowZero = false;
 
-        for (int i = 0; i < row; i++) {
-            for (int j = 0; j < col; j++) {
+        for (int i = 0; i < rowLength; i++) {
+            for (int j = 0; j < colLength; j++) {
                 if (matrix[i][j] == 0) {
-                    //row
+                    //rowLength
                     matrix[0][j] = 0;
-                    //col
+                    //colLength
                     if (i > 0) {
                         matrix[i][0] = 0;
                     } else {
@@ -76,25 +76,25 @@ public class SetMatrixZero {
                 }
             }
         }
-        //set 0 for all rows and cols other than first row,first col
-        for (int i = 1; i < row; i++) {
-            for (int j = 1; j < col; j++) {
+        //set 0 for all rows and cols other than first rowLength,first colLength
+        for (int i = 1; i < rowLength; i++) {
+            for (int j = 1; j < colLength; j++) {
                 if (matrix[0][j] == 0 || matrix[i][0] == 0) {
                     matrix[i][j] = 0;
                 }
             }
         }
 
-        //handle first row.
+        //handle first column
         if (matrix[0][0] == 0) {
-            for (int i = 0; i < row; i++) {
+            for (int i = 0; i < rowLength; i++) {
                 matrix[i][0] = 0;
             }
         }
 
-        //handle first column
+        //handle first row
         if (rowZero) {
-            for (int j = 0; j < col; j++) {
+            for (int j = 0; j < colLength; j++) {
                 matrix[0][j] = 0;
             }
         }
@@ -106,15 +106,15 @@ public class SetMatrixZero {
      * Space: O(m+n)
      */
     public void setZeroes2(int[][] matrix) {
-        int row = matrix.length;
-        int col = matrix[0].length;
-        int rowZero[] = new int[row];
-        int colZero[] = new int[col];
+        int rowLength = matrix.length;
+        int colLength = matrix[0].length;
+        int rowZero[] = new int[rowLength];
+        int colZero[] = new int[colLength];
         Arrays.fill(rowZero, 1);
         Arrays.fill(colZero, 1);
 
-        for (int i = 0; i < row; i++) {
-            for (int j = 0; j < col; j++) {
+        for (int i = 0; i < rowLength; i++) {
+            for (int j = 0; j < colLength; j++) {
                 if (matrix[i][j] == 0) {
                     rowZero[i] = 0;
                     colZero[j] = 0;
@@ -123,7 +123,7 @@ public class SetMatrixZero {
         }
         for (int i = 0; i < rowZero.length; i++) {
             if (rowZero[i] == 0) {
-                for (int j = 0; j < col; j++) {
+                for (int j = 0; j < colLength; j++) {
                     matrix[i][j] = 0;
                 }
             }
@@ -131,7 +131,7 @@ public class SetMatrixZero {
 
         for (int i = 0; i < colZero.length; i++) {
             if (colZero[i] == 0) {
-                for (int j = 0; j < row; j++) {
+                for (int j = 0; j < rowLength; j++) {
                     matrix[j][i] = 0;
                 }
             }

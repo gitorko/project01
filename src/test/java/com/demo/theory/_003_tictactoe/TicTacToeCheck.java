@@ -9,11 +9,6 @@ import org.junit.jupiter.api.Test;
  * x x x
  * x o o
  * o o x
- *
- * HINT:
- *
- * TYPE: EASY
- *
  */
 public class TicTacToeCheck {
 

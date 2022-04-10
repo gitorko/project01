@@ -8,9 +8,8 @@ import org.junit.jupiter.api.Test;
 /**
  * [448. Find All Numbers Disappeared in an Array - EASY](https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/)
  *
- * - cyclic sort, mark, abs
- * - mark position (all input is positive)
- * - range is given 1 - n and positive numbers
+ * - cyclic sort, Math.abs
+ * - SIMILAR_TO: [41. First Missing Positive - HARD](https://leetcode.com/problems/first-missing-positive/)
  *
  * PRACTICE
  *

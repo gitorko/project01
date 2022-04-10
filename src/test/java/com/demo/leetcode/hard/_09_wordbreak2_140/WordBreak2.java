@@ -15,6 +15,7 @@ import org.junit.jupiter.api.Test;
  * [140. Word Break II - HARD](https://leetcode.com/problems/word-break-ii/)
  *
  *  - set
+ *  - memoization in map
  */
 public class WordBreak2 {
 
@@ -26,6 +27,10 @@ public class WordBreak2 {
         Assertions.assertEquals(expected, wordBreak(s, wordDict));
     }
 
+    /**
+     * Time: O(2^n)
+     * Space: O(2^n)
+     */
     Map<String, List<String>> memo;
     Set<String> wordSet;
 
@@ -35,16 +40,16 @@ public class WordBreak2 {
         return wordBreakHelper(s);
     }
 
-    private List<String> wordBreakHelper(final String s) {
+    private List<String> wordBreakHelper(String s) {
         if (memo.containsKey(s))
             return memo.get(s);
 
         List<String> ans = new ArrayList<>();
 
-        // 1 <= prefix.length() < s.length()
-        for (int i = 1; i < s.length(); ++i) {
-            final String prefix = s.substring(0, i);
-            final String suffix = s.substring(i);
+        // start from 2nd char
+        for (int i = 1; i < s.length(); i++) {
+            String prefix = s.substring(0, i);
+            String suffix = s.substring(i);
             if (wordSet.contains(prefix)) {
                 for (String word : wordBreakHelper(suffix)) {
                     ans.add(prefix + " " + word);

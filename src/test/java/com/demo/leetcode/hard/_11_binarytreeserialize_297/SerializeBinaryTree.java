@@ -14,6 +14,9 @@ import org.junit.jupiter.api.Test;
  * [297. Serialize and Deserialize Binary Tree - HARD](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/)
  *
  * - pre-order, queue
+ * - recursion
+ *
+ * PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=u4JAi2JJhI8&ab_channel=NeetCode
  */

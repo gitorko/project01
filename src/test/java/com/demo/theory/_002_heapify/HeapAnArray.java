@@ -13,8 +13,6 @@ import org.junit.jupiter.api.Test;
  *       / \    /  \
  *      9   8 15    17
  *
- * TYPE: HARD
- *
  */
 public class HeapAnArray {
 

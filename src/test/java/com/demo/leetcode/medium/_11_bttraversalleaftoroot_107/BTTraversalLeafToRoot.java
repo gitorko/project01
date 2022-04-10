@@ -37,16 +37,16 @@ public class BTTraversalLeafToRoot {
         queue.offer(root);
 
         while (!queue.isEmpty()) {
-            int levelNum = queue.size();
+            int size = queue.size();
             List<Integer> subList = new LinkedList<>();
-            while (levelNum > 0) {
+            while (size > 0) {
                 TreeNode node = queue.poll();
                 if (node.left != null)
                     queue.offer(node.left);
                 if (node.right != null)
                     queue.offer(node.right);
                 subList.add(node.val);
-                levelNum--;
+                size--;
             }
             result.add(0, subList);
         }

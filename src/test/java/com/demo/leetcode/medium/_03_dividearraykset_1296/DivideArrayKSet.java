@@ -12,9 +12,7 @@ import org.junit.jupiter.api.Test;
  * - Tree Map
  * - SIMILAR_TO: [846. Hand of Straights - MEDIUM](https://leetcode.com/problems/hand-of-straights/)
  *
- * Similar to: 846. https://leetcode.com/problems/hand-of-straights/
- *
- * PRACTICE
+ * PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=amnrMCVd2YI&ab_channel=NeetCode
  */
@@ -35,8 +33,8 @@ public class DivideArrayKSet {
     }
 
     /**
-     * Time: O(MlogM + N), m is the number of different cards
-     * Space: O(m)
+     * Time: O(n log(n) + k), n is the number of different cards
+     * Space: O(n)
      */
     public boolean isPossibleDivide(int[] nums, int k) {
         Map<Integer, Integer> count = new TreeMap<>();
@@ -45,12 +43,13 @@ public class DivideArrayKSet {
 
         for (int start : count.keySet()) {
             int value = count.get(start);
-            if (value > 0)
+            if (value > 0) {
                 for (int i = start; i < start + k; i++) {
                     count.put(i, count.getOrDefault(i, 0) - value);
                     if (count.get(i) < 0)
                         return false;
                 }
+            }
         }
         return true;
     }

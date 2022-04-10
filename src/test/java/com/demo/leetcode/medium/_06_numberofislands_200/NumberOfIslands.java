@@ -8,8 +8,6 @@ import org.junit.jupiter.api.Test;
  *
  * - dfs, marking visited
  *
- * PRACTICE
- *
  * https://www.youtube.com/watch?v=pV2kpPD66nE&ab_channel=NeetCode
  */
 public class NumberOfIslands {
@@ -36,12 +34,14 @@ public class NumberOfIslands {
         int count = 0;
         rowLength = grid.length;
         colLength = grid[0].length;
-        for (int i = 0; i < rowLength; i++)
-            for (int j = 0; j < colLength; j++)
+        for (int i = 0; i < rowLength; i++) {
+            for (int j = 0; j < colLength; j++) {
                 if (grid[i][j] == '1') {
                     dfs(i, j, grid);
                     count++;
                 }
+            }
+        }
         return count;
     }
 

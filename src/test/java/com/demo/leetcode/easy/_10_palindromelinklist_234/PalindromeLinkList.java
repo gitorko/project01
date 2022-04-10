@@ -10,7 +10,6 @@ import org.junit.jupiter.api.Test;
 /**
  * [234. Palindrome Linked List - EASY](https://leetcode.com/problems/palindrome-linked-list/)
  *
- * - in place, no extra memory
  * - find min, reverse, check
  * - fast & slow pointer
  * - reverse link list mid to end.
@@ -36,7 +35,7 @@ public class PalindromeLinkList {
             slow = slow.next;
         }
 
-        //reverse
+        //reverse 2nd half
         slow = reverse(slow);
         fast = head;
 

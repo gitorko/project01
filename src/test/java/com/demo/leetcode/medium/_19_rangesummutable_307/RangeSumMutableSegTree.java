@@ -7,8 +7,11 @@ import org.junit.jupiter.api.Test;
  * [307. Range Sum Query - Mutable - MEDIUM](https://leetcode.com/problems/range-sum-query-mutable/)
  *
  * - segment tree
+ * - SIMILAR_TO: [303. Range Sum Query - Immutable - EASY](https://leetcode.com/problems/range-sum-query-immutable/)
  *
- * PRACTICE
+ * PRACTICE: P1
+ *
+ * https://www.youtube.com/watch?v=ZBHKZF5w4YU&ab_channel=TusharRoy-CodingMadeSimple
  */
 public class RangeSumMutableSegTree {
 

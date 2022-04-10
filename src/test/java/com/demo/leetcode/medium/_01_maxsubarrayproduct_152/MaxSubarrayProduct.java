@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
  * - max & min flip if negative
  * - only 2 variables to track, track both (max,min) for a pair.
  *
- * PRACTICE
+ * PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=lXVy6YWFcRM&ab_channel=NeetCode
  */
@@ -46,7 +46,7 @@ public class MaxSubarrayProduct {
         int result = nums[0];
         int min = nums[0];
         int max = nums[0];
-
+        //start from 2nd element
         for (int i = 1; i < nums.length; i++) {
             if (nums[i] < 0) {
                 int temp = max;

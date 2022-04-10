@@ -80,7 +80,6 @@ public class BTTraversal {
     }
 
     /**
-     *
      * BFS
      * Time: O(N)
      * Space: Space O(N)
@@ -108,9 +107,8 @@ public class BTTraversal {
     }
 
     /**
-     * Same as above but list of list.
+     * Same as above but returns list of list.
      * Need to track level - 2 while loop
-     * 102. Binary Tree Level Order Traversal
      */
     public List<List<Integer>> levelOrder(TreeNode root) {
         Queue<TreeNode> queue = new LinkedList<>();
@@ -120,16 +118,16 @@ public class BTTraversal {
 
         queue.offer(root);
         while (!queue.isEmpty()) {
-            int levelNum = queue.size();
+            int size = queue.size();
             List<Integer> subList = new ArrayList<>();
-            while (levelNum > 0) {
+            while (size > 0) {
                 TreeNode node = queue.poll();
                 if (node.left != null)
                     queue.offer(node.left);
                 if (node.right != null)
                     queue.offer(node.right);
                 subList.add(node.val);
-                levelNum--;
+                size--;
             }
             result.add(subList);
         }

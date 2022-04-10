@@ -10,9 +10,10 @@ import org.junit.jupiter.api.Test;
 /**
  * [148. Sort List - MEDIUM](https://leetcode.com/problems/sort-list/)
  *
- * - merge sort
- * - mid
+ * - find mid, merge sort, previous node
  * - merge 2 list
+ *
+ * PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=TGveA1oFhrc&ab_channel=NeetCode
  */

@@ -10,9 +10,9 @@ import org.junit.jupiter.api.Test;
 /**
  * [46. Permutations - MEDIUM](https://leetcode.com/problems/permutations/)
  *
- * - backtracking
+ * - backtracking, visited to avoid duplicates
  *
- * PRACTICE
+ * PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=s7AvT7cGdSo&ab_channel=NeetCode
  */

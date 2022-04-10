@@ -30,7 +30,6 @@ public class CoinChange {
      */
     public int coinChange(int[] coins, int amount) {
         int[] dp = new int[amount + 1];
-        //amount+1 is max value
         Arrays.fill(dp, amount + 1);
         dp[0] = 0;
         for (int a = 1; a <= amount; a++) {
@@ -38,7 +37,7 @@ public class CoinChange {
                 int diff = a - coin;
                 if (diff >= 0) {
                     //remember to add +1
-                    dp[a] = Math.min(dp[a], dp[diff] + 1);
+                    dp[a] = Math.min(dp[a], 1 + dp[diff]);
                 }
             }
         }

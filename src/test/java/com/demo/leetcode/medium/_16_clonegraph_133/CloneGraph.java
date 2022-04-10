@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
  *
  * - bfs, visited map
  *
- * PRACTICE
+ * PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=mQeF6bN8hMk&ab_channel=NeetCode
  */
@@ -35,9 +35,9 @@ public class CloneGraph {
     public Node cloneGraph(Node node) {
         if (node == null) return null;
 
-        Node newNode = new Node(node.val); //new node for return
+        Node newNode = new Node(node.val);
         Map<Integer, Node> visited = new HashMap();
-        visited.put(newNode.val, newNode);
+        visited.put(node.val, newNode);
 
         Queue<Node> queue = new LinkedList();
         queue.add(node);

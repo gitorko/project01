@@ -10,8 +10,10 @@ import org.junit.jupiter.api.Test;
  *
  * - monotonic stack
  * - prefix sum
+ * - SIMILAR_TO: [84. Largest Rectangle in Histogram - HARD](https://leetcode.com/problems/largest-rectangle-in-histogram/)
+ * - SIMILAR_TO: [1856. Maximum Subarray Min-Product - MEDIUM](https://leetcode.com/problems/maximum-subarray-min-product/)
  *
- * PRACTICE
+ * PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=YLesLbNkyjA&ab_channel=NeetCode
  */
@@ -29,6 +31,7 @@ public class MaxSubarrayMinProduct {
      */
     public int maxSumMinProduct(int[] nums) {
         long result = 0;
+        //stack holds index
         Stack<Integer> stack = new Stack<>();
         long[] prefix = new long[nums.length + 1];
 
@@ -36,15 +39,20 @@ public class MaxSubarrayMinProduct {
         for (int i = 0; i < nums.length; i++)
             prefix[i + 1] = prefix[i] + nums[i];
 
-        for (int i = 0; i <= nums.length; i++) {
-            while (!stack.isEmpty() && (i == nums.length || nums[stack.peek()] > nums[i])) {
+        for (int i = 0; i < nums.length; i++) {
+            while (!stack.isEmpty() && nums[stack.peek()] > nums[i]) {
                 int minVal = nums[stack.pop()];
                 long sum = stack.isEmpty() ? prefix[i] : prefix[i] - prefix[stack.peek() + 1];
                 result = Math.max(result, minVal * sum);
             }
             stack.push(i);
         }
-
+        //process remaining elements on stack
+        while (!stack.isEmpty()) {
+            int minVal = nums[stack.pop()];
+            long sum = stack.isEmpty() ? prefix[nums.length] : prefix[nums.length] - prefix[stack.peek() + 1];
+            result = Math.max(result, minVal * sum);
+        }
         return (int) (result % 1000000007);
     }
 }

@@ -8,13 +8,11 @@ import org.junit.jupiter.api.Test;
  *
  * - expand around center, two pointer
  * - odd and even case
- * - brute force - check every substring is palindrome - O(n^3) = O(n) to go over each char + O(n^2) to search substring
  * - manacher algorithm
  *
  * PRACTICE
  *
  * https://www.youtube.com/watch?v=XYQecbcd6_c&ab_channel=NeetCode
- * https://www.youtube.com/watch?v=y2BD4MJqV20&ab_channel=NickWhite
  * https://www.youtube.com/watch?v=V-sEwsca1ak - Manacher Algorithm O(N) time. Difficult to code during interview.
  */
 public class LongestPalindromeSubstr {

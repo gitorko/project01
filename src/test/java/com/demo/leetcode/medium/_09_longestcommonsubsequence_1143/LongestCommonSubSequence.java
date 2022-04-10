@@ -8,10 +8,9 @@ import org.junit.jupiter.api.Test;
  *
  * - dynamic program (2d matrix)
  * - solve from reverse
- * - if match go diagonal
- * - if no match go right and go down and get max
+ * - if match go diagonal, if no match go right and go down and get max
  *
- * PRACTICE
+ * PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=Ua0GhsJSlWM&ab_channel=NeetCode
  */

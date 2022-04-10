@@ -11,8 +11,9 @@ import org.junit.jupiter.api.Test;
  * [86. Partition List - MEDIUM](https://leetcode.com/problems/partition-list/)
  *
  * - 4 dummy node
+ * - set rightTail.next to null
  *
- * PRACTICE
+ * PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=KT1iUciJr4g&ab_channel=NeetCode
  */

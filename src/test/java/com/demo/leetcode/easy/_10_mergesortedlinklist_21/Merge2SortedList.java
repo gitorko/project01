@@ -11,7 +11,8 @@ import org.junit.jupiter.api.Test;
  * - dummy head & start adding to it.
  * - dont miss edge case of adding left over elements
  *
- * PRACTICE
+ * PRACTICE: P1
+ * MEMORIZE
  *
  * https://www.youtube.com/watch?v=XIdigk956u0&ab_channel=NeetCode
  */
@@ -41,7 +42,7 @@ public class Merge2SortedList {
      */
     public ListNode mergeTwoListsIterative(ListNode list1, ListNode list2) {
         if (list1 == null) return list2;
-        else if (list2 == null) return list1;
+        if (list2 == null) return list1;
 
         ListNode dummy = new ListNode(0);
         ListNode curr = dummy;

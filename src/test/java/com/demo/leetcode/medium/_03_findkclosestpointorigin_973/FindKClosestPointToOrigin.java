@@ -7,13 +7,10 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 /**
- * 973. https://leetcode.com/problems/k-closest-points-to-origin/ |973. K Closest Points to Origin |heap
+ * [973. K Closest Points to Origin - MEDIUM](https://leetcode.com/problems/k-closest-points-to-origin/)
  *
- * HINT:
  *  - heap
  *  - (a^2 + b^2) = c^2
- *
- *  TYPE: MEDIUM (2/5)
  *
  * https://www.youtube.com/watch?v=rI2EBUEMfTk&ab_channel=NeetCode
  */
