@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 /**
- * [1239. Maximum Length of a Concatenated String with Unique Characters](https://leetcode.com/problems/maximum-length-of-a-concatenated-string-with-unique-characters/)
+ * [1239. Maximum Length of a Concatenated String with Unique Characters - MEDIUM](https://leetcode.com/problems/maximum-length-of-a-concatenated-string-with-unique-characters/)
  *
  *  - backtracking
  *

@@ -52,7 +52,7 @@ public class BlogGen {
         paths.put("LeetCode - Hard", Paths.get("src/test/java/com/demo/leetcode/hard"));
         paths.put("Concurrency", Paths.get("src/test/java/com/demo/basics/concurrency"));
         System.out.println();
-        String baseUrl = "https://github.com/gitorko/project01/tree/master/";
+        String baseUrl = "https://github.com/gitorko/project01/tree/main/";
         for (Map.Entry<String, Path> map : paths.entrySet()) {
             System.out.println("## " + map.getKey());
             System.out.println();
