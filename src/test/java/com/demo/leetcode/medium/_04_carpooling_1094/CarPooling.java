@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
  * - sort, heap
  * - SIMILAR_TO: [253. Meeting Rooms II - MEDIUM](https://leetcode.com/problems/meeting-rooms-ii/)
  *
- * PRACTICE
+ * PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=08sn_w4LWEE&ab_channel=NeetCode
  */

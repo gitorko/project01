@@ -65,8 +65,8 @@ public class AddSearchWords {
         }
 
         class TrieNode {
-            public boolean isWord;
             public TrieNode[] children = new TrieNode[26];
+            public boolean isWord;
         }
     }
 }

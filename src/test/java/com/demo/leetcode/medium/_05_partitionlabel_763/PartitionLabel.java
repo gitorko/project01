@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 /**
  * [763. Partition Labels - MEDIUM](https://leetcode.com/problems/partition-labels/)
  *
+ * - right most index
  * - two pointer
  *
  * PRACTICE

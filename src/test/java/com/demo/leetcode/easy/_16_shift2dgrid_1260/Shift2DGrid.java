@@ -27,18 +27,18 @@ public class Shift2DGrid {
     }
 
     public List<List<Integer>> shiftGrid(int[][] grid, int k) {
-        int m = grid.length;
-        int n = grid[0].length;
+        int rowLength = grid.length;
+        int colLength = grid[0].length;
 
-        int[][] arr = new int[m][n];
+        int[][] arr = new int[rowLength][colLength];
 
-        k %= m * n;
+        k %= rowLength * colLength;
 
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
-                int index = (i * n + j + k) % (m * n);
-                int x = index / n;
-                int y = index % n;
+        for (int i = 0; i < rowLength; i++) {
+            for (int j = 0; j < colLength; j++) {
+                int index = (i * colLength + j + k) % (rowLength * colLength);
+                int x = index / colLength;
+                int y = index % colLength;
                 arr[x][y] = grid[i][j];
             }
         }

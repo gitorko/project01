@@ -44,7 +44,7 @@ public class WordBreak2 {
         if (memo.containsKey(s))
             return memo.get(s);
 
-        List<String> ans = new ArrayList<>();
+        List<String> result = new ArrayList<>();
 
         // start from 2nd char
         for (int i = 1; i < s.length(); i++) {
@@ -52,16 +52,16 @@ public class WordBreak2 {
             String suffix = s.substring(i);
             if (wordSet.contains(prefix)) {
                 for (String word : wordBreakHelper(suffix)) {
-                    ans.add(prefix + " " + word);
+                    result.add(prefix + " " + word);
                 }
             }
         }
 
         // contains whole string, so don't add any space
         if (wordSet.contains(s))
-            ans.add(s);
+            result.add(s);
 
-        memo.put(s, ans);
-        return ans;
+        memo.put(s, result);
+        return result;
     }
 }

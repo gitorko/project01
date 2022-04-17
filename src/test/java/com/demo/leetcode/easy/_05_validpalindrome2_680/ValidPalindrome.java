@@ -26,7 +26,6 @@ public class ValidPalindrome {
         int right = s.length() - 1;
 
         while (left < right) {
-            //no need check if both are same char
             if (s.charAt(left) != s.charAt(right)) {
                 return validPalindrome(s, left + 1, right) || validPalindrome(s, left, right - 1);
             }
