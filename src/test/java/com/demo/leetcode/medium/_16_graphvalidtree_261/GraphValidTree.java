@@ -16,6 +16,8 @@ import org.junit.jupiter.api.Test;
  * - bfs
  * - SIMILAR_TO: [1466. Reorder Routes to Make All Paths Lead to the City Zero - MEDIUM](https://leetcode.com/problems/reorder-routes-to-make-all-paths-lead-to-the-city-zero/)
  *
+ * PRACTICE: P1
+ *
  * https://www.youtube.com/watch?v=bXsUuownnoQ&ab_channel=NeetCode
  */
 public class GraphValidTree {

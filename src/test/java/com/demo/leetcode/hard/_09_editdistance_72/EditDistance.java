@@ -34,9 +34,11 @@ public class EditDistance {
         int n = word2.length();
         int[][] dp = new int[m + 1][n + 1];
 
+        //fill last row
         for (int i = n; i >= 0; i--)
             dp[m][i] = n - i;
 
+        //fill last column
         for (int i = m; i >= 0; i--)
             dp[i][n] = m - i;
 

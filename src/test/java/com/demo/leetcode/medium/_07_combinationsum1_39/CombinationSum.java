@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 /**
  * [39. Combination Sum - MEDIUM](https://leetcode.com/problems/combination-sum/)
  *
- * - sort + backtracking
+ * - backtracking
  * - no i + 1
  *
  * https://www.youtube.com/watch?v=GBKI9VSKdGg&ab_channel=NeetCode
@@ -35,7 +35,6 @@ public class CombinationSum {
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
         nums = candidates;
         result = new ArrayList<>();
-        Arrays.sort(nums);
         backtrack(new ArrayList<>(), target, 0);
         return result;
     }

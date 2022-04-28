@@ -32,17 +32,17 @@ public class LongestPalindromeSubstr {
         if (s == null || s.length() <= 1)
             return s;
 
-        String ans = "";
+        String result = "";
 
         for (int i = 0; i < s.length(); i++) {
             String odd = expandAroundCenter(s, i, i);
             String even = expandAroundCenter(s, i, i + 1);
 
             String largest = odd.length() > even.length() ? odd : even;
-            ans = ans.length() > largest.length() ? ans : largest;
+            result = result.length() > largest.length() ? result : largest;
         }
 
-        return ans;
+        return result;
     }
 
     private String expandAroundCenter(String s, int left, int right) {

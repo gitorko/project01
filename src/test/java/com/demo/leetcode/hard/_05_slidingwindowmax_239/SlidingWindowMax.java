@@ -49,21 +49,21 @@ public class SlidingWindowMax {
     public int[] maxSlidingWindow(int[] nums, int k) {
         int[] result = new int[nums.length - k + 1];
         int left = 0;
-        //queue holds index
-        Deque<Integer> queue = new ArrayDeque<>();
+        //dequeue holds index
+        Deque<Integer> dequeue = new ArrayDeque<>();
         for (int right = 0; right < nums.length; right++) {
             // remove smaller numbers in k range as they are useless
-            while (!queue.isEmpty() && nums[queue.peekLast()] < nums[right]) {
-                queue.pollLast();
+            while (!dequeue.isEmpty() && nums[dequeue.peekLast()] < nums[right]) {
+                dequeue.pollLast();
             }
-            queue.offer(right);
+            dequeue.offer(right);
             //If left value is out of bound remove it
-            if (left > queue.peek()) {
-                queue.poll();
+            if (left > dequeue.peek()) {
+                dequeue.poll();
             }
             //window is at least size k
             if (right - left + 1 >= k) {
-                result[left] = nums[queue.peek()];
+                result[left] = nums[dequeue.peek()];
                 left++;
             }
         }

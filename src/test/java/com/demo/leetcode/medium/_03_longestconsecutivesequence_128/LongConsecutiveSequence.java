@@ -30,20 +30,20 @@ public class LongConsecutiveSequence {
      * Space: O(n)
      */
     public int longestConsecutive(int[] nums) {
-        //iterate over nums and assign to set.
-        Set<Integer> set = Arrays.stream(nums).boxed().collect(Collectors.toSet());
+        //iterate over nums and assign to numSet.
+        Set<Integer> numSet = Arrays.stream(nums).boxed().collect(Collectors.toSet());
 
-        int longest = 0;
+        int result = 0;
         for (int i = 0; i < nums.length; i++) {
-            //check if previous number doesnt exist, indicates it the beginning of set
-            if (!set.contains(nums[i] - 1)) {
-                int length = 0;
-                while (set.contains(nums[i] + length)) {
-                    length++;
+            //check if previous number doesnt exist, indicates it the beginning of numSet
+            if (!numSet.contains(nums[i] - 1)) {
+                int j = 0;
+                while (numSet.contains(nums[i] + j)) {
+                    j++;
                 }
-                longest = Math.max(longest, length);
+                result = Math.max(result, j);
             }
         }
-        return longest;
+        return result;
     }
 }

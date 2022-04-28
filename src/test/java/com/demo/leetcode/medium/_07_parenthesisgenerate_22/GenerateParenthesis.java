@@ -16,7 +16,7 @@ import org.junit.jupiter.api.Test;
  * - can add ( only if open < n
  * - can add ) only if close < open
  *
- * PRACTICE
+ * PRACTICE: P3
  *
  * https://www.youtube.com/watch?v=s9fokUqJ76A&ab_channel=NeetCode
  */

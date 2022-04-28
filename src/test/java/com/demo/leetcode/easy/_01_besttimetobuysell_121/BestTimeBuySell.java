@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
  * - kadane
  * - SIMILAR_TO: [53. Maximum Subarray - EASY](https://leetcode.com/problems/maximum-subarray/)
  *
- * PRACTICE
+ * PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=1pkOgXD63yU&ab_channel=NeetCode
  */

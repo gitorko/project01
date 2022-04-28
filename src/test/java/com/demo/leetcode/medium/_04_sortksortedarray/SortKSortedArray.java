@@ -13,7 +13,6 @@ import org.junit.jupiter.api.Test;
  * - heap
  * - sort K sorted array
  *
- * https://www.youtube.com/watch?v=dYfM6J1y0mU&ab_channel=AdityaVerma
  * https://www.youtube.com/watch?v=tJK7vjNKdLY&ab_channel=TECHDOSE
  */
 public class SortKSortedArray {

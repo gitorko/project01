@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
  *
  * - heap
  * - fast forward time, add index
+ * - SIMILAR_TO: [1882. Process Tasks Using Servers](https://leetcode.com/problems/process-tasks-using-servers/)
  *
  * PRACTICE: P1
  *

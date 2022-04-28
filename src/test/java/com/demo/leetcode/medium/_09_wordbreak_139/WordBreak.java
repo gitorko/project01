@@ -16,6 +16,8 @@ import org.junit.jupiter.api.Test;
  * - option1: dp, start from reverse
  * - break when dp[i] true
  * - option2: can be solved by bfs
+ * - SIMILAR_TO: [55. Jump Game - MEDIUM](https://leetcode.com/problems/jump-game/)
+ * - SIMILAR_TO: [140. Word Break II - HARD](https://leetcode.com/problems/word-break-ii/)
  *
  * PRACTICE: P2
  *
@@ -69,24 +71,23 @@ public class WordBreak {
         return wordBreakMemo(s, new HashSet<>(wordDict), 0, new Boolean[s.length()]);
     }
 
-    private boolean wordBreakMemo(String s, Set<String> wordDict, int start, Boolean[] memo) {
+    private boolean wordBreakMemo(String s, Set<String> wordDict, int start, Boolean[] dp) {
         if (start == s.length()) {
             return true;
         }
-        if (memo[start] != null) {
-            return memo[start];
+        if (dp[start] != null) {
+            return dp[start];
         }
         for (int end = start + 1; end <= s.length(); end++) {
-            if (wordDict.contains(s.substring(start, end)) && wordBreakMemo(s, wordDict, end, memo)) {
-                return memo[start] = true;
+            if (wordDict.contains(s.substring(start, end)) && wordBreakMemo(s, wordDict, end, dp)) {
+                return dp[start] = true;
             }
         }
-        return memo[start] = false;
+        return dp[start] = false;
     }
 
     /**
      * BFS approach
-     * - SIMILAR_TO: [55. Jump Game - MEDIUM](https://leetcode.com/problems/jump-game/)
      */
     public boolean wordBreak3(String s, List<String> wordDict) {
         Set<String> dict = new HashSet<>(wordDict);

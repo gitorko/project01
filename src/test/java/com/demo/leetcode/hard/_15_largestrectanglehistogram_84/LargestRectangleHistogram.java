@@ -16,7 +16,6 @@ import org.junit.jupiter.api.Test;
  * PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=zx5Sw9130L0&ab_channel=NeetCode
- * https://www.youtube.com/watch?v=vcv3REtIvEo&ab_channel=TECHDOSE
  */
 public class LargestRectangleHistogram {
 

@@ -18,6 +18,10 @@ public class CountingBits {
         Assertions.assertArrayEquals(expected, countBits(2));
     }
 
+    /**
+     * Time: O(n)
+     * Space: O(n)
+     */
     public int[] countBits(int n) {
         int[] dp = new int[n + 1];
         int offset = 1;

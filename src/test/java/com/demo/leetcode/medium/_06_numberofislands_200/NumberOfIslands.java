@@ -27,15 +27,15 @@ public class NumberOfIslands {
      * Alternately, we could set up a duplicate matrix to record this information at the cost of increasing
      * the space complexity from O(L) to O(M * N + L)
      */
-    int rowLength;
-    int colLength;
+    int rowLen;
+    int colLen;
 
     public int numIslands(char[][] grid) {
         int count = 0;
-        rowLength = grid.length;
-        colLength = grid[0].length;
-        for (int i = 0; i < rowLength; i++) {
-            for (int j = 0; j < colLength; j++) {
+        rowLen = grid.length;
+        colLen = grid[0].length;
+        for (int i = 0; i < rowLen; i++) {
+            for (int j = 0; j < colLen; j++) {
                 if (grid[i][j] == '1') {
                     dfs(i, j, grid);
                     count++;
@@ -46,7 +46,8 @@ public class NumberOfIslands {
     }
 
     private void dfs(int i, int j, char[][] grid) {
-        if (i < 0 || j < 0 || i >= rowLength || j >= colLength || grid[i][j] != '1') return;
+        if (i < 0 || j < 0 || i >= rowLen || j >= colLen || grid[i][j] != '1')
+            return;
         //prevent land cells from being traversed and counted more than once.
         grid[i][j] = '0';
         dfs(i + 1, j, grid);

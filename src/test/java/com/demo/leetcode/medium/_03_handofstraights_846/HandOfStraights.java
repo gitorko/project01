@@ -28,17 +28,17 @@ public class HandOfStraights {
      * Space: O(m)
      */
     public boolean isNStraightHand(int[] hand, int groupSize) {
-        Map<Integer, Integer> count = new TreeMap<>();
+        Map<Integer, Integer> countMap = new TreeMap<>();
         for (int card : hand)
-            count.put(card, count.getOrDefault(card, 0) + 1);
+            countMap.put(card, countMap.getOrDefault(card, 0) + 1);
 
-        for (int start : count.keySet()) {
-            int value = count.get(start);
+        for (int start : countMap.keySet()) {
+            int value = countMap.get(start);
             if (value > 0) {
                 for (int i = start; i < start + groupSize; i++) {
                     //decrement
-                    count.put(i, count.getOrDefault(i, 0) - value);
-                    if (count.get(i) < 0)
+                    countMap.put(i, countMap.getOrDefault(i, 0) - value);
+                    if (countMap.get(i) < 0)
                         return false;
                 }
             }

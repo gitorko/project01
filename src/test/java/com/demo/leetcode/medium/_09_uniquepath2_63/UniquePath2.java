@@ -35,7 +35,7 @@ public class UniquePath2 {
 
         int[][] dp = new int[rowLen][colLen];
 
-        //Fill last column - remember to iterate from last.
+        //fill last column
         for (int j = colLen - 1; j >= 0; j--) {
             if (obstacleGrid[rowLen - 1][j] == 1) {
                 break;
@@ -43,7 +43,7 @@ public class UniquePath2 {
             dp[rowLen - 1][j] = 1;
         }
 
-        //Fill last rowLen - remember to iterate from last.
+        //fill last row
         for (int i = rowLen - 1; i >= 0; i--) {
             if (obstacleGrid[i][colLen - 1] == 1) {
                 break;
@@ -51,7 +51,7 @@ public class UniquePath2 {
             dp[i][colLen - 1] = 1;
         }
 
-        //Last rowLen and column are already filled so skip them
+        //last row and column are already filled so skip them
         for (int i = rowLen - 2; i >= 0; i--) {
             for (int j = colLen - 2; j >= 0; j--) {
                 if (obstacleGrid[i][j] != 1) {

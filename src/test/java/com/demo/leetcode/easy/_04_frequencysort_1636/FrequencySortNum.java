@@ -39,14 +39,14 @@ public class FrequencySortNum {
         for (int n : nums)
             frequencyMap.put(n, frequencyMap.getOrDefault(n, 0) + 1);
 
-        PriorityQueue<Map.Entry<Integer, Integer>> pq = new PriorityQueue<>(
+        PriorityQueue<Map.Entry<Integer, Integer>> minHeap = new PriorityQueue<>(
                 (a, b) -> a.getValue() == b.getValue() ? b.getKey().compareTo(a.getKey()) : a.getValue() - b.getValue()
         );
-        pq.addAll(frequencyMap.entrySet());
+        minHeap.addAll(frequencyMap.entrySet());
 
         List<Integer> result = new ArrayList<>();
-        while (!pq.isEmpty()) {
-            Map.Entry e = pq.poll();
+        while (!minHeap.isEmpty()) {
+            Map.Entry e = minHeap.poll();
             for (int i = 0; i < (int) e.getValue(); i++)
                 result.add((int) e.getKey());
         }

@@ -26,11 +26,11 @@ public class LastStoneWeight {
      */
     public int lastStoneWeight(int[] stones) {
         //max heap
-        PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> b - a);
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>((a, b) -> b - a);
         for (int a : stones)
-            pq.offer(a);
-        while (pq.size() > 1)
-            pq.offer(pq.poll() - pq.poll());
-        return pq.poll();
+            maxHeap.offer(a);
+        while (maxHeap.size() > 1)
+            maxHeap.offer(maxHeap.poll() - maxHeap.poll());
+        return maxHeap.poll();
     }
 }

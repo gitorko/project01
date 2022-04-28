@@ -9,8 +9,9 @@ import org.junit.jupiter.api.Test;
 /**
  * [3. Longest Substring Without Repeating Characters - MEDIUM](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
  *
- * - set + sliding window with left and right pointer
+ * - set + sliding window
  * - If all strings are non repeating then max = max length of string.
+ * - SIMILAR_TO: [340. Longest Substring with At Most K Distinct Characters - MEDIUM](https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters/)
  *
  * PRACTICE: P3
  *

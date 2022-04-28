@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
  * - Two pointer - iterative, 1st pointer null, 2nd pointer head, 3rd temp pointer
  * - Recursion - head.next.next
  *
- * PRACTICE
+ * PRACTICE: P1
  * MEMORIZE
  *
  * https://www.youtube.com/watch?v=G0_I-ZF0S38&ab_channel=NeetCode
@@ -31,27 +31,27 @@ public class ReverseLinkList {
     /**
      * Iterative - two pointer
      *
-     * Time: O(N)
+     * Time: O(n)
      * Space: O(1)
      */
     public ListNode reverseList(ListNode head) {
-        ListNode current = head;
-        ListNode previous = null;
-        while (current != null) {
-            ListNode temp = current.next;
-            current.next = previous;
+        ListNode curr = head;
+        ListNode prev = null;
+        while (curr != null) {
+            ListNode temp = curr.next;
+            curr.next = prev;
             //Move both pointers forward.
-            previous = current;
-            current = temp;
+            prev = curr;
+            curr = temp;
         }
-        return previous;
+        return prev;
     }
 
     /**
      * Recursive
      *
-     * Time: O(N)
-     * Space: O(N)
+     * Time: O(n)
+     * Space: O(n)
      */
     public ListNode reverseListRecursion(ListNode head) {
         //base case

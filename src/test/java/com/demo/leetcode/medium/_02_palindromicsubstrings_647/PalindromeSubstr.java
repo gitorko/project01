@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
  * - expand around center, odd even
  * - SIMILAR_TO: [5. Longest Palindromic Substring - MEDIUM](https://leetcode.com/problems/longest-palindromic-substring/)
  *
- * PRACTICE
+ * PRACTICE: P3
  *
  * https://www.youtube.com/watch?v=4RACzI5-du8&ab_channel=NeetCode
  */

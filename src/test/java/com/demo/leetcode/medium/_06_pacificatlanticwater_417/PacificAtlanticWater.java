@@ -53,16 +53,19 @@ public class PacificAtlanticWater {
             dfs(rowLength - 1, j, 0, seenA);
         }
 
-        for (int i = 0; i < rowLength; i++)
-            for (int j = 0; j < colLength; j++)
-                if (seenP[i][j] && seenA[i][j])
+        for (int i = 0; i < rowLength; i++) {
+            for (int j = 0; j < colLength; j++) {
+                if (seenP[i][j] && seenA[i][j]) {
                     result.add(new ArrayList<>(Arrays.asList(i, j)));
+                }
+            }
+        }
 
         return result;
     }
 
     private void dfs(int i, int j, int h, boolean[][] seen) {
-        if (i < 0 || i == rowLength || j < 0 || j == colLength || seen[i][j] || heights[i][j] < h)
+        if (i < 0 || j < 0 || i == rowLength || j == colLength || seen[i][j] || heights[i][j] < h)
             return;
 
         seen[i][j] = true;

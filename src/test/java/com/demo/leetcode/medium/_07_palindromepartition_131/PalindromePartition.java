@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
  * [131. Palindrome Partitioning - MEDIUM](https://leetcode.com/problems/palindrome-partitioning/)
  *
  * - backtracking + check palindrome
+ * - SIMILAR_TO: [132. Palindrome Partitioning II - HARD](https://leetcode.com/problems/palindrome-partitioning-ii/)
  *
  * PRACTICE: P1
  *
@@ -39,9 +40,9 @@ public class PalindromePartition {
     }
 
     public void backtrack(List<String> tempList, int start) {
-        if (start == s.length())
+        if (start == s.length()) {
             result.add(new ArrayList<>(tempList));
-        else {
+        } else {
             for (int i = start; i < s.length(); i++) {
                 if (isPalindrome(start, i)) {
                     tempList.add(s.substring(start, i + 1));
@@ -52,9 +53,9 @@ public class PalindromePartition {
         }
     }
 
-    public boolean isPalindrome(int low, int high) {
-        while (low < high)
-            if (s.charAt(low++) != s.charAt(high--)) return false;
+    public boolean isPalindrome(int left, int right) {
+        while (left < right)
+            if (s.charAt(left++) != s.charAt(right--)) return false;
         return true;
     }
 }

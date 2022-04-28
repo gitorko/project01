@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
  * [392. Is Subsequence - EASY](https://leetcode.com/problems/is-subsequence/)
  *
  * - two pointer
+ * - SIMILAR_TO: [28. Implement strStr - MEDIUM](https://leetcode.com/problems/implement-strstr/)
  *
  * https://www.youtube.com/watch?v=99RVfqklbCE&ab_channel=NeetCode
  */
@@ -23,14 +24,14 @@ public class IsSubsequence {
      */
     public boolean isSubsequence(String s, String t) {
         if (s.length() == 0) return true;
-        int i = 0;
-        int j = 0;
-        while (i < s.length() && j < t.length()) {
-            if (t.charAt(j) == s.charAt(i)) {
-                i++;
+        int left = 0;
+        int right = 0;
+        while (left < s.length() && right < t.length()) {
+            if (t.charAt(right) == s.charAt(left)) {
+                left++;
             }
-            j++;
+            right++;
         }
-        return i == s.length();
+        return left == s.length();
     }
 }

@@ -28,13 +28,20 @@ public class PhoneNumberCombination {
      * Time: O(n*4^n)
      * Space: O(4^n)
      */
-    Map<Character, String> map = Map.of('2', "abc", '3', "def", '4', "ghi", '5', "jkl",
-            '6', "mno", '7', "pqrs", '8', "tuv", '9', "wxyz");
+    Map<Character, String> map = Map.of(
+            '2', "abc",
+            '3', "def",
+            '4', "ghi",
+            '5', "jkl",
+            '6', "mno",
+            '7', "pqrs",
+            '8', "tuv",
+            '9', "wxyz");
     List<String> result;
     String digits;
 
-    public List<String> letterCombinations(String input) {
-        this.digits = input;
+    public List<String> letterCombinations(String digits) {
+        this.digits = digits;
         if (digits.isEmpty())
             return Collections.emptyList();
 

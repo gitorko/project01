@@ -57,7 +57,7 @@ public class WordSearch {
             return true;
         }
         //out of bounds or already visited.
-        if (i < 0 || i >= rowLen || j < 0 || j >= colLen || word.charAt(index) != board[i][j] || visited[i][j]) {
+        if (i < 0  || j < 0 || i >= rowLen || j >= colLen || word.charAt(index) != board[i][j] || visited[i][j]) {
             return false;
         }
         //add to visited

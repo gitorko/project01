@@ -8,10 +8,10 @@ import org.junit.jupiter.api.Test;
 /**
  * [279. Perfect Squares - MEDIUM](https://leetcode.com/problems/perfect-squares/)
  *
- * - dp
+ * - dp, fill max value
  * - SIMILAR_TO: [322. Coin Change - MEDIUM](https://leetcode.com/problems/coin-change/)
  *
- * PRACTICE
+ * PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=HLZLwjzIVGo&ab_channel=NeetCode
  */

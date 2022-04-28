@@ -9,6 +9,8 @@ import org.junit.jupiter.api.Test;
  * [456. 132 Pattern - MEDIUM](https://leetcode.com/problems/132-pattern/)
  *
  * - monotonic stack, start from reverse
+ *
+ * https://www.youtube.com/watch?v=q5ANAl8Z458&ab_channel=NeetCode
  */
 public class Pattern132 {
 
@@ -24,9 +26,15 @@ public class Pattern132 {
         Assertions.assertTrue(find132pattern(nums));
     }
 
+    /**
+     * Time: O(n)
+     * Space: O(n)
+     */
     public boolean find132pattern(int[] nums) {
-        Stack<Integer> stack = new Stack<>(); // max stack
-        int ak = Integer.MIN_VALUE;           // we want to find a seq ai < ak < aj
+        // monotonic decreasing stack
+        Stack<Integer> stack = new Stack<>();
+        // we want to find a seq ai < ak < aj
+        int ak = Integer.MIN_VALUE;
 
         for (int i = nums.length - 1; i >= 0; i--) {
             if (nums[i] < ak) // ai < ak, we're done because ai must also smaller than aj

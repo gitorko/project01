@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
  *
  * - fill last row,col
  * - approach will be re-used in unique path 2
+ * - SIMILAR_TO: [63. Unique Paths II - MEDIUM](https://leetcode.com/problems/unique-paths-ii/)
  *
  * https://www.youtube.com/watch?v=IlEsdxuD4lY&ab_channel=NeetCode
  */
@@ -28,12 +29,12 @@ public class UniquePath {
 
         int[][] dp = new int[row][col];
 
-        //Fill last column - remember to iterate from last (will be useful in next program)
+        //fill last column
         for (int j = col - 1; j >= 0; j--) {
             dp[row - 1][j] = 1;
         }
 
-        //Fill last row - remember to iterate from last (will be useful in next program)
+        //fill last row
         for (int i = row - 1; i >= 0; i--) {
             dp[i][col - 1] = 1;
         }

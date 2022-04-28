@@ -28,10 +28,10 @@ public class PartitionLinkList {
     }
 
     public ListNode partition(ListNode head, int x) {
-        ListNode leftDummy = new ListNode(0);
-        ListNode rightDummy = new ListNode(0);
-        ListNode leftTail = leftDummy;
-        ListNode rightTail = rightDummy;
+        ListNode leftStart = new ListNode(0);
+        ListNode rightStart = new ListNode(0);
+        ListNode leftTail = leftStart;
+        ListNode rightTail = rightStart;
 
         while (head != null) {
             if (head.val < x) {
@@ -43,9 +43,9 @@ public class PartitionLinkList {
             }
             head = head.next;
         }
-        leftTail.next = rightDummy.next;
+        leftTail.next = rightStart.next;
         rightTail.next = null;
-        return leftDummy.next;
+        return leftStart.next;
 
     }
 }

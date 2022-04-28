@@ -99,18 +99,18 @@ public class MinMeetingRoom2 {
 
         // Sort by ascending starting point
         Arrays.sort(intervals, (i1, i2) -> Integer.compare(i1[0], i2[0]));
-        PriorityQueue<Integer> queue = new PriorityQueue<>();
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
         //add first interval end time to heap.
-        queue.add(intervals[0][1]);
+        minHeap.add(intervals[0][1]);
         //iterate from 2nd interval
         for (int i = 1; i < intervals.length; i++) {
             //if top of heap (end time) is less than start time of new meeting
-            if (queue.peek() <= intervals[i][0]) {
-                queue.remove();
+            if (minHeap.peek() <= intervals[i][0]) {
+                minHeap.remove();
             }
-            queue.add(intervals[i][1]);
+            minHeap.add(intervals[i][1]);
         }
-        return queue.size();
+        return minHeap.size();
     }
 
 

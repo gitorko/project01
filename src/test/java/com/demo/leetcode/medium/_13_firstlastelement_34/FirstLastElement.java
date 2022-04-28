@@ -30,12 +30,44 @@ public class FirstLastElement {
     }
 
     /**
-     * Time: O(n)
-     *  HINT:
-     *   - binary search, expand around index
-     *   - expand approach will give O(n) if all input is target
+     * Time: O(log n)
+     * run binary search twice
+     * better approach if all nums are target.
      */
     public int[] searchRange(int[] nums, int target) {
+        int start = binarySearch(nums, target, true);
+        int end = binarySearch(nums, target, false);
+        return new int[]{start, end};
+    }
+
+    private int binarySearch(int[] nums, int target, boolean leftBias) {
+        int left = 0;
+        int right = nums.length - 1;
+        int index = -1;
+        while (left <= right) {
+            int mid = (left + right) / 2;
+            if (target > nums[mid]) {
+                left = mid + 1;
+            } else if (target < nums[mid]) {
+                right = mid - 1;
+            } else {
+                index = mid;
+                if (leftBias) {
+                    right = mid - 1;
+                } else {
+                    left = mid + 1;
+                }
+            }
+        }
+        return index;
+    }
+
+    /**
+     * Time: O(n)
+     * binary search, expand around index
+     * expand approach will give O(n) if all input is target
+     */
+    public int[] searchRange2(int[] nums, int target) {
         int index = binarySearch(nums, target);
         if (index == -1) return new int[]{-1, -1};
         return expandCenter(nums, index, target);
@@ -62,39 +94,6 @@ public class FirstLastElement {
             }
         }
         return -1;
-    }
-
-    /**
-     * Time: O(log n)
-     * run binary search twice
-     * Better approach if all nums are target.
-     */
-    public int[] searchRange2(int[] nums, int target) {
-        int start = binarySearch(nums, target, true);
-        int end = binarySearch(nums, target, false);
-        return new int[]{start, end};
-    }
-
-    private int binarySearch(int[] nums, int target, boolean leftBias) {
-        int left = 0;
-        int right = nums.length - 1;
-        int index = -1;
-        while (left <= right) {
-            int mid = (left + right) / 2;
-            if (target > nums[mid]) {
-                left = mid + 1;
-            } else if (target < nums[mid]) {
-                right = mid - 1;
-            } else {
-                index = mid;
-                if (leftBias) {
-                    right = mid - 1;
-                } else {
-                    left = mid + 1;
-                }
-            }
-        }
-        return index;
     }
 
 }

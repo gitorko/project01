@@ -10,6 +10,8 @@ import org.junit.jupiter.api.Test;
  *
  * - 3 phases, get the length,check k % len, move len - k, fix list
  *
+ * PRACTICE: P2
+ *
  * https://www.youtube.com/watch?v=UcGtPs2LE_c&ab_channel=NeetCode
  */
 public class RotateLinkList {
@@ -17,9 +19,9 @@ public class RotateLinkList {
     @Test
     public void test() {
         int k = 2;
-        int arr1[] = {1, 2, 3, 4, 5};
+        int arr[] = {1, 2, 3, 4, 5};
         int expected[] = {4, 5, 1, 2, 3};
-        ListNode r1 = ListNodeUtil.create(arr1);
+        ListNode r1 = ListNodeUtil.create(arr);
         ListNode r2 = rotateRight(r1, k);
         Assertions.assertArrayEquals(expected, ListNodeUtil.toArray(r2));
     }
@@ -42,7 +44,7 @@ public class RotateLinkList {
             length++;
         }
 
-        //if k is greater than lenght then mod
+        //if k is greater than length then mod
         k = k % length;
         if (k == 0)
             return head;

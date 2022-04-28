@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
  * [70. Climbing Stairs - EASY](https://leetcode.com/problems/climbing-stairs/)
  *
  * - dynamic program, decision tree, memoization
- * - SIMILAR_TO: fibonacci, house robber
+ * - SIMILAR_TO: [198. House Robber - MEDIUM](https://leetcode.com/problems/house-robber/)
  *
  * https://www.youtube.com/watch?v=Y0lT9Fck7qI&ab_channel=NeetCode
  */

@@ -1,4 +1,4 @@
-package com.demo.leetcode.medium._13_subseqgivensum_1498;
+package com.demo.leetcode.medium._05_subseqgivensum_1498;
 
 import java.util.Arrays;
 
@@ -9,10 +9,10 @@ import org.junit.jupiter.api.Test;
  * [1498. Number of Subsequences That Satisfy the Given Sum Condition - MEDIUM](https://leetcode.com/problems/number-of-subsequences-that-satisfy-the-given-sum-condition/)
  *
  * - sort
- * - binary search (left is min, right is max)
+ * - two pointer (left is min, right is max)
  * - math - pre calculate powers
  *
- * REVIEW
+ * PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=xCsIkPLS4Ls&ab_channel=NeetCode
  */
@@ -36,7 +36,7 @@ public class NumberOfSubSeqGivenSum {
         int[] pows = new int[n];
         pows[0] = 1;
 
-        for (int i = 1; i < n; ++i)
+        for (int i = 1; i < n; i++)
             pows[i] = pows[i - 1] * 2 % kMod;
 
         Arrays.sort(nums);

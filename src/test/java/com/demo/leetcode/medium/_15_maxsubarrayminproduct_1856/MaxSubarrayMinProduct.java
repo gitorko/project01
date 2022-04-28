@@ -8,10 +8,10 @@ import org.junit.jupiter.api.Test;
 /**
  * [1856. Maximum Subarray Min-Product - MEDIUM](https://leetcode.com/problems/maximum-subarray-min-product/)
  *
- * - monotonic stack
+ * - monotonic increasing stack
  * - prefix sum
  * - SIMILAR_TO: [84. Largest Rectangle in Histogram - HARD](https://leetcode.com/problems/largest-rectangle-in-histogram/)
- * - SIMILAR_TO: [1856. Maximum Subarray Min-Product - MEDIUM](https://leetcode.com/problems/maximum-subarray-min-product/)
+ * - SIMILAR_TO: [85. Maximal Rectangle - HARD](https://leetcode.com/problems/maximal-rectangle/)
  *
  * PRACTICE: P1
  *

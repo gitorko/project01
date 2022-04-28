@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
  *
  * - dynamic program
  * - SIMILAR_TO: [322. Coin Change - MEDIUM](https://leetcode.com/problems/coin-change/)
+ * - SIMILAR_TO: [279. Perfect Squares - MEDIUM](https://leetcode.com/problems/perfect-squares/)
  *
  * PRACTICE
  *

@@ -51,13 +51,13 @@ public class NetworkDelayTime {
         }
 
         //[cost, node]
-        Queue<int[]> queue = new PriorityQueue<>((a, b) -> (a[0] - b[0]));
+        Queue<int[]> minHeap = new PriorityQueue<>((a, b) -> (a[0] - b[0]));
         Set<Integer> visited = new HashSet<>();
         int result = 0;
-        queue.add(new int[]{0, k});
+        minHeap.add(new int[]{0, k});
 
-        while (!queue.isEmpty()) {
-            int[] cur = queue.poll();
+        while (!minHeap.isEmpty()) {
+            int[] cur = minHeap.poll();
             int curCost = cur[0];
             int curNode = cur[1];
             if (visited.contains(curNode))
@@ -68,7 +68,7 @@ public class NetworkDelayTime {
             n--;
             if (adjacencyMap.containsKey(curNode)) {
                 for (Map.Entry<Integer, Integer> next : adjacencyMap.get(curNode).entrySet()) {
-                    queue.add(new int[]{curCost + next.getValue(), next.getKey()});
+                    minHeap.add(new int[]{curCost + next.getValue(), next.getKey()});
                 }
             }
         }

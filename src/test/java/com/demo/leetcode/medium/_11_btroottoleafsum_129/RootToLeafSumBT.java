@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
  * - pre-order with multiply by 10
  * - sum * 10 + root.val
  *
- * PRACTICE
+ * PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=Jk16lZGFWxE&ab_channel=NeetCode
  */
@@ -45,7 +45,7 @@ public class RootToLeafSumBT {
         if (root == null)
             return 0;
         sum = sum * 10 + root.val;
-        //leaf Node
+        //leaf node
         if (root.right == null && root.left == null)
             return sum;
 

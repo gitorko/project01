@@ -28,7 +28,6 @@ public class MaxSubarrayProduct {
     }
 
     /**
-     * Same as below but multiplying with negative number max will become min and min will become max,
      * If we encounter negative element, we swap the max and min
      *
      * Case1 : All the elements are positive - Then answer is product of all the elements

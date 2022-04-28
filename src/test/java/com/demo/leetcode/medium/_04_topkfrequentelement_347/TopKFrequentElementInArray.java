@@ -51,15 +51,15 @@ public class TopKFrequentElementInArray {
      * Time: O(n * log(n))
      */
     public int[] topKFrequent(int[] nums, int k) {
-        Map<Integer, Integer> frequencyMap = new HashMap<>();
+        Map<Integer, Integer> freqMap = new HashMap<>();
         for (int n : nums) {
-            frequencyMap.put(n, frequencyMap.getOrDefault(n, 0) + 1);
+            freqMap.put(n, freqMap.getOrDefault(n, 0) + 1);
         }
-        PriorityQueue<Map.Entry<Integer, Integer>> pq = new PriorityQueue<>((a, b) -> b.getValue() - a.getValue());
-        pq.addAll(frequencyMap.entrySet());
+        PriorityQueue<Map.Entry<Integer, Integer>> maxHeap = new PriorityQueue<>((a, b) -> b.getValue() - a.getValue());
+        maxHeap.addAll(freqMap.entrySet());
         List<Integer> result = new ArrayList<>();
-        while (!pq.isEmpty() && k > 0) {
-            Map.Entry e = pq.poll();
+        while (!maxHeap.isEmpty() && k > 0) {
+            Map.Entry e = maxHeap.poll();
             result.add((Integer) e.getKey());
             k--;
         }

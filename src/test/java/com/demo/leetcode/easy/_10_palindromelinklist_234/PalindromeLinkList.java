@@ -10,11 +10,9 @@ import org.junit.jupiter.api.Test;
 /**
  * [234. Palindrome Linked List - EASY](https://leetcode.com/problems/palindrome-linked-list/)
  *
- * - find min, reverse, check
- * - fast & slow pointer
- * - reverse link list mid to end.
+ * - find middle using fast slow pointer, reverse
  *
- * PRACTICE
+ * PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=yOzXms1J6Nk&ab_channel=NeetCode
  */
@@ -36,28 +34,27 @@ public class PalindromeLinkList {
         }
 
         //reverse 2nd half
-        slow = reverse(slow);
-        fast = head;
+        ListNode mid = slow;
+        ListNode prev = null;
+        while (mid != null) {
+            ListNode next = mid.next;
+            mid.next = prev;
+            prev = mid;
+            mid = next;
+        }
+
+        ListNode l2 = prev;
+        ListNode l1 = head;
 
         //check if palindrome
-        while (slow != null) {
-            if (fast.val != slow.val) {
+        while (l2 != null) {
+            if (l1.val != l2.val) {
                 return false;
             }
-            fast = fast.next;
-            slow = slow.next;
+            l1 = l1.next;
+            l2 = l2.next;
         }
         return true;
     }
 
-    private ListNode reverse(ListNode head) {
-        ListNode prev = null;
-        while (head != null) {
-            ListNode next = head.next;
-            head.next = prev;
-            prev = head;
-            head = next;
-        }
-        return prev;
-    }
 }

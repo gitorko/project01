@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
  *
  *  - option 1: use hashmap - two pass, edge case to check if complement is number itself.
  *  - option 2: use hashmap - one pass, complement.
+ *  - SIMILAR_TO: [167. Two Sum II - Input Array Is Sorted - MEDIUM](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)
  *
  * https://www.youtube.com/watch?v=KLlXCFG5TnA&ab_channel=NeetCode
  */

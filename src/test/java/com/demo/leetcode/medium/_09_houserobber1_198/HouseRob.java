@@ -58,7 +58,6 @@ public class HouseRob {
      * rob2 was the most recent robbed house.
      */
     public int robBottomUpNSteps(int[] nums) {
-        if (nums.length == 0) return 0;
         int rob1 = 0, rob2 = 0;
         //[rob1, rob2, n, n+1]
         for (int n : nums) {

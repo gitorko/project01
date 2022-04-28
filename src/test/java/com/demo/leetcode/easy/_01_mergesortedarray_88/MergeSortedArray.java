@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
  * [88. Merge Sorted Array - EASY](https://leetcode.com/problems/merge-sorted-array/)
  *
  * - two pointer, start from reverse
- * - tail1,tail2,finished,leftover
  *
  * https://www.youtube.com/watch?v=P1Ic85RarKY&ab_channel=NeetCode
  */

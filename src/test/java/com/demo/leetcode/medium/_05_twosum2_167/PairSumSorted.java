@@ -1,4 +1,4 @@
-package com.demo.leetcode.medium._03_twosum2_167;
+package com.demo.leetcode.medium._05_twosum2_167;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

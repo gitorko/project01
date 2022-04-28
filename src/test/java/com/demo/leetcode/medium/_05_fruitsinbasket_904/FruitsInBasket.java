@@ -9,9 +9,12 @@ import org.junit.jupiter.api.Test;
 /**
  * [904. Fruit Into Baskets - MEDIUM](https://leetcode.com/problems/fruit-into-baskets/)
  *
- * - sliding window + set
+ * - sliding window + map
  * - longest subarray with 2 distinct elements.
  * - map with size = 2
+ * - SIMILAR_TO: [340. Longest Substring with At Most K Distinct Characters - MEDIUM](https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters/)
+ *
+ * PRACTICE: P1
  */
 public class FruitsInBasket {
 

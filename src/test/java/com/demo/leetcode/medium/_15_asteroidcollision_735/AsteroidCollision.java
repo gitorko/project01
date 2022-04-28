@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
  * - can be multiple collision
  * - Math.abs
  *
- * PRACTICE
+ * PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=LN7KjRszjk4&ab_channel=NeetCode
  */

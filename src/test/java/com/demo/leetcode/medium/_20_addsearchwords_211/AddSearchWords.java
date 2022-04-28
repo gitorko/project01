@@ -57,7 +57,7 @@ public class AddSearchWords {
             }
 
             // word.charAt(startIndex) == '.' -> search all 26 children
-            for (int i = 0; i < 26; ++i)
+            for (int i = 0; i < 26; i++)
                 if (node.children[i] != null && dfs(word, startIndex + 1, node.children[i]))
                     return true;
 

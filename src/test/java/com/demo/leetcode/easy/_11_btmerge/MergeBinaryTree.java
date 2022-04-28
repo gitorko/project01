@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
  *
  * - recursion
  *
- * PRACTICE
+ * PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=QHH6rIK3dDQ&ab_channel=NeetCode
  */

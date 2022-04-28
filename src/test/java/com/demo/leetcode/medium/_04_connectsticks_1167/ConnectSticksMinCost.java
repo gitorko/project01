@@ -9,8 +9,6 @@ import org.junit.jupiter.api.Test;
  * [1167. Minimum Cost to Connect Sticks - MEDIUM](https://leetcode.com/problems/minimum-cost-to-connect-sticks/)
  *
  * - heap, add sum back to heap
- *
- * https://www.youtube.com/watch?v=_k_c9nqzKN0&ab_channel=AdityaVerma
  */
 public class ConnectSticksMinCost {
 

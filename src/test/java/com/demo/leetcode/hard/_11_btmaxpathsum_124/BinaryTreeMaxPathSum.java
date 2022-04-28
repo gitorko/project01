@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
  * - with fork, without fork value
  * - if negative set to zero
  *
- * PRACTICE
+ * PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=Hr5cWUld4vU&ab_channel=NeetCode
  */

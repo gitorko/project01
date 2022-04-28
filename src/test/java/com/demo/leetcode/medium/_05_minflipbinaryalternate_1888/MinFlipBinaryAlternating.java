@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
  * - sliding window
  * - add the string twice
  *
- * PRACTICE
+ * PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=MOeuK6gaC2A&ab_channel=NeetCode
  */

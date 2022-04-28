@@ -11,6 +11,8 @@ import org.junit.jupiter.api.Test;
  *
  * - queue bfs, farthest
  *
+ * PRACTICE: P1
+ *
  * https://www.youtube.com/watch?v=v1HpZUnQ4Yo&ab_channel=NeetCode
  */
 public class JumpGame7 {
@@ -22,7 +24,6 @@ public class JumpGame7 {
         Assertions.assertTrue(canReach(s, minJump, maxJump));
         Assertions.assertTrue(canReach2(s, minJump, maxJump));
     }
-
 
     @Test
     public void test2() {

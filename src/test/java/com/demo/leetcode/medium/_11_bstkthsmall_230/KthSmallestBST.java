@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
  * - Iterative in-order traversal using stack
  * - brute force: in-order traversal and the kth element in sorted array is result.
  *
- * PRACTICE: P3
+ * PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=5LUXSvjmGCw&ab_channel=NeetCode
  */

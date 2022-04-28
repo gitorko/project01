@@ -16,6 +16,7 @@ import org.junit.jupiter.api.Test;
  *
  *  - set
  *  - memoization in map
+ *  - SIMILAR_TO: [139. Word Break - MEDIUM](https://leetcode.com/problems/word-break/)
  */
 public class WordBreak2 {
 

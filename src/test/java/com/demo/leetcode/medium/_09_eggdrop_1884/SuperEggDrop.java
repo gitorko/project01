@@ -11,7 +11,6 @@ import org.junit.jupiter.api.Test;
  * - dp + binary search
  *
  * https://www.youtube.com/watch?v=NGtt7GJ1uiM&ab_channel=TED-Ed
- * https://www.youtube.com/watch?v=S49zeUjeUL0&ab_channel=AdityaVerma
  * https://www.youtube.com/watch?v=KVfxgpI3Tv0&ab_channel=GeeksforGeeks
  */
 public class SuperEggDrop {

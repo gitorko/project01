@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 /**
  * [226. Invert Binary Tree - EASY](https://leetcode.com/problems/invert-binary-tree/)
  *
- * - recursion DFS
+ * - recursion dfs
  * - use temp variable
  *
  * https://www.youtube.com/watch?v=OnSn2XEQ4MY&ab_channel=NeetCode

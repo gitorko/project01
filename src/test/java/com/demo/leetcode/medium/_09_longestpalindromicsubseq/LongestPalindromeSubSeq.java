@@ -13,7 +13,6 @@ import org.junit.jupiter.api.Test;
  *
  * PRACTICE
  *
- * https://www.youtube.com/watch?v=CFwCCNbRuLY&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=27&ab_channel=AdityaVerma
  * https://www.youtube.com/watch?v=_nCsPn7_OgI&ab_channel=TusharRoy-CodingMadeSimple
  */
 public class LongestPalindromeSubSeq {

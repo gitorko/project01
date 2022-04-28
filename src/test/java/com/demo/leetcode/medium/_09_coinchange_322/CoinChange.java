@@ -12,7 +12,6 @@ import org.junit.jupiter.api.Test;
  * - SIMILAR_TO: Subset Sum Problem
  *
  * https://www.youtube.com/watch?v=H9bfqozjoqs&ab_channel=NeetCode.
- * https://www.youtube.com/watch?v=_gPcYovP7wc&ab_channel=AdityaVerma
  */
 public class CoinChange {
 
@@ -30,6 +29,7 @@ public class CoinChange {
      */
     public int coinChange(int[] coins, int amount) {
         int[] dp = new int[amount + 1];
+        //amount + 1 is considered as max value
         Arrays.fill(dp, amount + 1);
         dp[0] = 0;
         for (int a = 1; a <= amount; a++) {

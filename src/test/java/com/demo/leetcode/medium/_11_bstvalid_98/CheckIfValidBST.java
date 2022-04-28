@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
  * - max,min
  * - recursion
  *
- * PRACTICE
+ * PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=s6ATEkipzow&ab_channel=NeetCode
  */
@@ -37,16 +37,13 @@ public class CheckIfValidBST {
     }
 
     /**
-     * Recursive DFS
+     * Recursive
+     *
+     *  start with -MIN for lower boundary, +MAX for upper boundary
+     *  if the node is either Integer.MIN_VALUE or Integer.MAX_VALUE then it fails hence use null instead.
      *
      * Time: O(n)
      * Space: O(n)
-     *
-     *  Option 1: Recursion DFS, start with -MIN for lower boundary, +MAX for upper boundary
-     *  if the node is either Integer.MIN_VALUE or Integer.MAX_VALUE then it fails hence use null instead.
-     *
-     *  Option 2:
-     *  In-Order traversal on BST and check if array is ascending, extra loop to check if array is ascending
      *
      */
     public boolean isValidBST(TreeNode root) {
@@ -65,7 +62,7 @@ public class CheckIfValidBST {
     }
 
     /**
-     * Iterative approach - in-order traversal, BFS
+     * Iterative
      * in-order traversal give array in sorted order, so neighbour will be increasing order.
      *
      * Time: O(n)

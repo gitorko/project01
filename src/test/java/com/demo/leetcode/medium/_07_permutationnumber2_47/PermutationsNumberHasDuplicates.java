@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
  * - sort, backtracking
  * - SIMILAR_TO: [46. Permutations - MEDIUM](https://leetcode.com/problems/permutations/)
  *
- * PRACTICE
+ * PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=s7AvT7cGdSo&ab_channel=NeetCode
  */

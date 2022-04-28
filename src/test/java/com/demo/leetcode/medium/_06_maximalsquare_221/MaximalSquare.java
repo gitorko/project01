@@ -8,9 +8,10 @@ import org.junit.jupiter.api.Test;
 /**
  * [221. Maximal Square - MEDIUM](https://leetcode.com/problems/maximal-square/)
  *
+ * - start from reverse
  * - 1 + Math.min(right, down, diagonal)
  *
- * PRACTICE
+ * PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=6X7Ha2PrDmM&ab_channel=NeetCode
  */
@@ -32,14 +33,14 @@ public class MaximalSquare {
      * Space: O(m*n)
      */
     public int maximalSquare(char[][] matrix) {
-        int rowLength = matrix.length;
-        int colLength = matrix[0].length;
-        int[][] dp = new int[rowLength][colLength];
+        int rowLen = matrix.length;
+        int colLen = matrix[0].length;
+        int[][] dp = new int[rowLen][colLen];
         int maxLength = 0;
-        for (int i = rowLength - 1; i >= 0; i--) {
-            for (int j = colLength - 1; j >= 0; j--) {
+        for (int i = rowLen - 1; i >= 0; i--) {
+            for (int j = colLen - 1; j >= 0; j--) {
                 //last row or last column case or if cell is zero case
-                if (i == rowLength - 1 || j == colLength - 1 || matrix[i][j] == '0')
+                if (i == rowLen - 1 || j == colLen - 1 || matrix[i][j] == '0')
                     dp[i][j] = matrix[i][j] == '1' ? 1 : 0;
                 else
                     dp[i][j] = 1 + Math.min(dp[i + 1][j + 1], Math.min(dp[i + 1][j], dp[i][j + 1]));

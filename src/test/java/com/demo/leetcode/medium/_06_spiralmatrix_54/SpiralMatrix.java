@@ -28,18 +28,18 @@ public class SpiralMatrix {
      * Space: O(mn)
      */
     int[][] matrix;
-    int rowLength;
-    int colLength;
+    int rowLen;
+    int colLen;
     List<Integer> result = new ArrayList<>();
     boolean[][] visited;
 
     public List<Integer> spiralOrder(int[][] input) {
         matrix = input;
-        rowLength = matrix.length;
-        colLength = matrix[0].length;
-        if (rowLength == 0) return result;
+        rowLen = matrix.length;
+        colLen = matrix[0].length;
+        if (rowLen == 0) return result;
 
-        visited = new boolean[rowLength][colLength];
+        visited = new boolean[rowLen][colLen];
         dfs(0, 0, false);
         return result;
     }
@@ -47,7 +47,7 @@ public class SpiralMatrix {
     private void dfs(int i, int j, boolean up) {
 
         //if visited or out of boundary
-        if (i < 0 || i >= rowLength || j < 0 || j >= colLength || visited[i][j])
+        if (i < 0 || j < 0 || i >= rowLen || j >= colLen || visited[i][j])
             return;
 
         visited[i][j] = true;

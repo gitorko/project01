@@ -31,7 +31,7 @@ public class SortLinkList {
         if (head == null || head.next == null)
             return head;
 
-        // step 1. cut the list to two halves
+        // find the mid
         ListNode prev = null;
         ListNode slow = head;
         ListNode fast = head;
@@ -44,11 +44,10 @@ public class SortLinkList {
         //cut the list in middle
         prev.next = null;
 
-        // step 2. sort each half
         ListNode l1 = sortList(head);
         ListNode l2 = sortList(slow);
 
-        // step 3. merge l1 and l2
+        //merge l1 and l2
         return mergeTwoLists(l1, l2);
     }
 

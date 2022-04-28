@@ -35,26 +35,26 @@ public class SeatReservation {
     }
 
     class SeatManager {
-        PriorityQueue<Integer> pq;
+        PriorityQueue<Integer> minHeap;
         int count;
         int maxSeats;
 
         public SeatManager(int n) {
             count = 0;
             maxSeats = n;
-            pq = new PriorityQueue();
+            minHeap = new PriorityQueue();
         }
 
         public int reserve() {
             if (count > maxSeats) return -1;
-            if (pq.isEmpty())
+            if (minHeap.isEmpty())
                 return ++count;
 
-            return pq.poll();
+            return minHeap.poll();
         }
 
         public void unreserve(int seatNumber) {
-            pq.offer(seatNumber);
+            minHeap.offer(seatNumber);
         }
     }
 }

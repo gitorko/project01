@@ -49,14 +49,14 @@ public class ReorderRoutes {
         boolean[] visited = new boolean[n];
         visited[0] = true;
         while (!q.isEmpty()) {
-            int c = q.poll();
-            for (int next : map.getOrDefault(c, new HashSet<>())) {
+            int curr = q.poll();
+            for (int next : map.getOrDefault(curr, new HashSet<>())) {
                 //if visited skip
                 if (visited[next]) continue;
                 //mark as visited
                 visited[next] = true;
                 //set doesnt contain the edge.
-                if (!edges.contains(next + "," + c)) result++;
+                if (!edges.contains(next + "," + curr)) result++;
                 q.offer(next);
             }
         }

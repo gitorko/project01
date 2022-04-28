@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
  *
  * - two pointer, farthest
  *
- * PRACTICE: P2
+ * PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=dJ7sWiOoK7g&ab_channel=NeetCode
  * https://www.youtube.com/watch?v=cETfFsSTGJI&ab_channel=TusharRoy-CodingMadeSimple
@@ -21,6 +21,10 @@ public class JumpGame2 {
         Assertions.assertEquals(2, jump(nums));
     }
 
+    /**
+     * Time: O(n)
+     * Space: O(1)
+     */
     public int jump(int[] nums) {
         int jumps = 0;
         int left = 0;

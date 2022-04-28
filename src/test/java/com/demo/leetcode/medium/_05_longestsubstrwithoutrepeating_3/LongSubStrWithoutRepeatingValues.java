@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 /**
  * [3. Longest Substring Without Repeating Characters - MEDIUM](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
  *
- * - Instead of count return string.
+ * - instead of count return string.
  * - set + sliding Window with left and right pointer
  */
 public class LongSubStrWithoutRepeatingValues {
@@ -29,9 +29,9 @@ public class LongSubStrWithoutRepeatingValues {
     public Set<String> getNonRepeatingSubstringValues(String s) {
 
         int left = 0;
-        int max = 0;
         int leftIndex = 0;
         int rightIndex = 0;
+        int max = 0;
         int maxSoFar = 0;
         Set<Character> set = new HashSet<>();
         Set<String> result = new HashSet<>();

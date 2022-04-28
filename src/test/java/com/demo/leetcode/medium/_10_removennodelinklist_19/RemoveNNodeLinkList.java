@@ -31,24 +31,24 @@ public class RemoveNNodeLinkList {
     public ListNode removeNthFromEnd(ListNode head, int n) {
         ListNode dummy = new ListNode(0);
         dummy.next = head;
-        //left will be one node behind the actual node to delete
-        ListNode left = dummy;
-        ListNode right = head;
+        //prev will be one node behind the actual node to delete
+        ListNode prev = dummy;
+        ListNode curr = head;
 
-        //move right pointer n positions
-        while (n > 0 && right != null) {
-            right = right.next;
+        //move curr pointer n positions
+        while (n > 0 && curr != null) {
+            curr = curr.next;
             n--;
         }
 
-        //move both pointers till right pointer reaches end.
-        while (right != null) {
-            left = left.next;
-            right = right.next;
+        //move both pointers till curr pointer reaches end.
+        while (curr != null) {
+            prev = prev.next;
+            curr = curr.next;
         }
 
         //delete the desired node
-        left.next = left.next.next;
+        prev.next = prev.next.next;
         return dummy.next;
     }
 

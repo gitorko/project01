@@ -1,4 +1,4 @@
-package com.demo.leetcode.medium._03_threesum_15;
+package com.demo.leetcode.medium._05_threesum_15;
 
 import java.util.Arrays;
 import java.util.LinkedList;
