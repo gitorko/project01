@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
  * - dp, start from reverse
  * - SIMILAR_TO: [1143. Longest Common Subsequence - MEDIUM](https://leetcode.com/problems/longest-common-subsequence/)
  *
- * PRACTICE
+ * PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=3Rw3p9LrgvE&ab_channel=NeetCode
  */

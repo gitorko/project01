@@ -41,8 +41,9 @@ public class MaxRemoveableChars {
 
     private String remove(String s, int[] removable, int k) {
         StringBuilder sb = new StringBuilder(s);
-        for (int i = 0; i < k; i++)
+        for (int i = 0; i < k; i++) {
             sb.setCharAt(removable[i], '*');
+        }
         return sb.toString();
     }
 

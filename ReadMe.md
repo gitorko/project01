@@ -2,6 +2,8 @@
 
 Data Structure & Algorithms
 
+Requires Java 17
+
 # Online code editor
 
 https://rustpad.io/

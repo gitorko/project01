@@ -46,7 +46,7 @@ public class RootToLeafSumBT {
             return 0;
         sum = sum * 10 + root.val;
         //leaf node
-        if (root.right == null && root.left == null)
+        if (root.left == null && root.right == null)
             return sum;
 
         //recurse left + right

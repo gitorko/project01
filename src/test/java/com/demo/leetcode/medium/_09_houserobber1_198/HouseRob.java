@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
  *
  * - rob = max (arr[0] + rob(2..n), rob(1..n))
  *
- * PRACTICE: P2
+ * PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=73r3KWiEvyk&ab_channel=NeetCode
  */
@@ -55,7 +55,7 @@ public class HouseRob {
 
     /**
      * Iterative + 2 Variables
-     * rob2 was the most recent robbed house.
+     * Based on robBottomUp you only need last 2 values hence just 2 variable are enough
      */
     public int robBottomUpNSteps(int[] nums) {
         int rob1 = 0, rob2 = 0;

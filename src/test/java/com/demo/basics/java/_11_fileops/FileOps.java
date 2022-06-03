@@ -5,6 +5,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -23,6 +24,16 @@ public class FileOps {
         Path fileName = Path.of("/tmp/test.txt");
         String content = "hello world !!";
         Files.writeString(fileName, content);
+        String actual = Files.readString(fileName);
+        System.out.println(actual);
+    }
+
+    @SneakyThrows
+    @Test
+    public void test_writeFileAppend() {
+        Path fileName = Path.of("/tmp/test.txt");
+        String content = "hello world !!";
+        Files.writeString(fileName, content, StandardOpenOption.APPEND);
         String actual = Files.readString(fileName);
         System.out.println(actual);
     }

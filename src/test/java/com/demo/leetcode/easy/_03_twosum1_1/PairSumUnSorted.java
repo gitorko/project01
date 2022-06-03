@@ -32,8 +32,8 @@ class PairSumUnSorted {
      * 4-2=2, but 2 is present only once. Hence one pass is better.
      *
      * If you do 2 pass then you need to be aware of this extra check, in one pass its not an issue.
-     * Time: O(N)
-     * Space: O(N)
+     * Time: O(n)
+     * Space: O(n)
      */
     public int[] twoPass(int[] nums, int target) {
         Map<Integer, Integer> map = new HashMap<>();
@@ -53,8 +53,8 @@ class PairSumUnSorted {
 
     /**
      * One Pass, complement is key, index is value.
-     * Time: O(N)
-     * Space: O(N)
+     * Time: O(n)
+     * Space: O(n)
      */
     public int[] onePass(int[] nums, int target) {
         Map<Integer, Integer> map = new HashMap<>();

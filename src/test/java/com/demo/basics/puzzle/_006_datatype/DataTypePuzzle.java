@@ -15,7 +15,7 @@ public class DataTypePuzzle {
     @Test
     public void test2() {
         long num1 = 5l;
-        Long num2 = new Long(5l);
+        Long num2 = Long.valueOf(5);
         System.out.println(num1 == num2);
         System.out.println(num2.equals(num1));
     }

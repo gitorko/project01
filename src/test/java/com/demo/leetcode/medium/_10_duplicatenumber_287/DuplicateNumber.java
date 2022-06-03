@@ -14,8 +14,14 @@ import org.junit.jupiter.api.Test;
 public class DuplicateNumber {
 
     @Test
-    public void test() {
+    public void test1() {
         int[] nums = {1, 3, 4, 2, 2};
+        Assertions.assertEquals(2, findDuplicate(nums));
+    }
+
+    @Test
+    public void test2() {
+        int[] nums = {2, 2, 2, 2, 2};
         Assertions.assertEquals(2, findDuplicate(nums));
     }
 

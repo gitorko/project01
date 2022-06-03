@@ -40,8 +40,8 @@ public class WordSearch2 {
         for (String word : words)
             insert(word);
 
-        for (int i = 0; i < board.length; ++i)
-            for (int j = 0; j < board[0].length; ++j)
+        for (int i = 0; i < board.length; i++)
+            for (int j = 0; j < board[0].length; j++)
                 dfs(board, i, j, root);
 
         return result;

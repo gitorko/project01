@@ -16,9 +16,17 @@ import org.junit.jupiter.api.Test;
 public class UniqueBST {
 
     @Test
-    public void test() {
+    public void test1() {
         Assertions.assertEquals(5, numTrees(3));
+    }
+
+    @Test
+    public void test2() {
         Assertions.assertEquals(1, numTrees(1));
+    }
+
+    @Test
+    public void test3() {
         Assertions.assertEquals(2, numTrees(2));
     }
 
@@ -39,7 +47,7 @@ public class UniqueBST {
             for (int root = 1; root <= level; root++) {
                 int left = root - 1;
                 int right = level - root;
-                dp[level] += dp[right] * dp[left];
+                dp[level] += dp[left] * dp[right];
             }
         }
         return dp[n];

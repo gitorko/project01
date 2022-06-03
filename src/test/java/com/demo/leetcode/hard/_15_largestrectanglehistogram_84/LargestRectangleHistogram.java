@@ -31,6 +31,12 @@ public class LargestRectangleHistogram {
         Assertions.assertEquals(6, largestRectangleArea(heights));
     }
 
+    @Test
+    public void test3() {
+        int[] heights = {4, 2, 0, 3, 2, 5};
+        Assertions.assertEquals(6, largestRectangleArea(heights));
+    }
+
     /**
      * Time: O(n)
      * Space: O(n)
@@ -42,6 +48,8 @@ public class LargestRectangleHistogram {
         for (int i = 0; i < heights.length; i++) {
             while (!stack.isEmpty() && heights[stack.peek()] > heights[i]) {
                 int h = heights[stack.pop()];
+                //Dont forget edge case of stack empty
+                //Also dont do [i - stack.pop()] to get width
                 int w = stack.isEmpty() ? i : i - stack.peek() - 1;
                 maxArea = Math.max(maxArea, h * w);
             }

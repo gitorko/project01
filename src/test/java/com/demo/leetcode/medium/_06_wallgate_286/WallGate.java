@@ -48,8 +48,8 @@ public class WallGate {
         queue = new LinkedList<>();
         visited = new boolean[rowLen][colLen];
 
-        for (int i = 0; i < rowLen; ++i) {
-            for (int j = 0; j < colLen; ++j) {
+        for (int i = 0; i < rowLen; i++) {
+            for (int j = 0; j < colLen; j++) {
                 if (rooms[i][j] == 0) {
                     //add all gates
                     queue.offer(new int[]{i, j});

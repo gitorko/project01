@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
  * [53. Maximum Subarray - EASY](https://leetcode.com/problems/maximum-subarray/)
  *
  * - reset if cur sum < 0
- * - kadane
+ * - kadane algorithm
  * - SIMILAR_TO: [121. Best Time to Buy and Sell Stock - EASY](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
  *
  * https://www.youtube.com/watch?v=5WZl3MMT0Eg&ab_channel=NeetCode
@@ -21,7 +21,6 @@ public class MaxSubarraySum {
     }
 
     /**
-     * Kadane's Algorithm
      * Time: O(N)
      * Space: O(1)
      */
