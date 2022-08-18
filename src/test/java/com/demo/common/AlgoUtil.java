@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class AlgoUtil {
-
     public static List<List<Integer>> twoDArrayToList(int[][] twoDArray) {
         List<List<Integer>> list = new ArrayList<>();
         for (int[] arr : twoDArray) {

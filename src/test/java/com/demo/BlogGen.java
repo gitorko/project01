@@ -54,7 +54,7 @@ public class BlogGen {
         System.out.println();
         String baseUrl = "https://github.com/gitorko/project01/tree/main/";
         for (Map.Entry<String, Path> map : paths.entrySet()) {
-            System.out.println("## " + map.getKey());
+            System.out.println("### " + map.getKey());
             System.out.println();
             System.out.println("|Id   | Leetcode     | Solution        | Type        |");
             System.out.println("| --- | ---          | ---             | ---         |");

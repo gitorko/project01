@@ -1,10 +1,19 @@
-# project01
+# Project 01
 
 Data Structure & Algorithms
 
-Requires Java 17
+[https://gitorko.github.io/grokking-the-coding-interview/](https://gitorko.github.io/grokking-the-coding-interview/)
 
-# Online code editor
+### Version
+
+Check version
+
+```bash
+$java --version
+openjdk 17.0.3 2022-04-19 LTS
+```
+
+### Online code editor
 
 https://rustpad.io/
 
@@ -14,7 +23,7 @@ https://app.coderpad.io/
 
 https://codeshare.io/
 
-# Topic
+### Topic
 
 01. Number
 02. String
@@ -40,7 +49,7 @@ https://codeshare.io/
 22. Bit Manipulation
 25. Generic
 
-# Pattern
+### Pattern
 
 1. Sliding Window
 2. Two Pointers
@@ -61,7 +70,7 @@ https://codeshare.io/
 17. Union Find
 18. Trie
 
-## Dynamic Program
+### Dynamic Program
 
 1. 0-1 knapsack
 2. unbounded knapsack
@@ -72,4 +81,3 @@ https://codeshare.io/
 7. Matrix Chain Multiplication
 8. DP on tree
 9. DP on grid
-
