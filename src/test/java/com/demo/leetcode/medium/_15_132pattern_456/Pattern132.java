@@ -26,6 +26,12 @@ public class Pattern132 {
         Assertions.assertTrue(find132pattern(nums));
     }
 
+    @Test
+    public void test3() {
+        int[] nums = {3, 1, 4, 5, 2};
+        Assertions.assertTrue(find132pattern(nums));
+    }
+
     /**
      * Time: O(n)
      * Space: O(n)
@@ -37,10 +43,11 @@ public class Pattern132 {
         int ak = Integer.MIN_VALUE;
 
         for (int i = nums.length - 1; i >= 0; i--) {
-            if (nums[i] < ak) // ai < ak, we're done because ai must also smaller than aj
+            if (nums[i] < ak) // ai < ak, we're done because ai must also be smaller than aj
                 return true;
-            while (!stack.isEmpty() && stack.peek() < nums[i])
+            while (!stack.isEmpty() && stack.peek() < nums[i]) {
                 ak = stack.pop();
+            }
             stack.push(nums[i]); // nums[i] is a candidate of aj
         }
         return false;

@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
  * - strategy is to lower a[i-1] to match a[i] if possible if a[i-2] not exist;
  * - otherwise rise a[i] to match a[i-1]
  *
- * PRACTICE
+ * PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=6vU3PtS_oSw&ab_channel=AdityaMahajan
  */

@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 /**
  * [72. Edit Distance - HARD](https://leetcode.com/problems/edit-distance/)
  *
+ * - 2d DP
  * - min of 3 sides
  * - SIMILAR_TO: [1143. Longest Common Subsequence - MEDIUM](https://leetcode.com/problems/longest-common-subsequence/)
  *
@@ -42,13 +43,15 @@ public class EditDistance {
         for (int i = m; i >= 0; i--)
             dp[i][n] = m - i;
 
-        for (int i = m - 1; i >= 0; i--)
-            for (int j = n - 1; j >= 0; j--)
-                if (word1.charAt(i) == word2.charAt(j))
+        for (int i = m - 1; i >= 0; i--) {
+            for (int j = n - 1; j >= 0; j--) {
+                if (word1.charAt(i) == word2.charAt(j)) {
                     dp[i][j] = dp[i + 1][j + 1];
-                else
+                } else {
                     dp[i][j] = 1 + Math.min(dp[i + 1][j + 1], Math.min(dp[i + 1][j], dp[i][j + 1]));
-
+                }
+            }
+        }
         return dp[0][0];
     }
 }

@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
  * - SIMILAR_TO: [698. Partition to K Equal Sum Subsets - MEDIUM](https://leetcode.com/problems/partition-to-k-equal-sum-subsets/)
  * - SIMILAR_TO: Subset Sum Problem
  *
- * PRACTICE
+ * PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=IsvocB5BJhw&ab_channel=NeetCode
  */
@@ -28,7 +28,7 @@ public class PartitionSubsetSum {
     }
 
     /**
-     * Time: O(nk)
+     * Time: O(n * sum(nums))
      * Space: O(sum(nums))
      */
     public boolean canPartition(int[] nums) {

@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
  * [62. Unique Paths - MEDIUM](https://leetcode.com/problems/unique-paths/)
  *
  * - fill last row,col
- * - approach will be re-used in unique path 2
  * - SIMILAR_TO: [63. Unique Paths II - MEDIUM](https://leetcode.com/problems/unique-paths-ii/)
  *
  * https://www.youtube.com/watch?v=IlEsdxuD4lY&ab_channel=NeetCode
@@ -22,6 +21,9 @@ public class UniquePath {
 
     /**
      * Iterative with memoization
+     *
+     * Time: O(m*n)
+     * Space: O(m*n), can be reduced to O(n) if we store only 1 row.
      */
     public int uniquePaths(int row, int col) {
         //edge case

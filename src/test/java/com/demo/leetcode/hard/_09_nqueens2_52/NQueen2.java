@@ -1,4 +1,4 @@
-package com.demo.leetcode.hard._09_nqueens_51;
+package com.demo.leetcode.hard._09_nqueens2_52;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -8,21 +8,20 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 /**
- * [51. N-Queens - HARD](https://leetcode.com/problems/n-queens/)
+ * [52. N-Queens II - HARD](https://leetcode.com/problems/n-queens-ii/)
  *
  * - backtracking
  * - negative diagonal = (row - col) = constant
  * - positive diagonal = (row + col) = constant
+ * - SIMILAR_TO: [51. N-Queens - HARD](https://leetcode.com/problems/n-queens/)
  *
  * https://www.youtube.com/watch?v=Ph95IHmRp5M&ab_channel=NeetCode
  */
-public class NQueen {
+public class NQueen2 {
 
     @Test
     public void test() {
-        List<List<String>> expected = Arrays.asList(Arrays.asList("..Q.", "Q...", "...Q", ".Q.."), Arrays.asList(".Q..", "...Q", "Q...", "..Q."));
-        List<List<String>> actual = solveNQueens(4);
-        Assertions.assertEquals(expected, actual);
+        Assertions.assertEquals(2, totalNQueens(4));
     }
 
     /**
@@ -30,22 +29,22 @@ public class NQueen {
      * Space: ∣ans∣
      */
     char[][] board;
-    List<List<String>> result;
+    int result;
 
-    public List<List<String>> solveNQueens(int n) {
+    public int totalNQueens(int n) {
         board = new char[n][n];
         for (int i = 0; i < n; i++) {
             Arrays.fill(board[i], '.');
         }
 
-        result = new ArrayList<>();
+        result = 0;
         dfs(0);
         return result;
     }
 
     private void dfs(int colIndex) {
         if (colIndex == board.length) {
-            result.add(construct());
+            result++;
             return;
         }
 
@@ -69,11 +68,4 @@ public class NQueen {
         return true;
     }
 
-    private List<String> construct() {
-        List<String> res = new ArrayList<>();
-        for (int i = 0; i < board.length; i++) {
-            res.add(new String(board[i]));
-        }
-        return res;
-    }
 }

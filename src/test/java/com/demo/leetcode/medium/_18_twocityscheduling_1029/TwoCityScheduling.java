@@ -39,8 +39,9 @@ public class TwoCityScheduling {
         // sort in descending order by the money saved if we fly a person to A instead of B
         Arrays.sort(costs, (a, b) -> (b[1] - b[0]) - (a[1] - a[0]));
 
-        for (int i = 0; i < n; i++)
+        for (int i = 0; i < n; i++) {
             result += costs[i][0] + costs[i + n][1];
+        }
 
         return result;
     }

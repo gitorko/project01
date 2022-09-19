@@ -9,21 +9,29 @@ import org.junit.jupiter.api.Test;
 /**
  * [309. Best Time to Buy and Sell Stock with Cooldown - MEDIUM](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/)
  *
- * - dp map + recursion + buying
+ * - dp map + recursion + buying boolean
  * - if buy i + 1
  * - if sell i + 2
+ * - SIMILAR_TO: [494. Target Sum - MEDIUM](https://leetcode.com/problems/target-sum/)
  *
- * PRACTICE
+ * PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=I7j0F7AHpb8&ab_channel=NeetCode
  */
 public class BestTimeBuySellCoolDown {
 
     @Test
-    public void test() {
+    public void test1() {
         int[] arr = {1, 2, 3, 0, 2};
         Assertions.assertEquals(3, maxProfit(arr));
         Assertions.assertEquals(3, maxProfit2(arr));
+    }
+
+    @Test
+    public void test2() {
+        int[] arr = {2, 1, 2, 2, 5, 2};
+        Assertions.assertEquals(4, maxProfit(arr));
+        Assertions.assertEquals(4, maxProfit2(arr));
     }
 
     /**

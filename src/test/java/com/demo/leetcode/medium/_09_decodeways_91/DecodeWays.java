@@ -6,9 +6,10 @@ import org.junit.jupiter.api.Test;
 /**
  * [91. Decode Ways - MEDIUM](https://leetcode.com/problems/decode-ways/)
  *
- * - dp, start from reverse n-2,isValid
+ * - 1D DP
+ * - start from reverse n-2, isValid
  *
- * PRACTICE
+ * PRACTICE: P3
  *
  * https://www.youtube.com/watch?v=6aEyTjOwlJU&ab_channel=NeetCode
  */

@@ -12,6 +12,8 @@ import org.junit.jupiter.api.Test;
 /**
  * [802. Find Eventual Safe States - MEDIUM](https://leetcode.com/problems/find-eventual-safe-states/)
  *
+ * - dfs
+ *
  * https://www.youtube.com/watch?v=Re_v0j0CRsg&ab_channel=NeetCode
  */
 public class EventualSafeState {
@@ -36,20 +38,24 @@ public class EventualSafeState {
         List<Integer> result = new ArrayList<>();
         visited = new HashMap<>();
         for (int i = 0; i < graph.length; i++) {
-            if (dfs(i))
+            if (dfs(i)) {
                 result.add(i);
+            }
         }
         return result;
     }
 
     private boolean dfs(int u) {
-        if (visited.containsKey(u))
+        if (visited.containsKey(u)) {
             return visited.get(u);
+        }
 
         visited.put(u, false);
-        for (int v : graph[u])
-            if (!dfs(v))
+        for (int v : graph[u]) {
+            if (!dfs(v)) {
                 return false;
+            }
+        }
         visited.put(u, true);
         return true;
     }

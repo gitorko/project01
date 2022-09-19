@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
  * - no duplicates
  * - SIMILAR_TO: Count of Subsets Sum with a Given Sum
  *
- * PRACTICE
+ * PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=Mjy4hd2xgrs&ab_channel=NeetCode
  */

@@ -6,8 +6,10 @@ import org.junit.jupiter.api.Test;
 /**
  * [70. Climbing Stairs - EASY](https://leetcode.com/problems/climbing-stairs/)
  *
- * - dynamic program, decision tree, memoization
+ * - 1D DP
  * - SIMILAR_TO: [198. House Robber - MEDIUM](https://leetcode.com/problems/house-robber/)
+ *
+ * PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=Y0lT9Fck7qI&ab_channel=NeetCode
  */
@@ -58,6 +60,7 @@ public class ClimbStairs {
     /**
      * Top down + memoization
      * Start from n.
+     * Time: O(n)
      */
     int[] dp;
 

@@ -32,6 +32,7 @@ public class Shift2DGrid {
 
         int[][] arr = new int[rowLength][colLength];
 
+        //cases when k is bigger than row*col
         k %= rowLength * colLength;
 
         for (int i = 0; i < rowLength; i++) {
@@ -44,8 +45,9 @@ public class Shift2DGrid {
         }
 
         List<List<Integer>> result = new ArrayList<>();
-        for (int[] row : arr)
+        for (int[] row : arr) {
             result.add(Arrays.stream(row).boxed().collect(Collectors.toList()));
+        }
 
         return result;
     }

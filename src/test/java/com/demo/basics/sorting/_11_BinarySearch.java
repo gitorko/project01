@@ -30,6 +30,7 @@ public class _11_BinarySearch {
         int right = nums.length - 1;
         int index = -1;
         while (left <= right) {
+            //prevent overflow (left + ((right -left)/2))
             int mid = (left + right) / 2;
             if (nums[mid] < target) {
                 left = mid + 1;
@@ -49,10 +50,10 @@ public class _11_BinarySearch {
      * Space: O(n)
      */
     public int binarySearchRecursive(int arr[], int key) {
-        return bsRecursiveHelper(arr, key, 0, arr.length - 1);
+        return helper(arr, key, 0, arr.length - 1);
     }
 
-    private int bsRecursiveHelper(int[] arr, int key, int left, int right) {
+    private int helper(int[] arr, int key, int left, int right) {
         int middle = (left + right) / 2;
         //base case
         if (right < left) {
@@ -61,9 +62,9 @@ public class _11_BinarySearch {
         if (key == arr[middle]) {
             return middle;
         } else if (key < arr[middle]) {
-            return bsRecursiveHelper(arr, key, left, middle - 1);
+            return helper(arr, key, left, middle - 1);
         } else {
-            return bsRecursiveHelper(arr, key, middle + 1, right);
+            return helper(arr, key, middle + 1, right);
         }
     }
 }

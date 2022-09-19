@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
  * - expand around center, two pointer
  * - odd and even case
  * - manacher algorithm
+ * - SIMILAR_TO: [647. Palindromic Substrings - MEDIUM](https://leetcode.com/problems/palindromic-substrings/)
  *
  * PRACTICE
  *

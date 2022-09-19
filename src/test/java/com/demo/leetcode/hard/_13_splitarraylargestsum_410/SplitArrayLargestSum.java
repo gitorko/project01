@@ -24,19 +24,19 @@ public class SplitArrayLargestSum {
     }
 
     /**
-     * Time: O(nlog(Σ∣nums∣))
+     * Time: O(n * log(Σ∣nums∣))
      * Space: O(1)
      */
     public int splitArray(int[] nums, int m) {
         int left = Arrays.stream(nums).max().getAsInt();
         int right = Arrays.stream(nums).sum();
 
-        while (left < right) {
+        while (left <= right) {
             int mid = (left + right) / 2;
             if (numGroups(nums, mid) > m)
                 left = mid + 1;
             else
-                right = mid;
+                right = mid - 1;
         }
         return left;
     }

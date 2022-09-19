@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
  * - SIMILAR_TO: [416. Partition Equal Subset Sum - MEDIUM](https://leetcode.com/problems/partition-equal-subset-sum/)
  * - SIMILAR_TO: [473. Matchsticks to Square - MEDIUM](https://leetcode.com/problems/matchsticks-to-square/)
  *
- * PRACTICE
+ * PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=mBk4I0X46oI&ab_channel=NeetCode
  */

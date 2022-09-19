@@ -8,10 +8,10 @@ import org.junit.jupiter.api.Test;
 /**
  * [322. Coin Change - MEDIUM](https://leetcode.com/problems/coin-change/)
  *
- * - dp with fill max value
+ * - 1D DP, fill max value
  * - SIMILAR_TO: Subset Sum Problem
  *
- * https://www.youtube.com/watch?v=H9bfqozjoqs&ab_channel=NeetCode.
+ * https://www.youtube.com/watch?v=H9bfqozjoqs&ab_channel=NeetCode
  */
 public class CoinChange {
 

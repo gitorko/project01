@@ -8,10 +8,12 @@ import org.junit.jupiter.api.Test;
  *
  * - pre-sum dp
  * - cache matrix with extra row, col
+ * - SIMILAR_TO: [303. Range Sum Query - Immutable - EASY](https://leetcode.com/problems/range-sum-query-immutable/)
  *
  * PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=7mL8KJ4Pi70&ab_channel=jayatitiwari
+ * https://www.youtube.com/watch?v=KE8MQuwE2yA&ab_channel=NeetCode
  */
 public class RangeSum2D {
 
