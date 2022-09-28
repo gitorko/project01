@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
  *  - option 1: use hashmap - two pass, edge case to check if complement is number itself.
  *  - option 2: use hashmap - one pass, complement.
  *  - SIMILAR_TO: [167. Two Sum II - Input Array Is Sorted - MEDIUM](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)
+ *  - PRACTICE: P4
  *
  * https://www.youtube.com/watch?v=KLlXCFG5TnA&ab_channel=NeetCode
  */
@@ -52,16 +53,16 @@ class PairSumUnSorted {
 
 
     /**
-     * One Pass, complement is key, index is value.
+     * One Pass, diff is key, index is value.
      * Time: O(n)
      * Space: O(n)
      */
     public int[] onePass(int[] nums, int target) {
         Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
-            int complement = target - nums[i];
-            if (map.containsKey(complement)) {
-                return new int[]{map.get(complement), i};
+            int diff = target - nums[i];
+            if (map.containsKey(diff)) {
+                return new int[]{map.get(diff), i};
             }
             map.put(nums[i], i);
         }

@@ -14,8 +14,7 @@ import org.junit.jupiter.api.Test;
  *
  * - map that stores char + list of string
  * - String.valueOf(charCount)
- *
- * PRACTICE: P3
+ * - PRACTICE: P3
  *
  * https://www.youtube.com/watch?v=vzdNOK2oB2E&ab_channel=NeetCode
  */
@@ -37,19 +36,19 @@ public class GroupAnagrams {
      * Space: O(m * n)
      */
     public List<List<String>> groupAnagrams(String[] strs) {
-        if (strs == null || strs.length == 0)
+        if (strs == null || strs.length == 0) {
             return new ArrayList<>();
+        }
         Map<String, List<String>> map = new HashMap<>();
         for (String s : strs) {
-            char[] charCount = new char[26];
+            char[] charMap = new char[26];
             for (char c : s.toCharArray()) {
-                charCount[c - 'a']++;
+                charMap[c - 'a']++;
             }
-            String keyStr = String.valueOf(charCount);
-            if (!map.containsKey(keyStr)) {
-                map.put(keyStr, new ArrayList<>());
-            }
-            map.get(keyStr).add(s);
+            String keyStr = String.valueOf(charMap);
+            List<String> tempList = map.getOrDefault(keyStr, new ArrayList<>());
+            tempList.add(s);
+            map.put(keyStr, tempList);
         }
         return new ArrayList<>(map.values());
     }

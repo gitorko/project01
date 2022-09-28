@@ -11,6 +11,8 @@ import org.junit.jupiter.api.Test;
  * [54. Spiral Matrix - MEDIUM](https://leetcode.com/problems/spiral-matrix/)
  *
  * - dfs, with direction, visited
+ * - PRACTICE: P1
+ * - MISTAKES: likes to miss updating visited
  *
  * https://www.youtube.com/watch?v=BJnMZNwUk1M&ab_channel=NeetCode
  */
@@ -28,38 +30,31 @@ public class SpiralMatrix {
      * Space: O(mn)
      */
     int[][] matrix;
-    int rowLen;
-    int colLen;
     List<Integer> result = new ArrayList<>();
     boolean[][] visited;
 
-    public List<Integer> spiralOrder(int[][] input) {
-        matrix = input;
-        rowLen = matrix.length;
-        colLen = matrix[0].length;
-        if (rowLen == 0) return result;
-
-        visited = new boolean[rowLen][colLen];
-        dfs(0, 0, false);
+    public List<Integer> spiralOrder(int[][] matrix) {
+        this.matrix = matrix;
+        visited = new boolean[matrix.length][matrix[0].length];
+        dfs(0, 0, true);
         return result;
     }
 
-    private void dfs(int i, int j, boolean up) {
-
-        //if visited or out of boundary
-        if (i < 0 || j < 0 || i >= rowLen || j >= colLen || visited[i][j])
+    private void dfs(int i, int j, boolean rightDown) {
+        //base case - if visited or out of boundary
+        if (i < 0 || j < 0 || i >= matrix.length || j >= matrix[0].length || visited[i][j]) {
             return;
-
+        }
         visited[i][j] = true;
         result.add(matrix[i][j]);
-        if (up) { // if we are going up
-            dfs(i - 1, j, true); // keep going
-            dfs(i, j + 1, false); //then turn right
+        if (rightDown) {
+            dfs(i, j + 1, rightDown);
+            dfs(i + 1, j, rightDown);
+            dfs(i, j - 1, !rightDown);
         } else {
-            dfs(i, j + 1, false); //go right
-            dfs(i + 1, j, false); //go down
-            dfs(i, j - 1, false); //go left
-            dfs(i - 1, j, true); //go up
+            dfs(i, j - 1, rightDown);
+            dfs(i - 1, j, rightDown);
+            dfs(i, j + 1, !rightDown);
         }
     }
 }

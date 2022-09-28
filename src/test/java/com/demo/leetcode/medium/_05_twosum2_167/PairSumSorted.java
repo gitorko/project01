@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
  * [167. Two Sum II - Input Array Is Sorted - MEDIUM](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)
  *
  * - two pointer
+ * - PRACTICE: P4
  *
  * https://www.youtube.com/watch?v=cQ1Oz4ckceM&ab_channel=NeetCode
  */
@@ -22,7 +23,7 @@ public class PairSumSorted {
     @Test
     public void test_pairDoesntExist() {
         int[] intArray = new int[]{2, 7, 11, 15};
-        int[] expected = {-1, -1};
+        int[] expected = {};
         Assertions.assertArrayEquals(expected, twoSum(intArray, 10));
     }
 
@@ -34,14 +35,15 @@ public class PairSumSorted {
         int left = 0;
         int right = numbers.length - 1;
         while (left < right) {
-            if (numbers[left] + numbers[right] == target)
-                return new int[]{left + 1, right + 1};
-            else if (numbers[left] + numbers[right] > target)
-                right--;
-            else
+            if (numbers[left] + numbers[right] < target) {
                 left++;
+            } else if (numbers[left] + numbers[right] > target) {
+                right--;
+            } else {
+                return new int[]{left + 1, right + 1};
+            }
         }
-        return new int[]{-1, -1};
+        return new int[]{};
     }
 
 }

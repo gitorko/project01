@@ -14,8 +14,8 @@ import org.junit.jupiter.api.Test;
  * [146. LRU Cache - MEDIUM](https://leetcode.com/problems/lru-cache/)
  *
  * - double linked list + map
- * - use deque but it is not optimized for remove. Will timeout for large set.
- * - this solution below is for understanding concept
+ * - use deque, it is not optimized for remove. Will time out for large set.
+ * - the solution below is for understanding concept only.
  *
  * https://www.youtube.com/watch?v=7ABFKPK2hD4&ab_channel=NeetCode
  */

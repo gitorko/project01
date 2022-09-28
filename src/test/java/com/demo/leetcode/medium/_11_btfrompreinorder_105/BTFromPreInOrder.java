@@ -13,6 +13,7 @@ import org.junit.jupiter.api.Test;
  *
  * - recursion, break middle
  * - SIMILAR_TO: [106. Construct Binary Tree from Inorder and Postorder Traversal - MEDIUM](https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/)
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=ihj4IQGZ2zc&ab_channel=NeetCode
  */
@@ -33,8 +34,10 @@ public class BTFromPreInOrder {
      * Space: O(n)
      */
     public TreeNode buildTree(int[] preorder, int[] inorder) {
-        if (preorder == null || inorder == null || inorder.length == 0 || preorder.length == 0)
+        //base case
+        if (preorder == null || inorder == null || inorder.length == 0 || preorder.length == 0) {
             return null;
+        }
 
         //first element in preorder is root
         TreeNode root = new TreeNode(preorder[0]);

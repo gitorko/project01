@@ -12,6 +12,8 @@ import org.junit.jupiter.api.Test;
  * [78. Subsets - MEDIUM](https://leetcode.com/problems/subsets/)
  *
  * - backtracking, i+1
+ * - SIMILAR_TO: [46. Permutations - MEDIUM](https://leetcode.com/problems/permutations/)
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=REOH22Xwdkk&ab_channel=NeetCode
  */
@@ -48,18 +50,19 @@ public class Subset {
     int[] nums;
     List<List<Integer>> result;
 
-    public List<List<Integer>> subsets(int[] input) {
-        nums = input;
+    public List<List<Integer>> subsets(int[] nums) {
+        this.nums = nums;
         result = new ArrayList<>();
-        backtrack(new ArrayList<>(), 0);
+        backtrack(0, new ArrayList<>());
         return result;
     }
 
-    private void backtrack(List<Integer> tempList, int start) {
+    private void backtrack(int start, List<Integer> tempList) {
+        //add via new array list else will modify existing array.
         result.add(new ArrayList<>(tempList));
         for (int i = start; i < nums.length; i++) {
             tempList.add(nums[i]);
-            backtrack(tempList, i + 1);
+            backtrack(i + 1, tempList);
             tempList.remove(tempList.size() - 1);
         }
     }

@@ -12,8 +12,7 @@ import org.junit.jupiter.api.Test;
  * [617. Merge Two Binary Trees - EASY](https://leetcode.com/problems/merge-two-binary-trees/)
  *
  * - recursion
- *
- * PRACTICE: P2
+ * - PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=QHH6rIK3dDQ&ab_channel=NeetCode
  */
@@ -34,16 +33,21 @@ public class MergeBinaryTree {
     /**
      * Time: O(m+n)
      */
-    public TreeNode mergeTrees(TreeNode t1, TreeNode t2) {
-        if (t1 == null && t2 == null)
+    public TreeNode mergeTrees(TreeNode root1, TreeNode root2) {
+        if (root1 == null && root2 == null) {
             return null;
-
-        int val = (t1 == null ? 0 : t1.val) + (t2 == null ? 0 : t2.val);
-        TreeNode newNode = new TreeNode(val);
-
-        newNode.left = mergeTrees(t1 == null ? null : t1.left, t2 == null ? null : t2.left);
-        newNode.right = mergeTrees(t1 == null ? null : t1.right, t2 == null ? null : t2.right);
-
-        return newNode;
+        } else if (root1 != null && root2 != null) {
+            root1.val = root1.val + root2.val;
+            root1.left = mergeTrees(root1.left, root2.left);
+            root1.right = mergeTrees(root1.right, root2.right);
+        } else if (root1 != null && root2 == null) {
+            root1.left = mergeTrees(root1.left, null);
+            root1.right = mergeTrees(root1.right, null);
+        } else if (root1 == null && root2 != null) {
+            root1 = root2;
+            root1.right = mergeTrees(null, root2.right);
+            root1.right = mergeTrees(null, root2.right);
+        }
+        return root1;
     }
 }

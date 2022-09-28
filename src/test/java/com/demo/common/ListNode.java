@@ -2,11 +2,14 @@ package com.demo.common;
 
 public class ListNode {
 
-    public final int val;
+    public Integer val;
     public ListNode next;
 
-    public ListNode(int val) {
+    public ListNode(Integer val) {
         this.val = val;
+    }
+
+    public ListNode() {
     }
 
     public ListNode(int val, ListNode next) {

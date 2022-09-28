@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -16,8 +17,7 @@ import org.junit.jupiter.api.Test;
  *
  * - topological sort (DFS)
  * - SIMILAR_TO: [207. Course Schedule - MEDIUM](https://leetcode.com/problems/course-schedule/)
- *
- * PRACTICE: P2
+ * - PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=Akt3glAwyfY&ab_channel=NeetCode
  * https://www.youtube.com/watch?v=ddTC4Zovtbc&ab_channel=TusharRoy-CodingMadeSimple
@@ -46,13 +46,12 @@ public class CourseSchedule2 {
     Set<Integer> cycleSet;
     Set<Integer> visitedSet;
     Map<Integer, List<Integer>> adjacencyMap;
-    List<Integer> result;
 
     public int[] findOrder(int numCourses, int[][] prerequisites) {
         adjacencyMap = new HashMap<>();
         cycleSet = new HashSet<>();
-        visitedSet = new HashSet<>();
-        result = new ArrayList<>();
+        //set doesn't guarantee order, hence use LinkedHashSet
+        visitedSet = new LinkedHashSet<>();
         for (int i = 0; i < prerequisites.length; i++) {
             Integer course1 = prerequisites[i][0];
             Integer course2 = prerequisites[i][1];
@@ -63,7 +62,7 @@ public class CourseSchedule2 {
         for (int i = 0; i < numCourses; i++) {
             if (!dfs(i)) return new int[]{};
         }
-        return result.stream()
+        return visitedSet.stream()
                 .mapToInt(Integer::intValue)
                 .toArray();
     }
@@ -82,8 +81,6 @@ public class CourseSchedule2 {
         }
         cycleSet.remove(course);
         visitedSet.add(course);
-        //use list as set doesnt guarantee order, or use LinkedHashSet
-        result.add(course);
         return true;
     }
 

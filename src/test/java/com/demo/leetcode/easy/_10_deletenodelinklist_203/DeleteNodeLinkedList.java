@@ -9,16 +9,15 @@ import org.junit.jupiter.api.Test;
  * [203. Remove Linked List Elements - EASY](https://leetcode.com/problems/remove-linked-list-elements/)
  *
  * - dummy node
- * - Edge cases, node is first node, node is last node, node is null, all nodes same
- *
- * PRACTICE
+ * - node is first node, node is last node, node is null, all nodes same
+ * - PRACTICE: P4
  *
  * https://www.youtube.com/watch?v=JI71sxtHTng&ab_channel=NeetCode
  */
 public class DeleteNodeLinkedList {
 
     @Test
-    public void test_deleteLast() {
+    public void test1() {
         int arr[] = {4, 5, 1, 9};
         int expected[] = {4, 5, 1};
         ListNode rootNode = ListNodeUtil.create(arr);
@@ -27,7 +26,7 @@ public class DeleteNodeLinkedList {
     }
 
     @Test
-    public void test_deleteFirst() {
+    public void test2() {
         int arr[] = {4, 5, 1, 9};
         int expected[] = {5, 1, 9};
         ListNode rootNode = ListNodeUtil.create(arr);
@@ -36,7 +35,7 @@ public class DeleteNodeLinkedList {
     }
 
     @Test
-    public void test_deleteMid() {
+    public void test3() {
         int arr[] = {4, 5, 1, 9};
         int expected[] = {4, 5, 9};
         ListNode rootNode = ListNodeUtil.create(arr);
@@ -45,7 +44,7 @@ public class DeleteNodeLinkedList {
     }
 
     @Test
-    public void test_containsDuplicates() {
+    public void test4() {
         int arr[] = {1, 2, 6, 3, 4, 5, 6};
         int expected[] = {1, 2, 3, 4, 5};
         ListNode rootNode = ListNodeUtil.create(arr);
@@ -54,7 +53,7 @@ public class DeleteNodeLinkedList {
     }
 
     @Test
-    public void test_allDuplicates() {
+    public void test5() {
         int arr[] = {7, 7, 7, 7};
         int expected[] = {};
         ListNode rootNode = ListNodeUtil.create(arr);

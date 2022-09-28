@@ -11,8 +11,9 @@ import org.junit.jupiter.api.Test;
  * [416. Partition Equal Subset Sum - MEDIUM](https://leetcode.com/problems/partition-equal-subset-sum/)
  *
  * - two set
+ * - 0/1 knapsack
  * - SIMILAR_TO: [698. Partition to K Equal Sum Subsets - MEDIUM](https://leetcode.com/problems/partition-to-k-equal-sum-subsets/)
- * - SIMILAR_TO: Subset Sum Problem
+ * - SIMILAR_TO: [SubSet Sum - MEDIUM]()
  *
  * PRACTICE: P1
  *

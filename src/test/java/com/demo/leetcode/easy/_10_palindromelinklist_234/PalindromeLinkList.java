@@ -10,9 +10,9 @@ import org.junit.jupiter.api.Test;
 /**
  * [234. Palindrome Linked List - EASY](https://leetcode.com/problems/palindrome-linked-list/)
  *
- * - find middle using fast slow pointer, reverse
- *
- * PRACTICE: P2
+ * - find middle, reverse 2nd half, compare both half
+ * - PRACTICE: P2
+ * - MISTAKES: Doing a full reverse will take O(n) space
  *
  * https://www.youtube.com/watch?v=yOzXms1J6Nk&ab_channel=NeetCode
  */
@@ -24,6 +24,10 @@ public class PalindromeLinkList {
         Assertions.assertTrue(isPalindrome(root));
     }
 
+    /**
+     * Time: O(n)
+     * Space: O(1)
+     */
     public boolean isPalindrome(ListNode head) {
         //find middle
         ListNode fast = head;

@@ -10,6 +10,9 @@ import org.junit.jupiter.api.Test;
 /**
  * [606. Construct String from Binary Tree - EASY](https://leetcode.com/problems/construct-string-from-binary-tree/)
  *
+ * - pre-order traversal
+ * - PRACTICE: P4
+ *
  * https://www.youtube.com/watch?v=b1WpYxnuebQ&ab_channel=NeetCode
  */
 public class StringFromBT {
@@ -27,16 +30,18 @@ public class StringFromBT {
     }
 
     public String tree2str(TreeNode root) {
-        if (root == null) return "";
-
-        String result = root.val + "";
-
-        String left = tree2str(root.left);
-        String right = tree2str(root.right);
-
-        if (left.equals("") && right.equals("")) return result;
-        if (left.equals("")) return result + "()" + "(" + right + ")";
-        if (right.equals("")) return result + "(" + left + ")";
-        return result + "(" + left + ")" + "(" + right + ")";
+        if (root == null) {
+            return "";
+        }
+        if (root.left == null && root.right == null) {
+            return String.valueOf(root.val);
+        }
+        if (root.left != null && root.right == null) {
+            return root.val + "(" + tree2str(root.left) + ")";
+        }
+        if (root.left == null && root.right != null) {
+            return root.val + "()" + "(" + tree2str(root.right) + ")";
+        }
+        return root.val + "(" + tree2str(root.left) + ")" + "(" + tree2str(root.right) + ")";
     }
 }

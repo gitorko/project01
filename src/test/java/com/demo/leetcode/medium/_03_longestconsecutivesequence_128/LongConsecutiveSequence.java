@@ -10,10 +10,10 @@ import org.junit.jupiter.api.Test;
 /**
  * [128. Longest Consecutive Sequence - MEDIUM](https://leetcode.com/problems/longest-consecutive-sequence/)
  *
- * - set, check previous, number line
+ * - Set, check previous, number line
  * - SIMILAR_TO: [674. Longest Continuous Increasing Subsequence - EASY](https://leetcode.com/problems/longest-continuous-increasing-subsequence/)
- *
- * PRACTICE: P3
+ * - PRACTICE: P3
+ * - MISTAKES: Will probably miss checking if beginning of sequence and loop over all, causing timeout exception
  *
  * https://www.youtube.com/watch?v=P6RZZMu_maU&ab_channel=NeetCode
  */
@@ -34,15 +34,17 @@ public class LongConsecutiveSequence {
         Set<Integer> numSet = Arrays.stream(nums).boxed().collect(Collectors.toSet());
 
         int result = 0;
-        for (int i = 0; i < nums.length; i++) {
-            //check if previous number doesnt exist, indicates it the beginning of numSet
-            if (!numSet.contains(nums[i] - 1)) {
-                int j = 0;
-                while (numSet.contains(nums[i] + j)) {
-                    j++;
+        for (int num : nums) {
+            //check if previous number doesn't exist, indicates it the beginning of numSet, without this check there will be timeout
+            if (!numSet.contains(num - 1)) {
+                int tempResult = 0;
+                while (numSet.contains(num)) {
+                    tempResult++;
+                    num++;
                 }
-                result = Math.max(result, j);
+                result = Math.max(tempResult, result);
             }
+
         }
         return result;
     }

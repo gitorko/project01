@@ -12,8 +12,9 @@ import org.junit.jupiter.api.Test;
  * [108. Convert Sorted Array to Binary Search Tree - EASY](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/)
  *
  * - recursion, partition at mid
+ * - PRACTICE: P2
  *
- * PRACTICE: P1
+ * https://www.youtube.com/watch?v=0K0uCMYq5ng&ab_channel=NeetCode
  */
 public class BinarySearchTreeFromArray {
 
@@ -30,13 +31,11 @@ public class BinarySearchTreeFromArray {
      * Space: O(log(n))
      */
     public TreeNode sortedArrayToBST(int[] nums) {
-        if (nums.length == 0)
-            return null;
-        TreeNode head = helper(nums, 0, nums.length - 1);
-        return head;
+        return helper(nums, 0, nums.length - 1);
     }
 
     private TreeNode helper(int[] nums, int left, int right) {
+        //base case
         if (left > right) {
             return null;
         }

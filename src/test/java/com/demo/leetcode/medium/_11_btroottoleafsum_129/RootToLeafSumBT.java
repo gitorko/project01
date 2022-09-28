@@ -12,8 +12,7 @@ import org.junit.jupiter.api.Test;
  *
  * - pre-order with multiply by 10
  * - sum * 10 + root.val
- *
- * PRACTICE: P2
+ * - PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=Jk16lZGFWxE&ab_channel=NeetCode
  */
@@ -42,14 +41,18 @@ public class RootToLeafSumBT {
     }
 
     public int sumTree(TreeNode root, int sum) {
-        if (root == null)
+        if(root == null) {
             return 0;
-        sum = sum * 10 + root.val;
-        //leaf node
-        if (root.left == null && root.right == null)
-            return sum;
+        }
 
-        //recurse left + right
-        return sumTree(root.left, sum) + sumTree(root.right, sum);
+        //base case
+        if(root.left == null && root.right == null) {
+            return sum + root.val;
+        }
+
+        int leftSum = sumTree(root.left, (sum + root.val) * 10);
+        int rightSum = sumTree(root.right, (sum + root.val) * 10);
+
+        return leftSum + rightSum;
     }
 }

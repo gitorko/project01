@@ -8,7 +8,8 @@ import org.junit.jupiter.api.Test;
 /**
  * [881. Boats to Save People - MEDIUM](https://leetcode.com/problems/boats-to-save-people/)
  *
- * - sort, two pointer
+ * - sort, two pointer, greedy
+ * - PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=XbaxWuHIWUs&ab_channel=NeetCode
  */
@@ -21,9 +22,13 @@ public class BoatsToSave {
         Assertions.assertEquals(1, numRescueBoats(people, limit));
     }
 
+    /**
+     * Time: O(n * log(n))
+     * Space: O(1)
+     */
     public int numRescueBoats(int[] people, int limit) {
-        int result = 0;
         Arrays.sort(people);
+        int result = 0;
         int left = 0;
         int right = people.length - 1;
 

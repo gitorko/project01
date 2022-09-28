@@ -6,21 +6,37 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 /**
- * [2. Add Two Numbers - EASY](https://leetcode.com/problems/add-two-numbers/)
+ * [2. Add Two Numbers - MEDIUM](https://leetcode.com/problems/add-two-numbers/)
  *
  * - dummy node
  * - carry, mod 10, divide by 10
  * - SIMILAR_TO: [67. Add Binary - EASY](https://leetcode.com/problems/add-binary/)
+ * - PRACTICE: P4
  *
  * https://www.youtube.com/watch?v=wgFPrzTjm7s&ab_channel=NeetCode
  */
 public class AddTwoNumbers {
 
     @Test
-    public void test() {
+    public void test1() {
         int arr1[] = {2, 4, 3};
         int arr2[] = {5, 6, 4};
         int expected[] = {7, 0, 8};
+        ListNode l1 = ListNodeUtil.create(arr1);
+        ListNode l2 = ListNodeUtil.create(arr2);
+        ListNodeUtil.display(l1);
+        ListNodeUtil.display(l2);
+
+        ListNode l3 = addTwoNumbers(l1, l2);
+        Assertions.assertArrayEquals(expected, ListNodeUtil.toArray(l3));
+        ListNodeUtil.display(l3);
+    }
+
+    @Test
+    public void test2() {
+        int arr1[] = {9, 9, 9, 9, 9, 9, 9};
+        int arr2[] = {9, 9, 9, 9};
+        int expected[] = {8, 9, 9, 9, 0, 0, 0, 1};
         ListNode l1 = ListNodeUtil.create(arr1);
         ListNode l2 = ListNodeUtil.create(arr2);
         ListNodeUtil.display(l1);
@@ -43,7 +59,7 @@ public class AddTwoNumbers {
      */
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         int carry = 0;
-        ListNode dummy = new ListNode(0);
+        ListNode dummy = new ListNode();
         ListNode curr = dummy;
 
         while (l1 != null || l2 != null || carry != 0) {
@@ -58,7 +74,6 @@ public class AddTwoNumbers {
             curr.next = new ListNode(carry % 10);
             carry = carry / 10;
             curr = curr.next;
-
         }
         return dummy.next;
     }

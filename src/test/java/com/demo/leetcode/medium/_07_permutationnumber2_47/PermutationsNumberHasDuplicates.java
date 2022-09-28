@@ -12,8 +12,7 @@ import org.junit.jupiter.api.Test;
  *
  * - sort, backtracking
  * - SIMILAR_TO: [46. Permutations - MEDIUM](https://leetcode.com/problems/permutations/)
- *
- * PRACTICE: P2
+ * - PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=s7AvT7cGdSo&ab_channel=NeetCode
  */
@@ -32,12 +31,12 @@ public class PermutationsNumberHasDuplicates {
      * Time: O(n * n!)
      * Space: O(n * n!)
      */
+    List<List<Integer>> result;
     int[] nums;
     boolean[] visited;
-    List<List<Integer>> result;
 
-    public List<List<Integer>> permuteUnique(int[] input) {
-        this.nums = input;
+    public List<List<Integer>> permuteUnique(int[] nums) {
+        this.nums = nums;
         visited = new boolean[nums.length];
         result = new ArrayList<>();
         Arrays.sort(nums);
@@ -45,18 +44,21 @@ public class PermutationsNumberHasDuplicates {
         return result;
     }
 
-    private void backtrack(List<Integer> tempResult) {
-        if (tempResult.size() == nums.length) {
-            result.add(new ArrayList<>(tempResult));
+    public void backtrack(List<Integer> tempList) {
+        if (tempList.size() == nums.length) {
+            result.add(new ArrayList<>(tempList));
         } else {
             for (int i = 0; i < nums.length; i++) {
-                if(visited[i]) continue;
-                if (i > 0 && nums[i] == nums[i - 1] && !visited[i - 1]) continue;
-                tempResult.add(nums[i]);
-                visited[i] = true;
-                backtrack(tempResult);
-                tempResult.remove(tempResult.size() - 1);
-                visited[i] = false;
+                if (!visited[i]) {
+                    //case to avoid duplicates.
+                    if (i > 0 && nums[i] == nums[i - 1] && !visited[i - 1]) continue;
+
+                    tempList.add(nums[i]);
+                    visited[i] = true;
+                    backtrack(tempList);
+                    visited[i] = false;
+                    tempList.remove(tempList.size() - 1);
+                }
             }
         }
     }

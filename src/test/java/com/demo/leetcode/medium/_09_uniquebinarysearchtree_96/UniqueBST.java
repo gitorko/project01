@@ -6,10 +6,10 @@ import org.junit.jupiter.api.Test;
 /**
  * [96. Unique Binary Search Trees - MEDIUM](https://leetcode.com/problems/unique-binary-search-trees/)
  *
- * - nothing to do with BST, its a DP problem
+ * - nothing to do with BST, it's a DP problem
  * - two for loop
- *
- * PRACTICE: P1
+ * - PRACTICE: P1
+ * - MISTAKES: Likely to set base case as 0.
  *
  * https://www.youtube.com/watch?v=Ox0TenN3Zpg&ab_channel=NeetCode
  */
@@ -41,6 +41,7 @@ public class UniqueBST {
      */
     public int numTrees(int n) {
         int[] dp = new int[n + 1];
+        //base case set to 1.
         dp[0] = 1;
         dp[1] = 1;
         for (int level = 2; level <= n; level++) {

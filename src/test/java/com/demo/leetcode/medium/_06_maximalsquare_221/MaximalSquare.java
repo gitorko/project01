@@ -10,8 +10,7 @@ import org.junit.jupiter.api.Test;
  *
  * - start from reverse
  * - 1 + Math.min(right, down, diagonal)
- *
- * PRACTICE: P2
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=6X7Ha2PrDmM&ab_channel=NeetCode
  */
@@ -40,10 +39,11 @@ public class MaximalSquare {
         for (int i = rowLen - 1; i >= 0; i--) {
             for (int j = colLen - 1; j >= 0; j--) {
                 //last row or last column case or if cell is zero case
-                if (i == rowLen - 1 || j == colLen - 1 || matrix[i][j] == '0')
+                if (i == rowLen - 1 || j == colLen - 1 || matrix[i][j] == '0') {
                     dp[i][j] = matrix[i][j] == '1' ? 1 : 0;
-                else
+                } else {
                     dp[i][j] = 1 + Math.min(dp[i + 1][j + 1], Math.min(dp[i + 1][j], dp[i][j + 1]));
+                }
                 maxLength = Math.max(maxLength, dp[i][j]);
             }
         }
@@ -51,6 +51,7 @@ public class MaximalSquare {
     }
 
     /**
+     * DFS approach
      * Time: O(m*n)
      * Space: O(m*n)
      */
@@ -66,8 +67,9 @@ public class MaximalSquare {
         colLength = matrix[0].length;
         dp = new int[rowLength][colLength];
         maxLen = 0;
-        for (int i = 0; i < rowLength; i++)
+        for (int i = 0; i < rowLength; i++) {
             Arrays.fill(dp[i], -1);
+        }
         dfs(0, 0);
         return maxLen * maxLen;
     }

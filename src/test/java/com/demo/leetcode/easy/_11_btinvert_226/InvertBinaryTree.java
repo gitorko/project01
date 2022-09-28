@@ -11,8 +11,9 @@ import org.junit.jupiter.api.Test;
 /**
  * [226. Invert Binary Tree - EASY](https://leetcode.com/problems/invert-binary-tree/)
  *
- * - recursion dfs
+ * - post-order traversal.
  * - use temp variable
+ * - PRACTICE: P3
  *
  * https://www.youtube.com/watch?v=OnSn2XEQ4MY&ab_channel=NeetCode
  */
@@ -27,11 +28,15 @@ public class InvertBinaryTree {
     }
 
     public TreeNode invertTree(TreeNode root) {
-        if (root == null)
+        //base case
+        if (root == null) {
             return null;
-        TreeNode tmp = root.left;
-        root.left = invertTree(root.right);
-        root.right = invertTree(tmp);
+        }
+        //Use temp node else will overwrite previous invert
+        TreeNode leftNode = invertTree(root.right);
+        TreeNode rightNode = invertTree(root.left);
+        root.left = leftNode;
+        root.right = rightNode;
         return root;
     }
 }

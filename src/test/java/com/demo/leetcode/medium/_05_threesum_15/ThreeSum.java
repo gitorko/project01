@@ -12,8 +12,9 @@ import org.junit.jupiter.api.Test;
  *
  * - sort, two pointer needs sorted array
  * - outer loop till i-2, skip duplicate
- *
- * PRACTICE: P1
+ * - SIMILAR_TO: [16. 3Sum Closest - MEDIUM](https://leetcode.com/problems/3sum-closest/)
+ * - PRACTICE: P1
+ * - MISTAKES: Check i-1 for duplicates, inner while loop to remove duplicates
  *
  * https://www.youtube.com/watch?v=jzZsG8n2R9A&ab_channel=NeetCode
  */

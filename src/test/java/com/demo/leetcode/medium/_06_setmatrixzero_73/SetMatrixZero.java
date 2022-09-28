@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
  *
  * - 2 array extra
  * - one extra cell for overlap
+ * - PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=T41rL0L3Pnw&ab_channel=NeetCode
  */
@@ -72,7 +73,6 @@ public class SetMatrixZero {
                     } else {
                         rowZero = true;
                     }
-
                 }
             }
         }

@@ -113,30 +113,6 @@ public class BlogGen {
             System.out.println();
         }
         System.out.println();
-
-        Map<String, Path> readmePath = new LinkedHashMap<>();
-        paths.put("SQL", Paths.get("src/test/java/com/demo/sql"));
-        paths.put("System Design", Paths.get("src/test/java/com/demo/systemdesign"));
-        for (Map.Entry<String, Path> readmePathMap : paths.entrySet()) {
-            try (Stream<Path> stream = Files.walk(readmePathMap.getValue(), Integer.MAX_VALUE)) {
-                List<String> files = stream
-                        .map(String::valueOf)
-                        .filter(f -> f.endsWith(".md"))
-                        .sorted()
-                        .collect(Collectors.toList());
-
-                int counter = 1;
-                for (String f : files) {
-                    try (BufferedReader br = Files.newBufferedReader(Paths.get(f))) {
-                        while (br.ready()) {
-                            String line = br.readLine();
-                            System.out.println(line);
-                        }
-                    }
-                }
-            }
-            System.out.println();
-        }
     }
 
     @SneakyThrows

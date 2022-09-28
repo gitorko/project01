@@ -10,12 +10,10 @@ import org.junit.jupiter.api.Test;
  * [1383. Maximum Performance of a Team - HARD](https://leetcode.com/problems/maximum-performance-of-a-team/)
  *
  * - heap
- *
- * PRACTICE: P3
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=Y7UTvogADH0
  */
-
 public class MaxPerformanceTeam {
 
     @Test
@@ -32,26 +30,26 @@ public class MaxPerformanceTeam {
      * Space: O(k)
      */
     public int maxPerformance(int n, int[] speed, int[] efficiency, int k) {
+        int modVal = (int) (1e9 + 7);
         int[][] ord = new int[n][2];
         for (int i = 0; i < n; i++) {
             ord[i] = new int[]{efficiency[i], speed[i]};
         }
         //Sort in descending order of efficiency
-        Arrays.sort(ord, (a, b) -> Integer.compare(b[0], a[0]));
+        Arrays.sort(ord, (a, b) -> b[0] - a[0]);
         //Stores the speed in min heap
-        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        PriorityQueue<Integer> pQueue = new PriorityQueue<>();
         long totalSpeed = 0;
-        long best = 0;
+        long result = 0;
         for (int[] pair : ord) {
-            int spd = pair[1];
-            pq.add(spd);
-            if (pq.size() <= k) {
-                totalSpeed += spd;
-            } else {
-                totalSpeed += spd - pq.poll();
+            int curSpeed = pair[1];
+            pQueue.add(curSpeed);
+            if (pQueue.size() > k) {
+                totalSpeed = totalSpeed - pQueue.poll();
             }
-            best = Math.max(best, totalSpeed * pair[0]);
+            totalSpeed += curSpeed;
+            result = Math.max(result, totalSpeed * pair[0]);
         }
-        return (int) (best % 1000000007);
+        return (int) (result % modVal);
     }
 }

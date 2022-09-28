@@ -12,8 +12,7 @@ import org.junit.jupiter.api.Test;
  * - dynamic program, from bottom
  * - min of bottom
  * - SIMILAR_TO: [118. Pascal's Triangle - EASY](https://leetcode.com/problems/pascals-triangle/)
- *
- * PRACTICE
+ * - PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=OM1MTokvxs4&ab_channel=NeetCode
  */

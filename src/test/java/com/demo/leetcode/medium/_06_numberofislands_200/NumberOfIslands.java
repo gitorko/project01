@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
  *
  * - dfs
  * - no need of visited, use same grid mark as '0'
+ * - PRACTICE: P3
  *
  * https://www.youtube.com/watch?v=pV2kpPD66nE&ab_channel=NeetCode
  */

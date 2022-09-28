@@ -10,9 +10,9 @@ import org.junit.jupiter.api.Test;
 /**
  * [46. Permutations - MEDIUM](https://leetcode.com/problems/permutations/)
  *
- * - backtracking, visited to avoid duplicates
- *
- * PRACTICE: P1
+ * - backtracking, visited
+ * - SIMILAR_TO: [47. Permutations II - MEDIUM](https://leetcode.com/problems/permutations-ii/)
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=s7AvT7cGdSo&ab_channel=NeetCode
  */
@@ -41,29 +41,30 @@ public class PermutationsNumber {
      * Time: O(n * n!)
      * Space: O(n * n!)
      */
-    int[] nums;
     List<List<Integer>> result;
+    int[] nums;
     boolean[] visited;
 
-    public List<List<Integer>> permute(int[] input) {
-        this.nums = input;
-        result = new ArrayList<>();
+    public List<List<Integer>> permute(int[] nums) {
+        this.nums = nums;
         visited = new boolean[nums.length];
+        result = new ArrayList<>();
         backtrack(new ArrayList<>());
         return result;
     }
 
-    private void backtrack(List<Integer> tempResult) {
-        if (tempResult.size() == nums.length) {
-            result.add(new ArrayList<>(tempResult));
+    public void backtrack(List<Integer> tempList) {
+        if (tempList.size() == nums.length) {
+            result.add(new ArrayList<>(tempList));
         } else {
             for (int i = 0; i < nums.length; i++) {
-                if (visited[i]) continue;
-                tempResult.add(nums[i]);
-                visited[i] = true;
-                backtrack(tempResult);
-                tempResult.remove(tempResult.size() - 1);
-                visited[i] = false;
+                if (!visited[i]) {
+                    tempList.add(nums[i]);
+                    visited[i] = true;
+                    backtrack(tempList);
+                    visited[i] = false;
+                    tempList.remove(tempList.size() - 1);
+                }
             }
         }
     }

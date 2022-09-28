@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
  * [146. LRU Cache - MEDIUM](https://leetcode.com/problems/lru-cache/)
  *
  * - double linked list + map
+ * - PRACTICE: P3
  *
  * https://www.youtube.com/watch?v=7ABFKPK2hD4&ab_channel=NeetCode
  */

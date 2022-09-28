@@ -34,7 +34,7 @@ public class ReverseLinkList2 {
         if (head == null) return null;
 
         // create a dummy node to mark the head of this list
-        ListNode dummy = new ListNode(0);
+        ListNode dummy = new ListNode();
         dummy.next = head;
 
         // move pointer till it reaches left node.

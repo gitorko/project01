@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
  * [55. Jump Game - MEDIUM](https://leetcode.com/problems/jump-game/)
  *
  * - goal post, start from reverse
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=Yan0cv2cLy8&ab_channel=NeetCode
  */

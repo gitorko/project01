@@ -12,16 +12,28 @@ import org.junit.jupiter.api.Test;
  * - set + sliding window
  * - If all strings are non repeating then max = max length of string.
  * - SIMILAR_TO: [340. Longest Substring with At Most K Distinct Characters - MEDIUM](https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters/)
- *
- * PRACTICE: P3
+ * - PRACTICE: P3
+ * - MISTAKES: If Map is used will lead to timeout
  *
  * https://www.youtube.com/watch?v=wiGpQwVHdE0&ab_channel=NeetCode
  */
 public class LongSubStrWithoutRepeating {
 
     @Test
-    public void test() {
+    public void test1() {
         String word = "abcabcbb";
+        Assertions.assertEquals(3, lengthOfLongestSubstring(word));
+    }
+
+    @Test
+    public void test2() {
+        String word = "bbbbb";
+        Assertions.assertEquals(1, lengthOfLongestSubstring(word));
+    }
+
+    @Test
+    public void test3() {
+        String word = "pwwkew";
         Assertions.assertEquals(3, lengthOfLongestSubstring(word));
     }
 
@@ -30,16 +42,22 @@ public class LongSubStrWithoutRepeating {
      * Space: O(n)
      */
     public int lengthOfLongestSubstring(String s) {
-        int left = 0;
-        int max = 0;
         Set<Character> set = new HashSet<>();
-        for (int right = 0; right < s.length(); right++) {
-            while (set.contains(s.charAt(right))) {
-                set.remove(s.charAt(left));
+        //left and right pointer
+        int left = 0;
+        int right = 0;
+        int max = 0;
+        while (right < s.length()) {
+            char rightChar = s.charAt(right);
+            while (set.contains(rightChar)) {
+                char leftChar = s.charAt(left);
+                set.remove(leftChar);
                 left++;
             }
-            set.add(s.charAt(right));
-            max = Math.max(max, right - left + 1);
+            set.add(rightChar);
+            right++;
+            int window = right - left;
+            max = Math.max(max, window);
         }
         return max;
     }

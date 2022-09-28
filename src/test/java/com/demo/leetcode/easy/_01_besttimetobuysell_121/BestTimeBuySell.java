@@ -6,20 +6,26 @@ import org.junit.jupiter.api.Test;
 /**
  * [121. Best Time to Buy and Sell Stock - EASY](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
  *
- * - kadane
+ * - kadane algorithm
  * - SIMILAR_TO: [53. Maximum Subarray - EASY](https://leetcode.com/problems/maximum-subarray/)
- *
- * PRACTICE: P1
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=1pkOgXD63yU&ab_channel=NeetCode
  */
 public class BestTimeBuySell {
 
     @Test
-    public void test() {
+    public void test1() {
         int[] arr = {7, 1, 5, 3, 6, 4};
         Assertions.assertEquals(5, maxProfit(arr));
         Assertions.assertEquals(5, maxProfitTwoPointer(arr));
+    }
+
+    @Test
+    public void test2() {
+        int[] arr = {7, 6, 4, 3, 1};
+        Assertions.assertEquals(0, maxProfit(arr));
+        Assertions.assertEquals(0, maxProfitTwoPointer(arr));
     }
 
     /**
@@ -29,17 +35,17 @@ public class BestTimeBuySell {
      * Kadane's Algorithm
      */
     public int maxProfit(int[] prices) {
-        int currSum = 0;
-        int maxSoFar = 0;
+        int profit = 0;
+        int maxProfit = 0;
         //start from 2nd price
         for (int i = 1; i < prices.length; i++) {
-            if (currSum < 0) {
-                currSum = 0;
+            if (profit < 0) {
+                profit = 0;
             }
-            currSum += (prices[i] - prices[i - 1]);
-            maxSoFar = Math.max(currSum, maxSoFar);
+            profit += (prices[i] - prices[i - 1]);
+            maxProfit = Math.max(profit, maxProfit);
         }
-        return maxSoFar;
+        return maxProfit;
     }
 
     /**
@@ -52,10 +58,11 @@ public class BestTimeBuySell {
         int maxProfit = 0;
         int left = 0;
         for (int right = 1; right < prices.length; right++) {
-            if (prices[left] < prices[right])
+            if (prices[left] < prices[right]) {
                 maxProfit = Math.max(prices[right] - prices[left], maxProfit);
-            else
+            } else {
                 left = right;
+            }
         }
         return maxProfit;
     }

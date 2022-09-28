@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
  *
  * - fill last row,col
  * - SIMILAR_TO: [63. Unique Paths II - MEDIUM](https://leetcode.com/problems/unique-paths-ii/)
+ * - PRACTICE: P3
  *
  * https://www.youtube.com/watch?v=IlEsdxuD4lY&ab_channel=NeetCode
  */
@@ -25,34 +26,26 @@ public class UniquePath {
      * Time: O(m*n)
      * Space: O(m*n), can be reduced to O(n) if we store only 1 row.
      */
-    public int uniquePaths(int row, int col) {
-        //edge case
-        if (row <= 1 || col <= 1) return 1;
-
-        int[][] dp = new int[row][col];
-
-        //fill last column
-        for (int j = col - 1; j >= 0; j--) {
-            dp[row - 1][j] = 1;
-        }
-
-        //fill last row
-        for (int i = row - 1; i >= 0; i--) {
-            dp[i][col - 1] = 1;
-        }
-
-        //Last row and column are already filled so skip them
-        for (int i = row - 2; i >= 0; i--) {
-            for (int j = col - 2; j >= 0; j--) {
-                dp[i][j] = dp[i + 1][j] + dp[i][j + 1];
+    public int uniquePaths(int m, int n) {
+        int dp[][] = new int[m][n];
+        for (int i = m - 1; i >= 0; i--) {
+            for (int j = n - 1; j >= 0; j--) {
+                if (j == n - 1) {
+                    //last col is all 1.
+                    dp[i][j] = 1;
+                } else if (i == m - 1) {
+                    //last row is all 1.
+                    dp[i][j] = 1;
+                } else {
+                    dp[i][j] = dp[i + 1][j] + dp[i][j + 1];
+                }
             }
         }
-
         return dp[0][0];
     }
 
     /**
-     * Recursion with memoization - Topdown
+     * Recursion with memoization
      *
      * Time: O(m*n)
      * Space: O(m*n)

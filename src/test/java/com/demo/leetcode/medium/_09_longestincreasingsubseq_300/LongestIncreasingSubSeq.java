@@ -10,8 +10,7 @@ import org.junit.jupiter.api.Test;
  *
  * - start reverse, dp, fill 1
  * - SIMILAR_TO: [673. Number of Longest Increasing Subsequence - MEDIUM](https://leetcode.com/problems/number-of-longest-increasing-subsequence/)
- *
- * PRACTICE: P1
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=cjWnW0hdF1Y&ab_channel=NeetCode
  */

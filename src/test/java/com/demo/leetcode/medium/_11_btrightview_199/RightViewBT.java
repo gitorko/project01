@@ -15,6 +15,7 @@ import org.junit.jupiter.api.Test;
  * [199. Binary Tree Right Side View - MEDIUM](https://leetcode.com/problems/binary-tree-right-side-view/)
  *
  * - bfs
+ * - PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=d4zLyf32e3I&ab_channel=NeetCode
  */
@@ -31,8 +32,10 @@ public class RightViewBT {
         Queue<TreeNode> queue = new LinkedList<>();
         List<Integer> result = new ArrayList<>();
         TreeNode rightNode = null;
-        if (root == null)
+        //edge case when root is null
+        if (root == null) {
             return result;
+        }
 
         queue.offer(root);
         while (!queue.isEmpty()) {

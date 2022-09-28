@@ -1,6 +1,8 @@
 package com.demo.leetcode.medium._04_cpupriority_1834;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.PriorityQueue;
 
 import org.junit.jupiter.api.Assertions;
@@ -9,11 +11,10 @@ import org.junit.jupiter.api.Test;
 /**
  * [1834. Single-Threaded CPU - MEDIUM](https://leetcode.com/problems/single-threaded-cpu/)
  *
- * - heap
+ * - heap, sort
  * - fast forward time, add index
  * - SIMILAR_TO: [1882. Process Tasks Using Servers](https://leetcode.com/problems/process-tasks-using-servers/)
- *
- * PRACTICE: P1
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=RR1n-d4oYqE&ab_channel=NeetCode
  */
@@ -32,11 +33,10 @@ public class CpuPriority {
      * Space: O(n)
      */
     public int[] getOrder(int[][] tasks) {
-        int length = tasks.length;
-        int[][] pool = new int[length][3];
+        int[][] pool = new int[tasks.length][3];
         //add index which is order
         //[startTime, takesTime, indexOrder]
-        for (int i = 0; i < length; i++) {
+        for (int i = 0; i < tasks.length; i++) {
             pool[i][0] = tasks[i][0];
             pool[i][1] = tasks[i][1];
             pool[i][2] = i;
@@ -47,27 +47,27 @@ public class CpuPriority {
         //index 0 is start time.
         //index 1 is completion time.
         //index 2 is actual position.
-        PriorityQueue<int[]> readyQueue = new PriorityQueue<>((a, b) -> a[1] == b[1] ? a[2] - b[2] : a[1] - b[1]);
+        PriorityQueue<int[]> pqueue = new PriorityQueue<>((a, b) -> a[1] == b[1] ? a[2] - b[2] : a[1] - b[1]);
 
         int time = 0;
-        int index = 0;
+        List<Integer> result = new ArrayList<>();
         int i = 0;
-        int[] result = new int[length];
-
-        while (index < length) {
+        while (result.size() < tasks.length) {
             //add to queue if time is in future
-            while (i < length && time >= pool[i][0])
-                readyQueue.offer(pool[i++]);
+            while (i < tasks.length && time >= pool[i][0]) {
+                pqueue.offer(pool[i]);
+                i++;
+            }
 
-            if (!readyQueue.isEmpty()) {
-                int[] curTask = readyQueue.poll();
-                result[index++] = curTask[2];
+            if (!pqueue.isEmpty()) {
+                int[] curTask = pqueue.poll();
+                result.add(curTask[2]);
                 time += curTask[1];
             } else {
-                //fast forward time
+                //fast-forward time
                 time = Math.max(time, pool[i][0]);
             }
         }
-        return result;
+        return result.stream().mapToInt(Integer::intValue).toArray();
     }
 }

@@ -10,8 +10,8 @@ import org.junit.jupiter.api.Test;
  *
  * - math.abs
  * - for loop till i-2
- *
- * PRACTICE
+ * - SIMILAR_TO: [15. 3Sum - MEDIUM](https://leetcode.com/problems/3sum/)
+ * - PRACTICE
  */
 public class ThreeSumClosest {
 

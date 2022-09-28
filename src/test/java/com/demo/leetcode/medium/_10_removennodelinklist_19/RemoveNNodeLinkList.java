@@ -8,8 +8,9 @@ import org.junit.jupiter.api.Test;
 /**
  * [19. Remove Nth Node From End of List - MEDIUM](https://leetcode.com/problems/remove-nth-node-from-end-of-list/)
  *
- * - dummy node
- * - left, right+n pointer, left node one behind
+ * - dummy node, two pointer
+ * - PRACTICE: P3
+ * - MISTAKES: Likely to find length and then iterate instead of using 2 pointers
  *
  * https://www.youtube.com/watch?v=XVuQxVej6y8&ab_channel=NeetCode
  */
@@ -29,7 +30,7 @@ public class RemoveNNodeLinkList {
      * Space: O(1)
      */
     public ListNode removeNthFromEnd(ListNode head, int n) {
-        ListNode dummy = new ListNode(0);
+        ListNode dummy = new ListNode();
         dummy.next = head;
         //prev will be one node behind the actual node to delete
         ListNode prev = dummy;
@@ -61,7 +62,9 @@ public class RemoveNNodeLinkList {
 
     public ListNode removeNthFromEnd2(ListNode head, int n) {
         //base case
-        if (head == null) return null;
+        if (head == null) {
+            return null;
+        }
 
         head.next = removeNthFromEnd2(head.next, n);
         count++;

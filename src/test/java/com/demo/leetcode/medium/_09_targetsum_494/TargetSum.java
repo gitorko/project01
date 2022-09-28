@@ -10,10 +10,10 @@ import org.junit.jupiter.api.Test;
  * [494. Target Sum - MEDIUM](https://leetcode.com/problems/target-sum/)
  *
  * - dp of index+total, recursion
+ * - 0/1 knapsack
  * - return 1 or 0 if true
  * - SIMILAR_TO: [309. Best Time to Buy and Sell Stock with Cooldown - MEDIUM](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/)
- *
- * PRACTICE: P1
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=g0npyaQtAQM&ab_channel=NeetCode
  */

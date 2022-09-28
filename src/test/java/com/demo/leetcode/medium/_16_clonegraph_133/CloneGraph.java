@@ -7,14 +7,14 @@ import java.util.Queue;
 
 import com.demo.common.Node;
 import com.demo.common.NodeUtil;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 /**
  * [133. Clone Graph - MEDIUM](https://leetcode.com/problems/clone-graph/)
  *
  * - bfs, visited map
- *
- * PRACTICE: P1
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=mQeF6bN8hMk&ab_channel=NeetCode
  */
@@ -25,7 +25,7 @@ public class CloneGraph {
         int[][] input = {{2, 4}, {1, 3}, {2, 4}, {1, 3}};
         Node node = NodeUtil.buildGraph(input);
         Node actual = cloneGraph(node);
-        System.out.println(NodeUtil.getGraph(actual));
+        Assertions.assertEquals("1,2,4,3,", NodeUtil.getGraph(actual));
     }
 
     /**
@@ -33,7 +33,9 @@ public class CloneGraph {
      * Space: O(∣V∣+∣E∣)
      */
     public Node cloneGraph(Node node) {
-        if (node == null) return null;
+        if (node == null) {
+            return null;
+        }
 
         Node newNode = new Node(node.val);
         Map<Integer, Node> visited = new HashMap();
@@ -49,7 +51,7 @@ public class CloneGraph {
                     visited.put(neighbor.val, new Node(neighbor.val));
                     queue.add(neighbor);
                 }
-                //add neighbor to new created nodes
+                //add neighbour to new created nodes
                 visited.get(currNode.val).neighbors.add(visited.get(neighbor.val));
             }
         }

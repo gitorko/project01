@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
  * [1299. Replace Elements with Greatest Element on Right Side - EASY](https://leetcode.com/problems/replace-elements-with-greatest-element-on-right-side/)
  *
  * - start from reverse
+ * - important to ask and confirm if array has positive integers
+ * - PRACTICE: P4
  *
  * https://www.youtube.com/watch?v=ZHjKhUjcsaU&ab_channel=NeetCode
  */

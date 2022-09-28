@@ -1,6 +1,7 @@
 package com.demo.leetcode.easy._03_happynumber_202;
 
 import java.util.HashSet;
+import java.util.Set;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -15,34 +16,32 @@ import org.junit.jupiter.api.Test;
 public class HappyNumber {
 
     @Test
-    public void test() {
+    public void test1() {
         Assertions.assertTrue(isHappy(19));
+    }
+
+    @Test
+    public void test2() {
         Assertions.assertFalse(isHappy(2));
     }
 
-    public boolean isHappy(int n) {
-        HashSet<Integer> set = new HashSet<>();
-        while (!set.contains(n)) {
-            set.add(n);
-            n = computeSumOfSquares(n);
-            if (n == 1) {
-                return true;
-            }
-        }
-        return false;
-    }
+    Set<Integer> seen = new HashSet<>();
 
-    /**
-     * to get last digit mod
-     * to remove first digit divide
-     */
-    private int computeSumOfSquares(int n) {
-        int result = 0;
+    public boolean isHappy(int n) {
+        int sum = 0;
         while (n != 0) {
-            int lastDigit = n % 10;
-            result += lastDigit * lastDigit;
-            n /= 10;
+            int val = n % 10;
+            sum += val * val;
+            n = n / 10;
         }
-        return result;
+        if (seen.contains(sum)) {
+            return false;
+        }
+        seen.add(sum);
+        if (sum == 1) {
+            return true;
+        } else {
+            return isHappy(sum);
+        }
     }
 }

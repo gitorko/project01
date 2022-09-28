@@ -9,8 +9,8 @@ import org.junit.jupiter.api.Test;
  * - binary search
  * - option1: merge 2 array and find median. Time: O(m+n), Space: O(m+n)
  * - option2: binary search O(log(m+n))
- *
- * PRACTICE: P3
+ * - SIMILAR_TO: [295. Find Median from Data Stream - HARD](https://leetcode.com/problems/find-median-from-data-stream/)
+ * - PRACTICE: P3
  *
  * https://www.youtube.com/watch?v=q6IEA26hvXc&ab_channel=NeetCode
  * https://www.youtube.com/watch?v=LPFhl65R7ww&ab_channel=TusharRoy-CodingMadeSimple
@@ -27,8 +27,10 @@ public class MedianSortedArray {
      * Time: O(log(len(m,n))
      */
     public double findMedianSortedArrays(int[] X, int[] Y) {
-        if (X.length > Y.length)
+        if (X.length > Y.length) {
             return findMedianSortedArrays(Y, X);
+        }
+
         int x = X.length;
         int y = Y.length;
         int low = 0;
@@ -43,10 +45,11 @@ public class MedianSortedArray {
             int minRightY = (midY == y) ? Integer.MAX_VALUE : Y[midY];
             if (maxLeftX <= minRightY && maxLeftY <= minRightX) {
                 //even length array
-                if ((x + y) % 2 == 0)
+                if ((x + y) % 2 == 0) {
                     median = (Math.max(maxLeftX, maxLeftY) + Math.min(minRightX, minRightY)) / 2.0;
-                else
+                } else {
                     median = Math.max(maxLeftX, maxLeftY);
+                }
                 break;
             } else if (maxLeftX > minRightY) {
                 high = midX - 1;

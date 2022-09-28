@@ -6,9 +6,9 @@ import org.junit.jupiter.api.Test;
 /**
  * [33. Search in Rotated Sorted Array - MEDIUM](https://leetcode.com/problems/search-in-rotated-sorted-array/)
  *
- * - binary Search, left portion, right portion
- *
- * PRACTICE: P2
+ * - binary search, left portion, right portion
+ * - SIMILAR_TO: [81. Search in Rotated Sorted Array II - MEDIUM](https://leetcode.com/problems/search-in-rotated-sorted-array-ii/)
+ * - PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=U8XENwh8Oy8&ab_channel=NeetCode
  */

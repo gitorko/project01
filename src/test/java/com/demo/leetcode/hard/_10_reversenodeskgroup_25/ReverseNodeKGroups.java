@@ -11,8 +11,7 @@ import org.junit.jupiter.api.Test;
  * [25. Reverse Nodes in k-Group - HARD](https://leetcode.com/problems/reverse-nodes-in-k-group/)
  *
  * - group previous, get kth
- *
- * PRACTICE: P2
+ * - PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=1UOPsfP85V4&ab_channel=NeetCode
  */
@@ -27,32 +26,32 @@ public class ReverseNodeKGroups {
     }
 
     public ListNode reverseKGroup(ListNode head, int k) {
-        ListNode dummy = new ListNode(0);
+        ListNode dummy = new ListNode();
         dummy.next = head;
-        ListNode groupPrevious = dummy;
-        ListNode groupNext;
-        ListNode temp;
+        ListNode currGroupStart = dummy;
+        ListNode nextGroupStart;
 
         while (true) {
-            ListNode kthNode = getKth(groupPrevious, k);
+            ListNode kthNode = getKth(currGroupStart, k);
             if (kthNode == null) {
                 break;
             }
-            groupNext = kthNode.next;
+            nextGroupStart = kthNode.next;
 
             //reverse
-            ListNode prev = kthNode.next;
-            ListNode curr = groupPrevious.next;
-            while (curr != groupNext) {
+            ListNode prev = nextGroupStart;
+            ListNode curr = currGroupStart.next;
+            ListNode temp;
+            while (curr != nextGroupStart) {
                 temp = curr.next;
                 curr.next = prev;
                 prev = curr;
                 curr = temp;
             }
 
-            temp = groupPrevious.next;
-            groupPrevious.next = kthNode;
-            groupPrevious = temp;
+            temp = currGroupStart.next;
+            currGroupStart.next = kthNode;
+            currGroupStart = temp;
         }
         return dummy.next;
     }

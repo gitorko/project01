@@ -12,9 +12,8 @@ import org.junit.jupiter.api.Test;
  * [98. Validate Binary Search Tree - MEDIUM](https://leetcode.com/problems/validate-binary-search-tree/)
  *
  * - max,min
- * - recursion
- *
- * PRACTICE: P1
+ * - can be solved with recursion & iterative approach
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=s6ATEkipzow&ab_channel=NeetCode
  */
@@ -44,22 +43,22 @@ public class CheckIfValidBST {
      *
      * Time: O(n)
      * Space: O(n)
-     *
      */
     public boolean isValidBST(TreeNode root) {
         return isValidBST(root, null, null);
     }
 
-    private boolean isValidBST(TreeNode root, Integer min, Integer max) {
+    public boolean isValidBST(TreeNode root, Integer leftMin, Integer rightMax) {
         //base case
-        if (root == null)
+        if (root == null) {
             return true;
-
-        if (min != null && root.val <= min || max != null && root.val >= max)
+        }
+        if (leftMin != null && root.val <= leftMin || rightMax != null && root.val >= rightMax) {
             return false;
-
-        return isValidBST(root.left, min, root.val) && isValidBST(root.right, root.val, max);
+        }
+        return isValidBST(root.right, root.val, rightMax) && isValidBST(root.left, leftMin, root.val);
     }
+
 
     /**
      * Iterative
@@ -69,8 +68,9 @@ public class CheckIfValidBST {
      * Space: O(n)
      */
     public boolean isValidBSTIterative(TreeNode root) {
-        if (root == null)
+        if (root == null) {
             return true;
+        }
         Stack<TreeNode> stack = new Stack<>();
         TreeNode previous = null;
         while (root != null || !stack.isEmpty()) {

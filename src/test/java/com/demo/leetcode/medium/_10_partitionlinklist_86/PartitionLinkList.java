@@ -12,8 +12,7 @@ import org.junit.jupiter.api.Test;
  *
  * - 4 dummy node
  * - set rightTail.next to null
- *
- * PRACTICE: P2
+ * - PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=KT1iUciJr4g&ab_channel=NeetCode
  */
@@ -28,8 +27,8 @@ public class PartitionLinkList {
     }
 
     public ListNode partition(ListNode head, int x) {
-        ListNode leftStart = new ListNode(0);
-        ListNode rightStart = new ListNode(0);
+        ListNode leftStart = new ListNode();
+        ListNode rightStart = new ListNode();
         ListNode leftTail = leftStart;
         ListNode rightTail = rightStart;
 
@@ -44,6 +43,7 @@ public class PartitionLinkList {
             head = head.next;
         }
         leftTail.next = rightStart.next;
+        //Break the link and set to null
         rightTail.next = null;
         return leftStart.next;
 

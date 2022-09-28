@@ -12,8 +12,7 @@ import org.junit.jupiter.api.Test;
  *
  * - find mid, merge sort, previous node
  * - merge 2 list
- *
- * PRACTICE: P1
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=TGveA1oFhrc&ab_channel=NeetCode
  */
@@ -28,10 +27,24 @@ public class SortLinkList {
     }
 
     public ListNode sortList(ListNode head) {
-        if (head == null || head.next == null)
+        if (head == null || head.next == null) {
             return head;
+        }
 
-        // find the mid
+        ListNode mid = findMid(head);
+        //cut the list in middle
+        ListNode l1 = head;
+        ListNode l2 = mid.next;
+        mid.next = null;
+
+        l1 = sortList(l1);
+        l2 = sortList(l2);
+
+        return mergeTwoLists(l1, l2);
+    }
+
+    private ListNode findMid(ListNode head) {
+        //We need the previous to middle node
         ListNode prev = null;
         ListNode slow = head;
         ListNode fast = head;
@@ -40,26 +53,18 @@ public class SortLinkList {
             slow = slow.next;
             fast = fast.next.next;
         }
-
-        //cut the list in middle
-        prev.next = null;
-
-        ListNode l1 = sortList(head);
-        ListNode l2 = sortList(slow);
-
-        //merge l1 and l2
-        return mergeTwoLists(l1, l2);
+        return prev;
     }
 
-    private ListNode mergeTwoLists(ListNode list1, ListNode list2) {
-        if (list1 == null) return list2;
-        if (list2 == null) return list1;
-        if (list1.val < list2.val) {
-            list1.next = mergeTwoLists(list1.next, list2);
-            return list1;
+    private ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+        if (l1 == null) return l2;
+        if (l2 == null) return l1;
+        if (l1.val < l2.val) {
+            l1.next = mergeTwoLists(l1.next, l2);
+            return l1;
         } else {
-            list2.next = mergeTwoLists(list1, list2.next);
-            return list2;
+            l2.next = mergeTwoLists(l1, l2.next);
+            return l2;
         }
     }
 }

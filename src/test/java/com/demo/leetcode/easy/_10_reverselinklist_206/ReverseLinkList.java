@@ -8,11 +8,9 @@ import org.junit.jupiter.api.Test;
 /**
  * [206. Reverse Linked List - EASY](https://leetcode.com/problems/reverse-linked-list/)
  *
- * - Two pointer - iterative, 1st pointer null, 2nd pointer head, 3rd temp pointer
+ * - Iterative - prev node
  * - Recursion - head.next.next
- *
- * PRACTICE: P1
- * MEMORIZE
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=G0_I-ZF0S38&ab_channel=NeetCode
  */
@@ -29,7 +27,7 @@ public class ReverseLinkList {
     }
 
     /**
-     * Iterative - two pointer
+     * Iterative
      *
      * Time: O(n)
      * Space: O(1)
@@ -40,7 +38,6 @@ public class ReverseLinkList {
         while (curr != null) {
             ListNode temp = curr.next;
             curr.next = prev;
-            //Move both pointers forward.
             prev = curr;
             curr = temp;
         }
@@ -55,7 +52,9 @@ public class ReverseLinkList {
      */
     public ListNode reverseListRecursion(ListNode head) {
         //base case
-        if (head == null || head.next == null) return head;
+        if (head == null || head.next == null) {
+            return head;
+        }
         ListNode newHead = reverseListRecursion(head.next);
         head.next.next = head;
         head.next = null;

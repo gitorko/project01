@@ -10,15 +10,15 @@ import org.junit.jupiter.api.Test;
  *
  * - merge sort
  * - merge 2 sorted link list.
- *
- * PRACTICE
+ * - SIMILAR_TO: [21. Merge Two Sorted Lists - EASY](https://leetcode.com/problems/merge-two-sorted-lists/)
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=q5a5OiGbT6Q&ab_channel=NeetCode
  */
 public class MergeKSortedList {
 
     @Test
-    public void test() {
+    public void test1() {
         int expected[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
         int arr1[] = {1, 4, 7};
         ListNode r1 = ListNodeUtil.create(arr1);

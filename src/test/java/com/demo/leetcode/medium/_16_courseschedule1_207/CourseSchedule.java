@@ -16,8 +16,7 @@ import org.junit.jupiter.api.Test;
  *
  * - dfs, adjacency list
  * - SIMILAR_TO: [210. Course Schedule II - MEDIUM](https://leetcode.com/problems/course-schedule-ii/)
- *
- * PRACTICE: P2
+ * - PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=EgI5nU9etnU&ab_channel=NeetCode
  */
@@ -54,12 +53,12 @@ public class CourseSchedule {
     /**
      * Time: O(n+p)
      */
-    Set<Integer> cycleSet;
+    Set<Integer> visitedSet;
     Map<Integer, List<Integer>> adjacencyMap;
 
     public boolean canFinish(int numCourses, int[][] prerequisites) {
         adjacencyMap = new HashMap<>();
-        cycleSet = new HashSet<>();
+        visitedSet = new HashSet<>();
         for (int i = 0; i < prerequisites.length; i++) {
             Integer course1 = prerequisites[i][0];
             Integer course2 = prerequisites[i][1];
@@ -78,19 +77,19 @@ public class CourseSchedule {
         List<Integer> preReqs = adjacencyMap.getOrDefault(course, Collections.emptyList());
 
         //already visited.
-        if (cycleSet.contains(course)) {
+        if (visitedSet.contains(course)) {
             return false;
         }
         //no other pre requisite
         if (preReqs.isEmpty()) {
             return true;
         }
-        cycleSet.add(course);
+        visitedSet.add(course);
         for (Integer preReq : preReqs) {
             if (!dfs(preReq)) return false;
         }
-        cycleSet.remove(course);
-        //remember to set the preReq to empty
+        visitedSet.remove(course);
+        //remember to set the preReq to empty, will run into timeout exception on large data set if not cleared.
         adjacencyMap.put(course, Collections.emptyList());
         return true;
     }

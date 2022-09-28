@@ -9,10 +9,9 @@ import org.junit.jupiter.api.Test;
 /**
  * [239. Sliding Window Maximum - HARD](https://leetcode.com/problems/sliding-window-maximum/)
  *
- * - monotonic decreasing de-queue
+ * - monotonic decreasing de-queue, two pointer
  * - deque which holds index
- *
- * PRACTICE: P1
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=DfljaUwZsOk&ab_channel=NeetCode
  */
@@ -57,12 +56,12 @@ public class SlidingWindowMax {
                 dequeue.pollLast();
             }
             dequeue.offer(right);
-            //If left value is out of bound remove it
+            //If left value is out of bound remove it from beginning of queue.
             if (left > dequeue.peek()) {
                 dequeue.poll();
             }
-            //window is at least size k
-            if (right - left + 1 >= k) {
+            //window is size k
+            if (right - left + 1 == k) {
                 result[left] = nums[dequeue.peek()];
                 left++;
             }

@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
  * [518. Coin Change 2 - MEDIUM](https://leetcode.com/problems/coin-change-2/)
  *
  * - dp (2d)
+ * - unbounded knapsack
  * - no duplicates
  * - SIMILAR_TO: Count of Subsets Sum with a Given Sum
  *

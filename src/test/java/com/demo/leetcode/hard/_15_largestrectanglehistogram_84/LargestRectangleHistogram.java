@@ -12,8 +12,8 @@ import org.junit.jupiter.api.Test;
  * - process left over elements in stack
  * - SIMILAR_TO: [85. Maximal Rectangle - HARD](https://leetcode.com/problems/maximal-rectangle/)
  * - SIMILAR_TO: [1856. Maximum Subarray Min-Product - MEDIUM](https://leetcode.com/problems/maximum-subarray-min-product/)
- *
- * PRACTICE: P1
+ * - PRACTICE: P1
+ * - MISTAKES: Likely to calculate width wrongly, missing the stack empty case
  *
  * https://www.youtube.com/watch?v=zx5Sw9130L0&ab_channel=NeetCode
  */
@@ -37,6 +37,12 @@ public class LargestRectangleHistogram {
         Assertions.assertEquals(6, largestRectangleArea(heights));
     }
 
+    @Test
+    public void test4() {
+        int[] heights = {2,1,2};
+        Assertions.assertEquals(3, largestRectangleArea(heights));
+    }
+
     /**
      * Time: O(n)
      * Space: O(n)
@@ -47,9 +53,9 @@ public class LargestRectangleHistogram {
         Stack<Integer> stack = new Stack<>();
         for (int i = 0; i < heights.length; i++) {
             while (!stack.isEmpty() && heights[stack.peek()] > heights[i]) {
-                int h = heights[stack.pop()];
-                //Dont forget edge case of stack empty
-                //Also dont do [i - stack.pop()] to get width
+                int index = stack.pop();
+                int h = heights[index];
+                //Don't forget edge case of stack empty
                 int w = stack.isEmpty() ? i : i - stack.peek() - 1;
                 maxArea = Math.max(maxArea, h * w);
             }
@@ -57,7 +63,9 @@ public class LargestRectangleHistogram {
         }
         //process remaining elements on stack
         while (!stack.isEmpty()) {
-            int h = heights[stack.pop()];
+            int index = stack.pop();
+            int h = heights[index];
+            //Don't forget to take full length
             int w = stack.isEmpty() ? heights.length : heights.length - stack.peek() - 1;
             maxArea = Math.max(maxArea, h * w);
         }

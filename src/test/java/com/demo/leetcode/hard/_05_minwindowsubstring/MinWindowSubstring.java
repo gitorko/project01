@@ -6,9 +6,9 @@ import org.junit.jupiter.api.Test;
 /**
  * [76. Minimum Window Substring - HARD](https://leetcode.com/problems/minimum-window-substring/)
  *
- *  - map, sliding window
- *
- *  PRACTICE: P1
+ * - have, need map, sliding window 2 pointer
+ * - SIMILAR_TO: [28. Implement strStr - MEDIUM](https://leetcode.com/problems/implement-strstr/)
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=jSto0O4AJbM&ab_channel=NeetCode
  */
@@ -36,6 +36,7 @@ public class MinWindowSubstring {
 
         for (char c : t.toCharArray()) {
             countT[c]++;
+            //each char counts once for need, exact count is matched later.
             if (countT[c] == 1) {
                 need++;
             }

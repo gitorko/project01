@@ -8,8 +8,8 @@ import org.junit.jupiter.api.Test;
  *
  * - max & min flip if negative
  * - only 2 variables to track, track both (max,min) for a pair.
- *
- * PRACTICE: P2
+ * - SIMILAR_TO: [53. Maximum Subarray - EASY](https://leetcode.com/problems/maximum-subarray/)
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=lXVy6YWFcRM&ab_channel=NeetCode
  */
@@ -25,6 +25,12 @@ public class MaxSubarrayProduct {
     public void test2() {
         int[] nums = {2, 3, 0, 0, 4, 5};
         Assertions.assertEquals(20, maxProduct(nums));
+    }
+
+    @Test
+    public void test3() {
+        int[] nums = {0, 0, 4, 5, 0, -5, -6};
+        Assertions.assertEquals(30, maxProduct(nums));
     }
 
     /**

@@ -14,7 +14,9 @@ import org.junit.jupiter.api.Test;
  * [1466. Reorder Routes to Make All Paths Lead to the City Zero - MEDIUM](https://leetcode.com/problems/reorder-routes-to-make-all-paths-lead-to-the-city-zero/)
  *
  * - bfs
- * - Set (edge), Map(Connections), visited
+ * - Set(edge), Map(connections), Set(visited)
+ * - PRACTICE: P3
+ * - MISTAKES: Will probably miss considering the visited set ending up in infinite loop
  *
  *  https://www.youtube.com/watch?v=m17yOR5_PpI&ab_channel=NeetCode
  */
@@ -29,35 +31,37 @@ public class ReorderRoutes {
 
     /**
      * Time: O(n)
+     * Space: O(n)
      */
     public int minReorder(int n, int[][] connections) {
-        Set<String> edges = new HashSet<>();
-        Map<Integer, Set<Integer>> map = new HashMap<>();
+        Set<String> edgeSet = new HashSet<>();
+        Map<Integer, Set<Integer>> adjMap = new HashMap<>();
         for (int[] c : connections) {
             //set contains the edge for quick lookup
-            edges.add(c[0] + "," + c[1]);
-            map.computeIfAbsent(c[0], k -> new HashSet<>());
-            map.computeIfAbsent(c[1], k -> new HashSet<>());
+            edgeSet.add(c[0] + "," + c[1]);
+            adjMap.putIfAbsent(c[0], new HashSet<>());
+            adjMap.putIfAbsent(c[1], new HashSet<>());
             //important to add both nodes in both adjacency list.
-            map.get(c[0]).add(c[1]);
-            map.get(c[1]).add(c[0]);
+            adjMap.get(c[0]).add(c[1]);
+            adjMap.get(c[1]).add(c[0]);
         }
 
         Queue<Integer> q = new LinkedList<>();
         q.add(0);
         int result = 0;
-        boolean[] visited = new boolean[n];
-        visited[0] = true;
+        Set<Integer> visited = new HashSet<>();
+        visited.add(0);
+
         while (!q.isEmpty()) {
-            int curr = q.poll();
-            for (int next : map.getOrDefault(curr, new HashSet<>())) {
-                //if visited skip
-                if (visited[next]) continue;
-                //mark as visited
-                visited[next] = true;
-                //set doesnt contain the edge.
-                if (!edges.contains(next + "," + curr)) result++;
-                q.offer(next);
+            int parent = q.poll();
+            visited.add(parent);
+            for (int neighbour : adjMap.get(parent)) {
+                if (!visited.contains(neighbour)) {
+                    if (edgeSet.contains(parent + "," + neighbour)) {
+                        result++;
+                    }
+                    q.add(neighbour);
+                }
             }
         }
         return result;

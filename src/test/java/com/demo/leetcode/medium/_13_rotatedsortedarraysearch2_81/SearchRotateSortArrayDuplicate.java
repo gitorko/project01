@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
  * [81. Search in Rotated Sorted Array II - MEDIUM](https://leetcode.com/problems/search-in-rotated-sorted-array-ii/)
  *
  * - binary search
+ * - SIMILAR_TO: [33. Search in Rotated Sorted Array - MEDIUM](https://leetcode.com/problems/search-in-rotated-sorted-array/)
  */
 public class SearchRotateSortArrayDuplicate {
 

@@ -9,8 +9,9 @@ import org.junit.jupiter.api.Test;
  * [198. House Robber - MEDIUM](https://leetcode.com/problems/house-robber/)
  *
  * - rob = max (arr[0] + rob(2..n), rob(1..n))
- *
- * PRACTICE: P1
+ * - SIMILAR_TO: [213. House Robber II - MEDIUM](https://leetcode.com/problems/house-robber-ii/)
+ * - PRACTICE: P1
+ * - MISTAKES: Likely to miss edge case when there is just 1/0 element.
  *
  * https://www.youtube.com/watch?v=73r3KWiEvyk&ab_channel=NeetCode
  */
@@ -38,6 +39,7 @@ public class HouseRob {
     int[] dp;
 
     public int robBottomUp(int[] nums) {
+        //edge case when 0/1 elements
         if (nums.length == 0) return 0;
         if (nums.length == 1) return nums[0];
 

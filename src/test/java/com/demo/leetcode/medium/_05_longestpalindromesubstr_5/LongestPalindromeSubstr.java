@@ -10,8 +10,7 @@ import org.junit.jupiter.api.Test;
  * - odd and even case
  * - manacher algorithm
  * - SIMILAR_TO: [647. Palindromic Substrings - MEDIUM](https://leetcode.com/problems/palindromic-substrings/)
- *
- * PRACTICE
+ * - PRACTICE: P3
  *
  * https://www.youtube.com/watch?v=XYQecbcd6_c&ab_channel=NeetCode
  * https://www.youtube.com/watch?v=V-sEwsca1ak - Manacher Algorithm O(N) time. Difficult to code during interview.
@@ -19,9 +18,17 @@ import org.junit.jupiter.api.Test;
 public class LongestPalindromeSubstr {
 
     @Test
-    public void test() {
-        Assertions.assertEquals("aba", longestPalindrome("babad"));
+    public void test1() {
+        Assertions.assertEquals("bab", longestPalindrome("babad"));
+    }
+
+    @Test
+    public void test2() {
         Assertions.assertEquals("bb", longestPalindrome("cbbd"));
+    }
+
+    @Test
+    public void test3() {
         Assertions.assertEquals("b", longestPalindrome("b"));
     }
 
@@ -30,35 +37,32 @@ public class LongestPalindromeSubstr {
      * Space: O(1)
      */
     public String longestPalindrome(String s) {
+        //edge case
         if (s == null || s.length() <= 1)
             return s;
 
         String result = "";
-
         for (int i = 0; i < s.length(); i++) {
             String odd = expandAroundCenter(s, i, i);
+            if (odd.length() > result.length()) {
+                result = odd;
+            }
             String even = expandAroundCenter(s, i, i + 1);
-
-            String largest = odd.length() > even.length() ? odd : even;
-            result = result.length() > largest.length() ? result : largest;
+            if (even.length() > result.length()) {
+                result = even;
+            }
         }
-
         return result;
     }
 
     private String expandAroundCenter(String s, int left, int right) {
-        if (s == null || left > right) {
-            return "";
-        }
+        String result = "";
         while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
+            result = s.substring(left, right + 1);
             left--;
             right++;
         }
-
-        left = left < 0 ? 0 : left + 1;
-        right = right > s.length() ? s.length() : right;
-
-        return s.substring(left, right);
+        return result;
     }
 
 }

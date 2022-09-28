@@ -15,8 +15,7 @@ import org.junit.jupiter.api.Test;
  * - open and close counter
  * - can add ( only if open < n
  * - can add ) only if close < open
- *
- * PRACTICE: P3
+ * - PRACTICE: P3
  *
  * https://www.youtube.com/watch?v=s9fokUqJ76A&ab_channel=NeetCode
  */
@@ -35,9 +34,9 @@ public class GenerateParenthesis {
     List<String> result;
     int n;
 
-    public List<String> generateParenthesis(int input) {
+    public List<String> generateParenthesis(int n) {
         result = new ArrayList<>();
-        this.n = input;
+        this.n = n;
         backtrack("", 0, 0);
         return result;
     }

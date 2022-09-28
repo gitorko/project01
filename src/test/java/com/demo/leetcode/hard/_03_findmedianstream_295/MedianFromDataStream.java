@@ -9,10 +9,9 @@ import org.junit.jupiter.api.Test;
 /**
  * [295. Find Median from Data Stream - HARD](https://leetcode.com/problems/find-median-from-data-stream/)
  *
- * - Two heap, (max heap, min heap)
- * - Heap, Adding to heap O(log N), removing is also O(log N), find is O(1)
- *
- * PRACTICE: P1
+ * - two heap, (max heap, min heap)
+ * - SIMILAR_TO: [4. Median of Two Sorted Arrays - HARD](https://leetcode.com/problems/median-of-two-sorted-arrays/)
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=itmhHWaHupI&ab_channel=NeetCode
  */
@@ -29,28 +28,31 @@ public class MedianFromDataStream {
         Assertions.assertEquals(2.0, medianFinder.findMedian());
     }
 
+    /**
+     * adding to heap O(log n), removing is also O(log n), find is O(1)
+     */
     class MedianFinder {
-
-        //small is max heap
-        PriorityQueue<Integer> small = new PriorityQueue<>(Collections.reverseOrder());
-        //large is min heap
-        PriorityQueue<Integer> large = new PriorityQueue<>();
+        //max heap
+        PriorityQueue<Integer> leftHeap = new PriorityQueue<>(Collections.reverseOrder());
+        //min heap
+        PriorityQueue<Integer> rightHeap = new PriorityQueue<>();
         boolean even = true;
 
         public double findMedian() {
-            if (even)
-                return (small.peek() + large.peek()) / 2.0;
-            else
-                return small.peek();
+            if (even) {
+                return (leftHeap.peek() + rightHeap.peek()) / 2.0;
+            } else {
+                return leftHeap.peek();
+            }
         }
 
         public void addNum(int num) {
             if (even) {
-                large.offer(num);
-                small.offer(large.poll());
+                rightHeap.offer(num);
+                leftHeap.offer(rightHeap.poll());
             } else {
-                small.offer(num);
-                large.offer(small.poll());
+                leftHeap.offer(num);
+                rightHeap.offer(leftHeap.poll());
             }
             even = !even;
         }

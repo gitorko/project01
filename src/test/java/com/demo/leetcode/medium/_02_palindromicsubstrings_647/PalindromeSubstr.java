@@ -8,8 +8,7 @@ import org.junit.jupiter.api.Test;
  *
  * - expand around center, odd even
  * - SIMILAR_TO: [5. Longest Palindromic Substring - MEDIUM](https://leetcode.com/problems/longest-palindromic-substring/)
- *
- * PRACTICE: P3
+ * - PRACTICE: P3
  *
  * https://www.youtube.com/watch?v=4RACzI5-du8&ab_channel=NeetCode
  */
@@ -29,6 +28,7 @@ public class PalindromeSubstr {
 
     public int countSubstrings(String s) {
         count = 0;
+        //edge case
         if (s == null || s.length() == 0)
             return 0;
 
@@ -48,5 +48,4 @@ public class PalindromeSubstr {
             right++;
         }
     }
-
 }

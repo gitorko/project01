@@ -13,8 +13,7 @@ import org.junit.jupiter.api.Test;
  * - dummy node
  * - double jump, as you need min 2 nodes to swap
  * - edge case when last node has no pair
- *
- * PRACTICE
+ * - PRACTICE: P1
  */
 public class SwapNodeLinkList {
 
@@ -55,20 +54,20 @@ public class SwapNodeLinkList {
      * Space: O(1)
      */
     public ListNode swapPairs(ListNode head) {
-        ListNode dummy = new ListNode(0);
+        ListNode dummy = new ListNode();
         dummy.next = head;
-        ListNode current = dummy;
-        while (current.next != null && current.next.next != null) {
-            ListNode first = current.next;
-            ListNode second = current.next.next;
+        ListNode curr = dummy;
+        while (curr.next != null && curr.next.next != null) {
+            ListNode first = curr.next;
+            ListNode second = curr.next.next;
 
             //swap logic
             first.next = second.next;
-            current.next = second;
+            curr.next = second;
             second.next = first;
 
             //double jump
-            current = current.next.next;
+            curr = curr.next.next;
 
         }
         return dummy.next;
