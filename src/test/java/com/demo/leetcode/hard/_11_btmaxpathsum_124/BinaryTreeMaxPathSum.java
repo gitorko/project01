@@ -12,8 +12,7 @@ import org.junit.jupiter.api.Test;
  *
  * - with fork, without fork value
  * - if negative set to zero
- *
- * PRACTICE: P2
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=Hr5cWUld4vU&ab_channel=NeetCode
  */
@@ -39,7 +38,9 @@ public class BinaryTreeMaxPathSum {
     }
 
     private int maxPathDown(TreeNode node) {
-        if (node == null) return 0;
+        if (node == null) {
+            return 0;
+        }
         //If negative set to 0.
         int left = Math.max(0, maxPathDown(node.left));
         int right = Math.max(0, maxPathDown(node.right));

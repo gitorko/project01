@@ -11,8 +11,7 @@ import org.junit.jupiter.api.Test;
  * [100. Same Tree - EASY](https://leetcode.com/problems/same-tree/)
  *
  * - recursion
- *
- * MEMORIZE
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=vRbbcKXCxOw&ab_channel=NeetCode
  */

@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
  * [739. Daily Temperatures - MEDIUM](https://leetcode.com/problems/daily-temperatures/)
  *
  * - monotonic stack
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=cTBiBSnjO3c&ab_channel=NeetCode
  */

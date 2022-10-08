@@ -14,8 +14,7 @@ import org.junit.jupiter.api.Test;
  * [1553. Minimum Number of Days to Eat N Oranges - HARD](https://leetcode.com/problems/minimum-number-of-days-to-eat-n-oranges/)
  *
  * - bfs
- *
- * PRACTICE
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=LziQ6Qx9sks&ab_channel=NeetCode
  */
@@ -29,6 +28,10 @@ public class MinDaysEatNOranges {
 
     Map<Integer, Integer> dp;
 
+    /**
+     * Time: O(log(n))
+     * Space: O(n)
+     */
     public int minDays(int n) {
         dp = new HashMap();
         dp.put(0, 0);
@@ -47,6 +50,7 @@ public class MinDaysEatNOranges {
     }
 
     /**
+     * BFS
      * Time: O(log(n))
      * Space: O(n)
      */
@@ -59,12 +63,21 @@ public class MinDaysEatNOranges {
 
         while (!queue.isEmpty()) {
             int size = queue.size();
-            while (size-- > 0) {
+            while (size > 0) {
                 int x = queue.poll();
-                if (x == 1) return step;
-                if (visited.add(x - 1)) queue.offer(x - 1);
-                if (x % 2 == 0 && visited.add(x / 2)) queue.offer(x / 2);
-                if (x % 3 == 0 && visited.add(x / 3)) queue.offer(x / 3);
+                if (x == 1) {
+                    return step;
+                }
+                if (visited.add(x - 1)) {
+                    queue.offer(x - 1);
+                }
+                if (x % 2 == 0 && visited.add(x / 2)) {
+                    queue.offer(x / 2);
+                }
+                if (x % 3 == 0 && visited.add(x / 3)) {
+                    queue.offer(x / 3);
+                }
+                size--;
             }
             step++;
         }

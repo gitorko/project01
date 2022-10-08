@@ -7,8 +7,7 @@ import org.junit.jupiter.api.Test;
  * [66. Plus One - EASY](https://leetcode.com/problems/plus-one/)
  *
  * - from reverse,early return
- *
- * PRACTICE
+ * - PRACTICE: P3
  *
  * https://www.youtube.com/watch?v=jIaA8boiG1s&ab_channel=NeetCode
  */
@@ -36,8 +35,10 @@ public class PlusOne {
         int carry = 1;
         for (int i = digits.length - 1; i >= 0; i--) {
             digits[i] += carry;
-            if (digits[i] <= 9) // early return
+            if (digits[i] <= 9) {
+                // early return
                 return digits;
+            }
             digits[i] = 0;
         }
         int[] ret = new int[digits.length + 1];

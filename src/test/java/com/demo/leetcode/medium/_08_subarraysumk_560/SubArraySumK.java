@@ -12,8 +12,7 @@ import org.junit.jupiter.api.Test;
  * - prefix sum map, 0 has value 1
  * - cant do sliding window as input has negative
  * - SIMILAR_TO: [325. Maximum Size Subarray Sum Equals k - MEDIUM](https://leetcode.com/problems/maximum-size-subarray-sum-equals-k/)
- *
- * PRACTICE
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=fFVZt-6sgyo&ab_channel=NeetCode
  */

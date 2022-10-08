@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
  * - unbounded knapsack, but we are checking min here instead of max.
  * - SIMILAR_TO: [SubSet Sum - MEDIUM]()
  * - SIMILAR_TO: [518. Coin Change 2 - MEDIUM](https://leetcode.com/problems/coin-change-2/)
+ * - SIMILAR_TO: [279. Perfect Squares - MEDIUM](https://leetcode.com/problems/perfect-squares/)
  * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=H9bfqozjoqs&ab_channel=NeetCode

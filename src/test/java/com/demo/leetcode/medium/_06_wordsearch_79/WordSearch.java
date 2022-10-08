@@ -8,8 +8,7 @@ import org.junit.jupiter.api.Test;
  *
  * - dfs + visited, backtracking
  * - remember to remove from visited
- *
- * PRACTICE: P2
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=pfiQ_PS1g8E&ab_channel=NeetCode
  */
@@ -32,12 +31,12 @@ public class WordSearch {
     String word = "";
     boolean[][] visited;
 
-    public boolean exist(char[][] inputBoard, String inputWord) {
-        board = inputBoard;
+    public boolean exist(char[][] board, String word) {
+        this.board = board;
+        this.word = word;
         rowLen = board.length;
         colLen = board[0].length;
         visited = new boolean[rowLen][colLen];
-        word = inputWord;
 
         for (int i = 0; i < rowLen; i++) {
             for (int j = 0; j < colLen; j++) {
@@ -57,7 +56,7 @@ public class WordSearch {
             return true;
         }
         //out of bounds or already visited.
-        if (i < 0  || j < 0 || i >= rowLen || j >= colLen || word.charAt(index) != board[i][j] || visited[i][j]) {
+        if (i < 0 || j < 0 || i >= rowLen || j >= colLen || word.charAt(index) != board[i][j] || visited[i][j]) {
             return false;
         }
         //add to visited

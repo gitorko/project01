@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
  *
  * - single and
  * - dfs
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=mLpW3qfbNJ8&ab_channel=NeetCode
  */
@@ -29,24 +30,28 @@ public class CountSubIslands {
     int rowLen;
     int colLen;
 
-    public int countSubIslands(int[][] input1, int[][] input2) {
-        grid1 = input1;
-        grid2 = input2;
+    public int countSubIslands(int[][] grid1, int[][] grid2) {
+        this.grid1 = grid1;
+        this.grid2 = grid2;
         rowLen = grid2.length;
         colLen = grid2[0].length;
 
         int result = 0;
-        for (int i = 0; i < rowLen; i++)
-            for (int j = 0; j < colLen; j++)
-                if (grid2[i][j] == 1)
+        for (int i = 0; i < rowLen; i++) {
+            for (int j = 0; j < colLen; j++) {
+                if (grid2[i][j] == 1) {
                     result += dfs(i, j);
+                }
+            }
+        }
         return result;
     }
 
     //will always return 1 or 0
     private int dfs(int i, int j) {
-        if (i < 0 || j < 0 || i == rowLen || j == colLen || grid2[i][j] != 1)
+        if (i < 0 || j < 0 || i == rowLen || j == colLen || grid2[i][j] != 1) {
             return 1;
+        }
         // mark 2 as visited
         grid2[i][j] = 2;
 

@@ -7,8 +7,7 @@ import org.junit.jupiter.api.Test;
  * [45. Jump Game II - MEDIUM](https://leetcode.com/problems/jump-game-ii/)
  *
  * - two pointer, farthest
- *
- * PRACTICE: P1
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=dJ7sWiOoK7g&ab_channel=NeetCode
  * https://www.youtube.com/watch?v=cETfFsSTGJI&ab_channel=TusharRoy-CodingMadeSimple

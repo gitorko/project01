@@ -21,8 +21,7 @@ import org.junit.jupiter.api.Test;
  * - PREORDER  - V L R
  * - INORDER   - L V R
  * - POSTORDER - L R V
- *
- * MEMORIZE
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=6ZnyEApgFYg&ab_channel=NeetCode
  */
@@ -82,15 +81,16 @@ public class BTTraversal {
     /**
      * BFS
      * Time: O(N)
-     * Space: Space O(N)
+     * Space: O(N)
      */
     public List<Integer> levelOrderTraversal(TreeNode root) {
         Queue<TreeNode> queue = new LinkedList<>();
         List<Integer> result = new ArrayList<>();
 
         //edge case
-        if (root == null)
+        if (root == null) {
             return result;
+        }
 
         queue.offer(root);
         while (!queue.isEmpty()) {
@@ -113,8 +113,9 @@ public class BTTraversal {
     public List<List<Integer>> levelOrder(TreeNode root) {
         Queue<TreeNode> queue = new LinkedList<>();
         List<List<Integer>> result = new ArrayList<>();
-        if (root == null)
+        if (root == null) {
             return result;
+        }
 
         queue.offer(root);
         while (!queue.isEmpty()) {
@@ -122,10 +123,12 @@ public class BTTraversal {
             List<Integer> subList = new ArrayList<>();
             while (size > 0) {
                 TreeNode node = queue.poll();
-                if (node.left != null)
+                if (node.left != null) {
                     queue.offer(node.left);
-                if (node.right != null)
+                }
+                if (node.right != null) {
                     queue.offer(node.right);
+                }
                 subList.add(node.val);
                 size--;
             }

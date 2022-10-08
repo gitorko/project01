@@ -77,7 +77,9 @@ public class CourseSchedule2 {
         }
         cycleSet.add(course);
         for (Integer preReq : preReqs) {
-            if (!dfs(preReq)) return false;
+            if (!dfs(preReq)) {
+                return false;
+            }
         }
         cycleSet.remove(course);
         visitedSet.add(course);

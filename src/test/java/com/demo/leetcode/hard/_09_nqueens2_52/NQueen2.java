@@ -14,6 +14,7 @@ import org.junit.jupiter.api.Test;
  * - negative diagonal = (row - col) = constant
  * - positive diagonal = (row + col) = constant
  * - SIMILAR_TO: [51. N-Queens - HARD](https://leetcode.com/problems/n-queens/)
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=Ph95IHmRp5M&ab_channel=NeetCode
  */

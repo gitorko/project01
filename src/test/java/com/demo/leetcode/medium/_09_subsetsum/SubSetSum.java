@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
  *
  * - Given a set of non-negative integers, and a value sum, determine if there is a subset of the given set with sum equal to the given sum.
  * - SIMILAR_TO: [0/1 knapsack - MEDIUM]()
+ * - SIMILAR_TO: [40. Combination Sum II - MEDIUM](https://leetcode.com/problems/combination-sum-ii/)
  * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=s6FhG--P7z0&ab_channel=TusharRoy-CodingMadeSimple

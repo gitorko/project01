@@ -10,8 +10,8 @@ import org.junit.jupiter.api.Test;
  *
  * - sort + sliding window
  * - nums[right] * windowSize > total + k
- *
- * PRACTICE: P1
+ * - SIMILAR_TO: [424. Longest Repeating Character Replacement - MEDIUM](https://leetcode.com/problems/longest-repeating-character-replacement/)
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=vgBrQ0NM5vE&ab_channel=NeetCode
  */
@@ -36,6 +36,7 @@ public class FrequencyOfMostFrequent {
         while (right < nums.length) {
             total += nums[right];
             int windowSize = right - left + 1;
+            //if budget is exceeded then reduce window
             while (nums[right] * windowSize > total + k) {
                 total -= nums[left];
                 left++;

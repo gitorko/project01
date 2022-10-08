@@ -14,8 +14,7 @@ import org.junit.jupiter.api.Test;
  *
  * - withRoot,withoutRoot, post-order
  * - dfs post-order traversal
- *
- * PRACTICE: P1
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=nHR8ytpzz7c&ab_channel=NeetCode
  */

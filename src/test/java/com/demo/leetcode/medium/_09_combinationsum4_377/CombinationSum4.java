@@ -8,11 +8,10 @@ import org.junit.jupiter.api.Test;
 /**
  * [377. Combination Sum IV - MEDIUM](https://leetcode.com/problems/combination-sum-iv/)
  *
- * - dynamic program
+ * - 1D DP
  * - SIMILAR_TO: [322. Coin Change - MEDIUM](https://leetcode.com/problems/coin-change/)
  * - SIMILAR_TO: [279. Perfect Squares - MEDIUM](https://leetcode.com/problems/perfect-squares/)
- *
- * PRACTICE
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=dw2nMCxG0ik&ab_channel=NeetCode
  */

@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
  * [704. Binary Search - EASY](https://leetcode.com/problems/binary-search/)
  *
  * - Works only on sorted array.
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=s4DPM8ct1pI&ab_channel=NeetCode
  */

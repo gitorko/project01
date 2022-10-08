@@ -9,8 +9,7 @@ import org.junit.jupiter.api.Test;
  * [787. Cheapest Flights Within K Stops - MEDIUM](https://leetcode.com/problems/cheapest-flights-within-k-stops/)
  *
  * - bellman-ford
- *
- * PRACTICE
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=5eIK3zUdYmE&ab_channel=NeetCode
  */
@@ -34,14 +33,15 @@ public class CheapFlightKStop {
         int[] cost = new int[n];
         Arrays.fill(cost, Integer.MAX_VALUE);
         cost[src] = 0;
-        for (int i = 0; i <= k; i++) {
+        for (int i = 0; i < k + 1; i++) {
             int[] temp = Arrays.copyOf(cost, n);
             for (int[] f : flights) {
                 int curr = f[0];
                 int next = f[1];
                 int price = f[2];
-                if (cost[curr] == Integer.MAX_VALUE)
+                if (cost[curr] == Integer.MAX_VALUE) {
                     continue;
+                }
                 temp[next] = Math.min(temp[next], cost[curr] + price);
             }
             cost = temp;

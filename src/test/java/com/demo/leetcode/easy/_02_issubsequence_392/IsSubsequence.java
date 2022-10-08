@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
  *
  * - two pointer
  * - SIMILAR_TO: [28. Implement strStr - MEDIUM](https://leetcode.com/problems/implement-strstr/)
+ * - PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=99RVfqklbCE&ab_channel=NeetCode
  */

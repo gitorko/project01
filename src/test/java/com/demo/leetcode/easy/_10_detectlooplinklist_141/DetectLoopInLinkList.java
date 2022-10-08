@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
  * [141. Linked List Cycle - EASY](https://leetcode.com/problems/linked-list-cycle/)
  *
  * - fast & slow pointer. Floyd Cycle Detection algorithm
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=gBTe7lFR3vc&ab_channel=NeetCode
  */
@@ -33,7 +34,6 @@ public class DetectLoopInLinkList {
         while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
-
             if (slow == fast) {
                 return true;
             }

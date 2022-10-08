@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
  *
  * - binary search
  * - SIMILAR_TO: [392. Is Subsequence - EASY](https://leetcode.com/problems/is-subsequence/)
+ * - PRACTICE: P3
  *
  * https://www.youtube.com/watch?v=NMP3nRPyX5g&ab_channel=NeetCode
  */
@@ -31,10 +32,11 @@ public class MaxRemoveableChars {
         while (left <= right) {
             int mid = (left + right) / 2;
             String removed = remove(s, removable, mid + 1);
-            if (isSubsequence(p, removed))
+            if (isSubsequence(p, removed)) {
                 left = mid + 1;
-            else
-                right = mid -1;
+            } else {
+                right = mid - 1;
+            }
         }
         return left;
     }

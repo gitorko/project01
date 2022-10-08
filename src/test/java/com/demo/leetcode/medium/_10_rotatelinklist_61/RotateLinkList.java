@@ -9,8 +9,7 @@ import org.junit.jupiter.api.Test;
  * [61. Rotate List - MEDIUM](https://leetcode.com/problems/rotate-list/)
  *
  * - 3 phases, get the length,check k % len, move len - k, fix list
- *
- * PRACTICE: P2
+ * - PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=UcGtPs2LE_c&ab_channel=NeetCode
  */
@@ -36,7 +35,7 @@ public class RotateLinkList {
             return head;
         }
 
-        //get the length of linked list, dont do it in a different function as you need the tail.
+        //get the length of linked list, don't do it in a different function as you need the tail.
         ListNode tail = head;
         int length = 1;
         while (tail.next != null) {
@@ -46,8 +45,9 @@ public class RotateLinkList {
 
         //if k is greater than length then mod
         k = k % length;
-        if (k == 0)
+        if (k == 0) {
             return head;
+        }
 
         //move to pivot to previous node and rotate
         //length - k - 1 as we want to be one node behind.

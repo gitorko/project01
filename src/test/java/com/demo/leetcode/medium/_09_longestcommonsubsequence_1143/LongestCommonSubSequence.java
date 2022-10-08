@@ -11,18 +11,24 @@ import org.junit.jupiter.api.Test;
  * - if match go diagonal, if no match go right and go down and get max
  * - SIMILAR_TO: [115. Distinct Subsequences - HARD](https://leetcode.com/problems/distinct-subsequences/)
  * - SIMILAR_TO: [72. Edit Distance - HARD](https://leetcode.com/problems/edit-distance/)
- *
- * PRACTICE: P1
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=Ua0GhsJSlWM&ab_channel=NeetCode
  */
 public class LongestCommonSubSequence {
 
     @Test
-    public void test() {
+    public void test1() {
         String text1 = "abcde", text2 = "ace";
         Assertions.assertEquals(3, longestCommonSubsequence(text1, text2));
     }
+
+    @Test
+    public void test2() {
+        String text1 = "ace", text2 = "abcde";
+        Assertions.assertEquals(3, longestCommonSubsequence(text1, text2));
+    }
+
 
     /**
      * Bottom up

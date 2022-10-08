@@ -10,10 +10,9 @@ import org.junit.jupiter.api.Test;
 /**
  * [572. Subtree of Another Tree - EASY](https://leetcode.com/problems/subtree-of-another-tree/)
  *
- * - dfs, same tree
- * - pre-order traversal wont work unless null node is replaced.
- *
- * PRACTICE
+ * - pre-order traversal won't work unless null node is replaced.
+ * - SIMILAR_TO: [100. Same Tree - EASY](https://leetcode.com/problems/same-tree/)
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=E36O5SWp-LE&ab_channel=NeetCode
  */

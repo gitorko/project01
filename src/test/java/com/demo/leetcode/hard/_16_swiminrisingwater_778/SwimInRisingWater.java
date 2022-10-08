@@ -9,7 +9,9 @@ import org.junit.jupiter.api.Test;
 /**
  * [778. Swim in Rising Water - HARD](https://leetcode.com/problems/swim-in-rising-water/)
  *
- * - djikstra algo min heap
+ * - dijkstra algo min heap
+ * - SIMILAR_TO: [743. Network Delay Time - MEDIUM](https://leetcode.com/problems/network-delay-time/)
+ * - PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=amvrKlMLuGY&ab_channel=NeetCode
  */
@@ -33,35 +35,35 @@ public class SwimInRisingWater {
      */
     public int swimInWater(int[][] grid) {
         int n = grid.length;
-        int result = grid[0][0];
         int[] dirs = {0, 1, 0, -1, 0};
         // [height, row, col]
         Queue<int[]> minHeap = new PriorityQueue<>((a, b) -> a[0] - b[0]);
-        boolean[][] seen = new boolean[n][n];
+        boolean[][] visited = new boolean[n][n];
 
         minHeap.offer(new int[]{grid[0][0], 0, 0});
-        seen[0][0] = true;
+        visited[0][0] = true;
 
         while (!minHeap.isEmpty()) {
             int[] poll = minHeap.poll();
             int height = poll[0];
             int i = poll[1];
             int j = poll[2];
-            result = Math.max(result, height);
             //if end is reached break, you will reach the end and not touch max height due to min heap
-            if (i == n - 1 && j == n - 1)
-                break;
+            if (i == n - 1 && j == n - 1) {
+                return height;
+            }
             //check all directions
             for (int k = 0; k < 4; k++) {
                 int x = i + dirs[k];
                 int y = j + dirs[k + 1];
-                if (x < 0 || y < 0 || x == n || y == n || seen[x][y])
+                if (x < 0 || y < 0 || x == n || y == n || visited[x][y]) {
                     continue;
-                minHeap.offer(new int[]{grid[x][y], x, y});
-                seen[x][y] = true;
+                }
+                minHeap.offer(new int[]{Math.max(height, grid[x][y]), x, y});
+                visited[x][y] = true;
             }
         }
-        return result;
+        return -1;
     }
 
 }

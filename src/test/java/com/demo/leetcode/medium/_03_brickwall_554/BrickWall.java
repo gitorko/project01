@@ -14,6 +14,7 @@ import org.junit.jupiter.api.Test;
  *
  * - count gaps
  * - wall size - max
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=Kkmv2h48ekw&ab_channel=NeetCode
  */
@@ -38,6 +39,7 @@ public class BrickWall {
             for (int i = 0; i < row.size() - 1; i++) {
                 position += row.get(i);
                 countGap.put(position, countGap.getOrDefault(position, 0) + 1);
+                //max gaps
                 maxFreq = Math.max(maxFreq, countGap.get(position));
             }
         }

@@ -10,8 +10,7 @@ import org.junit.jupiter.api.Test;
  *
  * - dp, fill max value
  * - SIMILAR_TO: [322. Coin Change - MEDIUM](https://leetcode.com/problems/coin-change/)
- *
- * PRACTICE: P1
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=HLZLwjzIVGo&ab_channel=NeetCode
  */
@@ -37,12 +36,14 @@ public class PerfectSquare {
         Arrays.fill(dp, n); // 1^2 x n
 
         dp[0] = 0;
-        for (int i = 1; i <= n; i++) {
+        for (int i = 1; i < n + 1; i++) {
             for (int j = 1; j < i + 1; j++) {
                 int square = j * j;
-                if (i - square >= 0) {
-                    dp[i] = Math.min(dp[i], 1 + dp[i - square]);
+                //if square is bigger than target stop.
+                if (i - square < 0) {
+                    break;
                 }
+                dp[i] = Math.min(dp[i], 1 + dp[i - square]);
             }
         }
         return dp[n];

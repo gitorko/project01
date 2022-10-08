@@ -12,6 +12,8 @@ import org.junit.jupiter.api.Test;
  *
  * - backtracking
  * - no i + 1
+ * - SIMILAR_TO: [40. Combination Sum II - MEDIUM](https://leetcode.com/problems/combination-sum-ii/)
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=GBKI9VSKdGg&ab_channel=NeetCode
  */

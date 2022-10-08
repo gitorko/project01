@@ -10,8 +10,7 @@ import org.junit.jupiter.api.Test;
  *
  * - 3 array, maxLeft, maxRight, min(L,R) arrays.
  * - min(maxLeft,maxRight) - height[i]
- *
- * PRACTICE
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=ZI2z5pq0TqA&ab_channel=NeetCode
  */

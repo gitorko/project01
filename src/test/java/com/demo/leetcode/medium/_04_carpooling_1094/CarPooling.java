@@ -11,8 +11,7 @@ import org.junit.jupiter.api.Test;
  *
  * - sort, heap
  * - SIMILAR_TO: [253. Meeting Rooms II - MEDIUM](https://leetcode.com/problems/meeting-rooms-ii/)
- *
- * PRACTICE: P1
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=08sn_w4LWEE&ab_channel=NeetCode
  */
@@ -58,6 +57,14 @@ public class CarPooling {
         Assertions.assertFalse(carPooling2(trips, capacity));
     }
 
+    @Test
+    public void test6() {
+        int[][] trips = {{2, 1, 3}, {1, 2, 3}, {3, 3, 7}};
+        int capacity = 4;
+        Assertions.assertTrue(carPooling(trips, capacity));
+        Assertions.assertTrue(carPooling2(trips, capacity));
+    }
+
     /**
      * Time: O(n log(n))
      * Space: O(n)
@@ -66,13 +73,14 @@ public class CarPooling {
         //[person count, start, end]
         int passenger = 0;
         // Sort by ascending starting point
-        Arrays.sort(trips, (i1, i2) -> Integer.compare(i1[1], i2[1]));
-        PriorityQueue<int[]> queue = new PriorityQueue<>((i1, i2) -> i1[1] - i2[1]);
+        Arrays.sort(trips, (i1, i2) -> i1[1] - i2[1]);
         //[person count, end]
+        PriorityQueue<int[]> queue = new PriorityQueue<>((i1, i2) -> i1[1] - i2[1]);
         queue.add(new int[]{trips[0][0], trips[0][2]});
         passenger = trips[0][0];
-        if (passenger > capacity)
+        if (passenger > capacity) {
             return false;
+        }
         //iterate from 2nd trip
         for (int i = 1; i < trips.length; i++) {
             //if top of heap (end time) is less than start time of new trip
@@ -82,8 +90,9 @@ public class CarPooling {
             }
             passenger = passenger + trips[i][0];
             queue.add(new int[]{trips[i][0], trips[i][2]});
-            if (passenger > capacity)
+            if (passenger > capacity) {
                 return false;
+            }
         }
         return passenger <= capacity;
     }

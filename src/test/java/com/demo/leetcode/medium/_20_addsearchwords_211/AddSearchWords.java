@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
  * - prefix tree
  * - dfs search because of the . case in search
  * - SIMILAR_TO: [208. Implement Trie (Prefix Tree)](https://leetcode.com/problems/implement-trie-prefix-tree/)
+ * - PRACTICE: P3
  *
  * https://www.youtube.com/watch?v=BTf05gs_8iU&ab_channel=NeetCode
  */
@@ -48,19 +49,21 @@ public class AddSearchWords {
 
         private boolean dfs(String word, int startIndex, TrieNode node) {
             //end case
-            if (startIndex == word.length())
+            if (startIndex == word.length()) {
                 return node.isWord;
+            }
 
             if (word.charAt(startIndex) != '.') {
                 TrieNode next = node.children[word.charAt(startIndex) - 'a'];
                 return next == null ? false : dfs(word, startIndex + 1, next);
+            } else {
+                // word.charAt(startIndex) == '.' -> search all 26 children
+                for (int i = 0; i < 26; i++) {
+                    if (node.children[i] != null && dfs(word, startIndex + 1, node.children[i])) {
+                        return true;
+                    }
+                }
             }
-
-            // word.charAt(startIndex) == '.' -> search all 26 children
-            for (int i = 0; i < 26; i++)
-                if (node.children[i] != null && dfs(word, startIndex + 1, node.children[i]))
-                    return true;
-
             return false;
         }
 

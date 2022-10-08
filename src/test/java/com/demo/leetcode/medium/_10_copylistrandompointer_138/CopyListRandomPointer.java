@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
  * [138. Copy List with Random Pointer - MEDIUM](https://leetcode.com/problems/copy-list-with-random-pointer/)
  *
  * - map for nodes, 2 loops
+ * - PRACTICE: P4
  *
  * https://www.youtube.com/watch?v=5Y2EiZST97Y&ab_channel=NeetCode
  */
@@ -46,8 +47,9 @@ public class CopyListRandomPointer {
      * Space: O(n)
      */
     public Node copyRandomList(Node head) {
-        if (head == null)
+        if (head == null) {
             return null;
+        }
 
         Map<Node, Node> map = new HashMap<>();
 

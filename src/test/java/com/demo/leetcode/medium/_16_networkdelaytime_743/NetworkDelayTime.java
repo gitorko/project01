@@ -15,8 +15,9 @@ import org.junit.jupiter.api.Test;
  *
  * - dijkstra, shortest path
  * - bfs, min heap of cost, visited
- *
- * PRACTICE: P1
+ * - SIMILAR_TO: [1584. Min Cost to Connect All Points - MEDIUM](https://leetcode.com/problems/min-cost-to-connect-all-points/)
+ * - SIMILAR_TO: [778. Swim in Rising Water - HARD](https://leetcode.com/problems/swim-in-rising-water/)
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=EaphyqKU4PQ&ab_channel=NeetCode
  */
@@ -60,8 +61,9 @@ public class NetworkDelayTime {
             int[] cur = minHeap.poll();
             int curCost = cur[0];
             int curNode = cur[1];
-            if (visited.contains(curNode))
+            if (visited.contains(curNode)){
                 continue;
+            }
 
             visited.add(curNode);
             result = curCost;

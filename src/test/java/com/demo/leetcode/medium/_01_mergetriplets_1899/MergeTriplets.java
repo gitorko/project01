@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
  * [1899. Merge Triplets to Form Target Triplet - MEDIUM](https://leetcode.com/problems/merge-triplets-to-form-target-triplet/)
  *
  * - remove greater than target
+ * - PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=kShkQLQZ9K4&ab_channel=NeetCode
  */
@@ -28,10 +29,12 @@ public class MergeTriplets {
     public boolean mergeTriplets(int[][] triplets, int[] target) {
         int[] merged = new int[target.length];
         for (int[] t : triplets) {
-            if (t[0] > target[0] || t[1] > target[1] || t[2] > target[2])
+            if (t[0] > target[0] || t[1] > target[1] || t[2] > target[2]) {
                 continue;
-            for (int i = 0; i < target.length; i++)
+            }
+            for (int i = 0; i < target.length; i++) {
                 merged[i] = Math.max(merged[i], t[i]);
+            }
         }
         return Arrays.equals(merged, target);
     }

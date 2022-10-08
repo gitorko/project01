@@ -10,8 +10,8 @@ import org.junit.jupiter.api.Test;
 /**
  * [535. Encode and Decode TinyURL - MEDIUM](https://leetcode.com/problems/encode-and-decode-tinyurl/)
  *
- * HINT:
  *  - two map, while loop
+ *  - PRACTICE: P3
  *
  * https://www.youtube.com/watch?v=VyBOaboQLGc&ab_channel=NeetCode
  */

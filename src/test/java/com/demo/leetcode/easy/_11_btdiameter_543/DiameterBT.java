@@ -10,11 +10,9 @@ import org.junit.jupiter.api.Test;
 /**
  * [543. Diameter of Binary Tree - EASY](https://leetcode.com/problems/diameter-of-binary-tree/)
  *
- * - longest path between any 2 nodes in tree, may not pass through root
  * - post order traversal
  * - max height (left + right) + 1
- *
- * PRACTICE: P1
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=bkxqA8Rfv04&ab_channel=NeetCode
  */
@@ -38,9 +36,9 @@ public class DiameterBT {
     }
 
     private int maxDepth(TreeNode root) {
-        if (root == null)
+        if (root == null) {
             return 0;
-
+        }
         int left = maxDepth(root.left);
         int right = maxDepth(root.right);
 

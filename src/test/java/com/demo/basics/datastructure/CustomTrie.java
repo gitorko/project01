@@ -7,7 +7,8 @@ import org.junit.jupiter.api.Test;
  * [208. Implement Trie, Prefix Tree - EASY](https://leetcode.com/problems/implement-trie-prefix-tree/)
  *
  * - current node
- * - SIMILAR_TO: https://leetcode.com/problems/design-add-and-search-words-data-structure/
+ * - SIMILAR_TO: [211. Design Add and Search Words Data Structure - MEDIUM](https://leetcode.com/problems/design-add-and-search-words-data-structure/)
+ * - PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=oobqoCJlHA0&ab_channel=NeetCode
  */
@@ -29,33 +30,37 @@ public class CustomTrie {
         private TrieNode root = new TrieNode();
 
         public void insert(String word) {
-            TrieNode current = root;
+            TrieNode curr = root;
             for (char c : word.toCharArray()) {
                 int i = c - 'a';
-                if (current.children[i] == null) {
-                    current.children[i] = new TrieNode();
+                if (curr.children[i] == null) {
+                    curr.children[i] = new TrieNode();
                 }
-                current = current.children[i];
+                curr = curr.children[i];
             }
-            current.isWord = true;
+            curr.isWord = true;
         }
 
         public boolean search(String word) {
-            TrieNode current = root;
+            TrieNode curr = root;
             for (char c : word.toCharArray()) {
                 int i = c - 'a';
-                if (current.children[i] == null) return false;
-                current = current.children[i];
+                if (curr.children[i] == null) {
+                    return false;
+                }
+                curr = curr.children[i];
             }
-            return current.isWord;
+            return curr.isWord;
         }
 
         public boolean startsWith(String prefix) {
-            TrieNode current = root;
+            TrieNode curr = root;
             for (char c : prefix.toCharArray()) {
                 int i = c - 'a';
-                if (current.children[i] == null) return false;
-                current = current.children[i];
+                if (curr.children[i] == null) {
+                    return false;
+                }
+                curr = curr.children[i];
             }
             return true;
         }
@@ -65,5 +70,4 @@ public class CustomTrie {
         public TrieNode[] children = new TrieNode[26];
         public boolean isWord;
     }
-
 }

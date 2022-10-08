@@ -7,8 +7,8 @@ import org.junit.jupiter.api.Test;
  * [67. Add Binary - EASY](https://leetcode.com/problems/add-binary/)
  *
  * - reverse, carry, mod by 2
- * - string builder
  * - SIMILAR_TO: [2. Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)
+ * - PRACTICE: P3
  *
  * https://www.youtube.com/watch?v=keuWJ47xG8g&ab_channel=NeetCode
  */
@@ -32,10 +32,12 @@ public class AddBinary {
         int j = b.length() - 1;
 
         while (i >= 0 || j >= 0 || carry == 1) {
-            if (i >= 0)
+            if (i >= 0) {
                 carry += a.charAt(i--) - '0';
-            if (j >= 0)
+            }
+            if (j >= 0) {
                 carry += b.charAt(j--) - '0';
+            }
             sb.append(carry % 2);
             carry /= 2;
         }

@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
  * [71. Simplify Path - EASY](https://leetcode.com/problems/simplify-path/)
  *
  * - use stack
+ * - PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=qYlHrAKJfyA&ab_channel=NeetCode
  */

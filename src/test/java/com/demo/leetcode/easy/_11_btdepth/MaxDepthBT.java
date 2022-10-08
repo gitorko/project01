@@ -15,6 +15,7 @@ import org.junit.jupiter.api.Test;
  *
  * - recursion, dfs pre-order traversal
  * - max depth = height of tree
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=hTM3phVI6YQ&ab_channel=NeetCode
  */
@@ -33,8 +34,9 @@ public class MaxDepthBT {
      * Recursive
      */
     public int maxDepth(TreeNode root) {
-        if (root == null)
+        if (root == null) {
             return 0;
+        }
         int leftMax = maxDepth(root.left);
         int rightMax = maxDepth(root.right);
         return 1 + Math.max(leftMax, rightMax);
@@ -44,8 +46,9 @@ public class MaxDepthBT {
      * Iterative - BFS
      */
     public int maxDepth2(TreeNode root) {
-        if (root == null)
+        if (root == null) {
             return 0;
+        }
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
         int level = 0;
@@ -53,10 +56,12 @@ public class MaxDepthBT {
             int size = queue.size();
             while (size > 0) {
                 TreeNode node = queue.poll();
-                if (node.left != null)
+                if (node.left != null) {
                     queue.offer(node.left);
-                if (node.right != null)
+                }
+                if (node.right != null) {
                     queue.offer(node.right);
+                }
                 size--;
             }
             level++;

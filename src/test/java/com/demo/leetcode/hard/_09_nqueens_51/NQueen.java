@@ -13,6 +13,8 @@ import org.junit.jupiter.api.Test;
  * - backtracking
  * - negative diagonal = (row - col) = constant
  * - positive diagonal = (row + col) = constant
+ * - SIMILAR_TO: [52. N-Queens II - HARD](https://leetcode.com/problems/n-queens-ii/)
+ * - PRACTICE: P3
  *
  * https://www.youtube.com/watch?v=Ph95IHmRp5M&ab_channel=NeetCode
  */
@@ -62,8 +64,9 @@ public class NQueen {
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < y; j++) {
                 //check diagonals, check same row
-                if (board[i][j] == 'Q' && (x - y == i - j || x + y == i + j || x == i))
+                if (board[i][j] == 'Q' && (x - y == i - j || x + y == i + j || x == i)) {
                     return false;
+                }
             }
         }
         return true;

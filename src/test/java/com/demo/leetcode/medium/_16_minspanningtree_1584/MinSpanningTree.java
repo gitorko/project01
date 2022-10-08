@@ -13,11 +13,10 @@ import org.junit.jupiter.api.Test;
 /**
  * [1584. Min Cost to Connect All Points - MEDIUM](https://leetcode.com/problems/min-cost-to-connect-all-points/)
  *
- * - prim algo
+ * - minimum spanning tree, prims algorithm
  * - min heap
  * - SIMILAR_TO: [743. Network Delay Time - MEDIUM](https://leetcode.com/problems/network-delay-time/)
- *
- * PRACTICE
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=f7JOBJIC-NA&ab_channel=NeetCode
  */
@@ -37,8 +36,9 @@ public class MinSpanningTree {
         int pointLen = points.length;
         //[node1, node2, cost]
         Map<Integer, Map<Integer, Integer>> adjacencyMap = new HashMap<>();
-        for (int i = 0; i < pointLen; i++)
-            adjacencyMap.computeIfAbsent(i, m -> new HashMap<>());
+        for (int i = 0; i < pointLen; i++) {
+            adjacencyMap.putIfAbsent(i, new HashMap<>());
+        }
 
         //adjacency list
         for (int i = 0; i < pointLen; i++) {
@@ -54,24 +54,25 @@ public class MinSpanningTree {
         }
 
         //[cost, point]
-        Queue<int[]> pq = new PriorityQueue<>((a, b) -> (a[0] - b[0]));
+        Queue<int[]> minHeap = new PriorityQueue<>((a, b) -> (a[0] - b[0]));
         Set<Integer> visited = new HashSet<>();
         int result = 0;
-        pq.add(new int[]{0, 0});
+        minHeap.add(new int[]{0, 0});
 
         while (visited.size() < pointLen) {
-            int[] cur = pq.poll();
+            int[] cur = minHeap.poll();
             int cost = cur[0];
             int point = cur[1];
-            if (visited.contains(point))
+            if (visited.contains(point)) {
                 continue;
+            }
 
             visited.add(point);
             result += cost;
             for (Map.Entry<Integer, Integer> next : adjacencyMap.get(point).entrySet()) {
                 if (!visited.contains(next.getKey())) {
                     //[cost, point]
-                    pq.add(new int[]{next.getValue(), next.getKey()});
+                    minHeap.add(new int[]{next.getValue(), next.getKey()});
                 }
 
             }

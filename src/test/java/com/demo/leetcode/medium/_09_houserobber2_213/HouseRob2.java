@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
  *
  * - 0..n-2,1..n-1
  * - rob = max (num[i] + rob(i-2), rob(i-1))
+ * - PRACTICE: P3
  *
  * https://www.youtube.com/watch?v=rWAJCfYYOvM&ab_channel=NeetCode
  */
@@ -25,8 +26,8 @@ public class HouseRob2 {
      */
     int[] nums;
 
-    public int rob(int[] input) {
-        nums = input;
+    public int rob(int[] nums) {
+        this.nums = nums;
         if (nums.length == 0) return 0;
         if (nums.length == 1) return nums[0];
         return Math.max(robBottomUp(0, nums.length - 2), robBottomUp(1, nums.length - 1));

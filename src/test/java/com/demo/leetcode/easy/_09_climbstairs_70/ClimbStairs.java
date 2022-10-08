@@ -8,8 +8,7 @@ import org.junit.jupiter.api.Test;
  *
  * - 1D DP
  * - SIMILAR_TO: [198. House Robber - MEDIUM](https://leetcode.com/problems/house-robber/)
- *
- * PRACTICE: P1
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=Y0lT9Fck7qI&ab_channel=NeetCode
  */
@@ -33,14 +32,14 @@ public class ClimbStairs {
         int[] dp = new int[n + 1];
         dp[1] = 1;
         dp[2] = 2;
-        for (int i = 3; i <= n; i++) {
+        for (int i = 3; i < n + 1; i++) {
             dp[i] = dp[i - 1] + dp[i - 2];
         }
         return dp[n];
     }
 
     /**
-     * We only need the previous 2 values and hence dont need a complete dp array
+     * We only need the previous 2 values and hence don't need a complete dp array
      * Iterative, with just 2 variables.
      */
     public int climbStairs(int n) {
@@ -49,7 +48,7 @@ public class ClimbStairs {
         }
         int first = 1;
         int second = 2;
-        for (int i = 3; i <= n; i++) {
+        for (int i = 3; i < n + 1; i++) {
             int temp = first + second;
             first = second;
             second = temp;

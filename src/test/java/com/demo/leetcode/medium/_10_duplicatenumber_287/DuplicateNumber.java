@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
  *
  * - floyd cycle
  * - cyclic sort
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=wjYnzkAhcNk&ab_channel=NeetCode
  */

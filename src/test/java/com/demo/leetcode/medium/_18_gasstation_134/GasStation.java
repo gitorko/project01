@@ -9,8 +9,7 @@ import org.junit.jupiter.api.Test;
  * [134. Gas Station - MEDIUM](https://leetcode.com/problems/gas-station/)
  *
  * - greedy, total reset to 0
- *
- * PRACTICE
+ * - PRACTICE: P3
  *
  * https://www.youtube.com/watch?v=lJwbPZGo05A&ab_channel=NeetCode
  */
@@ -32,12 +31,15 @@ public class GasStation {
 
     /**
      * Time: O(n)
+     * Space: O(1)
      */
     public int canCompleteCircuit(int[] gas, int[] cost) {
 
         int totalGas = Arrays.stream(gas).sum();
         int totalCost = Arrays.stream(cost).sum();
-        if (totalGas < totalCost) return -1;
+        if (totalGas < totalCost) {
+            return -1;
+        }
 
         int total = 0;
         int start = 0;

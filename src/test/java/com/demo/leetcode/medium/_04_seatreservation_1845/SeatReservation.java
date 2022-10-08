@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
  * [1845. Seat Reservation Manager - MEDIUM](https://leetcode.com/problems/seat-reservation-manager/)
  *
  * - min heap, tracks only unreserved seats
+ * - PRACTICE: P3
  *
  * https://www.youtube.com/watch?v=ahobllKXEEY&ab_channel=NeetCode
  */
@@ -46,11 +47,14 @@ public class SeatReservation {
         }
 
         public int reserve() {
-            if (count > maxSeats) return -1;
-            if (minHeap.isEmpty())
+            if (count > maxSeats) {
+                return -1;
+            }
+            if (minHeap.isEmpty()) {
                 return ++count;
-
-            return minHeap.poll();
+            } else {
+                return minHeap.poll();
+            }
         }
 
         public void unreserve(int seatNumber) {

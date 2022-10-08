@@ -11,7 +11,8 @@ import org.junit.jupiter.api.Test;
  * [20. Valid Parentheses - EASY](https://leetcode.com/problems/valid-parentheses/)
  *
  * - stack + map
- * - edge case - dont pop from empty stack
+ * - edge case - don't pop from empty stack
+ * - PRACTICE: P3
  *
  * https://www.youtube.com/watch?v=WTzjTskDFMg&ab_channel=NeetCode
  */
@@ -43,14 +44,15 @@ public class ValidParenthesis {
     public boolean isValid3(String s) {
         Stack<Character> stack = new Stack<>();
         for (char c : s.toCharArray()) {
-            if (c == '(')
+            if (c == '(') {
                 stack.push(')');
-            else if (c == '{')
+            } else if (c == '{') {
                 stack.push('}');
-            else if (c == '[')
+            } else if (c == '[') {
                 stack.push(']');
-            else if (stack.isEmpty() || stack.pop() != c)
+            } else if (stack.isEmpty() || stack.pop() != c) {
                 return false;
+            }
         }
         return stack.isEmpty();
     }
@@ -66,21 +68,21 @@ public class ValidParenthesis {
         map.put('{', '}');
         map.put('(', ')');
         map.put('[', ']');
-        Stack<Character> tokensStack = new Stack<>();
+        Stack<Character> tokenStack = new Stack<>();
         for (int i = 0; i < s.length(); i++) {
             char token = s.charAt(i);
             if (map.get(token) != null) {
-                tokensStack.push(token);
+                tokenStack.push(token);
             } else {
-                if (tokensStack.isEmpty()) {
+                if (tokenStack.isEmpty()) {
                     return false;
                 }
-                if (map.get(tokensStack.pop()) != token) {
+                if (map.get(tokenStack.pop()) != token) {
                     return false;
                 }
             }
         }
-        return tokensStack.isEmpty();
+        return tokenStack.isEmpty();
     }
 
 }

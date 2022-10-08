@@ -12,6 +12,11 @@ import org.junit.jupiter.api.Test;
  *
  * - sort + backtracking
  * - i + 1
+ * - SIMILAR_TO: [39. Combination Sum - MEDIUM](https://leetcode.com/problems/combination-sum/)
+ * - SIMILAR_TO: [SubSet Sum - MEDIUM]()
+ * - PRACTICE: P1
+ *
+ * https://www.youtube.com/watch?v=rSA3t6BDDwg&ab_channel=NeetCode
  */
 public class CombinationSum2 {
 
@@ -23,6 +28,10 @@ public class CombinationSum2 {
         Assertions.assertEquals(expected, combinationSum2(candidates, target));
     }
 
+    /**
+     * Time: O(2^target)
+     * Space: O(target)
+     */
     List<List<Integer>> result;
     int[] nums;
 
@@ -41,7 +50,9 @@ public class CombinationSum2 {
             result.add(new ArrayList<>(tempList));
         } else {
             for (int i = start; i < nums.length; i++) {
-                if (i > start && nums[i] == nums[i - 1]) continue; // skip duplicates
+                if (i > start && nums[i] == nums[i - 1]) {
+                    continue; // skip duplicates
+                }
                 tempList.add(nums[i]);
                 backtrack(tempList, remain - nums[i], i + 1);
                 tempList.remove(tempList.size() - 1);
