@@ -14,8 +14,7 @@ import org.junit.jupiter.api.Test;
  * - 0/1 knapsack
  * - SIMILAR_TO: [698. Partition to K Equal Sum Subsets - MEDIUM](https://leetcode.com/problems/partition-to-k-equal-sum-subsets/)
  * - SIMILAR_TO: [SubSet Sum - MEDIUM]()
- *
- * PRACTICE: P1
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=IsvocB5BJhw&ab_channel=NeetCode
  */
@@ -34,15 +33,18 @@ public class PartitionSubsetSum {
      */
     public boolean canPartition(int[] nums) {
         int sum = Arrays.stream(nums).sum();
-        if (sum % 2 == 1)
+        if (sum % 2 == 1) {
             return false;
+        }
         int target = sum / 2;
         Set<Integer> dp = new HashSet<>();
         dp.add(0);
         for (int i = 0; i < nums.length; i++) {
             Set<Integer> nextDp = new HashSet<>();
             for (int t : dp) {
-                if (t + nums[i] == target) return true;
+                if (t + nums[i] == target) {
+                    return true;
+                }
                 nextDp.add(t + nums[i]);
                 nextDp.add(t);
             }
@@ -57,8 +59,9 @@ public class PartitionSubsetSum {
      */
     public boolean canPartition2(int[] nums) {
         int sum = Arrays.stream(nums).sum();
-        if (sum % 2 == 1)
+        if (sum % 2 == 1) {
             return false;
+        }
         return knapsack(nums, sum / 2);
     }
 
@@ -70,10 +73,11 @@ public class PartitionSubsetSum {
         for (int i = 1; i <= n; i++) {
             int num = nums[i - 1];
             for (int j = 0; j <= subsetSum; j++) {
-                if (j < num)
+                if (j < num) {
                     dp[i][j] = dp[i - 1][j];
-                else
+                } else {
                     dp[i][j] = dp[i - 1][j] || dp[i - 1][j - num];
+                }
             }
         }
         return dp[n][subsetSum];

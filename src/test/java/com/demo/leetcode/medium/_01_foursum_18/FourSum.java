@@ -2,6 +2,7 @@ package com.demo.leetcode.medium._01_foursum_18;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import org.junit.jupiter.api.Assertions;
@@ -33,6 +34,14 @@ public class FourSum {
         Assertions.assertEquals(expected, fourSum(nums, target));
     }
 
+    @Test
+    public void test3() {
+        int[] nums = {1000000000, 1000000000, 1000000000, 1000000000};
+        int target = -294967296;
+        List<List<Integer>> expected = Collections.emptyList();
+        Assertions.assertEquals(expected, fourSum(nums, target));
+    }
+
     /**
      * Time: O(n^3)
      * Space: O(n)
@@ -48,36 +57,37 @@ public class FourSum {
         return result;
     }
 
-    public void backtrack(ArrayList<Integer> tempList, int target, int start, int k) {
+    public void backtrack(ArrayList<Integer> tempList, long target, int start, int k) {
         if (k != 2) {
             for (int i = start; i < nums.length - k + 1; i++) {
                 //remove duplicate combinations
-                if (i > start && nums[i] == nums[i - 1])
+                if (i > start && nums[i] == nums[i - 1]) {
                     continue;
+                }
                 tempList.add(nums[i]);
                 backtrack(tempList, target - nums[i], i + 1, k - 1);
                 tempList.remove(tempList.size() - 1);
             }
-        }
-
-        int left = start;
-        int right = nums.length - 1;
-        while (left < right) {
-            if (nums[left] + nums[right] < target) {
-                left++;
-            } else if (nums[left] + nums[right] > target) {
-                right--;
-            } else {
-                if(tempList.size() == 2) {
+        } else {
+            //two sum
+            int left = start;
+            int right = nums.length - 1;
+            while (left < right) {
+                if (nums[left] + nums[right] < target) {
+                    left++;
+                } else if (nums[left] + nums[right] > target) {
+                    right--;
+                } else {
                     List<Integer> temp = new ArrayList<>();
                     temp.addAll(tempList);
                     temp.add(nums[left]);
                     temp.add(nums[right]);
                     result.add(temp);
-                }
-                left++;
-                while (left < right && nums[left] == nums[left - 1])
                     left++;
+                    while (left < right && nums[left] == nums[left - 1]) {
+                        left++;
+                    }
+                }
             }
         }
     }

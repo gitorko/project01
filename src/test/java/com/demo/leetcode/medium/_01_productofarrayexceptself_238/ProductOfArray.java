@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
  *
  * - option1: multiply all and divide by the number.
  * - option2: prefix + postfix
+ * - PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=bNvIQI2wAjk&ab_channel=NeetCode
  */

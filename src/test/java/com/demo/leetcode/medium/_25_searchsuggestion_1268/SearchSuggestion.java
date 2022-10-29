@@ -7,7 +7,6 @@ import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-
 /**
  * [1268. Search Suggestions System - MEDIUM](https://leetcode.com/problems/search-suggestions-system/)
  *
@@ -29,8 +28,12 @@ public class SearchSuggestion {
         Assertions.assertEquals(expected, suggestedProducts(products, searchWord));
     }
 
+    /**
+     * Time: O(n * log(n) + n * w + m), m is length of search word, w is length of each word, n is number of words
+     * Space: O(n)
+     */
     public List<List<String>> suggestedProducts(String[] products, String searchWord) {
-        List<List<String>> res = new ArrayList<>();
+        List<List<String>> result = new ArrayList<>();
         Arrays.sort(products);
         int left = 0;
         int right = products.length - 1;
@@ -47,8 +50,8 @@ public class SearchSuggestion {
             for (int j = 0; j < Math.min(3, remain); j++) {
                 tempList.add(products[left + j]);
             }
-            res.add(tempList);
+            result.add(tempList);
         }
-        return res;
+        return result;
     }
 }

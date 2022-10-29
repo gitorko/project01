@@ -6,6 +6,9 @@ import org.junit.jupiter.api.Test;
 /**
  * [116. Populating Next Right Pointers in Each Node - MEDIUM](https://leetcode.com/problems/populating-next-right-pointers-in-each-node/)
  *
+ * - dfs
+ * - PRACTICE: P2
+ *
  * https://www.youtube.com/watch?v=U4hFQCa1Cq0&ab_channel=NeetCode
  */
 public class PopulateRightPointer {
@@ -34,9 +37,12 @@ public class PopulateRightPointer {
         while (levelStart != null) {
             Node cur = levelStart;
             while (cur != null) {
-                if (cur.left != null) cur.left.next = cur.right;
-                if (cur.right != null && cur.next != null) cur.right.next = cur.next.left;
-
+                if (cur.left != null) {
+                    cur.left.next = cur.right;
+                }
+                if (cur.right != null && cur.next != null) {
+                    cur.right.next = cur.next.left;
+                }
                 cur = cur.next;
             }
             levelStart = levelStart.left;

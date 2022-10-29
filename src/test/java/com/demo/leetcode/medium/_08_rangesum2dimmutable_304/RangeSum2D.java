@@ -6,13 +6,11 @@ import org.junit.jupiter.api.Test;
 /**
  * [304. Range Sum Query 2D - Immutable - MEDIUM](https://leetcode.com/problems/range-sum-query-2d-immutable/)
  *
- * - pre-sum dp
- * - cache matrix with extra row, col
+ * - prefix sum
+ * - dp matrix with extra row, col
  * - SIMILAR_TO: [303. Range Sum Query - Immutable - EASY](https://leetcode.com/problems/range-sum-query-immutable/)
+ * - PRACTICE: P2
  *
- * PRACTICE: P2
- *
- * https://www.youtube.com/watch?v=7mL8KJ4Pi70&ab_channel=jayatitiwari
  * https://www.youtube.com/watch?v=KE8MQuwE2yA&ab_channel=NeetCode
  */
 public class RangeSum2D {
@@ -55,7 +53,7 @@ public class RangeSum2D {
             // sum[i][j] is sum of all elements inside the rectangle [0,0,i,j]
             for (int i = 1; i <= rowLen; i++) {
                 for (int j = 1; j <= colLen; j++) {
-                    dp[i][j] = dp[i - 1][j] + dp[i][j - 1] + matrix[i - 1][j - 1] - dp[i - 1][j - 1];
+                    dp[i][j] = dp[i - 1][j] + dp[i][j - 1] - dp[i - 1][j - 1] + matrix[i - 1][j - 1];
                 }
             }
         }
@@ -68,5 +66,4 @@ public class RangeSum2D {
             return dp[r2][c2] - dp[r2][c1 - 1] - dp[r1 - 1][c2] + dp[r1 - 1][c1 - 1];
         }
     }
-
 }

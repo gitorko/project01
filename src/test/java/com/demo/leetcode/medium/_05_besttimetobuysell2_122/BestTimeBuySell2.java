@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
  * [122. Best Time to Buy and Sell Stock II - MEDIUM](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/)
  *
  * - compare to previous
+ * - SIMILAR_TO: [121. Best Time to Buy and Sell Stock - EASY](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
+ * - PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=3SJ3pUkPQMc&ab_channel=NeetCode
  */
@@ -24,12 +26,13 @@ public class BestTimeBuySell2 {
      * Space: O(1)
      */
     public int maxProfit(int[] prices) {
-        int maxprofit = 0;
+        int profit = 0;
         //start from 2nd and compare to previous
         for (int i = 1; i < prices.length; i++) {
-            if (prices[i] > prices[i - 1])
-                maxprofit += prices[i] - prices[i - 1];
+            if (prices[i] > prices[i - 1]) {
+                profit += prices[i] - prices[i - 1];
+            }
         }
-        return maxprofit;
+        return profit;
     }
 }

@@ -8,6 +8,8 @@ import org.junit.jupiter.api.Test;
 /**
  * [682. Baseball Game - EASY](https://leetcode.com/problems/baseball-game/)
  *
+ * - stack
+ *
  * https://www.youtube.com/watch?v=Id_tqGdsZQI&ab_channel=NeetCode
  */
 public class BaseballGame {
@@ -29,8 +31,8 @@ public class BaseballGame {
      * Space: O(n)
      */
     public int calPoints(String[] ops) {
+        Stack<Integer> stack = new Stack<>();
         int sum = 0;
-        Stack<Integer> stack = new Stack<Integer>();
         for (int i = 0; i < ops.length; i++) {
             if (ops[i].equals("+")) {
                 int temp1 = stack.pop();

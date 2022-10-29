@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
  *
  * - height is 0.
  * - dfs from first row, last row, first column, last column
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=s-VkcjHqkGI&ab_channel=NeetCode
  */
@@ -30,32 +31,32 @@ public class PacificAtlanticWater {
      * Space: O(mn)
      */
     int[][] heights;
-    int rowLength;
-    int colLength;
+    int rowLen;
+    int colLen;
 
     public List<List<Integer>> pacificAtlantic(int[][] input) {
         heights = input;
-        rowLength = heights.length;
-        colLength = heights[0].length;
+        rowLen = heights.length;
+        colLen = heights[0].length;
         List<List<Integer>> result = new ArrayList<>();
-        boolean[][] seenP = new boolean[rowLength][colLength];
-        boolean[][] seenA = new boolean[rowLength][colLength];
+        boolean[][] visitedP = new boolean[rowLen][colLen];
+        boolean[][] visitedA = new boolean[rowLen][colLen];
 
         //first column, last column, height is 0 as it can flow to ocean
-        for (int i = 0; i < rowLength; i++) {
-            dfs(i, 0, 0, seenP);
-            dfs(i, colLength - 1, 0, seenA);
+        for (int i = 0; i < rowLen; i++) {
+            dfs(i, 0, 0, visitedP);
+            dfs(i, colLen - 1, 0, visitedA);
         }
 
         //first row, last row, height is 0 as it can flow to ocean
-        for (int j = 0; j < colLength; j++) {
-            dfs(0, j, 0, seenP);
-            dfs(rowLength - 1, j, 0, seenA);
+        for (int j = 0; j < colLen; j++) {
+            dfs(0, j, 0, visitedP);
+            dfs(rowLen - 1, j, 0, visitedA);
         }
 
-        for (int i = 0; i < rowLength; i++) {
-            for (int j = 0; j < colLength; j++) {
-                if (seenP[i][j] && seenA[i][j]) {
+        for (int i = 0; i < rowLen; i++) {
+            for (int j = 0; j < colLen; j++) {
+                if (visitedP[i][j] && visitedA[i][j]) {
                     result.add(new ArrayList<>(Arrays.asList(i, j)));
                 }
             }
@@ -64,14 +65,15 @@ public class PacificAtlanticWater {
         return result;
     }
 
-    private void dfs(int i, int j, int h, boolean[][] seen) {
-        if (i < 0 || j < 0 || i == rowLength || j == colLength || seen[i][j] || heights[i][j] < h)
+    private void dfs(int i, int j, int h, boolean[][] visited) {
+        if (i < 0 || j < 0 || i == rowLen || j == colLen || visited[i][j] || heights[i][j] < h) {
             return;
+        }
 
-        seen[i][j] = true;
-        dfs(i + 1, j, heights[i][j], seen);
-        dfs(i - 1, j, heights[i][j], seen);
-        dfs(i, j + 1, heights[i][j], seen);
-        dfs(i, j - 1, heights[i][j], seen);
+        visited[i][j] = true;
+        dfs(i + 1, j, heights[i][j], visited);
+        dfs(i - 1, j, heights[i][j], visited);
+        dfs(i, j + 1, heights[i][j], visited);
+        dfs(i, j - 1, heights[i][j], visited);
     }
 }

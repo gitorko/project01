@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
  *
  * - Tree Map
  * - SIMILAR_TO: [1296. Divide Array in Sets of K Consecutive Numbers](https://leetcode.com/problems/divide-array-in-sets-of-k-consecutive-numbers/)
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=amnrMCVd2YI&ab_channel=NeetCode
  */
@@ -24,13 +25,14 @@ public class HandOfStraights {
     }
 
     /**
-     * Time: O(m * log(m) + mk), where mm = # of different nums
-     * Space: O(m)
+     * Time: O(n * log(n))
+     * Space: O(n)
      */
     public boolean isNStraightHand(int[] hand, int groupSize) {
         Map<Integer, Integer> countMap = new TreeMap<>();
-        for (int card : hand)
+        for (int card : hand) {
             countMap.put(card, countMap.getOrDefault(card, 0) + 1);
+        }
 
         for (int start : countMap.keySet()) {
             int value = countMap.get(start);
@@ -38,8 +40,9 @@ public class HandOfStraights {
                 for (int i = start; i < start + groupSize; i++) {
                     //decrement
                     countMap.put(i, countMap.getOrDefault(i, 0) - value);
-                    if (countMap.get(i) < 0)
+                    if (countMap.get(i) < 0) {
                         return false;
+                    }
                 }
             }
         }

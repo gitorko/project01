@@ -12,8 +12,6 @@ import org.junit.jupiter.api.Test;
  * - recursive sort left and right
  * - no additional space, in-place sorting compared to merge sort
  * - Will run into stack overflow if the array is too large.
- *
- * MEMORIZE
  */
 public class _05_QuickSort {
 

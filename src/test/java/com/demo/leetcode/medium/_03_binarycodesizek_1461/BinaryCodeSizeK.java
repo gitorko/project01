@@ -9,6 +9,9 @@ import org.junit.jupiter.api.Test;
 /**
  * [1461. Check If a String Contains All Binary Codes of Size K - MEDIUM](https://leetcode.com/problems/check-if-a-string-contains-all-binary-codes-of-size-k/)
  *
+ * - set
+ * - PRACTICE: P2
+ *
  * https://www.youtube.com/watch?v=qU32rTy_kOM&ab_channel=NeetCode
  */
 public class BinaryCodeSizeK {

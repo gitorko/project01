@@ -11,8 +11,7 @@ import org.junit.jupiter.api.Test;
  * - condition length(pile) <= hours
  * - binary search, ceil
  * - SIMILAR_TO: [1011. Capacity To Ship Packages Within D Days - MEDIUM](https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/)
- *
- * PRACTICE: P1
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=U2SozAs9RzA&ab_channel=NeetCode
  */
@@ -31,7 +30,7 @@ public class KokoBannana {
     }
 
     /**
-     * Time: O(n * log(max(piles)))
+     * Time: O(n * log(max(n)))
      * Space: O(1)
      */
     public int minEatingSpeed(int[] piles, int h) {

@@ -5,6 +5,7 @@ import java.util.Stack;
 
 import com.demo.common.TreeNode;
 import com.demo.common.TreeNodeUtil;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -19,8 +20,17 @@ public class BTIterator {
 
     @Test
     public void test() {
-        TreeNode root = TreeNodeUtil.insertLevelOrder(Arrays.asList(5, 3, 6, 2, 4, null, null, 1));
-        TreeNodeUtil.printTree(root);
+        TreeNode root = TreeNodeUtil.insertLevelOrder(Arrays.asList(7, 3, 15, null, null, 9, 20));
+        BSTIterator bSTIterator = new BSTIterator(root);
+        Assertions.assertEquals(3, bSTIterator.next());    // return 3
+        Assertions.assertEquals(7, bSTIterator.next());    // return 7
+        Assertions.assertTrue(bSTIterator.hasNext()); // return True
+        Assertions.assertEquals(9, bSTIterator.next());    // return 9
+        Assertions.assertTrue(bSTIterator.hasNext()); // return True
+        Assertions.assertEquals(15, bSTIterator.next());    // return 15
+        Assertions.assertTrue(bSTIterator.hasNext()); // return True
+        Assertions.assertEquals(20, bSTIterator.next());    // return 20
+        Assertions.assertFalse(bSTIterator.hasNext()); // return False
     }
 
     /**

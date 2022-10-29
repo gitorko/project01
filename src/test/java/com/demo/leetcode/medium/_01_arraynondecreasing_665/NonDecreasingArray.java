@@ -39,6 +39,10 @@ public class NonDecreasingArray {
         Assertions.assertTrue(checkPossibility(nums));
     }
 
+    /**
+     * Time: O(n)
+     * Space: O(1)
+     */
     public boolean checkPossibility(int[] nums) {
         int violation = 0;
         //the number of changes

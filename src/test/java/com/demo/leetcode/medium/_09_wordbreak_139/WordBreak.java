@@ -18,8 +18,7 @@ import org.junit.jupiter.api.Test;
  * - option2: can be solved by bfs
  * - SIMILAR_TO: [55. Jump Game - MEDIUM](https://leetcode.com/problems/jump-game/)
  * - SIMILAR_TO: [140. Word Break II - HARD](https://leetcode.com/problems/word-break-ii/)
- *
- * PRACTICE: P2
+ * - PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=Sx9NNgInc3A&ab_channel=NeetCode
  */
@@ -93,8 +92,9 @@ public class WordBreak {
         Set<String> dict = new HashSet<>(wordDict);
 
         //when the whole word is present in dict
-        if (dict.contains(s))
+        if (dict.contains(s)) {
             return true;
+        }
 
         Queue<Integer> queue = new LinkedList<>();
         queue.offer(0);
@@ -104,8 +104,9 @@ public class WordBreak {
         while (!queue.isEmpty()) {
             int index = queue.poll();
             for (int i = index + 1; i <= s.length(); i++) {
-                if (visited.contains(i))
+                if (visited.contains(i)) {
                     continue;
+                }
                 if (dict.contains(s.substring(index, i))) {
                     if (i == s.length())
                         return true;

@@ -9,8 +9,7 @@ import org.junit.jupiter.api.Test;
  * - 2d DP
  * - min of 3 sides
  * - SIMILAR_TO: [1143. Longest Common Subsequence - MEDIUM](https://leetcode.com/problems/longest-common-subsequence/)
- *
- * PRACTICE: P1
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=XYi2-LPrwm4&ab_channel=NeetCode
  */
@@ -36,12 +35,14 @@ public class EditDistance {
         int[][] dp = new int[m + 1][n + 1];
 
         //fill last row
-        for (int i = n; i >= 0; i--)
+        for (int i = n; i >= 0; i--) {
             dp[m][i] = n - i;
+        }
 
         //fill last column
-        for (int i = m; i >= 0; i--)
+        for (int i = m; i >= 0; i--) {
             dp[i][n] = m - i;
+        }
 
         for (int i = m - 1; i >= 0; i--) {
             for (int j = n - 1; j >= 0; j--) {

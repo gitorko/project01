@@ -8,6 +8,9 @@ import org.junit.jupiter.api.Test;
 /**
  * [1209. Remove All Adjacent Duplicates in String II - MEDIUM](https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string-ii/)
  *
+ * - stack
+ * - PRACTICE: P1
+ *
  * https://www.youtube.com/watch?v=w6LcypDgC4w&ab_channel=NeetCode
  */
 public class RemoveAdjacentDuplicate {
@@ -52,10 +55,10 @@ public class RemoveAdjacentDuplicate {
     }
 
     class CustomPair {
-        private Character c;
-        private Integer count;
+        private char c;
+        private int count;
 
-        public CustomPair(Character c, Integer count) {
+        public CustomPair(char c, int count) {
             this.c = c;
             this.count = count;
         }

@@ -13,8 +13,7 @@ import org.junit.jupiter.api.Test;
  * [380. Insert Delete GetRandom - MEDIUM](https://leetcode.com/problems/insert-delete-getrandom-o1/)
  *
  * - map + list
- *
- * PRACTICE
+ * - PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=j4KwhBziOpg&ab_channel=NeetCode
  */
@@ -47,18 +46,18 @@ public class RandomSet {
         Random rand = new Random();
 
         public boolean insert(int val) {
-            if (indexMap.containsKey(val))
+            if (indexMap.containsKey(val)) {
                 return false;
-
+            }
             indexMap.put(val, valList.size());
             valList.add(val);
             return true;
         }
 
         public boolean remove(int val) {
-            if (!indexMap.containsKey(val))
+            if (!indexMap.containsKey(val)) {
                 return false;
-
+            }
             int index = indexMap.get(val);
             indexMap.put(getLastElement(), index);
             indexMap.remove(val);

@@ -18,6 +18,7 @@ import org.junit.jupiter.api.Test;
  * [127. Word Ladder - HARD](https://leetcode.com/problems/word-ladder/)
  *
  * - bfs
+ * - PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=h9iTnkgv05E&ab_channel=NeetCode
  */
@@ -43,15 +44,16 @@ public class WordLadder {
      */
     public int ladderLength(String beginWord, String endWord, List<String> wordList) {
         Set<String> wordSet = new HashSet<>(wordList);
-        if (!wordSet.contains(endWord))
+        if (!wordSet.contains(endWord)) {
             return 0;
+        }
 
         Map<String, Set<String>> adjacencyMap = new HashMap<>();
         //add begin to word list
         wordList = new ArrayList<>(wordList);
         wordList.add(beginWord);
         for (String word : wordList) {
-            adjacencyMap.computeIfAbsent(word, k -> new HashSet<>());
+            adjacencyMap.putIfAbsent(word, new HashSet<>());
             for (int i = 0; i < word.length(); i++) {
                 StringBuilder sb = new StringBuilder(word);
                 for (char c = 'a'; c <= 'z'; c++) {

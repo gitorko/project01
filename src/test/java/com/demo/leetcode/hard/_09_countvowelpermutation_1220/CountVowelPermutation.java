@@ -44,15 +44,15 @@ public class CountVowelPermutation {
             dp[i + 1][4] = (dp[i][2] + dp[i][3]) % modVal;
         }
 
-        long ans = 0;
+        long result = 0;
         for (int i = 0; i < 5; i++) {
-            ans = (ans + dp[n][i]) % modVal;
+            result = (result + dp[n][i]) % modVal;
         }
-        return (int) ans;
+        return (int) result;
     }
 
     /**
-     * less space, as it needs just the previous row
+     * This solution needs less space, as it needs just the previous row
      * Time: O(n)
      * Space: O(1)
      */
@@ -80,10 +80,10 @@ public class CountVowelPermutation {
             dp = nextDp;
         }
 
-        long ans = 0;
+        long result = 0;
         for (int i = 0; i < 5; i++) {
-            ans = (ans + dp[i]) % modVal;
+            result = (result + dp[i]) % modVal;
         }
-        return (int) ans;
+        return (int) result;
     }
 }

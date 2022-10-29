@@ -9,8 +9,7 @@ import org.junit.jupiter.api.Test;
  * - bucket sort - two pass
  * - quick sort - one pass
  * - Dutch National Flag Problem
- *
- * PRACTICE
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=4xbWSRZHqac&ab_channel=NeetCode
  */
@@ -34,6 +33,8 @@ public class SortColors {
 
     /**
      * Quick sort
+     * Time: O(n)
+     * Space: O(1)
      * one pass
      */
     public void sortColors(int[] nums) {
@@ -74,12 +75,15 @@ public class SortColors {
             if (nums[i] == 2) count2++;
         }
         for (int i = 0; i < nums.length; i++) {
-            if (i < count0) {
+            if (count0 > 0) {
                 nums[i] = 0;
-            } else if (i < count0 + count1) {
+                count0--;
+            } else if (count1 > 0) {
                 nums[i] = 1;
+                count1--;
             } else {
                 nums[i] = 2;
+                count2--;
             }
         }
     }

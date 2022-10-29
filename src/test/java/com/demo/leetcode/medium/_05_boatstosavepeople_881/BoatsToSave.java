@@ -36,7 +36,9 @@ public class BoatsToSave {
             int remain = limit - people[right];
             right--;
             result++;
-            if (left <= right && people[left] <= remain) left++;
+            if (left <= right && people[left] <= remain) {
+                left++;
+            }
         }
         return result;
     }

@@ -12,7 +12,8 @@ import org.junit.jupiter.api.Test;
 /**
  * [802. Find Eventual Safe States - MEDIUM](https://leetcode.com/problems/find-eventual-safe-states/)
  *
- * - dfs
+ * - map, dfs
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=Re_v0j0CRsg&ab_channel=NeetCode
  */
@@ -26,10 +27,9 @@ public class EventualSafeState {
     }
 
     /**
-     * Time: O(∣V∣+∣E∣)
-     * Space: O(∣V∣+∣E∣)
+     * Time: O(e+v)
+     * Space: O(e+v)
      */
-
     int[][] graph;
     Map<Integer, Boolean> visited;
 
@@ -49,10 +49,9 @@ public class EventualSafeState {
         if (visited.containsKey(u)) {
             return visited.get(u);
         }
-
         visited.put(u, false);
         for (int v : graph[u]) {
-            if (!dfs(v)) {
+            if (dfs(v) == false) {
                 return false;
             }
         }

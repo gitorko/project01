@@ -8,16 +8,20 @@ import org.junit.jupiter.api.Test;
  *
  * - set + sliding, window-maxCount>k
  * - SIMILAR_TO: [1838. Frequency of the Most Frequent Element - MEDIUM](https://leetcode.com/problems/frequency-of-the-most-frequent-element/)
- *
- * PRACTICE: P1
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=gqXU1UyA8pk&ab_channel=NeetCode
  */
 public class LongestRepeatingCharReplace {
 
     @Test
-    public void test() {
+    public void test1() {
         Assertions.assertEquals(4, characterReplacement("ABAB", 2));
+    }
+
+    @Test
+    public void test2() {
+        Assertions.assertEquals(4, characterReplacement("AABABBA", 1));
     }
 
     /**

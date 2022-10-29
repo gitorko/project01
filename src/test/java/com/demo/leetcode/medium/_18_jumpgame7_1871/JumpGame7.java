@@ -10,8 +10,8 @@ import org.junit.jupiter.api.Test;
  * [1871. Jump Game VII - MEDIUM](https://leetcode.com/problems/jump-game-vii/)
  *
  * - queue bfs, farthest
- *
- * PRACTICE: P1
+ * - SIMILAR_TO: [45. Jump Game II - MEDIUM](https://leetcode.com/problems/jump-game-ii/)
+ * - PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=v1HpZUnQ4Yo&ab_channel=NeetCode
  */
@@ -48,7 +48,9 @@ public class JumpGame7 {
             for (int j = start; j < end; j++) {
                 if (s.charAt(j) == '0') {
                     queue.offer(j);
-                    if (j == s.length() - 1) return true;
+                    if (j == s.length() - 1) {
+                        return true;
+                    }
                 }
             }
             farthest = i + maxJump;

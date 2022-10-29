@@ -11,8 +11,7 @@ import org.junit.jupiter.api.Test;
  * [895. Maximum Frequency Stack - HARD](https://leetcode.com/problems/maximum-frequency-stack/)
  *
  * - count map + map of stack
- *
- * PRACTICE
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=Z6idIicFDOE&ab_channel=NeetCode
  */
@@ -57,8 +56,9 @@ public class MaxFrequencyStack {
         public int pop() {
             int val = countToStack.get(maxFreq).pop();
             count.put(val, count.getOrDefault(val, 0) - 1);
-            if (countToStack.get(maxFreq).isEmpty())
+            if (countToStack.get(maxFreq).isEmpty()){
                 maxFreq--;
+            }
             return val;
         }
     }

@@ -7,8 +7,7 @@ import org.junit.jupiter.api.Test;
  * [696. Count Binary Substrings - EASY](https://leetcode.com/problems/count-binary-substrings/)
  *
  * - two pointer, curr, prev
- *
- * PRACTICE
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=MGPHPadxhtQ&ab_channel=AlgorithmsMadeEasy
  */
@@ -25,19 +24,19 @@ public class BinarySubstring {
      */
     public int countBinarySubstrings(String s) {
         int result = 0;
-        int prev = 0;
-        int curr = 1;
+        int prevCount = 0;
+        int currCount = 1;
 
         for (int i = 1; i < s.length(); i++) {
             if (s.charAt(i - 1) != s.charAt(i)) {
-                result += Math.min(prev, curr);
-                prev = curr;
-                curr = 1;
+                result += Math.min(prevCount, currCount);
+                prevCount = currCount;
+                currCount = 1;
             } else {
-                curr++;
+                currCount++;
             }
         }
-        result += Math.min(prev, curr);
+        result += Math.min(prevCount, currCount);
         return result;
     }
 }

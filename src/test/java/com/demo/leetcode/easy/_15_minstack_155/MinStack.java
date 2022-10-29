@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
  * [155. Min Stack - EASY](https://leetcode.com/problems/min-stack/)
  *
  * - stack, pair
+ * - PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=qkLl7nAwDPo&ab_channel=NeetCode
  */
@@ -35,10 +36,11 @@ public class MinStack {
     Stack<int[]> stack = new Stack<>();
 
     public void push(int x) {
-        if (stack.isEmpty())
+        if (stack.isEmpty()) {
             stack.push(new int[]{x, x});
-        else
+        } else {
             stack.push(new int[]{x, Math.min(x, stack.peek()[1])});
+        }
     }
 
     public void pop() {

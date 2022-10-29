@@ -17,7 +17,7 @@ import org.junit.jupiter.api.Test;
  * [94. Binary Tree Inorder Traversal - EASY](https://leetcode.com/problems/binary-tree-inorder-traversal/)
  * [102. Binary Tree Level Order Traversal - EASY](https://leetcode.com/problems/binary-tree-level-order-traversal/)
  *
- * - BFS needs a Queue.
+ * - bfs needs a queue.
  * - PREORDER  - V L R
  * - INORDER   - L V R
  * - POSTORDER - L R V
@@ -49,33 +49,33 @@ public class BTTraversal {
     }
 
     public List<Integer> preorderTraversal(TreeNode root) {
-        List<Integer> numLst = new ArrayList<>();
+        List<Integer> result = new ArrayList<>();
         if (root != null) {
-            numLst.add(root.val);
-            numLst.addAll(preorderTraversal(root.left));
-            numLst.addAll(preorderTraversal(root.right));
+            result.add(root.val);
+            result.addAll(preorderTraversal(root.left));
+            result.addAll(preorderTraversal(root.right));
         }
-        return numLst;
+        return result;
     }
 
     public List<Integer> inorderTraversal(TreeNode root) {
-        List<Integer> numLst = new ArrayList<>();
+        List<Integer> result = new ArrayList<>();
         if (root != null) {
-            numLst.addAll(inorderTraversal(root.left));
-            numLst.add(root.val);
-            numLst.addAll(inorderTraversal(root.right));
+            result.addAll(inorderTraversal(root.left));
+            result.add(root.val);
+            result.addAll(inorderTraversal(root.right));
         }
-        return numLst;
+        return result;
     }
 
     public List<Integer> postorderTraversal(TreeNode root) {
-        List<Integer> numLst = new ArrayList<>();
+        List<Integer> result = new ArrayList<>();
         if (root != null) {
-            numLst.addAll(postorderTraversal(root.left));
-            numLst.addAll(postorderTraversal(root.right));
-            numLst.add(root.val);
+            result.addAll(postorderTraversal(root.left));
+            result.addAll(postorderTraversal(root.right));
+            result.add(root.val);
         }
-        return numLst;
+        return result;
     }
 
     /**
@@ -86,12 +86,10 @@ public class BTTraversal {
     public List<Integer> levelOrderTraversal(TreeNode root) {
         Queue<TreeNode> queue = new LinkedList<>();
         List<Integer> result = new ArrayList<>();
-
         //edge case
         if (root == null) {
             return result;
         }
-
         queue.offer(root);
         while (!queue.isEmpty()) {
             TreeNode node = queue.poll();
@@ -116,7 +114,6 @@ public class BTTraversal {
         if (root == null) {
             return result;
         }
-
         queue.offer(root);
         while (!queue.isEmpty()) {
             int size = queue.size();

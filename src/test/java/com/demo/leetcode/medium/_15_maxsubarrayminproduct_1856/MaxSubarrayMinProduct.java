@@ -12,8 +12,7 @@ import org.junit.jupiter.api.Test;
  * - prefix sum
  * - SIMILAR_TO: [84. Largest Rectangle in Histogram - HARD](https://leetcode.com/problems/largest-rectangle-in-histogram/)
  * - SIMILAR_TO: [85. Maximal Rectangle - HARD](https://leetcode.com/problems/maximal-rectangle/)
- *
- * PRACTICE: P1
+ * - PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=YLesLbNkyjA&ab_channel=NeetCode
  */
@@ -36,8 +35,9 @@ public class MaxSubarrayMinProduct {
         long[] prefix = new long[nums.length + 1];
 
         //prefix sum
-        for (int i = 0; i < nums.length; i++)
+        for (int i = 0; i < nums.length; i++) {
             prefix[i + 1] = prefix[i] + nums[i];
+        }
 
         for (int i = 0; i < nums.length; i++) {
             while (!stack.isEmpty() && nums[stack.peek()] > nums[i]) {
@@ -53,6 +53,6 @@ public class MaxSubarrayMinProduct {
             long sum = stack.isEmpty() ? prefix[nums.length] : prefix[nums.length] - prefix[stack.peek() + 1];
             result = Math.max(result, minVal * sum);
         }
-        return (int) (result % 1000000007);
+        return (int) (result % (int) (1e9 + 7));
     }
 }

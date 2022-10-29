@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
  *
  * - recursion dfs
  * - if there is a split then that node is the lca.
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=gs2LMfuOR9k&ab_channel=NeetCode
  */
@@ -48,13 +49,13 @@ public class FindLCAinBST {
      */
     public TreeNode lowestCommonAncestorIterative(TreeNode root, TreeNode p, TreeNode q) {
         while (true) {
-            if (root.val > p.val && root.val > q.val)
+            if (root.val > p.val && root.val > q.val) {
                 root = root.left;
-            else if (root.val < p.val && root.val < q.val)
+            } else if (root.val < p.val && root.val < q.val) {
                 root = root.right;
-            else
+            } else {
                 return root;
+            }
         }
     }
-
 }

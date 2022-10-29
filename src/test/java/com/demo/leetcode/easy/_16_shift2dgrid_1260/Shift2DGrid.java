@@ -11,8 +11,8 @@ import org.junit.jupiter.api.Test;
 /**
  * [1260. Shift 2D Grid - EASY](https://leetcode.com/problems/shift-2d-grid/)
  *
- * - mod k ,k %= m * n
- * - i * n column + j + k mod (m * n)
+ * - mod k
+ * - (i * n column + j + k) mod (m * n)
  *
  * https://www.youtube.com/watch?v=nJYFh4Dl-as&ab_channel=NeetCode
  */
@@ -27,19 +27,19 @@ public class Shift2DGrid {
     }
 
     public List<List<Integer>> shiftGrid(int[][] grid, int k) {
-        int rowLength = grid.length;
-        int colLength = grid[0].length;
+        int rowLen = grid.length;
+        int colLen = grid[0].length;
 
-        int[][] arr = new int[rowLength][colLength];
+        int[][] arr = new int[rowLen][colLen];
 
         //cases when k is bigger than row*col
-        k %= rowLength * colLength;
+        k %= rowLen * colLen;
 
-        for (int i = 0; i < rowLength; i++) {
-            for (int j = 0; j < colLength; j++) {
-                int index = (i * colLength + j + k) % (rowLength * colLength);
-                int x = index / colLength;
-                int y = index % colLength;
+        for (int i = 0; i < rowLen; i++) {
+            for (int j = 0; j < colLen; j++) {
+                int index = (i * colLen + j + k) % (rowLen * colLen);
+                int x = index / colLen;
+                int y = index % colLen;
                 arr[x][y] = grid[i][j];
             }
         }

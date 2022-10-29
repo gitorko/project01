@@ -9,8 +9,7 @@ import org.junit.jupiter.api.Test;
  * [410. Split Array Largest Sum - HARD](https://leetcode.com/problems/split-array-largest-sum/)
  *
  * - binary search
- *
- * PRACTICE: P1
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=YUF3_eBdzsk&ab_channel=NeetCode
  */
@@ -33,10 +32,11 @@ public class SplitArrayLargestSum {
 
         while (left <= right) {
             int mid = (left + right) / 2;
-            if (numGroups(nums, mid) > m)
+            if (numGroups(nums, mid) > m) {
                 left = mid + 1;
-            else
+            } else {
                 right = mid - 1;
+            }
         }
         return left;
     }

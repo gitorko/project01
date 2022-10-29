@@ -8,16 +8,19 @@ import org.junit.jupiter.api.Test;
  *
  * - 1D DP
  * - start from reverse n-2, isValid
- *
- * PRACTICE: P3
+ * - PRACTICE: P3
  *
  * https://www.youtube.com/watch?v=6aEyTjOwlJU&ab_channel=NeetCode
  */
 public class DecodeWays {
 
     @Test
-    public void test() {
+    public void test1() {
         Assertions.assertEquals(2, numDecodings("12"));
+    }
+
+    @Test
+    public void test2() {
         Assertions.assertEquals(3, numDecodings("226"));
     }
 
@@ -32,10 +35,12 @@ public class DecodeWays {
         dp[n - 1] = isValid(s.charAt(n - 1)) ? 1 : 0;
 
         for (int i = n - 2; i >= 0; i--) {
-            if (isValid(s.charAt(i)))
+            if (isValid(s.charAt(i))) {
                 dp[i] += dp[i + 1];
-            if (isValid(s.charAt(i), s.charAt(i + 1)))
+            }
+            if (isValid(s.charAt(i), s.charAt(i + 1))) {
                 dp[i] += dp[i + 2];
+            }
         }
         return dp[0];
     }

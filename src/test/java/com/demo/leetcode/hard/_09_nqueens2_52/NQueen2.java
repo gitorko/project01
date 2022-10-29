@@ -1,8 +1,6 @@
 package com.demo.leetcode.hard._09_nqueens2_52;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -37,7 +35,6 @@ public class NQueen2 {
         for (int i = 0; i < n; i++) {
             Arrays.fill(board[i], '.');
         }
-
         result = 0;
         dfs(0);
         return result;
@@ -48,7 +45,6 @@ public class NQueen2 {
             result++;
             return;
         }
-
         for (int i = 0; i < board.length; i++) {
             if (validate(i, colIndex)) {
                 board[i][colIndex] = 'Q';
@@ -62,8 +58,9 @@ public class NQueen2 {
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < y; j++) {
                 //check diagonals, check same row
-                if (board[i][j] == 'Q' && (x - y == i - j || x + y == i + j || x == i))
+                if (board[i][j] == 'Q' && (x - y == i - j || x + y == i + j || x == i)) {
                     return false;
+                }
             }
         }
         return true;

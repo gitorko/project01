@@ -9,15 +9,14 @@ import org.junit.jupiter.api.Test;
 
 /**
  * [253. Meeting Rooms II - MEDIUM](https://leetcode.com/problems/meeting-rooms-ii/)
- * https://www.lintcode.com/problem/919/
  *
- * - option1: Use heap
- * - option2: Two array comparison
- *
- * PRACTICE
+ * - option1: heap
+ * - option2: two array comparison
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=FdzJmTCVyJU&ab_channel=NeetCode
  * https://www.youtube.com/watch?v=tNhiD4SaumY&ab_channel=DEEPTITALESRA
+ * https://www.lintcode.com/problem/919/
  */
 public class MinMeetingRoom2 {
 
@@ -80,13 +79,6 @@ public class MinMeetingRoom2 {
         Assertions.assertEquals(3, minMeetingRoom2(intervals));
     }
 
-
-    @Test
-    public void test_inputIsList() {
-        List<Interval> intervals = Arrays.asList(new Interval(0, 30), new Interval(5, 10), new Interval(15, 20));
-        Assertions.assertEquals(2, minMeetingRoom(convertListToArray(intervals)));
-    }
-
     /**
      * Time: O(n*log(n))
      * Space: O(n)
@@ -94,11 +86,12 @@ public class MinMeetingRoom2 {
      */
     public int minMeetingRoom(int[][] intervals) {
         //edge case
-        if (intervals.length == 0)
+        if (intervals.length == 0) {
             return 0;
-
+        }
+        int result = 1;
         // Sort by ascending starting point
-        Arrays.sort(intervals, (i1, i2) -> Integer.compare(i1[0], i2[0]));
+        Arrays.sort(intervals, (i1, i2) -> i1[0] - i2[0]);
         PriorityQueue<Integer> minHeap = new PriorityQueue<>();
         //add first interval end time to heap.
         minHeap.add(intervals[0][1]);
@@ -109,8 +102,9 @@ public class MinMeetingRoom2 {
                 minHeap.remove();
             }
             minHeap.add(intervals[i][1]);
+            result = Math.max(result, minHeap.size());
         }
-        return minHeap.size();
+        return result;
     }
 
 
@@ -145,26 +139,6 @@ public class MinMeetingRoom2 {
             result = Math.max(result, rooms);
         }
         return result;
-    }
-
-    private int[][] convertListToArray(List<Interval> intervals) {
-        int arr[][] = new int[intervals.size()][2];
-        int i = 0;
-        for (Interval interval : intervals) {
-            arr[i][0] = interval.start;
-            arr[i][1] = interval.end;
-            i++;
-        }
-        return arr;
-    }
-
-    class Interval {
-        int start, end;
-
-        Interval(int start, int end) {
-            this.start = start;
-            this.end = end;
-        }
     }
 
 }

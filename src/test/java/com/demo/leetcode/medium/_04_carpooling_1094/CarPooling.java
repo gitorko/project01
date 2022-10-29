@@ -70,14 +70,12 @@ public class CarPooling {
      * Space: O(n)
      */
     public boolean carPooling(int[][] trips, int capacity) {
-        //[person count, start, end]
-        int passenger = 0;
-        // Sort by ascending starting point
+        //[person count, start, end] Sort by ascending starting point
         Arrays.sort(trips, (i1, i2) -> i1[1] - i2[1]);
         //[person count, end]
         PriorityQueue<int[]> queue = new PriorityQueue<>((i1, i2) -> i1[1] - i2[1]);
         queue.add(new int[]{trips[0][0], trips[0][2]});
-        passenger = trips[0][0];
+        int passenger = trips[0][0];
         if (passenger > capacity) {
             return false;
         }
@@ -94,26 +92,27 @@ public class CarPooling {
                 return false;
             }
         }
-        return passenger <= capacity;
+        return true;
     }
 
     /**
-     * Since the passengers are only 1000
+     * When the passengers are only 1000
      * Time: O(n)
      * Space: O(n)
      */
     public boolean carPooling2(int[][] trips, int capacity) {
-        int[] passenger = new int[10001];
+        int[] passChange = new int[10001];
         for (int[] t : trips) {
-            passenger[t[1]] += t[0];
-            passenger[t[2]] -= t[0];
+            passChange[t[1]] += t[0];
+            passChange[t[2]] -= t[0];
         }
 
         int currPassenger = 0;
         for (int i = 0; i < 1001; i++) {
-            currPassenger += passenger[i];
-            if (currPassenger > capacity)
+            currPassenger += passChange[i];
+            if (currPassenger > capacity) {
                 return false;
+            }
         }
         return true;
     }

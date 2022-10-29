@@ -11,8 +11,7 @@ import org.junit.jupiter.api.Test;
  * [496. Next Greater Element I - EASY](https://leetcode.com/problems/next-greater-element-i/)
  *
  * - monotonic stack, map
- *
- * PRACTICE
+ * - PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=68a1Dc_qVq4&ab_channel=NeetCode
  */
@@ -37,19 +36,18 @@ public class NextGreatestElement {
     /**
      * Time: O(m+n)
      * Space: O(n)
+     * monotonic decreasing stack
      */
     public int[] nextGreaterElement(int[] nums1, int[] nums2) {
+        //[number, next great number]
         Map<Integer, Integer> map = new HashMap<>();
-        // decreasing stack
         Stack<Integer> stack = new Stack<>();
-
         for (int num : nums2) {
             while (!stack.isEmpty() && stack.peek() < num) {
                 map.put(stack.pop(), num);
             }
             stack.push(num);
         }
-
         for (int i = 0; i < nums1.length; i++) {
             nums1[i] = map.getOrDefault(nums1[i], -1);
         }

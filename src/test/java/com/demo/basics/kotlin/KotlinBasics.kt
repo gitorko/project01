@@ -3,6 +3,8 @@ package com.demo.basics.kotlin
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import java.util.*
+import java.util.concurrent.Callable
+import java.util.concurrent.Executors
 
 class KotlinBasics {
 
@@ -40,6 +42,11 @@ class KotlinBasics {
         val countries = listOf("India", "France")
         for (country in countries) {
             println(country)
+        }
+        println()
+        val currencies = arrayOf("Dollar", "Rupee")
+        for (currency in currencies) {
+            println(currency)
         }
     }
 
@@ -193,7 +200,7 @@ class KotlinBasics {
             var manufactured = year
                 get() = field
                 set(value: Int) {
-                    if(value < 2020) {
+                    if (value < 2020) {
                         throw RuntimeException("ERROR!")
                     }
                     field = value
@@ -212,8 +219,46 @@ class KotlinBasics {
     @Test
     fun test19() {
         data class Person(val name: String, val age: Int)
+
         val person = Person("Jack", 35)
         println(person)
+    }
+
+    @Test
+    fun test20() {
+        val executor = Executors.newSingleThreadExecutor()
+        executor.execute { println(Date()) }
+        println("Done!")
+    }
+
+    @Test
+    fun test21() {
+        class Job : Callable<String> {
+            override fun call(): String {
+                return "Hello world!"
+            }
+        }
+
+        val executor = Executors.newSingleThreadExecutor()
+        val submit = executor.submit(Job());
+        println(submit.get())
+        println("Done!")
+    }
+
+    @Test
+    fun test22() {
+        var table = Array(5) { IntArray(6) }
+        for (i in 0 until 5) {
+            for (j in 0 until 6) {
+                table[i][j] = i + j
+            }
+        }
+        for (i in 0 until 5) {
+            for (j in 0 until 6) {
+                print(table[i][j])
+            }
+            println()
+        }
     }
 
 }

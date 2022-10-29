@@ -17,8 +17,7 @@ import org.junit.jupiter.api.Test;
  * [94. Binary Tree Inorder Traversal - EASY](https://leetcode.com/problems/binary-tree-inorder-traversal/)
  *
  * - iterative approach
- *
- * MEMORIZE
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=nzmtCFNae9k&ab_channel=TusharRoy-CodingMadeSimple
  */
@@ -43,18 +42,15 @@ public class BTTraversalIterative {
 
     /**
      * One stack, 2 while loop
-     *
-     * MEMORIZE
-     *
      * Time: O(N)
      * Space: O(h)
      */
     public List<Integer> inOrderIterative(TreeNode root) {
-        List<Integer> list = new ArrayList<>();
+        List<Integer> result = new ArrayList<>();
         //edge case
-        if (root == null)
-            return list;
-
+        if (root == null) {
+            return result;
+        }
         Stack<TreeNode> stack = new Stack<>();
         while (root != null || !stack.empty()) {
             while (root != null) {
@@ -62,10 +58,10 @@ public class BTTraversalIterative {
                 root = root.left;
             }
             root = stack.pop();
-            list.add(root.val);
+            result.add(root.val);
             root = root.right;
         }
-        return list;
+        return result;
     }
 
     /**
@@ -76,9 +72,9 @@ public class BTTraversalIterative {
      */
     public List<Integer> preOrderIterative(TreeNode root) {
         List<Integer> numLst = new ArrayList<>();
-        if (root == null)
+        if (root == null) {
             return numLst;
-
+        }
         Stack<TreeNode> stack = new Stack<>();
         stack.add(root);
         while (!stack.isEmpty()) {
@@ -99,9 +95,9 @@ public class BTTraversalIterative {
      */
     public List<Integer> postOrderIterative(TreeNode root) {
         List<Integer> numLst = new ArrayList<>();
-        if (root == null)
+        if (root == null) {
             return numLst;
-
+        }
         Stack<TreeNode> stack = new Stack<>();
         stack.add(root);
         while (!stack.isEmpty()) {

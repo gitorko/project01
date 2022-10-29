@@ -10,8 +10,6 @@ import org.junit.jupiter.api.Test;
  * - recursive algorithm + pick a mid
  * - uses extra memory.
  * - good for large sorting.
- *
- * MEMORIZE
  */
 public class _04_MergeSort {
 

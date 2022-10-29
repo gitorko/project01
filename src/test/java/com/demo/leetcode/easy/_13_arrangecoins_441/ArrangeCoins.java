@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 /**
  * [441. Arranging Coins - EASY](https://leetcode.com/problems/arranging-coins/)
  *
- * - binary search, gauss
+ * - binary search, gauss formula (n*(n+1))/2
  * - use long to avoid overflow
  *
  * https://www.youtube.com/watch?v=5rHz_6s2Buw&ab_channel=NeetCode
@@ -29,8 +29,9 @@ public class ArrangeCoins {
             long mid = (left + right) / 2;
             //gauss = (n*(n+1))/2
             long coins = (mid * (mid + 1)) / 2;
-            if (coins == n)
+            if (coins == n) {
                 return (int) mid;
+            }
             if (coins > n) {
                 right = mid - 1;
             } else {
@@ -39,5 +40,4 @@ public class ArrangeCoins {
         }
         return (int) right;
     }
-
 }

@@ -9,8 +9,7 @@ import org.junit.jupiter.api.Test;
  * [1029. Two City Scheduling - MEDIUM](https://leetcode.com/problems/two-city-scheduling/)
  *
  * - greedy, sort
- *
- * PRACTICE
+ * - PRACTICE: P3
  *
  * https://www.youtube.com/watch?v=d-B_gk_gJtQ&ab_channel=NeetCode
  */
@@ -29,20 +28,17 @@ public class TwoCityScheduling {
     }
 
     /**
-     * Time: O(n log(n))
+     * Time: O(n * log(n))
      * Space: O(1)
      */
     public int twoCitySchedCost(int[][] costs) {
         int n = costs.length / 2;
         int result = 0;
-
         // sort in descending order by the money saved if we fly a person to A instead of B
         Arrays.sort(costs, (a, b) -> (b[1] - b[0]) - (a[1] - a[0]));
-
         for (int i = 0; i < n; i++) {
             result += costs[i][0] + costs[i + n][1];
         }
-
         return result;
     }
 }

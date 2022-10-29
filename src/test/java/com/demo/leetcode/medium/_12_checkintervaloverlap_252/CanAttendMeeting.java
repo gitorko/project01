@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
  * https://www.lintcode.com/problem/920
  *
  * - Check if intervals overlap
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=PaJxqZVPhbg&ab_channel=NeetCode
  */
@@ -31,14 +32,14 @@ public class CanAttendMeeting {
 
     @Test
     public void test_2() {
-        List<Interval> intervals = Arrays.asList(new Interval(0, 30), new Interval(5, 10), new Interval(15, 20));
-        Assertions.assertTrue(checkOverlap(convertListToArray(intervals)));
+        int intervals[][] = {{0, 30}, {5, 10}, {15, 20}};
+        Assertions.assertTrue(checkOverlap(intervals));
     }
 
     @Test
     public void test_emptyInput() {
-        List<Interval> intervals = Collections.emptyList();
-        Assertions.assertFalse(checkOverlap(convertListToArray(intervals)));
+        int intervals[][] = {};
+        Assertions.assertFalse(checkOverlap(intervals));
     }
 
     /**
@@ -50,7 +51,7 @@ public class CanAttendMeeting {
         }
 
         // Sort by ascending starting point
-        Arrays.sort(intervals, (i1, i2) -> Integer.compare(i1[0], i2[0]));
+        Arrays.sort(intervals, (i1, i2) -> i1[0] - i2[0]);
 
         int previousEnd = intervals[0][1];
         //start from 2nd interval
@@ -67,23 +68,4 @@ public class CanAttendMeeting {
         return false;
     }
 
-    private int[][] convertListToArray(List<Interval> intervals) {
-        int arr[][] = new int[intervals.size()][2];
-        int i = 0;
-        for (Interval interval : intervals) {
-            arr[i][0] = interval.start;
-            arr[i][1] = interval.end;
-            i++;
-        }
-        return arr;
-    }
-
-    class Interval {
-        int start, end;
-
-        Interval(int start, int end) {
-            this.start = start;
-            this.end = end;
-        }
-    }
 }

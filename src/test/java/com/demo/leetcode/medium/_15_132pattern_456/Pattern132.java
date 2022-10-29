@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
  * [456. 132 Pattern - MEDIUM](https://leetcode.com/problems/132-pattern/)
  *
  * - monotonic stack, start from reverse
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=q5ANAl8Z458&ab_channel=NeetCode
  */
@@ -43,8 +44,10 @@ public class Pattern132 {
         int ak = Integer.MIN_VALUE;
 
         for (int i = nums.length - 1; i >= 0; i--) {
-            if (nums[i] < ak) // ai < ak, we're done because ai must also be smaller than aj
+            if (nums[i] < ak) {
+                // ai < ak, we're done because ai must also be smaller than aj
                 return true;
+            }
             while (!stack.isEmpty() && stack.peek() < nums[i]) {
                 ak = stack.pop();
             }

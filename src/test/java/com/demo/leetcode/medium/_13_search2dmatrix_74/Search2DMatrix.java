@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
  *
  * - binary search
  * - mid/n , mid%n
+ * - PRACTICE: P3
  *
  * https://www.youtube.com/watch?v=Ber2pi2C0j0&ab_channel=NeetCode
  */
@@ -37,9 +38,14 @@ public class Search2DMatrix {
         Assertions.assertTrue(searchMatrix2(matrix, target));
     }
 
+    /**
+     * Time: O(log(m) + log(n))
+     * Space: O(1)
+     */
     public boolean searchMatrix(int[][] matrix, int target) {
-        if (matrix.length == 0)
+        if (matrix.length == 0) {
             return false;
+        }
         int rowLen = matrix.length;
         int colLen = matrix[0].length;
 
@@ -57,7 +63,9 @@ public class Search2DMatrix {
         }
 
         //no match found
-        if (!(top <= bottom)) return false;
+        if (!(top <= bottom)) {
+            return false;
+        }
 
         int row = (top + bottom) / 2;
         int left = 0;
@@ -76,12 +84,13 @@ public class Search2DMatrix {
     }
 
     /**
-     * Time: O(mnlogmn)
+     * Time: O(mn * log(mn))
      * Space: O(1)
      */
     public boolean searchMatrix2(int[][] matrix, int target) {
-        if (matrix.length == 0)
+        if (matrix.length == 0) {
             return false;
+        }
 
         int m = matrix.length;
         int n = matrix[0].length;
@@ -93,12 +102,14 @@ public class Search2DMatrix {
             //will work only because range is 2 digit
             int i = mid / n;
             int j = mid % n;
-            if (matrix[i][j] == target)
+            if (matrix[i][j] == target) {
                 return true;
-            if (matrix[i][j] < target)
+            }
+            if (matrix[i][j] < target) {
                 left = mid + 1;
-            else
+            } else {
                 right = mid;
+            }
         }
         return false;
     }

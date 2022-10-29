@@ -15,8 +15,7 @@ import org.junit.jupiter.api.Test;
  *
  * - pre-order, queue
  * - recursion
- *
- * PRACTICE: P1
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=u4JAi2JJhI8&ab_channel=NeetCode
  */
@@ -35,7 +34,9 @@ public class SerializeBinaryTree {
     }
 
     public String serialize(TreeNode root) {
-        if (root == null) return "#";
+        if (root == null) {
+            return "#";
+        }
         return root.val + "," + serialize(root.left) + "," + serialize(root.right);
     }
 
@@ -45,11 +46,13 @@ public class SerializeBinaryTree {
     }
 
     private TreeNode helper(Queue<String> queue) {
-        String s = queue.poll();
+        String val = queue.poll();
 
-        if (s.equals("#")) return null;
+        if (val.equals("#")) {
+            return null;
+        }
 
-        TreeNode root = new TreeNode(Integer.valueOf(s));
+        TreeNode root = new TreeNode(Integer.valueOf(val));
         root.left = helper(queue);
         root.right = helper(queue);
         return root;

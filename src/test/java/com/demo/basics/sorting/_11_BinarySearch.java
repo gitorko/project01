@@ -29,7 +29,6 @@ public class _11_BinarySearch {
     public int binarySearchIterative(int nums[], int target) {
         int left = 0;
         int right = nums.length - 1;
-        int index = -1;
         while (left <= right) {
             //prevent overflow (left + ((right -left)/2))
             int mid = (left + right) / 2;
@@ -38,11 +37,10 @@ public class _11_BinarySearch {
             } else if (nums[mid] > target) {
                 right = mid - 1;
             } else if (nums[mid] == target) {
-                index = mid;
-                break;
+                return mid;
             }
         }
-        return index;
+        return -1;
     }
 
     /**
@@ -55,17 +53,17 @@ public class _11_BinarySearch {
     }
 
     private int helper(int[] arr, int key, int left, int right) {
-        int middle = (left + right) / 2;
+        int mid = (left + right) / 2;
         //base case
         if (right < left) {
             return -1;
         }
-        if (key == arr[middle]) {
-            return middle;
-        } else if (key < arr[middle]) {
-            return helper(arr, key, left, middle - 1);
+        if (key == arr[mid]) {
+            return mid;
+        } else if (key < arr[mid]) {
+            return helper(arr, key, left, mid - 1);
         } else {
-            return helper(arr, key, middle + 1, right);
+            return helper(arr, key, mid + 1, right);
         }
     }
 }

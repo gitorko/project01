@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
  * [680. Valid Palindrome II - EASY](https://leetcode.com/problems/valid-palindrome-ii/)
  *
  * - two pointer
+ * - PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=JrxRYBwG6EI&ab_channel=NeetCode
  */
@@ -35,11 +36,13 @@ public class ValidPalindrome {
         return true;
     }
 
-    private boolean validPalindrome(String s, int l, int r) {
-        while (l < r) {
-            if (s.charAt(l++) != s.charAt(r--)) {
+    private boolean validPalindrome(String s, int left, int right) {
+        while (left < right) {
+            if (s.charAt(left) != s.charAt(right)) {
                 return false;
             }
+            left++;
+            right--;
         }
         return true;
     }

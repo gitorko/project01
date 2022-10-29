@@ -12,7 +12,6 @@ import org.junit.jupiter.api.Test;
  *
  * - dfs, with direction, visited
  * - PRACTICE: P1
- * - MISTAKES: likes to miss updating visited
  *
  * https://www.youtube.com/watch?v=BJnMZNwUk1M&ab_channel=NeetCode
  */
