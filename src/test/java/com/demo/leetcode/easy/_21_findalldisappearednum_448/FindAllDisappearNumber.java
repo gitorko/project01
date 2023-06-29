@@ -8,10 +8,9 @@ import org.junit.jupiter.api.Test;
 /**
  * [448. Find All Numbers Disappeared in an Array - EASY](https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/)
  *
- * - cyclic sort, Math.abs
+ * - Math.abs
  * - SIMILAR_TO: [41. First Missing Positive - HARD](https://leetcode.com/problems/first-missing-positive/)
- *
- * PRACTICE
+ * - PRACTICE:P1
  *
  * https://www.youtube.com/watch?v=re7fhVyKWZI&ab_channel=DEEPTITALESRA
  */
@@ -28,16 +27,19 @@ public class FindAllDisappearNumber {
      * Space: O(1)
      */
     public List<Integer> findDisappearedNumbers(int[] nums) {
-        List<Integer> missing = new ArrayList<>();
+        List<Integer> result = new ArrayList<>();
         for (int i = 0; i < nums.length; i++) {
             int pos = Math.abs(nums[i]) - 1;
             //multiplying -1 two times can make number positive. so we do marking only once.
-            if (nums[pos] > 0)
+            if (nums[pos] > 0) {
                 nums[pos] = nums[pos] * -1;
+            }
         }
         for (int i = 0; i < nums.length; i++) {
-            if (nums[i] > 0) missing.add(i + 1);
+            if (nums[i] > 0) {
+                result.add(i + 1);
+            }
         }
-        return missing;
+        return result;
     }
 }

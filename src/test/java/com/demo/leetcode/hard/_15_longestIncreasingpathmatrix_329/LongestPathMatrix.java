@@ -24,43 +24,41 @@ public class LongestPathMatrix {
      * Space: O(m*n)
      */
     int[][] matrix;
-    int colLength;
-    int rowLength;
-    int[][] cache;
+    int colLen;
+    int rowLen;
+    int[][] dp;
 
     public int longestIncreasingPath(int[][] input) {
         this.matrix = input;
-        this.rowLength = matrix.length;
-        this.colLength = matrix[0].length;
-
+        this.rowLen = matrix.length;
+        this.colLen = matrix[0].length;
         if (matrix == null || matrix.length == 0) {
             return 0;
         }
-
-        cache = new int[rowLength][colLength];
+        dp = new int[rowLen][colLen];
         int max = 0;
-        for (int i = 0; i < rowLength; i++) {
-            for (int j = 0; j < colLength; j++) {
-                max = Math.max(max, dfs(i, j, null));
+        for (int i = 0; i < rowLen; i++) {
+            for (int j = 0; j < colLen; j++) {
+                max = Math.max(max, dfs(i, j, -1));
             }
         }
         return max;
     }
 
-    private int dfs(int i, int j, Integer prev) {
+    private int dfs(int i, int j, int prev) {
         //out of bounds case
-        if (i < 0 || i >= rowLength || j < 0 || j >= colLength || prev != null && prev >= matrix[i][j])
+        if (i < 0 || i >= rowLen || j < 0 || j >= colLen || prev != -1 && prev >= matrix[i][j]) {
             return 0;
-
-        if (cache[i][j] != 0) {
-            return cache[i][j];
         }
-
+        if (dp[i][j] != 0) {
+            return dp[i][j];
+        }
         int a = dfs(i + 1, j, matrix[i][j]);
         int b = dfs(i - 1, j, matrix[i][j]);
         int c = dfs(i, j - 1, matrix[i][j]);
         int d = dfs(i, j + 1, matrix[i][j]);
-        cache[i][j] = Math.max(Math.max(a, b), Math.max(c, d)) + 1;
-        return cache[i][j];
+        //from all 4 directions pick the one with max path
+        dp[i][j] = Math.max(Math.max(a, b), Math.max(c, d)) + 1;
+        return dp[i][j];
     }
 }

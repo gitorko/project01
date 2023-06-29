@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
  *
  * - total sum of array.
  * - prefix == sum - prefix - nums[i]
+ * - PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=u89i60lYx8U&ab_channel=NeetCode
  */
@@ -27,10 +28,10 @@ public class FindPivotIndex {
     public int pivotIndex(int[] nums) {
         int sum = Arrays.stream(nums).sum();
         int prefixSum = 0;
-
         for (int i = 0; i < nums.length; i++) {
-            if (prefixSum == sum - prefixSum - nums[i])
+            if (prefixSum == sum - prefixSum - nums[i]) {
                 return i;
+            }
             prefixSum += nums[i];
         }
         return -1;

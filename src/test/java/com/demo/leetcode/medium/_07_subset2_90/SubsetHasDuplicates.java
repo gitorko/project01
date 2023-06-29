@@ -48,8 +48,9 @@ public class SubsetHasDuplicates {
         result.add(new ArrayList<>(tempList));
         for (int i = start; i < nums.length; i++) {
             // skip duplicates
-            if (i > start && nums[i] == nums[i - 1])
+            if (i > start && nums[i] == nums[i - 1]) {
                 continue;
+            }
             tempList.add(nums[i]);
             backtrack(tempList, i + 1);
             tempList.remove(tempList.size() - 1);

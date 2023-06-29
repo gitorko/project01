@@ -15,9 +15,15 @@ import org.junit.jupiter.api.Test;
 public class ReversePolishNotation {
 
     @Test
-    public void test() {
+    public void test1() {
         String[] tokens = {"2", "1", "+", "3", "*"};
         Assertions.assertEquals(9, evalRPN(tokens));
+    }
+
+    @Test
+    public void test2() {
+        String[] tokens = {"4", "3", "-"};
+        Assertions.assertEquals(1, evalRPN(tokens));
     }
 
     /**
@@ -26,26 +32,32 @@ public class ReversePolishNotation {
      */
     public int evalRPN(String[] tokens) {
         Stack<Integer> stack = new Stack<>();
+        int a, b;
         for (String token : tokens)
             switch (token) {
                 case "+":
-                    stack.push(stack.pop() + stack.pop());
+                    b = stack.pop();
+                    a = stack.pop();
+                    stack.push(a + b);
                     break;
                 case "-":
-                    stack.push(-stack.pop() + stack.pop());
+                    b = stack.pop();
+                    a = stack.pop();
+                    stack.push(a - b);
                     break;
                 case "*":
-                    stack.push(stack.pop() * stack.pop());
+                    b = stack.pop();
+                    a = stack.pop();
+                    stack.push(a * b);
                     break;
                 case "/":
-                    int b = stack.pop();
-                    int a = stack.pop();
+                    b = stack.pop();
+                    a = stack.pop();
                     stack.push(a / b);
                     break;
                 default:
                     stack.push(Integer.parseInt(token));
             }
-
         return stack.peek();
     }
 }

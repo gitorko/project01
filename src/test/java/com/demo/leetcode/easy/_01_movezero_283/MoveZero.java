@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 /**
  * [283. Move Zeroes - EASY](https://leetcode.com/problems/move-zeroes/)
  *
- * - swap
+ * - two pointer
  *
  * https://www.youtube.com/watch?v=aayNRwUN3Do&ab_channel=NeetCode
  */
@@ -22,6 +22,7 @@ public class MoveZero {
 
     /**
      * Time: O(n)
+     * Space: O(1)
      */
     public void moveZeroes(int[] nums) {
         int left = 0;

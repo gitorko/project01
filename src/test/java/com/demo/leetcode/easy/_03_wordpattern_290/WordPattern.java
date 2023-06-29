@@ -28,14 +28,12 @@ public class WordPattern {
      */
     public boolean wordPattern(String pattern, String s) {
         String words[] = s.split(" ");
-        //edge case when both length dont match
+        //edge case when both length don't match
         if (pattern.length() != words.length) {
             return false;
         }
-
         Map<Character, String> charToWord = new HashMap<>();
         Map<String, Character> wordToChar = new HashMap<>();
-
         for (int i = 0; i < words.length; i++) {
             char c = pattern.charAt(i);
             String word = words[i];

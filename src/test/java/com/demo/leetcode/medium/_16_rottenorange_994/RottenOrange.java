@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
  * [994. Rotting Oranges - MEDIUM](https://leetcode.com/problems/rotting-oranges/)
  *
  * - bfs, fresh count, time
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=y704fEOx0s0&ab_channel=NeetCode
  */
@@ -21,14 +22,18 @@ public class RottenOrange {
         Assertions.assertEquals(4, orangesRotting(grid));
     }
 
+    /**
+     * Time: O(m*n)
+     * Space: O(m*n)
+     */
     public int orangesRotting(int[][] grid) {
         Queue<int[]> queue = new LinkedList<>();
         int time = 0;
         int fresh = 0;
-        int rowLength = grid.length;
-        int colLength = grid[0].length;
-        for (int i = 0; i < rowLength; i++) {
-            for (int j = 0; j < colLength; j++) {
+        int rowLen = grid.length;
+        int colLen = grid[0].length;
+        for (int i = 0; i < rowLen; i++) {
+            for (int j = 0; j < colLen; j++) {
                 if (grid[i][j] == 1) {
                     fresh++;
                 }
@@ -37,7 +42,6 @@ public class RottenOrange {
                 }
             }
         }
-
         while (!queue.isEmpty() && fresh > 0) {
             int size = queue.size();
             while (size > 0) {
@@ -50,7 +54,7 @@ public class RottenOrange {
                     queue.offer(new int[]{x - 1, y});
                     fresh--;
                 }
-                if (x + 1 < rowLength && grid[x + 1][y] == 1) {
+                if (x + 1 < rowLen && grid[x + 1][y] == 1) {
                     grid[x + 1][y] = 2;
                     queue.offer(new int[]{x + 1, y});
                     fresh--;
@@ -60,7 +64,7 @@ public class RottenOrange {
                     queue.offer(new int[]{x, y - 1});
                     fresh--;
                 }
-                if (y + 1 < colLength && grid[x][y + 1] == 1) {
+                if (y + 1 < colLen && grid[x][y + 1] == 1) {
                     grid[x][y + 1] = 2;
                     queue.offer(new int[]{x, y + 1});
                     fresh--;

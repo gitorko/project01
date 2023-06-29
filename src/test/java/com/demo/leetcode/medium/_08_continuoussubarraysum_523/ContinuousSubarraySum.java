@@ -10,23 +10,34 @@ import org.junit.jupiter.api.Test;
  * [523. Continuous Subarray Sum - MEDIUM](https://leetcode.com/problems/continuous-subarray-sum/)
  *
  * - pre-sum map
- *
- * PRACTICE
+ * - PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=OKcrLfR-8mE&ab_channel=NeetCode
  */
 public class ContinuousSubarraySum {
 
     @Test
-    public void test() {
+    public void test1() {
         int[] nums = {23, 2, 4, 6, 7};
         int k = 6;
         Assertions.assertTrue(checkSubarraySum(nums, k));
     }
 
+    @Test
+    public void test2() {
+        int[] nums = {23, 2, 4, 6, 6};
+        int k = 7;
+        Assertions.assertTrue(checkSubarraySum(nums, k));
+    }
+
+    /**
+     * Time: O(n)
+     * Space: O(n)
+     */
     public boolean checkSubarraySum(int[] nums, int k) {
         int total = 0;
         int remainder = 0;
+        //[remainder, index]
         Map<Integer, Integer> prefixMap = new HashMap<>();
         prefixMap.put(0, -1);
 
@@ -38,7 +49,6 @@ public class ContinuousSubarraySum {
                     return true;
                 }
             } else {
-                // only add if absent, because the previous index is better
                 prefixMap.put(remainder, i);
             }
         }

@@ -7,10 +7,7 @@ import org.junit.jupiter.api.Test;
  * [209. Minimum Size Subarray Sum - MEDIUM](https://leetcode.com/problems/minimum-size-subarray-sum/)
  *
  * - sliding window
- * - remember to reduce total
- * - use Integer.MAX_VALUE
- *
- * PRACTICE
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=aYqYMIqZx5s&ab_channel=NeetCode
  */
@@ -33,7 +30,6 @@ public class MinSizeSubArraySum {
         int min = Integer.MAX_VALUE;
         for (int right = 0; right < nums.length; right++) {
             total += nums[right];
-            //most cases you will write if here, remember to use while.
             while (total >= target) {
                 min = Math.min(right - left + 1, min);
                 total = total - nums[left];

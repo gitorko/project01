@@ -8,8 +8,8 @@ import org.junit.jupiter.api.Test;
 /**
  * [179. Largest Number - MEDIUM](https://leetcode.com/problems/largest-number/)
  *
- * - edge case of 0
- * - string compare s1+s2
+ * - edge case of 00
+ * - string compare s1+s2 vs s2+s1
  * - sort
  *
  * https://www.youtube.com/watch?v=WDx6Y4i4xJ8&ab_channel=NeetCode

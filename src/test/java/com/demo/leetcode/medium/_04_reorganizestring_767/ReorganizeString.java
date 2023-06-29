@@ -15,8 +15,7 @@ import org.junit.jupiter.api.Test;
  *
  * - map + max heap + queue + string builder
  * - SIMILAR_TO: [621. Task Scheduler - MEDIUM](https://leetcode.com/problems/task-scheduler/)
- *
- * PRACTICE
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=2g_b1aYTHeg&ab_channel=NeetCode
  */
@@ -30,30 +29,28 @@ public class ReorganizeString {
     }
 
     /**
-     * Time: O(n)
+     * Time: O(n*log(n))
      * Space O(n + 26)
      */
     public String reorganizeString(String s) {
         if (s == null || s.length() == 0) {
             return "";
         }
-        Map<Character, Integer> map = new HashMap<>();
+        Map<Character, Integer> charMap = new HashMap<>();
         for (char c : s.toCharArray()) {
-            map.put(c, map.getOrDefault(c, 0) + 1);
+            charMap.put(c, charMap.getOrDefault(c, 0) + 1);
         }
         //max heap
         PriorityQueue<Map.Entry<Character, Integer>> pq = new PriorityQueue<>((a, b) -> (b.getValue() - a.getValue()));
         Queue<Map.Entry<Character, Integer>> queue = new LinkedList<>();
-        pq.addAll(map.entrySet());
+        pq.addAll(charMap.entrySet());
         StringBuilder sb = new StringBuilder();
         while (!pq.isEmpty()) {
             //fetch and add to result
             Map.Entry<Character, Integer> entry = pq.poll();
             sb.append(entry.getKey());
-
             //reduce the count
             entry.setValue(entry.getValue() - 1);
-
             queue.offer(entry);
             //k value can be changed to make this problem rearrange by k distance
             int k = 1;

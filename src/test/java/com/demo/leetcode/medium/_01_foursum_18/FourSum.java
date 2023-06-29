@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
  * [18. 4Sum - MEDIUM](https://leetcode.com/problems/4sum/)
  *
  * - backtracking + two sum
+ * - PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=EYeR-_1NRlQ&ab_channel=NeetCode
  */
@@ -78,12 +79,15 @@ public class FourSum {
                 } else if (nums[left] + nums[right] > target) {
                     right--;
                 } else {
+                    //dont modify tempList
                     List<Integer> temp = new ArrayList<>();
                     temp.addAll(tempList);
                     temp.add(nums[left]);
                     temp.add(nums[right]);
                     result.add(temp);
+                    //advance left else will be stuck in loop
                     left++;
+                    //skip duplicates
                     while (left < right && nums[left] == nums[left - 1]) {
                         left++;
                     }

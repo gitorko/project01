@@ -14,14 +14,15 @@ import org.junit.jupiter.api.Test;
 /**
  * [332. Reconstruct Itinerary - HARD](https://leetcode.com/problems/reconstruct-itinerary/)
  *
- * - eulerian circuit
+ * - min heap
+ * - linked list
  *
  * https://www.youtube.com/watch?v=ZyB_gQ8vqGA&ab_channel=NeetCode
  */
 public class ReconstructItinerary {
 
     @Test
-    public void test() {
+    public void test1() {
         List<List<String>> tickets = Arrays.asList(Arrays.asList("MUC", "LHR"),
                 Arrays.asList("JFK", "MUC"),
                 Arrays.asList("SFO", "SJC"),
@@ -30,7 +31,37 @@ public class ReconstructItinerary {
         Assertions.assertEquals(expected, findItinerary(tickets));
     }
 
-    //[source, destination]
+    @Test
+    public void test2() {
+        List<List<String>> tickets = Arrays.asList(Arrays.asList("JFK", "MUC"),
+                Arrays.asList("MUC", "JFK"),
+                Arrays.asList("JFK", "SFO"));
+        List<String> expected = Arrays.asList("JFK", "MUC", "JFK", "SFO");
+        Assertions.assertEquals(expected, findItinerary(tickets));
+    }
+
+    @Test
+    public void test3() {
+        List<List<String>> tickets = Arrays.asList(Arrays.asList("JFK", "KUL"),
+                Arrays.asList("JFK", "NRT"),
+                Arrays.asList("NRT", "JFK"));
+        List<String> expected = Arrays.asList("JFK", "NRT", "JFK", "KUL");
+        Assertions.assertEquals(expected, findItinerary(tickets));
+    }
+
+    @Test
+    public void test4() {
+        List<List<String>> tickets = Arrays.asList(Arrays.asList("JFK", "SFO"),
+                Arrays.asList("JFK", "ATL"),
+                Arrays.asList("SFO", "ATL"),
+                Arrays.asList("ATL", "JFK"),
+                Arrays.asList("ATL", "SFO")
+        );
+        List<String> expected = Arrays.asList("JFK", "ATL", "JFK", "SFO", "ATL", "SFO");
+        Assertions.assertEquals(expected, findItinerary(tickets));
+    }
+
+    //[source, heap of destination]
     Map<String, Queue<String>> graph;
     LinkedList<String> result;
 

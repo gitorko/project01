@@ -7,8 +7,7 @@ import org.junit.jupiter.api.Test;
  * [1189. Maximum Number of Balloons - EASY](https://leetcode.com/problems/maximum-number-of-balloons/)
  *
  * - two map
- *
- * PRACTICE
+ * - PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=G9xeB2-7PqY&ab_channel=NeetCode
  */
@@ -29,21 +28,21 @@ public class MaxBalloons {
     public int maxNumberOfBalloons(String text) {
         String word = "balloon";
         //initialize word map
-        int[] wordcount = new int[26];
+        int[] wordCharMap = new int[26];
         for (char c : word.toCharArray()) {
-            wordcount[c - 'a']++;
+            wordCharMap[c - 'a']++;
         }
 
         //initialize map
-        int[] chars = new int[26];
+        int[] charMap = new int[26];
         for (char c : text.toCharArray()) {
-            chars[c - 'a']++;
+            charMap[c - 'a']++;
         }
 
-        //instead of max set to input text length
-        int result = text.length();
+        //instead of max can also set to text.length
+        int result = Integer.MAX_VALUE;
         for (char c : word.toCharArray()) {
-            result = Math.min(result, chars[c - 'a'] / wordcount[c - 'a']);
+            result = Math.min(result, charMap[c - 'a'] / wordCharMap[c - 'a']);
         }
         return result;
     }

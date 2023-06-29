@@ -35,25 +35,26 @@ public class OpenLock {
     public int openLock(String[] deadends, String target) {
         Queue<String> queue = new LinkedList<>();
         Set<String> visited = new HashSet<>(Arrays.asList(deadends));
-        int depth = 0;
-        queue.addAll(Arrays.asList("0000"));
+        int level = 0;
+        queue.add("0000");
         while (!queue.isEmpty()) {
             int size = queue.size();
             while (size > 0) {
                 String node = queue.poll();
                 //if match return
-                if (node.equals(target))
-                    return depth;
+                if (node.equals(target)) {
+                    return level;
+                }
                 //if already visited continue
                 if (visited.contains(node)) {
                     size--;
-                    continue;
+                } else {
+                    visited.add(node);
+                    queue.addAll(getSuccessors(node));
+                    size--;
                 }
-                visited.add(node);
-                queue.addAll(getSuccessors(node));
-                size--;
             }
-            depth++;
+            level++;
         }
         return -1;
     }

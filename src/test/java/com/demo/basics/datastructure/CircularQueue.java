@@ -8,13 +8,14 @@ import org.junit.jupiter.api.Test;
  *
  * - mod, count
  * - front & rear pointer
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=aBbsfn863oA&ab_channel=NeetCode
  */
 public class CircularQueue {
 
     @Test
-    public void test() {
+    public void test1() {
         MyCircularQueue myCircularQueue = new MyCircularQueue(3);
         Assertions.assertTrue(myCircularQueue.enQueue(1));
         Assertions.assertTrue(myCircularQueue.enQueue(2));
@@ -27,6 +28,14 @@ public class CircularQueue {
         Assertions.assertEquals(4, myCircularQueue.Rear());
     }
 
+    @Test
+    public void test2() {
+        MyCircularQueue myCircularQueue = new MyCircularQueue(5);
+        Assertions.assertTrue(myCircularQueue.enQueue(1));
+        Assertions.assertTrue(myCircularQueue.deQueue());
+        Assertions.assertFalse(myCircularQueue.deQueue());
+    }
+
     class MyCircularQueue {
         int size;
         int[] queue;
@@ -37,13 +46,14 @@ public class CircularQueue {
         public MyCircularQueue(int size) {
             this.size = size;
             this.queue = new int[size];
+            //set rear to last postion.
             this.rear = size - 1;
         }
 
         public boolean enQueue(int value) {
-            if (isFull())
+            if (isFull()) {
                 return false;
-
+            }
             rear = ++rear % size;
             queue[rear] = value;
             count++;
@@ -51,9 +61,9 @@ public class CircularQueue {
         }
 
         public boolean deQueue() {
-            if (isEmpty())
+            if (isEmpty()) {
                 return false;
-
+            }
             front = ++front % size;
             count--;
             return true;

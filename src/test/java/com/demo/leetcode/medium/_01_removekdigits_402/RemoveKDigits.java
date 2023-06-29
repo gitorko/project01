@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
  * [402. Remove K Digits - MEDIUM](https://leetcode.com/problems/remove-k-digits/)
  *
  * - monotonic stack
+ * - PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=cFabMOnJaq0&ab_channel=NeetCode
  */
@@ -29,6 +30,10 @@ public class RemoveKDigits {
         Assertions.assertEquals("200", removeKdigits("10200", 1));
     }
 
+    /**
+     * Time: O(n)
+     * Space: O(n)
+     */
     public String removeKdigits(String num, int k) {
         Stack<Character> stack = new Stack<>();
         for (Character c : num.toCharArray()) {

@@ -35,7 +35,6 @@ public class GuessNumber {
         while (left < right) {
             int mid = left + (right - left) / 2;
             if (guess(mid) == 0) {
-                System.out.println("Number is: " + mid);
                 return mid;
             } else if (guess(mid) == 1) {
                 left = mid + 1;
@@ -43,15 +42,14 @@ public class GuessNumber {
                 right = mid - 1;
             }
         }
-        System.out.println("Number is: " + left);
         return left;
     }
 
-    private int guess(int num) {
-        if (num < guess) {
+    private int guess(int mid) {
+        if (mid < guess) {
             return 1;
         }
-        if (num > guess) {
+        if (mid > guess) {
             return -1;
         }
         return 0;

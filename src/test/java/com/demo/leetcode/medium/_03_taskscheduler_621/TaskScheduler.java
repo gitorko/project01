@@ -14,8 +14,7 @@ import org.junit.jupiter.api.Test;
  *
  * - max heap + queue, time
  * - SIMILAR_TO: [767. Reorganize String - MEDIUM](https://leetcode.com/problems/reorganize-string/)
- *
- * PRACTICE
+ * - PRACTICE: P3
  *
  * https://www.youtube.com/watch?v=s8p8ukTyA2I&ab_channel=NeetCode
  */
@@ -47,14 +46,13 @@ public class TaskScheduler {
      * Space: O(26)
      */
     public int leastInterval(char[] tasks, int n) {
-        if (n == 0)
+        if (n == 0) {
             return tasks.length;
-
+        }
         Map<Character, Integer> countMap = new HashMap<>();
         for (char c : tasks) {
             countMap.put(c, countMap.getOrDefault(c, 0) + 1);
         }
-
         //max heap holds count of each task
         Queue<Integer> pq = new PriorityQueue<>((i1, i2) -> i2 - i1);
         pq.addAll(countMap.values());

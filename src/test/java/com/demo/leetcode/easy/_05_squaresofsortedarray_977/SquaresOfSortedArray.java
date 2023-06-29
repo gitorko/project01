@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
  *
  * - two pointer
  * - start solving from reverse, 3 pointers left, right, index
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=FPCZsG_AkUg&ab_channel=NeetCode
  */
@@ -27,6 +28,10 @@ public class SquaresOfSortedArray {
         Assertions.assertArrayEquals(expected, sortedSquares(nums));
     }
 
+    /**
+     * Time: O(n)
+     * Space: O(1)
+     */
     public int[] sortedSquares(int[] nums) {
         int n = nums.length;
         int[] result = new int[n];

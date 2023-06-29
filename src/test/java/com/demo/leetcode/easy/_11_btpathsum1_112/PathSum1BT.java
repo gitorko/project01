@@ -14,8 +14,6 @@ import org.junit.jupiter.api.Test;
  * - reduce target on each recursion
  * - SIMILAR_TO: [113. Path Sum II - MEDIUM](https://leetcode.com/problems/path-sum-ii/)
  *
- * PRACTICE
- *
  * https://www.youtube.com/watch?v=LSKQyOz_P8I&ab_channel=NeetCode
  */
 public class PathSum1BT {
@@ -32,10 +30,12 @@ public class PathSum1BT {
      * Space: O(h) worst case: height=n, balanced binary tree h=log(n)
      */
     public boolean hasPathSum(TreeNode root, int targetSum) {
-        if (root == null)
+        if (root == null) {
             return false;
-        if (root.left == null && root.right == null && targetSum - root.val == 0)
+        }
+        if (root.left == null && root.right == null && targetSum - root.val == 0) {
             return true;
+        }
         return hasPathSum(root.left, targetSum - root.val) || hasPathSum(root.right, targetSum - root.val);
     }
 }

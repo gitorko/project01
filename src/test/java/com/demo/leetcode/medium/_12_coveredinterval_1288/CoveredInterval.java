@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
  * [1288. Remove Covered Intervals - MEDIUM](https://leetcode.com/problems/remove-covered-intervals/)
  *
  * - sort, if starting equal then use ending
+ * - PRACTICE: P4
  *
  * https://www.youtube.com/watch?v=nhAsMabiVkM&ab_channel=NeetCode
  */
@@ -23,11 +24,11 @@ public class CoveredInterval {
     public int removeCoveredIntervals(int[][] intervals) {
         int result = 0;
         int right = 0;
-        //if starting is same, then compare the ending
+        //if starting is same, then compare the ending but on bigger ending value.
         Arrays.sort(intervals, (a, b) -> a[0] == b[0] ? b[1] - a[1] : a[0] - b[0]);
         for (int[] interval : intervals) {
             if (interval[1] > right) {
-                ++result;
+                result++;
                 right = interval[1];
             }
         }

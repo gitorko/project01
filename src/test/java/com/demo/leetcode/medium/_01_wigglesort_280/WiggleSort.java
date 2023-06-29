@@ -28,10 +28,11 @@ public class WiggleSort {
      * Space: O(1)
      */
     public void wiggleSort(int[] nums) {
-        // 1. if i is even, then nums[i] <= nums[i - 1]
-        // 2. if i is odd, then nums[i] >= nums[i - 1]
+        // 1. if i is even, then nums[i - 1] < nums[i]
+        // 2. if i is odd, then nums[i - 1] > nums[i]
+        // skip the first element
         for (int i = 1; i < nums.length; i++) {
-            if ((i % 2 == 0 && nums[i] > nums[i - 1]) || (i % 2 == 1 && nums[i] < nums[i - 1])) {
+            if ((i % 2 == 0 && nums[i - 1] < nums[i]) || (i % 2 == 1 && nums[i - 1] > nums[i])) {
                 swap(nums, i, i - 1);
             }
         }

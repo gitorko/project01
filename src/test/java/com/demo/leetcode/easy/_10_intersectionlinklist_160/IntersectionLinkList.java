@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
  *
  * - Two pointer - loop 2 times
  * - Reset the pointer to head so the list is iterated twice but time complexity is same.
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=D0X0BONOQhI&ab_channel=NeetCode
  */
@@ -27,12 +28,14 @@ public class IntersectionLinkList {
         int arr4[] = {2, 10, 12};
         ListNode r4 = ListNodeUtil.create(arr4);
         ListNode h1 = r1;
-        while (h1.next != null)
+        while (h1.next != null) {
             h1 = h1.next;
+        }
         h1.next = r3;
         ListNode h2 = r2;
-        while (h2.next != null)
+        while (h2.next != null) {
             h2 = h2.next;
+        }
         h2.next = r3;
         ListNodeUtil.display(r1);
         ListNodeUtil.display(r2);
@@ -51,7 +54,9 @@ public class IntersectionLinkList {
      */
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         //boundary check
-        if (headA == null || headB == null) return null;
+        if (headA == null || headB == null) {
+            return null;
+        }
 
         ListNode l1 = headA;
         ListNode l2 = headB;
@@ -67,7 +72,7 @@ public class IntersectionLinkList {
     }
 
     /**
-     * Same as above, but explained in detail.
+     * Same logic as above, but explained in detail.
      * Two pointer
      */
     public ListNode getIntersectionNode2(ListNode headA, ListNode headB) {
@@ -105,11 +110,12 @@ public class IntersectionLinkList {
 
         //final move both pointer to end. If they match then intersection
         while (p1 != null && p2 != null) {
-            if (p1 == p2) return p1;
+            if (p1 == p2) {
+                return p1;
+            }
             p1 = p1.next;
             p2 = p2.next;
         }
-
         return null;
     }
 }
