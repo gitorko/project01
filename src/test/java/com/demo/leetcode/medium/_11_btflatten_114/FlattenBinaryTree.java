@@ -12,8 +12,7 @@ import org.junit.jupiter.api.Test;
  * [114. Flatten Binary Tree to Linked List - MEDIUM](https://leetcode.com/problems/flatten-binary-tree-to-linked-list/)
  *
  * - left,right tail
- *
- * PRACTICE
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=rKnD7rLT0lI&ab_channel=NeetCode
  */
@@ -48,18 +47,16 @@ public class FlattenBinaryTree {
      * Returns tail
      */
     private TreeNode dfsFlatten(TreeNode root) {
-        if (root == null)
+        if (root == null) {
             return root;
-
+        }
         TreeNode leftTail = dfsFlatten(root.left);
         TreeNode rightTail = dfsFlatten(root.right);
-
         if (leftTail != null) {
             leftTail.right = root.right;
             root.right = root.left;
             root.left = null;
         }
-
         if (rightTail != null) {
             return rightTail;
         } else if (leftTail != null) {

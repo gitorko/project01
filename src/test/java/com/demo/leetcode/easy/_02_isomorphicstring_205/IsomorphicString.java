@@ -17,8 +17,18 @@ import org.junit.jupiter.api.Test;
 public class IsomorphicString {
 
     @Test
-    public void test() {
+    public void test1() {
         Assertions.assertTrue(isIsomorphic("egg", "add"));
+    }
+
+    @Test
+    public void test2() {
+        Assertions.assertFalse(isIsomorphic("foo", "bar"));
+    }
+
+    @Test
+    public void test3() {
+        Assertions.assertFalse(isIsomorphic("ff", "ba"));
     }
 
     /**
@@ -26,13 +36,17 @@ public class IsomorphicString {
      * Space: O(128) = O(1)
      */
     public boolean isIsomorphic(String s, String t) {
-        Map<Character, Integer> sMap = new HashMap<>();
-        Map<Character, Integer> tMap = new HashMap<>();
-
+        Map<Character, Character> sMap = new HashMap<>();
+        Map<Character, Character> tMap = new HashMap<>();
         for (Integer i = 0; i < s.length(); i++) {
-            if (sMap.put(s.charAt(i), i) != tMap.put(t.charAt(i), i)) {
+            if (sMap.get(s.charAt(i)) != null && sMap.get(s.charAt(i)) != t.charAt(i)) {
                 return false;
             }
+            if (tMap.get(t.charAt(i)) != null && tMap.get(t.charAt(i)) != s.charAt(i)) {
+                return false;
+            }
+            sMap.put(s.charAt(i), t.charAt(i));
+            tMap.put(t.charAt(i), s.charAt(i));
         }
         return true;
     }

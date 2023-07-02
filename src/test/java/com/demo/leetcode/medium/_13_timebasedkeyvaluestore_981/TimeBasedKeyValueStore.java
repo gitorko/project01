@@ -33,16 +33,22 @@ public class TimeBasedKeyValueStore {
     class TimeMap {
         Map<String, List<Pair>> map = new HashMap<>();
 
+        /**
+         * Time: O(1)
+         */
         public void set(String key, String value, int timestamp) {
             map.putIfAbsent(key, new ArrayList<>());
             map.get(key).add(new Pair(value, timestamp));
         }
 
+        /**
+         * Time: O(log(n))
+         */
         public String get(String key, int timestamp) {
             List<Pair> valueList = map.get(key);
-            if (valueList == null)
+            if (valueList == null) {
                 return "";
-
+            }
             int left = 0;
             int right = valueList.size() - 1;
             String result = "";

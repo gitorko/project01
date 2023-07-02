@@ -46,9 +46,9 @@ public class FindAllAnagram {
      * Space: O(26)
      */
     public List<Integer> findAnagrams(String s, String p) {
-        if (s.length() < p.length())
+        if (s.length() < p.length()) {
             return Collections.emptyList();
-
+        }
         List<Integer> result = new ArrayList<>();
         int[] pCount = new int[26];
         int[] sCount = new int[26];
@@ -60,7 +60,9 @@ public class FindAllAnagram {
 
         int matches = 0;
         for (int i = 0; i < 26; i++) {
-            if (pCount[i] == sCount[i]) matches++;
+            if (pCount[i] == sCount[i]) {
+                matches++;
+            }
         }
         if (matches == 26) {
             result.add(0);
@@ -69,6 +71,7 @@ public class FindAllAnagram {
         int left = 0;
         int right = p.length();
         while (right < s.length()) {
+            //Add the new char to right side
             int rIndex = s.charAt(right) - 'a';
             sCount[rIndex]++;
             if (sCount[rIndex] == pCount[rIndex]) {
@@ -77,6 +80,7 @@ public class FindAllAnagram {
                 matches--;
             }
 
+            //Remove char from left side
             int lIndex = s.charAt(left) - 'a';
             sCount[lIndex]--;
             if (sCount[lIndex] == pCount[lIndex]) {

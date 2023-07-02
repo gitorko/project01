@@ -11,8 +11,7 @@ import org.junit.jupiter.api.Test;
  *
  * - map to count duplicate
  * - list to hold points
- *
- * PRACTICE
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=bahebearrDc&ab_channel=NeetCode
  */
@@ -30,8 +29,11 @@ public class DetectSquare {
         Assertions.assertEquals(2, detectSquares.count(new int[]{11, 10}));
     }
 
+    /**
+     * Time: O(n)
+     */
     class DetectSquares {
-        //as there can be duplicate point
+        //there can be duplicate point, to count we use a map
         int[][] pointCountMap = new int[1001][1001];
         List<int[]> points = new ArrayList<>();
 
@@ -47,8 +49,9 @@ public class DetectSquare {
             for (int[] point : points) {
                 int x2 = point[0];
                 int y2 = point[1];
-                if (Math.abs(x1 - x2) == 0 || Math.abs(x1 - x2) != Math.abs(y1 - y2))
+                if (x1 == x2 || y1 == y2 || Math.abs(x1 - x2) != Math.abs(y1 - y2)) {
                     continue;
+                }
                 //opposite points
                 result += pointCountMap[x1][y2] * pointCountMap[x2][y1];
             }

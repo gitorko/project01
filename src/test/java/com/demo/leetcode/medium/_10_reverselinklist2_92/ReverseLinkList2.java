@@ -10,8 +10,7 @@ import org.junit.jupiter.api.Test;
  *
  * - Dummy head pointer, with 3 pointers, leftPrev
  * - 3 phases
- *
- * PRACTICE
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=RF_M9tX4Eag&ab_channel=NeetCode
  */
@@ -31,12 +30,11 @@ public class ReverseLinkList2 {
      * Space: O(1)
      */
     public ListNode reverseBetween(ListNode head, int left, int right) {
-        if (head == null) return null;
-
-        // create a dummy node to mark the head of this list
+        if (head == null) {
+            return null;
+        }
         ListNode dummy = new ListNode();
         dummy.next = head;
-
         // move pointer till it reaches left node.
         ListNode leftPrev = dummy;
         ListNode curr = head;
@@ -44,7 +42,6 @@ public class ReverseLinkList2 {
             leftPrev = curr;
             curr = curr.next;
         }
-
         //reverse list for given window
         ListNode prev = null;
         for (int i = 0; i < right - left + 1; i++) {
@@ -53,7 +50,6 @@ public class ReverseLinkList2 {
             prev = curr;
             curr = tempNext;
         }
-
         //fix pointers
         leftPrev.next.next = curr;
         leftPrev.next = prev;

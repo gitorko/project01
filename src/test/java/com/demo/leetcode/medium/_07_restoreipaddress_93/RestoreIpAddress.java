@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
  *
  * - backtracking
  * - out of bound, 0 check, 255 check
+ * - PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=61tN4YEdiTM&ab_channel=NeetCode
  */
@@ -43,24 +44,28 @@ public class RestoreIpAddress {
             result.add(String.join(".", temp));
             return;
         }
-        //temp hold 4 single digit or start is at the end.
-        if (temp.size() == 4 || start == ipStr.length())
+        //temp hold 4 single digit but end is not reached then cant form ip address with extra numbers.
+        //temp is not size 4 but end is reached then also cant form ip address.
+        if (temp.size() == 4 || start == ipStr.length()) {
             return;
-
+        }
         for (int length = 1; length < 4; length++) {
-            int newStart = start + length;
+            int dotPosition = start + length;
             // out of bound
-            if (newStart > ipStr.length())
+            if (dotPosition > ipStr.length()) {
                 return;
+            }
             // leading '0'
-            if (length > 1 && ipStr.charAt(start) == '0')
+            if (length > 1 && ipStr.charAt(start) == '0') {
                 return;
-            String num = ipStr.substring(start, newStart);
+            }
+            String num = ipStr.substring(start, dotPosition);
             //beyond 255 check
-            if (Integer.parseInt(num) > 255)
+            if (Integer.parseInt(num) > 255) {
                 return;
+            }
             temp.add(num);
-            dfs(newStart, temp);
+            dfs(dotPosition, temp);
             temp.remove(temp.size() - 1);
         }
     }

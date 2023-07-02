@@ -12,8 +12,7 @@ import org.junit.jupiter.api.Test;
  *
  * - right most index
  * - two pointer
- *
- * PRACTICE
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=B7m8UmZE-vw&ab_channel=NeetCode
  */
@@ -31,17 +30,19 @@ public class PartitionLabel {
         Assertions.assertEquals(expected, partitionLabels("eccbbbbdec"));
     }
 
+    /**
+     * Time: O(n)
+     * Space: O(1)
+     */
     public List<Integer> partitionLabels(String s) {
         List<Integer> result = new ArrayList<>();
         int[] rightmost = new int[26];
-
         //last index of char
-        for (int i = 0; i < s.length(); i++)
+        for (int i = 0; i < s.length(); i++) {
             rightmost[s.charAt(i) - 'a'] = i;
-
+        }
         int left = 0;
         int right = 0;
-
         for (int i = 0; i < s.length(); i++) {
             right = Math.max(right, rightmost[s.charAt(i) - 'a']);
             if (right == i) {

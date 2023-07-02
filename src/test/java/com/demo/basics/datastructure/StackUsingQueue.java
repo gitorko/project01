@@ -31,12 +31,9 @@ public class StackUsingQueue {
         // Push element x onto stack.
         public void push(int x) {
             q.add(x);
-
             //Remove from front of queue and add to back till the last but one element.
-            int n = q.size();
-            while (n > 1) {
+            for (int i = 0; i < q.size() - 1; i++) {
                 q.add(q.poll());
-                n--;
             }
         }
 
@@ -54,7 +51,6 @@ public class StackUsingQueue {
         public boolean empty() {
             return q.isEmpty();
         }
-
     }
 
 }

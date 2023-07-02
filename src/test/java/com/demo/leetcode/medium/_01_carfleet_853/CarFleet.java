@@ -10,51 +10,57 @@ import org.junit.jupiter.api.Test;
  *
  * - reaching time
  * - reverse sort by position
+ * - PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=Pr6T-3yB9RM&ab_channel=NeetCode
  */
 public class CarFleet {
 
     @Test
-    public void test() {
+    public void test1() {
         int target = 12;
         int[] position = {10, 8, 0, 5, 3};
         int[] speed = {2, 4, 1, 1, 3};
         Assertions.assertEquals(3, carFleet(target, position, speed));
     }
 
+    @Test
+    public void test2() {
+        int target = 12;
+        int[] position = {10, 0};
+        int[] speed = {2, 2};
+        Assertions.assertEquals(2, carFleet(target, position, speed));
+    }
+
     /**
-     * Time: O(n log(n))
+     * Time: O(n*log(n))
      * Space: O(n)
      */
     public int carFleet(int target, int[] position, int[] speed) {
-        Car[] cars = new Car[position.length];
-
+        Pair[] items = new Pair[position.length];
         for (int i = 0; i < position.length; ++i) {
             //[position, reaching time]
-            cars[i] = new Car(position[i], (double) (target - position[i]) / speed[i]);
+            items[i] = new Pair(position[i], (double) (target - position[i]) / speed[i]);
         }
-
         //reverse sort
-        Arrays.sort(cars, (a, b) -> b.pos - a.pos);
-
+        Arrays.sort(items, (a, b) -> b.pos - a.pos);
         // the time of the slowest car to reach the target
-        double maxTime = 0;
+        double maxReachingTime = 0;
         int result = 0;
-        for (Car car : cars) {
-            if (car.time > maxTime) {
-                maxTime = car.time;
+        for (Pair item : items) {
+            if (item.time > maxReachingTime) {
+                maxReachingTime = item.time;
                 result++;
             }
         }
         return result;
     }
 
-    class Car {
+    class Pair {
         public int pos;
         public double time;
 
-        public Car(int pos, double time) {
+        public Pair(int pos, double time) {
             this.pos = pos;
             this.time = time;
         }

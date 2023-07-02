@@ -44,15 +44,16 @@ public class MatchStickSquare {
         nums = input;
         int sum = Arrays.stream(nums).sum();
 
-        //optimization
+        //optimization of sorting in reverse order
         nums = Arrays.stream(nums)
                 .boxed()
                 .sorted(Comparator.reverseOrder())
                 .mapToInt(Integer::intValue)
                 .toArray();
 
-        if (sum % k != 0)
+        if (sum % k != 0) {
             return false;
+        }
 
         target = sum / k; // each subset's target sum
         seen = new boolean[nums.length];
@@ -60,14 +61,16 @@ public class MatchStickSquare {
     }
 
     private boolean backtrack(int i, int k, int subsetSum) {
-        if (k == 0)
+        if (k == 0) {
             return true;
-        if (subsetSum == target)
+        }
+        if (subsetSum == target) {
             return backtrack(0, k - 1, 0);
-
+        }
         for (int j = i; j < nums.length; j++) {
-            if (seen[j] || subsetSum + nums[j] > target)
+            if (seen[j] || subsetSum + nums[j] > target) {
                 continue;
+            }
             seen[j] = true;
             if (backtrack(j + 1, k, subsetSum + nums[j])) {
                 return true;

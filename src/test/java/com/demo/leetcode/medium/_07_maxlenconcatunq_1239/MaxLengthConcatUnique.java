@@ -29,6 +29,15 @@ public class MaxLengthConcatUnique {
         Assertions.assertEquals(16, maxLength(arr));
     }
 
+    @Test
+    public void test3() {
+        List<String> arr = Arrays.asList("aa", "c");
+        Assertions.assertEquals(1, maxLength(arr));
+    }
+
+    /**
+     * Time: O(2^n * m)
+     */
     List<String> arr;
     int result = 0;
 
@@ -42,8 +51,9 @@ public class MaxLengthConcatUnique {
         if (hasNoDuplicates(temp)) {
             result = Math.max(result, temp.length());
         }
-        if (start == arr.size()) return;
-
+        if (start == arr.size()) {
+            return;
+        }
         for (int i = start; i < arr.size(); i++) {
             if (hasNoDuplicates(temp)) {
                 backtrack(i + 1, temp + arr.get(i));

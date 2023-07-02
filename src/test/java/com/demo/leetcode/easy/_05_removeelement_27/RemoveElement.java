@@ -28,9 +28,9 @@ public class RemoveElement {
     public int removeElement(int[] nums, int val) {
         int left = 0;
         for (int right = 0; right < nums.length; right++) {
-            //copy to left if not same, there will be overwrite but its ok.
             if (nums[right] != val) {
-                nums[left++] = nums[right];
+                nums[left] = nums[right];
+                left++;
             }
         }
         Arrays.fill(nums, left, nums.length, 0);

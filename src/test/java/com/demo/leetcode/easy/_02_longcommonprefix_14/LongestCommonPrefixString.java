@@ -8,8 +8,7 @@ import org.junit.jupiter.api.Test;
  *
  * - treat the first word as result and compare with rest of 1..n
  * - first loop on char, 2nd on words
- *
- * PRACTICE
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=0sWShKIJoo4&ab_channel=NeetCode
  */
@@ -32,9 +31,9 @@ public class LongestCommonPrefixString {
      * Space: O(1)
      */
     public String longestCommonPrefix(String[] strs) {
-        if (strs == null || strs.length == 0)
+        if (strs == null || strs.length == 0) {
             return "";
-
+        }
         //Here we are taking length of first string,
         //it can be possible other strings are shorter/longer than first string.
         //Because we are treating the first string as result we are comparing with rest of the string.

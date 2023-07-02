@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 /**
  * [371. Sum of Two Integers - MEDIUM](https://leetcode.com/problems/sum-of-two-integers/)
  *
- * - xor, &
+ * - xor, &, shift
  *
  * https://www.youtube.com/watch?v=gVUrDV4tZfY&ab_channel=NeetCode
  */

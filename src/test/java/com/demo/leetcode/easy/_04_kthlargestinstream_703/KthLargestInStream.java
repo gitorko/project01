@@ -5,11 +5,11 @@ import java.util.PriorityQueue;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-
 /**
  * [703. Kth Largest Element in a Stream - EASY](https://leetcode.com/problems/kth-largest-element-in-a-stream/)
  *
  * - min heap
+ * - PRACTICE: P3
  *
  * https://www.youtube.com/watch?v=hOjcdrqMoQ8&ab_channel=NeetCode
  */

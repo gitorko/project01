@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
  *
  * - sort by starting point
  * - take the min of the end value
+ * - PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=nONCGxWoUfM&ab_channel=NeetCode
  */
@@ -51,11 +52,11 @@ public class NonOverlappingInterval {
      */
     public int eraseOverlapIntervals(int[][] intervals) {
         //edge case
-        if (intervals.length == 0)
+        if (intervals.length == 0) {
             return 0;
-
+        }
         // Sort by ascending starting point
-        Arrays.sort(intervals, (i1, i2) -> Integer.compare(i1[0], i2[0]));
+        Arrays.sort(intervals, (i1, i2) -> i1[0] - i2[0]);
 
         int result = 0;
         int previousEnd = intervals[0][1];

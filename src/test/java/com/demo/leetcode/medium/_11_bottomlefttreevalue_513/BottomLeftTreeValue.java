@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 /**
  * [513. Find Bottom Left Tree Value - MEDIUM](https://leetcode.com/problems/find-bottom-left-tree-value/)
  *
- * - bfs
+ * - bfs, traverse level right to left
  *
  * https://www.youtube.com/watch?v=u_by_cTsNJA&ab_channel=NeetCode
  */
@@ -24,16 +24,22 @@ public class BottomLeftTreeValue {
         Assertions.assertEquals(7, findBottomLeftValue(root));
     }
 
+    /**
+     * Time: O(n)
+     * Space: O(n)
+     */
     public int findBottomLeftValue(TreeNode root) {
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
         TreeNode node = null;
         while (!queue.isEmpty()) {
             node = queue.poll();
-            if (node.right != null)
+            if (node.right != null) {
                 queue.offer(node.right);
-            if (node.left != null)
+            }
+            if (node.left != null) {
                 queue.offer(node.left);
+            }
         }
         return node.val;
     }

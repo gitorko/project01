@@ -16,6 +16,7 @@ public class NumberOfOneBits {
     public void test1() {
         Assertions.assertEquals(3, hammingWeight(00000000000000000000000000001011));
         Assertions.assertEquals(3, hammingWeight2(00000000000000000000000000001011));
+        Assertions.assertEquals(3, hammingWeight3(00000000000000000000000000001011));
     }
 
     /**

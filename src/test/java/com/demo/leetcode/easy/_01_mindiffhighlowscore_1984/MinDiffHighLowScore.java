@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
  *[1984. Minimum Difference Between Highest and Lowest of K Scores - EASY](https://leetcode.com/problems/minimum-difference-between-highest-and-lowest-of-k-scores/)
  *
  * - sliding window
+ * - PRACTICE: P3
  *
  * https://www.youtube.com/watch?v=JU5XdBZZtlk&ab_channel=NeetCode
  */
@@ -23,6 +24,7 @@ public class MinDiffHighLowScore {
 
     /**
      * Time: O(n log(n))
+     * Space: O(1)
      */
     public int minimumDifference(int[] nums, int k) {
         Arrays.sort(nums);
@@ -30,7 +32,9 @@ public class MinDiffHighLowScore {
         int left = 0;
         int right = k - 1;
         while (right < nums.length) {
-            result = Math.min(result, nums[right++] - nums[left++]);
+            result = Math.min(result, nums[right] - nums[left]);
+            right++;
+            left++;
         }
         return result;
     }

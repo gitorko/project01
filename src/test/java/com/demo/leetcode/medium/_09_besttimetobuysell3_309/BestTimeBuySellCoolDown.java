@@ -13,8 +13,7 @@ import org.junit.jupiter.api.Test;
  * - if buy i + 1
  * - if sell i + 2
  * - SIMILAR_TO: [494. Target Sum - MEDIUM](https://leetcode.com/problems/target-sum/)
- *
- * PRACTICE: P2
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=I7j0F7AHpb8&ab_channel=NeetCode
  */
@@ -50,9 +49,9 @@ public class BestTimeBuySellCoolDown {
 
     public int maxProfit(int i, boolean buying) {
         //end case for recursion
-        if (i >= prices.length)
+        if (i >= prices.length) {
             return 0;
-
+        }
         String key = i + "_" + buying;
         if (dp.get(key) != null) {
             return dp.get(key);
@@ -79,7 +78,6 @@ public class BestTimeBuySellCoolDown {
         int prevSell = 0;
         int prevBuy;
         int buy = Integer.MIN_VALUE;
-
         for (int price : prices) {
             prevBuy = buy;
             buy = Math.max(prevSell - price, prevBuy);

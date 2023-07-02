@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
  * - two pointer - modifying the input array in-place with O(1)
  * - copy to left
  * - SIMILAR_TO: [27. Remove Element - EASY](https://leetcode.com/problems/remove-element/)
+ * - PRACTICE: P3
  *
  * https://www.youtube.com/watch?v=DEJAZBq0FDA&ab_channel=NeetCode
  */
@@ -28,8 +29,9 @@ public class RemoveDuplicateSortedArray {
      * Space: O(1)
      */
     public int removeDuplicates(int[] nums) {
-        if (nums.length == 0)
+        if (nums.length == 0) {
             return 0;
+        }
         int left = 1;
         //start from 2nd element
         for (int right = 1; right < nums.length; right++) {

@@ -12,8 +12,7 @@ import org.junit.jupiter.api.Test;
  * - backtracking
  * - SIMILAR_TO: [416. Partition Equal Subset Sum - MEDIUM](https://leetcode.com/problems/partition-equal-subset-sum/)
  * - SIMILAR_TO: [473. Matchsticks to Square - MEDIUM](https://leetcode.com/problems/matchsticks-to-square/)
- *
- * PRACTICE: P1
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=mBk4I0X46oI&ab_channel=NeetCode
  */
@@ -44,8 +43,9 @@ public class PartitionKEqualSubset {
                 .mapToInt(Integer::intValue)
                 .toArray();
 
-        if (sum % k != 0)
+        if (sum % k != 0) {
             return false;
+        }
 
         target = sum / k; // each subset's target sum
         seen = new boolean[nums.length];
@@ -53,17 +53,20 @@ public class PartitionKEqualSubset {
     }
 
     private boolean backtrack(int i, int k, int subsetSum) {
-        if (k == 0)
+        if (k == 0) {
             return true;
-        if (subsetSum == target)
+        }
+        if (subsetSum == target) {
             return backtrack(0, k - 1, 0);
-
+        }
         for (int j = i; j < nums.length; j++) {
-            if (seen[j] || subsetSum + nums[j] > target)
+            if (seen[j] || subsetSum + nums[j] > target) {
                 continue;
+            }
             seen[j] = true;
-            if (backtrack(j + 1, k, subsetSum + nums[j]))
+            if (backtrack(j + 1, k, subsetSum + nums[j])) {
                 return true;
+            }
             seen[j] = false;
         }
         return false;

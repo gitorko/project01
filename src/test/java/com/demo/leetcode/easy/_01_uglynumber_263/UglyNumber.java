@@ -19,6 +19,9 @@ public class UglyNumber {
         Assertions.assertFalse(isUgly(14));
     }
 
+    /**
+     * Time: O(log(n))
+     */
     public boolean isUgly(int num) {
         if (num == 1) return true;
         if (num == 0) return false;

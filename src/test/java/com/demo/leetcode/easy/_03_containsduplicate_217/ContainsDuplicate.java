@@ -47,18 +47,17 @@ public class ContainsDuplicate {
     /**
      * Sorting and comparing neighbours.
      *
-     * Time: O(n log(n))
+     * Time: O(n*log(n))
      * Space: O(1)
      */
     public boolean containsDuplicate2(int[] nums) {
         Arrays.sort(nums);
-        for (int ind = 1; ind < nums.length; ind++) {
-            if (nums[ind] == nums[ind - 1]) {
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] == nums[i - 1]) {
                 return true;
             }
         }
         return false;
     }
-
 
 }

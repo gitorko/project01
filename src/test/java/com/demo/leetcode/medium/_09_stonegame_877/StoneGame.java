@@ -11,8 +11,7 @@ import org.junit.jupiter.api.Test;
  * [877. Stone Game - MEDIUM](https://leetcode.com/problems/stone-game/)
  *
  * - dp
- *
- * PRACTICE
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=uhgdXOlGYqE&ab_channel=NeetCode
  */
@@ -47,10 +46,10 @@ public class StoneGame {
         if (dp.containsKey(left + "_" + right)) {
             return dp.get(left + "_" + right);
         }
-        boolean even = (right - left) % 2 == 0;
+        boolean evenElements = (right - left) % 2 == 0;
         int leftVal = 0;
         int rightVal = 0;
-        if (even) {
+        if (evenElements) {
             //alice making the choice
             leftVal = piles[left];
             rightVal = piles[right];
@@ -71,9 +70,11 @@ public class StoneGame {
     public boolean stoneGame2(int[] piles) {
         int n = piles.length;
         int[] dp = Arrays.copyOf(piles, n);
-        for (int i = 1; i < n; i++)
-            for (int j = 0; j < n - i; j++)
+        for (int i = 1; i < n; i++) {
+            for (int j = 0; j < n - i; j++) {
                 dp[j] = Math.max(piles[j] - dp[j + 1], piles[j + i] - dp[j]);
+            }
+        }
         return dp[0] > 0;
     }
 

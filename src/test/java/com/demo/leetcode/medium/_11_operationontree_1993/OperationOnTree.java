@@ -51,57 +51,62 @@ public class OperationOnTree {
             children = new HashMap<>();
             locked = new HashMap<>();
             this.parent = parent;
-
-            for (int i = 0; i < n; i++)
+            for (int i = 0; i < n; i++) {
                 children.put(i, new ArrayList<>());
-            for (int i = 1; i < n; i++)
+            }
+            for (int i = 1; i < n; i++) {
                 children.get(parent[i]).add(i);
+            }
         }
 
         public boolean lock(int num, int user) {
             //if no lock held lock for user
-            if (locked.containsKey(num))
+            if (locked.containsKey(num)) {
                 return false;
+            }
             locked.put(num, user);
             return true;
         }
 
         public boolean unlock(int num, int user) {
             //contains lock, lock is held by same user then unlock
-            if (!locked.containsKey(num) || locked.get(num) != user)
+            if (!locked.containsKey(num) || locked.get(num) != user) {
                 return false;
+            }
             locked.remove(num, user);
             return true;
         }
 
         public boolean upgrade(int num, int user) {
             //if node holds a lock return
-            if (locked.containsKey(num))
+            if (locked.containsKey(num)) {
                 return false;
-
+            }
             // check if all the ancestor nodes are unlocked.
             int curr = num;
             while (curr != -1) {
                 curr = parent[curr];
-                if (locked.containsKey(curr))
+                if (locked.containsKey(curr)) {
                     return false;
+                }
             }
-
             // check if num has at least one locked descendant
             int tmp = locked.size();
             dfs(num);
-            if (tmp == locked.size())
+            if (tmp == locked.size()) {
                 return false;
-
+            }
             locked.put(num, user);
             return true;
         }
 
         public void dfs(int src) {
-            if (locked.containsKey(src))
+            if (locked.containsKey(src)) {
                 locked.remove(src);
-            for (int nbr : children.get(src))
+            }
+            for (int nbr : children.get(src)) {
                 dfs(nbr);
+            }
         }
     }
 }

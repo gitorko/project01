@@ -69,7 +69,6 @@ public class isSubarray {
     public int strStr2(String haystack, String needle) {
         int m = haystack.length();
         int n = needle.length();
-
         for (int i = 0; i < m - n + 1; i++) {
             if (haystack.substring(i, i + n).equals(needle)) {
                 return i;
@@ -80,12 +79,13 @@ public class isSubarray {
 
     /**
      * KMP algorithm of needle matching.
+     * Time: O(m+n)
+     * Space: O(m)
      * HARD
      */
     public int strStr3(String haystack, String needle) {
         char[] text = haystack.toCharArray();
         char[] pattern = needle.toCharArray();
-
         int lps[] = computeLPS(pattern);
         int i = 0;
         int j = 0;
@@ -107,8 +107,8 @@ public class isSubarray {
         return -1;
     }
 
-
     /**
+     * longest prefix suffix
      * Time: O(size of pattern)
      */
     private int[] computeLPS(char pattern[]) {

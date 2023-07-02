@@ -9,9 +9,9 @@ import org.junit.jupiter.api.Test;
 /**
  * [2001. Number of Pairs of Interchangeable Rectangles - MEDIUM](https://leetcode.com/problems/number-of-pairs-of-interchangeable-rectangles/)
  *
- * - n!/(n-k)!k!
  * - n * (n - 1) / 2
- * - gcd
+ * - Math
+ * - n!/(n-k)!k! (n numbers, with k combinations)
  *
  * https://www.youtube.com/watch?v=lEQ8ZlLOuyQ&ab_channel=NeetCode
  */
@@ -32,9 +32,8 @@ public class PairInterchangeRectangle {
         Map<Double, Integer> countMap = new HashMap<>();
         for (int[] r : rectangles) {
             double key = (double) r[0] / r[1];
-            countMap.put(key, countMap.getOrDefault(key, 0) +1);
+            countMap.put(key, countMap.getOrDefault(key, 0) + 1);
         }
-
         for (int value : countMap.values()) {
             result += (long) value * (value - 1) / 2;
         }

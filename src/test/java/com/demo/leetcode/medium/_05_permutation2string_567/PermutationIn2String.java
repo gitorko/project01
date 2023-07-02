@@ -34,9 +34,9 @@ public class PermutationIn2String {
      */
     public boolean checkInclusion(String s1, String s2) {
         //edge case
-        if (s1.length() > s2.length())
+        if (s1.length() > s2.length()) {
             return false;
-
+        }
         int[] s1map = new int[26];
         int[] s2map = new int[26];
         //first window initialized
@@ -47,7 +47,9 @@ public class PermutationIn2String {
 
         int matches = 0;
         for (int i = 0; i < 26; i++) {
-            if (s1map[i] == s2map[i]) matches++;
+            if (s1map[i] == s2map[i]) {
+                matches++;
+            }
         }
         if (matches == 26) {
             return true;
@@ -76,7 +78,7 @@ public class PermutationIn2String {
             }
             left++;
             right++;
-            if (matches == 26)  {
+            if (matches == 26) {
                 return true;
             }
         }

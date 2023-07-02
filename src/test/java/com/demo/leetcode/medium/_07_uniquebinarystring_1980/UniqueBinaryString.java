@@ -27,9 +27,10 @@ public class UniqueBinaryString {
      * This will make sure that the binary we have made is unique (as it differs from all others at atleast one position).
      */
     public String findDifferentBinaryString(String[] nums) {
-        StringBuilder ans = new StringBuilder();
-        for (int i = 0; i < nums.length; i++)
-            ans.append(nums[i].charAt(i) == '0' ? '1' : '0');
-        return ans.toString();
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < nums.length; i++) {
+            result.append(nums[i].charAt(i) == '0' ? '1' : '0');
+        }
+        return result.toString();
     }
 }

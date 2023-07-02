@@ -20,11 +20,9 @@ public class Fibonacci {
     @Test
     public void test() {
         Assertions.assertEquals(13, fib(7));
-        Assertions.assertEquals(13, fibMem(7));
-
+        Assertions.assertEquals(13, fibMemoization(7));
         Assertions.assertEquals(13, fibIter(7));
         Assertions.assertEquals(13, fibIterOpt(7));
-
         Assertions.assertEquals(13, new FibForkJoin(7).compute());
     }
 
@@ -35,8 +33,9 @@ public class Fibonacci {
      */
     public int fib(int n) {
         //base case
-        if (n <= 1)
+        if (n <= 1) {
             return n;
+        }
         return fib(n - 1) + fib(n - 2);
     }
 
@@ -47,21 +46,21 @@ public class Fibonacci {
      */
     int[] dp;
 
-    public int fibMem(int n) {
+    public int fibMemoization(int n) {
         dp = new int[n + 1];
-        return fibMem(n, dp);
+        return fibMem(n);
     }
 
-    private int fibMem(int n, int[] cache) {
+    private int fibMem(int n) {
         //base case
-        if (n <= 1)
+        if (n <= 1) {
             return n;
-        if (cache[n] != 0) {
-            return cache[n];
-        } else {
-            cache[n] = fibMem(n - 1, cache) + fibMem(n - 2, cache);
-            return cache[n];
         }
+        if (dp[n] != 0) {
+            return dp[n];
+        }
+        dp[n] = fibMem(n - 1) + fibMem(n - 2);
+        return dp[n];
     }
 
     /**
@@ -87,7 +86,9 @@ public class Fibonacci {
      * Bottom up + N Variable
      */
     public int fibIterOpt(int n) {
-        if (n == 0) return 0;
+        if (n <= 1) {
+            return n;
+        }
         int prevNumber = 0;
         int nextNumber = 1;
         for (int i = 2; i < n; i++) {

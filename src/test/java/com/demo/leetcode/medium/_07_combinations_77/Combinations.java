@@ -11,8 +11,7 @@ import org.junit.jupiter.api.Test;
  * [77. Combinations - MEDIUM](https://leetcode.com/problems/combinations/)
  *
  * - backtracking
- *
- * PRACTICE
+ * - PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=q0s6m7AiM7o&ab_channel=NeetCode
  */
@@ -31,6 +30,9 @@ public class Combinations {
         Assertions.assertEquals(expected, combine(4, 2));
     }
 
+    /**
+     * Time: O(k * n^k)
+     */
     List<List<Integer>> result;
     int n;
 
@@ -41,12 +43,12 @@ public class Combinations {
         return result;
     }
 
-    private void backtrack(int k, int s, List<Integer> temp) {
+    private void backtrack(int k, int start, List<Integer> temp) {
         if (k == 0) {
             result.add(new ArrayList<>(temp));
             return;
         }
-        for (int i = s; i <= n; i++) {
+        for (int i = start; i < n + 1; i++) {
             temp.add(i);
             backtrack(k - 1, i + 1, temp);
             temp.remove(temp.size() - 1);

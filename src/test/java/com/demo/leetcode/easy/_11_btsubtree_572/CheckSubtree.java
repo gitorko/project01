@@ -27,9 +27,11 @@ public class CheckSubtree {
 
     public boolean isSubtree(TreeNode root, TreeNode subRoot) {
         if (subRoot == null) {
-            return true; //empty tree is subRoot.
+            //empty tree is subRoot.
+            return true;
         } else if (root == null) {
-            return false; //big tree empty
+            //big tree empty
+            return false;
         } else if (root.val == subRoot.val && isSameTree(root, subRoot)) {
             return true;
         } else {

@@ -6,8 +6,7 @@ import org.junit.jupiter.api.Test;
 /**
  * [605. Can Place Flowers - EASY](https://leetcode.com/problems/can-place-flowers/)
  *
- *  - extra array with zero on either side
- *  - without extra array
+ *  - zero on either edges.
  *
  * https://www.youtube.com/watch?v=ZGxqqjljpUI&ab_channel=NeetCode
  */
@@ -69,33 +68,17 @@ public class CanPlaceFlower {
      * - [000] - can place 2 flower on either end
      */
     public boolean canPlaceFlowers(int[] flowerbed, int n) {
-        if (n == 0) return true;
+        if (n == 0) {
+            return true;
+        }
         for (int i = 0; i < flowerbed.length; i++) {
             if (flowerbed[i] == 0 && (i == 0 || flowerbed[i - 1] == 0) && (i == flowerbed.length - 1 || flowerbed[i + 1] == 0)) {
                 n--;
-                if (n == 0) return true;
+                if (n == 0) {
+                    return true;
+                }
                 // place  flower
                 flowerbed[i] = 1;
-            }
-        }
-        return false;
-    }
-
-    /**
-     * Creates a new array
-     * Time: O(n)
-     * Space: O(n)
-     */
-    public boolean canPlaceFlowers2(int[] flowerbed, int n) {
-        if (n == 0) return true;
-        int newFlowerBed[] = new int[flowerbed.length + 2];
-        System.arraycopy(flowerbed, 0, newFlowerBed, 1, flowerbed.length);
-        for (int i = 1; i < newFlowerBed.length - 1; i++) {
-            if (newFlowerBed[i - 1] == 0 && newFlowerBed[i] == 0 && newFlowerBed[i + 1] == 0) {
-                n--;
-                if (n == 0) return true;
-                // place  flower
-                newFlowerBed[i] = 1;
             }
         }
         return false;

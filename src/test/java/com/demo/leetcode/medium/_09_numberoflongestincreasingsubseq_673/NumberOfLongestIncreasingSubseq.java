@@ -13,8 +13,7 @@ import org.junit.jupiter.api.Test;
  * - map dp(count+length)
  * - local max length, local max count
  * - SIMILAR_TO: [300. Longest Increasing Subsequence - MEDIUM](https://leetcode.com/problems/longest-increasing-subsequence/)
- *
- * PRACTICE: P1
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=Tuc-rjJbsXU&ab_channel=NeetCode
  */
@@ -40,7 +39,6 @@ public class NumberOfLongestIncreasingSubseq {
         Map<Integer, int[]> dp = new HashMap<>();
         int maxCount = 0;
         int maxLen = 0;
-
         for (int i = nums.length - 1; i >= 0; i--) {
             //max will be the number itself so always init to 1
             int localMaxLen = 1;
@@ -49,8 +47,10 @@ public class NumberOfLongestIncreasingSubseq {
                 if (nums[i] < nums[j]) {
                     int length = dp.get(j)[0];
                     int count = dp.get(j)[1];
+                    //new max found
                     if (length + 1 > localMaxLen) {
                         localMaxLen = length + 1;
+                        //note: count doesn't change even though the lenght increases.
                         localMaxCount = count;
                     } else if (length + 1 == localMaxLen) {
                         localMaxCount += count;

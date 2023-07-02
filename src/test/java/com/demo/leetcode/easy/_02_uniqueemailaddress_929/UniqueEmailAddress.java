@@ -22,11 +22,14 @@ public class UniqueEmailAddress {
     }
 
     public int numUniqueEmails(String[] emails) {
-        Set<String> normalized = new HashSet<>(); // used to save simplified email address, cost O(n) sapce.
+        Set<String> normalized = new HashSet<>();
         for (String email : emails) {
-            String[] parts = email.split("@"); // split into local and domain parts.
-            String[] local = parts[0].split("\\+"); // split local by '+'.
-            normalized.add(local[0].replace(".", "") + "@" + parts[1]); // remove all '.', and concatenate '@' and domain.
+            // split into local and domain parts.
+            String[] parts = email.split("@");
+            // split local by '+'.
+            String[] local = parts[0].split("\\+");
+            // remove all '.', and concatenate '@' and domain.
+            normalized.add(local[0].replace(".", "") + "@" + parts[1]);
         }
         return normalized.size();
     }

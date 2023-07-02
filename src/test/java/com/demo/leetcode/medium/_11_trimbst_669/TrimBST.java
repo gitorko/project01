@@ -12,8 +12,7 @@ import org.junit.jupiter.api.Test;
  * [669. Trim a Binary Search Tree - MEDIUM](https://leetcode.com/problems/trim-a-binary-search-tree/)
  *
  * - bst, hence if left is less than low go right. right is greater than high go left.
- *
- * PRACTICE
+ * - PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=jwt5mTjEXGc&ab_channel=NeetCode
  */
@@ -42,14 +41,17 @@ public class TrimBST {
      * Space: O(h)
      */
     public TreeNode trimBST(TreeNode root, int low, int high) {
-        if (root == null)
+        if (root == null) {
             return null;
+        }
         //everything on left is less than low so return right.
-        if (root.val < low)
+        if (root.val < low) {
             return trimBST(root.right, low, high);
+        }
         //everything on right is higher than high so return right.
-        if (root.val > high)
+        if (root.val > high) {
             return trimBST(root.left, low, high);
+        }
         root.left = trimBST(root.left, low, high);
         root.right = trimBST(root.right, low, high);
         return root;

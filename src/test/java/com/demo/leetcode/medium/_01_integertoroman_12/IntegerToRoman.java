@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
  * [12. Integer to Roman - MEDIUM](https://leetcode.com/problems/integer-to-roman/)
  *
  * - divide & mod
+ * - SIMILAR_TO: [13. Roman to Integer - EASY](https://leetcode.com/problems/roman-to-integer/)
  *
  * https://www.youtube.com/watch?v=ohBNdSJyLh8&ab_channel=NeetCode
  */
@@ -22,23 +23,23 @@ public class IntegerToRoman {
     }
 
     public String intToRoman(int num) {
-        Map<String, Integer> map = new LinkedHashMap<>();
-        map.put("M", 1000);
-        map.put("CM", 900);
-        map.put("D", 500);
-        map.put("CD", 400);
-        map.put("C", 100);
-        map.put("XC", 90);
-        map.put("L", 50);
-        map.put("XL", 40);
-        map.put("X", 10);
-        map.put("IX", 9);
-        map.put("V", 5);
-        map.put("IV", 4);
-        map.put("I", 1);
+        Map<String, Integer> roman = new LinkedHashMap<>();
+        roman.put("M", 1000);
+        roman.put("CM", 900);
+        roman.put("D", 500);
+        roman.put("CD", 400);
+        roman.put("C", 100);
+        roman.put("XC", 90);
+        roman.put("L", 50);
+        roman.put("XL", 40);
+        roman.put("X", 10);
+        roman.put("IX", 9);
+        roman.put("V", 5);
+        roman.put("IV", 4);
+        roman.put("I", 1);
 
         StringBuilder sb = new StringBuilder();
-        for (Map.Entry<String, Integer> entry : map.entrySet()) {
+        for (Map.Entry<String, Integer> entry : roman.entrySet()) {
             if (num / entry.getValue() != 0) {
                 int count = num / entry.getValue();
                 sb.append(entry.getKey().repeat(count));

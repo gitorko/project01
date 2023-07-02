@@ -60,9 +60,9 @@ public class MajorityElement {
         //start from 2nd element
         for (int i = 1; i < nums.length; i++) {
             if (count == 0) {
-                count++;
                 majority = nums[i];
-            } else if (majority == nums[i]) {
+            }
+            if (majority == nums[i]) {
                 count++;
             } else {
                 count--;

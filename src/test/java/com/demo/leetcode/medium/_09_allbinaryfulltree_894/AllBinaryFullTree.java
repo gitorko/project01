@@ -14,6 +14,7 @@ import org.junit.jupiter.api.Test;
  * [894. All Possible Full Binary Trees - MEDIUM](https://leetcode.com/problems/all-possible-full-binary-trees/)
  *
  * - recursion
+ * - PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=nZtrZPTTCAo&ab_channel=NeetCode
  */
@@ -32,21 +33,24 @@ public class AllBinaryFullTree {
 
     public List<TreeNode> allPossibleFBT(int n) {
         //cant make full binary tree with even nodes
-        if (n % 2 == 0)
+        if (n == 0 || n % 2 == 0) {
             return new ArrayList<>();
-        if (n == 1)
+        }
+        if (n == 1) {
             return Arrays.asList(new TreeNode(0));
-        if (dp.containsKey(n))
+        }
+        if (dp.containsKey(n)) {
             return dp.get(n);
-
+        }
         List<TreeNode> result = new ArrayList<>();
         for (int leftCount = 0; leftCount < n; leftCount++) {
             int rightCount = n - 1 - leftCount;
             for (TreeNode left : allPossibleFBT(leftCount)) {
                 for (TreeNode right : allPossibleFBT(rightCount)) {
-                    result.add(new TreeNode(0));
-                    result.get(result.size() - 1).left = left;
-                    result.get(result.size() - 1).right = right;
+                    TreeNode newNode = new TreeNode(0);
+                    newNode.left = left;
+                    newNode.right = right;
+                    result.add(newNode);
                 }
             }
         }
