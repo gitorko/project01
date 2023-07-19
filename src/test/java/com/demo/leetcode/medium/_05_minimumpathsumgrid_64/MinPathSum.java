@@ -7,9 +7,7 @@ import org.junit.jupiter.api.Test;
  * [64. Minimum Path Sum - MEDIUM](https://leetcode.com/problems/minimum-path-sum/)
  *
  * - first row+col different, modify input
- * - no need separate dp cache, can use input
- *
- * PRACTICE
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=hwRWt-PH394&t=334s&ab_channel=DEEPTITALESRA
  * https://www.youtube.com/watch?v=pGMsrvt0fpk&ab_channel=NeetCode
@@ -23,7 +21,7 @@ public class MinPathSum {
     }
 
     /**
-     * Time: O(n)
+     * Time: O(m * n)
      * Space: O(1) - doesnt use extra memory
      */
     public int minPathSum(int[][] grid) {

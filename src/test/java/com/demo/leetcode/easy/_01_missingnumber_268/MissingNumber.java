@@ -33,7 +33,7 @@ public class MissingNumber {
     public int missingNumber1(int[] nums) {
         //Add the last element to result to avoid index out of bounds.
         int result = 0;
-        for (int i = 1; i <= nums.length; i++) {
+        for (int i = 1; i < nums.length + 1; i++) {
             result ^= i;
         }
         for (int i = 0; i < nums.length; i++) {
@@ -49,34 +49,36 @@ public class MissingNumber {
      * Space: O(1)
      */
     public int missingNumber2(int[] nums) {
-        int len = nums.length;
-        //Gauss formula to calculate sum
-        //int sum = (0 + len) * (len + 1) / 2;
+        //Can also use Gauss formula to calculate sum
+        //int sum = (len) * (len + 1) / 2;
         int sum = 0;
-        for (int i = 0; i <= len; i++) {
+        for (int i = 0; i < nums.length + 1; i++) {
             sum += i;
         }
-
-        for (int i = 0; i < len; i++)
+        for (int i = 0; i < nums.length; i++) {
             sum -= nums[i];
+        }
         return sum;
     }
 
     /**
      * Sort, and binary search. mid element will be offset if there is missing number, so search only one side.
-     * Time: O(n log(n)) includes sorting.
+     * Time: O(n * log(n))
      * Time: O(log(n)) if array already sorted.
      * Space: O(1)
      */
-    public int missingNumber3(int[] nums) { //binary search
+    public int missingNumber3(int[] nums) {
         Arrays.sort(nums);
         int left = 0;
         int right = nums.length;
         int mid;
         while (left < right) {
             mid = (left + right) / 2;
-            if (nums[mid] > mid) right = mid;
-            else left = mid + 1;
+            if (nums[mid] > mid) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
         }
         return left;
     }

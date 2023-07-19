@@ -7,8 +7,7 @@ import org.junit.jupiter.api.Test;
  * [1423. Maximum Points You Can Obtain from Cards - MEDIUM](https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/)
  *
  * - sliding window, sum right first
- *
- * PRACTICE
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=TsA4vbtfCvo&ab_channel=NeetCode
  */
@@ -29,15 +28,15 @@ public class MaxPointsCards {
         int left = 0;
         int right = cardPoints.length - k;
         int sum = 0;
-
         for (int i = right; i < cardPoints.length; i++) {
             sum += cardPoints[i];
         }
         int maxSum = sum;
-
         while (right < cardPoints.length) {
-            sum = sum + cardPoints[left++] - cardPoints[right++];
+            sum += cardPoints[left] - cardPoints[right];
             maxSum = Math.max(maxSum, sum);
+            left++;
+            right++;
         }
         return maxSum;
     }

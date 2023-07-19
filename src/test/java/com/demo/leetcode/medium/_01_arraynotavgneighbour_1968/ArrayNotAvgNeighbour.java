@@ -43,6 +43,7 @@ public class ArrayNotAvgNeighbour {
      */
     public int[] rearrangeArray2(int[] nums) {
         Arrays.sort(nums);
+        //increment by +2
         for (int i = 1; i < nums.length; i += 2) {
             swap(nums, i, i - 1);
         }

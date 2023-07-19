@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
  *
  * - find arrival distance/speed
  * - sort
+ * - PRACTICE: P3
  *
  * https://www.youtube.com/watch?v=6QQRayzOTD4&ab_channel=NeetCode
  */
@@ -30,23 +31,22 @@ public class EliminateMonster {
     }
 
     /**
-     * Time: O(n)
-     * Space: O(nlogn)
+     * Time: O(n*log(n))
+     * Space: O(n)
      */
     public int eliminateMaximum(int[] dist, int[] speed) {
         int[] minReach = new int[dist.length];
-
         for (int i = 0; i < dist.length; i++) {
             minReach[i] = (int) Math.ceil(dist[i] / (float) speed[i]);
         }
         Arrays.sort(minReach);
-
         int result = 0;
         for (int i = 0; i < minReach.length; i++) {
-            if (i >= minReach[i]) {
+            if (minReach[i] > i) {
+                result++;
+            } else {
                 return result;
             }
-            result++;
         }
         return result;
     }

@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
  * - boundary scan
  * - dfs on each O on boundary change to *
  * - last flip all O to X and * to O
+ * - PRACTICE: P2
  */
 public class SurroundedRegion {
 
@@ -21,51 +22,56 @@ public class SurroundedRegion {
     }
 
     char[][] board;
-    int rowLength;
-    int colLength;
+    int rowLen;
+    int colLen;
 
     public void solve(char[][] input) {
         this.board = input;
-        rowLength = board.length;
-        colLength = board[0].length;
-
-        if (rowLength < 2 || colLength < 2)
+        rowLen = board.length;
+        colLen = board[0].length;
+        if (rowLen < 2 || colLen < 2) {
             return;
-
+        }
         //Any 'O' connected to a boundary can't be turned to 'X'
         //Start from first and last column, turn 'O' to '*'.
-        for (int i = 0; i < rowLength; i++) {
-            if (board[i][0] == 'O')
-                boundaryDFS(i, 0);
-            if (board[i][colLength - 1] == 'O')
-                boundaryDFS(i, colLength - 1);
+        for (int i = 0; i < rowLen; i++) {
+            if (board[i][0] == 'O') {
+                dfs(i, 0);
+            }
+            if (board[i][colLen - 1] == 'O') {
+                dfs(i, colLen - 1);
+            }
         }
         //Start from first and last row, turn '0' to '*'
-        for (int j = 0; j < colLength; j++) {
-            if (board[0][j] == 'O')
-                boundaryDFS(0, j);
-            if (board[rowLength - 1][j] == 'O')
-                boundaryDFS(rowLength - 1, j);
+        for (int j = 0; j < colLen; j++) {
+            if (board[0][j] == 'O') {
+                dfs(0, j);
+            }
+            if (board[rowLen - 1][j] == 'O') {
+                dfs(rowLen - 1, j);
+            }
         }
         //post-processing, turn 'O' to 'X', '*' back to 'O', keep 'X' intact.
-        for (int i = 0; i < rowLength; i++) {
-            for (int j = 0; j < colLength; j++) {
-                if (board[i][j] == 'O')
+        for (int i = 0; i < rowLen; i++) {
+            for (int j = 0; j < colLen; j++) {
+                if (board[i][j] == 'O') {
                     board[i][j] = 'X';
-                else if (board[i][j] == '*')
+                } else if (board[i][j] == '*') {
                     board[i][j] = 'O';
+                }
             }
         }
     }
 
     //Use DFS algo to turn internal however boundary-connected 'O' to '*';
-    private void boundaryDFS(int i, int j) {
-        if (i < 0 || j < 0 || i == rowLength || j == colLength || board[i][j] != 'O')
+    private void dfs(int i, int j) {
+        if (i < 0 || j < 0 || i == rowLen || j == colLen || board[i][j] != 'O') {
             return;
+        }
         board[i][j] = '*';
-        boundaryDFS(i - 1, j);
-        boundaryDFS(i + 1, j);
-        boundaryDFS(i, j - 1);
-        boundaryDFS(i, j + 1);
+        dfs(i - 1, j);
+        dfs(i + 1, j);
+        dfs(i, j - 1);
+        dfs(i, j + 1);
     }
 }

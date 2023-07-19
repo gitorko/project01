@@ -8,8 +8,8 @@ import org.junit.jupiter.api.Test;
 
 /**
  * [325. Maximum Size Subarray Sum Equals k - MEDIUM](https://leetcode.com/problems/maximum-size-subarray-sum-equals-k/)
- * https://www.lintcode.com/problem/maximum-size-subarray-sum-equals-k
  *
+ * - https://www.lintcode.com/problem/maximum-size-subarray-sum-equals-k
  * - prefix sum map, 0 has value -1
  * - SIMILAR_TO: [560. Subarray Sum Equals K - MEDIUM](https://leetcode.com/problems/subarray-sum-equals-k/)
  *

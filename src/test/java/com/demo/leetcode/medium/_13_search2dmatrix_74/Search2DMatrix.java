@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
  * [74. Search a 2D Matrix - MEDIUM](https://leetcode.com/problems/search-a-2d-matrix/)
  *
  * - binary search
- * - mid/n , mid%n
  * - PRACTICE: P3
  *
  * https://www.youtube.com/watch?v=Ber2pi2C0j0&ab_channel=NeetCode
@@ -39,6 +38,7 @@ public class Search2DMatrix {
     }
 
     /**
+     * when range is more than 2 digit
      * Time: O(log(m) + log(n))
      * Space: O(1)
      */
@@ -48,7 +48,6 @@ public class Search2DMatrix {
         }
         int rowLen = matrix.length;
         int colLen = matrix[0].length;
-
         int top = 0;
         int bottom = rowLen - 1;
         while (top <= bottom) {
@@ -61,12 +60,10 @@ public class Search2DMatrix {
                 break;
             }
         }
-
         //no match found
         if (!(top <= bottom)) {
             return false;
         }
-
         int row = (top + bottom) / 2;
         int left = 0;
         int right = colLen - 1;
@@ -84,6 +81,7 @@ public class Search2DMatrix {
     }
 
     /**
+     * Works only when range is 2 digit
      * Time: O(mn * log(mn))
      * Space: O(1)
      */
@@ -91,12 +89,10 @@ public class Search2DMatrix {
         if (matrix.length == 0) {
             return false;
         }
-
         int m = matrix.length;
         int n = matrix[0].length;
         int left = 0;
         int right = m * n;
-
         while (left < right) {
             int mid = (left + right) / 2;
             //will work only because range is 2 digit
@@ -113,4 +109,5 @@ public class Search2DMatrix {
         }
         return false;
     }
+
 }

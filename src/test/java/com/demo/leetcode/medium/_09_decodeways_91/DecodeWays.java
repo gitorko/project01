@@ -24,6 +24,16 @@ public class DecodeWays {
         Assertions.assertEquals(3, numDecodings("226"));
     }
 
+    @Test
+    public void test3() {
+        Assertions.assertEquals(3, numDecodings("1201234"));
+    }
+
+    @Test
+    public void test4() {
+        Assertions.assertEquals(0, numDecodings("06"));
+    }
+
     /**
      * Time: O(n)
      * Space: O(n)
@@ -33,7 +43,6 @@ public class DecodeWays {
         int[] dp = new int[n + 1];
         dp[n] = 1; // ""
         dp[n - 1] = isValid(s.charAt(n - 1)) ? 1 : 0;
-
         for (int i = n - 2; i >= 0; i--) {
             if (isValid(s.charAt(i))) {
                 dp[i] += dp[i + 1];

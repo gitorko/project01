@@ -23,18 +23,25 @@ public class Power {
     }
 
     /**
-     * Time: O(logn)
+     * Time: O(log(n))
      * Space: O(1)
      */
     public double myPow(double x, long n) {
-        if (n == 0)
+        if (x == 0) {
+            return 0;
+        }
+        if (n == 0) {
             return 1;
-        if (n < 0)
+        }
+        if (n < 0) {
             return 1 / myPow(x, -n);
-        //for odd number make n as even.
-        if (n % 2 == 1)
+        }
+        if (n % 2 == 1) {
+            //for odd number make n as even.
             return x * myPow(x, n - 1);
-        //for even number reduce the recursion call.
-        return myPow(x * x, n / 2);
+        } else {
+            //for even number reduce the recursion call.
+            return myPow(x * x, n / 2);
+        }
     }
 }

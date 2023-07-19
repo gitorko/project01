@@ -10,13 +10,12 @@ import org.junit.jupiter.api.Test;
 /**
  * [253. Meeting Rooms II - MEDIUM](https://leetcode.com/problems/meeting-rooms-ii/)
  *
+ * - https://www.lintcode.com/problem/919/
  * - option1: heap
  * - option2: two array comparison
  * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=FdzJmTCVyJU&ab_channel=NeetCode
- * https://www.youtube.com/watch?v=tNhiD4SaumY&ab_channel=DEEPTITALESRA
- * https://www.lintcode.com/problem/919/
  */
 public class MinMeetingRoom2 {
 

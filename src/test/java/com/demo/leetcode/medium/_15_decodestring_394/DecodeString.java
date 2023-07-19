@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
  *
  * - stack
  * - StringBuilder.insert(0,val)
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=qB0zZpBJlh8&ab_channel=NeetCode
  */
@@ -18,6 +19,7 @@ public class DecodeString {
     @Test
     public void test1() {
         Assertions.assertEquals("aaabcbc", decodeString("3[a]2[bc]"));
+        Assertions.assertEquals("aaa", decodeString("3[a]"));
     }
 
     @Test
@@ -51,6 +53,5 @@ public class DecodeString {
             }
         }
         return String.join("", stack);
-
     }
 }

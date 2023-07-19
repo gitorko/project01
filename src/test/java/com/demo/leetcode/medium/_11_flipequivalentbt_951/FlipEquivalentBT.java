@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
  * [951. Flip Equivalent Binary Trees - MEDIUM](https://leetcode.com/problems/flip-equivalent-binary-trees/)
  *
  * - recursion
+ * - PRACTICE: P3
  *
  * https://www.youtube.com/watch?v=izRDc1il9Pk&ab_channel=NeetCode
  */
@@ -24,13 +25,15 @@ public class FlipEquivalentBT {
     }
 
     public boolean flipEquiv(TreeNode root1, TreeNode root2) {
-        if (root1 == null && root2 == null)
+        if (root1 == null && root2 == null) {
             return true;
-        if (root1 == null || root2 == null)
+        }
+        if (root1 == null || root2 == null) {
             return false;
-        if (root1.val != root2.val)
+        }
+        if (root1.val != root2.val) {
             return false;
-        return flipEquiv(root1.left, root2.left) && flipEquiv(root1.right, root2.right) ||
-                flipEquiv(root1.left, root2.right) && flipEquiv(root1.right, root2.left);
+        }
+        return flipEquiv(root1.left, root2.left) && flipEquiv(root1.right, root2.right) || flipEquiv(root1.left, root2.right) && flipEquiv(root1.right, root2.left);
     }
 }

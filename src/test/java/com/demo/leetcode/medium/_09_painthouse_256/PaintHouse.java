@@ -5,8 +5,8 @@ import org.junit.jupiter.api.Test;
 
 /**
  * [256. Paint House - MEDIUM](https://leetcode.com/problems/paint-house/)
- * https://www.lintcode.com/problem/515/
  *
+ * - https://www.lintcode.com/problem/515/
  * - dp
  *
  * https://www.youtube.com/watch?v=-w67-4tnH5U&ab_channel=NeetCode
@@ -30,10 +30,10 @@ public class PaintHouse {
      * Space: O(1)
      */
     public int minCost(int[][] costs) {
-        if (costs.length == 0)
+        if (costs.length == 0) {
             return 0;
+        }
         int[] dp = new int[costs[0].length];
-
         for (int i = 0; i < costs.length; i++) {
             int dp0 = costs[i][0] + Math.min(dp[1], dp[2]);
             int dp1 = costs[i][1] + Math.min(dp[0], dp[2]);

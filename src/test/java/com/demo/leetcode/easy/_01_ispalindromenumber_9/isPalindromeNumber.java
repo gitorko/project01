@@ -19,6 +19,8 @@ public class isPalindromeNumber {
         Assertions.assertTrue(isPalindromeNum(1331));
         Assertions.assertFalse(isPalindromeNum(-121));
         Assertions.assertFalse(isPalindromeNum(123));
+        Assertions.assertTrue(isPalindromeNum(2112));
+        Assertions.assertFalse(isPalindromeNum(2111));
     }
 
     public boolean isPalindromeNum(int x) {
@@ -27,16 +29,16 @@ public class isPalindromeNumber {
         if (x < 0 || (x != 0 && x % 10 == 0)) {
             return false;
         }
-        int result = 0;
+        int rightHalf = 0;
         //only process half the numbers
-        while (x > result) {
+        while (x > rightHalf) {
             //mod gets the right side digit
-            result = result * 10 + x % 10;
+            rightHalf = rightHalf * 10 + x % 10;
             //divide removes the right side digit
             x = x / 10;
         }
         //in even case both will be equal
         //in odd case except for mid it will be equal.
-        return (x == result || x == result / 10);
+        return (x == rightHalf || x == rightHalf / 10);
     }
 }

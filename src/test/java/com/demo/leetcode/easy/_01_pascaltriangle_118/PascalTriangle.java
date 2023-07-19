@@ -10,7 +10,6 @@ import org.junit.jupiter.api.Test;
 /**
  * [118. Pascal's Triangle - EASY](https://leetcode.com/problems/pascals-triangle/)
  *
- * - two for loop
  * - SIMILAR_TO: [120. Triangle - MEDIUM](https://leetcode.com/problems/triangle/)
  *
  * https://www.youtube.com/watch?v=nPVEaB3AjUM&ab_channel=NeetCode
@@ -34,6 +33,7 @@ public class PascalTriangle {
      */
     public List<List<Integer>> generate(int numRows) {
         List<List<Integer>> result = new ArrayList<>();
+        //fill all rows with 1
         for (int i = 0; i < numRows; i++) {
             Integer[] temp = new Integer[i + 1];
             Arrays.fill(temp, 1);

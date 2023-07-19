@@ -14,11 +14,11 @@ import org.junit.jupiter.api.Test;
 /**
  * [269. Alien Dictionary - HARD](https://leetcode.com/problems/alien-dictionary/)
  *
+ * - https://www.lintcode.com/problem/892/
  * - topological sort (BFS)
  * - SIMILAR_TO: [210. Course Schedule II - MEDIUM](https://leetcode.com/problems/course-schedule-ii/)
  * - PRACTICE: P3
  *
- * https://www.lintcode.com/problem/892/
  * https://www.youtube.com/watch?v=6kTZYvNNyps&ab_channel=NeetCode
  */
 public class AlienDictionary {

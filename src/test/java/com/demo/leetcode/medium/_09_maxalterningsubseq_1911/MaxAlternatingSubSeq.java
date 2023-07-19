@@ -8,8 +8,7 @@ import org.junit.jupiter.api.Test;
  *
  * - dp 2d
  * - tempEven, tempOdd
- *
- * PRACTICE
+ * - PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=4v42XOuU1XA&ab_channel=NeetCode
  */
@@ -46,6 +45,7 @@ public class MaxAlternatingSubSeq {
     int[] nums;
 
     public long maxAlternatingSum2(int[] nums) {
+        //[index, even/odd]
         dp = new long[nums.length + 1][2];
         this.nums = nums;
         dfs(0, true);
@@ -53,14 +53,17 @@ public class MaxAlternatingSubSeq {
     }
 
     private long dfs(int i, boolean even) {
-        if (i == nums.length)
+        int j = even ? 0 : 1;
+        if (i == nums.length) {
             return 0;
-        if (dp[i][even ? 0 : 1] != 0)
-            return dp[i][even ? 0 : 1];
-
+        }
+        if (dp[i][j] != 0) {
+            return dp[i][j];
+        }
         int num = even ? nums[i] : -1 * nums[i];
-        long result = Math.max(num + dfs(i + 1, !even), dfs(i + 1, even));
-        dp[i][even ? 0 : 1] = result;
-        return dp[i][even ? 0 : 1];
+        long choice1 = num + dfs(i + 1, !even); //add
+        long choice2 = dfs(i + 1, even); //skip
+        dp[i][j] = Math.max(choice1, choice2);
+        return dp[i][j];
     }
 }

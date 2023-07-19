@@ -9,9 +9,9 @@ import org.junit.jupiter.api.Test;
 /**
  * [57. Insert Interval - MEDIUM](https://leetcode.com/problems/insert-interval/)
  *
- * - interval 3 cases
  * - intervals are sorted.
  * - multiple overlap
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=A8NUOmlwOlM&ab_channel=NeetCode
  */
@@ -73,6 +73,15 @@ public class InsertInterval {
         Assertions.assertArrayEquals(expected, insertInterval(intervals, newInterval));
     }
 
+    @Test
+    public void test() {
+        int intervals[][] = {{1, 2}, {3, 5}, {6, 7}, {8, 10}, {12, 16}};
+        int newInterval[] = {4, 8};
+        int expected[][] = {{1, 2}, {3, 10}, {12, 16}};
+        Assertions.assertArrayEquals(expected, insertInterval(intervals, newInterval));
+
+    }
+
     /**
      * Time: O(n)
      * Space: O(n)
@@ -80,11 +89,12 @@ public class InsertInterval {
     public int[][] insertInterval(int intervals[][], int newInterval[]) {
         List<int[]> result = new ArrayList<>();
         for (int i = 0; i < intervals.length; i++) {
-            int start = intervals[i][0];
-            int end = intervals[i][1];
-
-            //end value of new pair is less than start
-            if (newInterval[1] < start) {
+            int curStart = intervals[i][0];
+            int curEnd = intervals[i][1];
+            int newStart = newInterval[0];
+            int newEnd = newInterval[1];
+            //end value of new pair is less than curStart
+            if (newEnd < curStart) {
                 //no overlap, before interval
                 result.add(newInterval);
                 //add remaining and return
@@ -92,15 +102,15 @@ public class InsertInterval {
                     result.add(intervals[j]);
                 }
                 return result.toArray(new int[result.size()][]);
-            } else if (newInterval[0] > end) {
-                //no overlap, after interval
+            } else if (newStart > curEnd) {
+                //add existing interval but not the new interval. no overlap, after interval
                 result.add(intervals[i]);
             } else {
                 //overlap case
-                int min = Math.min(newInterval[0], intervals[i][0]);
-                int max = Math.max(newInterval[1], intervals[i][1]);
+                int min = Math.min(newStart, curStart);
+                int max = Math.max(newEnd, curEnd);
                 newInterval = new int[]{min, max};
-                //dont add immediately to result
+                //don't add immediately to result as there can be multiple overlap
             }
         }
         result.add(newInterval);

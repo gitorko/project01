@@ -9,9 +9,6 @@ import org.junit.jupiter.api.Test;
  * [143. Reorder List - MEDIUM](https://leetcode.com/problems/reorder-list/)
  *
  * - find mid, reverse 2nd half, merge
- * - use fast point slow pointer to find middle.
- * - reverse 2nd half of list.
- * - use two pointer to merge 2 list.
  *
  * https://www.youtube.com/watch?v=S5bfdUTrKLM&ab_channel=NeetCode
  */
@@ -27,7 +24,7 @@ public class ReorderLinkList {
     }
 
     /**
-     * Time: O(N)
+     * Time: O(n)
      * Space: O(1)
      */
     public void reorderList(ListNode head) {
@@ -70,13 +67,13 @@ public class ReorderLinkList {
      * Two pointer to reverse the list.
      */
     private ListNode reverse(ListNode head) {
-        ListNode current = head;
+        ListNode cur = head;
         ListNode previous = null;
-        while (current != null) {
-            ListNode temp = current.next;
-            current.next = previous;
-            previous = current;
-            current = temp;
+        while (cur != null) {
+            ListNode temp = cur.next;
+            cur.next = previous;
+            previous = cur;
+            cur = temp;
         }
         return previous;
     }

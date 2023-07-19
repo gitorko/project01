@@ -9,9 +9,9 @@ import org.junit.jupiter.api.Test;
 /**
  * [159. Longest Substring with At Most Two Distinct Characters - MEDIUM](https://leetcode.com/problems/longest-substring-with-at-most-two-distinct-characters/)
  * [340. Longest Substring with At Most K Distinct Characters - MEDIUM](https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters/)
- * https://www.lintcode.com/problem/longest-substring-with-at-most-two-distinct-characters/
- * https://www.lintcode.com/problem/386
  *
+ * - https://www.lintcode.com/problem/longest-substring-with-at-most-two-distinct-characters/
+ * - https://www.lintcode.com/problem/386
  * - sliding window + map counter
  * - SIMILAR_TO: [904. Fruit Into Baskets - MEDIUM](https://leetcode.com/problems/fruit-into-baskets/)
  *

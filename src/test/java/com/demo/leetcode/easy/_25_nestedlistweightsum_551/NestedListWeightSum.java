@@ -10,9 +10,9 @@ import org.junit.jupiter.api.Test;
 
 /**
  * [339. Nested List Weight Sum - EASY ](https://leetcode.com/problems/nested-list-weight-sum/)
- * https://www.lintcode.com/problem/551/
  *
- *  - use level
+ * - https://www.lintcode.com/problem/551/
+ * - use level
  *
  * https://www.youtube.com/watch?v=B2i_AfmZBgk&ab_channel=LCBear
  */

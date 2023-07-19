@@ -90,31 +90,32 @@ public class RotateArray {
     }
 
     /**
-     * Uses extra space, with system lib copy.
+     * Time: O(n)
+     * Space: O(n)
      */
     public void rotate1(int[] nums, int k) {
+        int[] a = new int[nums.length];
+        for (int i = 0; i < nums.length; i++) {
+            a[(i + k) % nums.length] = nums[i];
+        }
+        //copy back to original array
+        for (int i = 0; i < nums.length; i++) {
+            nums[i] = a[i];
+        }
+    }
+
+    /**
+     * Time: O(n)
+     * Space: O(n)
+     * With system lib copy.
+     */
+    public void rotate2(int[] nums, int k) {
         //Edge case when k is bigger than array.
         k %= nums.length;
         int[] set1 = Arrays.copyOfRange(nums, nums.length - k, nums.length);
         int[] set2 = Arrays.copyOfRange(nums, 0, nums.length - k);
         System.arraycopy(set1, 0, nums, 0, set1.length);
         System.arraycopy(set2, 0, nums, set1.length, set2.length);
-    }
-
-    /**
-     * Time: O(n)
-     * Space: O(n)
-     *
-     * Uses extra space array, copies back to original array at end.
-     */
-    public void rotate2(int[] nums, int k) {
-        int[] a = new int[nums.length];
-        for (int i = 0; i < nums.length; i++) {
-            a[(i + k) % nums.length] = nums[i];
-        }
-        for (int i = 0; i < nums.length; i++) {
-            nums[i] = a[i];
-        }
     }
 
 }

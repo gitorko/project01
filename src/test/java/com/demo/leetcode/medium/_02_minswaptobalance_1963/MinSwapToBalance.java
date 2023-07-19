@@ -33,17 +33,34 @@ public class MinSwapToBalance {
     /**
      * Time: O(n)
      * Space: O(1)
+     */
+    public int minSwaps(String s) {
+        int close = 0;
+        int maxClose = 0;
+        for (char c : s.toCharArray()) {
+            if (c == '[') {
+                close--;
+            } else {
+                close++;
+            }
+            maxClose = Math.max(maxClose, close);
+        }
+        return (maxClose + 1) / 2;
+    }
+
+    /**
+     * Time: O(n)
+     * Space: O(1)
      *
      * Generic solution that can handle edge cases as well.
      *  - open and close are not same
      *  - they cant be balanced at all
      */
-    public int minSwaps(String s) {
+    public int minSwaps2(String s) {
         int openCount = 0;
         int closeCount = 0;
         int openExtra = 0;
         int closeExtra = 0;
-
         for (int i = 0; i < s.length(); i++) {
             if (s.charAt(i) == '[') {
                 openCount++;
@@ -68,17 +85,4 @@ public class MinSwapToBalance {
         return openExtra == closeExtra ? (closeExtra + 1) / 2 : -1;
     }
 
-    public int minSwaps2(String s) {
-        int close = 0;
-        int maxClose = 0;
-        for (char c : s.toCharArray()) {
-            if (c == '[') {
-                close--;
-            } else {
-                close++;
-            }
-            maxClose = Math.max(maxClose, close);
-        }
-        return (maxClose + 1) / 2;
-    }
 }

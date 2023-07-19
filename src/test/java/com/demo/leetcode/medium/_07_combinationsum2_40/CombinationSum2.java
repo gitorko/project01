@@ -11,7 +11,6 @@ import org.junit.jupiter.api.Test;
  * [40. Combination Sum II - MEDIUM](https://leetcode.com/problems/combination-sum-ii/)
  *
  * - sort + backtracking
- * - i + 1
  * - SIMILAR_TO: [39. Combination Sum - MEDIUM](https://leetcode.com/problems/combination-sum/)
  * - SIMILAR_TO: [SubSet Sum - MEDIUM]()
  * - PRACTICE: P1
@@ -29,8 +28,8 @@ public class CombinationSum2 {
     }
 
     /**
-     * Time: O(2^target)
-     * Space: O(target)
+     * Time: O(2^n) , where n = target
+     * Space: O(n)
      */
     List<List<Integer>> result;
     int[] nums;

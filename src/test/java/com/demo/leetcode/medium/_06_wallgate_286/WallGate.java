@@ -9,10 +9,10 @@ import org.junit.jupiter.api.Test;
 /**
  * [286. Walls and Gates - MEDIUM](https://leetcode.com/problems/walls-and-gates)
  *
+ * - https://www.lintcode.com/problem/walls-and-gates/description
  * - bfs from gate
  * - PRACTICE: P1
  *
- * https://www.lintcode.com/problem/walls-and-gates/description
  * https://www.youtube.com/watch?v=e69C6xhiSQE&ab_channel=NeetCode
  */
 public class WallGate {
@@ -48,7 +48,6 @@ public class WallGate {
         colLen = rooms[0].length;
         queue = new LinkedList<>();
         visited = new boolean[rowLen][colLen];
-
         for (int i = 0; i < rowLen; i++) {
             for (int j = 0; j < colLen; j++) {
                 if (rooms[i][j] == 0) {

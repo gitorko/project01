@@ -7,16 +7,15 @@ import org.junit.jupiter.api.Test;
  * [953. Verifying an Alien Dictionary - EASY](https://leetcode.com/problems/verifying-an-alien-dictionary/)
  *
  * - compare adjacent words
- * - check length
- *
- * PRACTICE
+ * - SIMILAR_TO: [269. Alien Dictionary - HARD](https://leetcode.com/problems/alien-dictionary/)
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=OVgPAJIyX6o&ab_channel=NeetCode
  */
 public class VerifyAlienDict {
 
     @Test
-    public void test() {
+    public void test1() {
         String[] words = {"hello", "leetcode"};
         String order = "hlabcdefgijkmnopqrstuvwxyz";
         Assertions.assertTrue(isAlienSorted(words, order));
@@ -36,6 +35,13 @@ public class VerifyAlienDict {
         Assertions.assertFalse(isAlienSorted(words, order));
     }
 
+    @Test
+    public void test4() {
+        String[] words = {"kuvp", "q"};
+        String order = "ngxlkthsjuoqcpavbfdermiywz";
+        Assertions.assertTrue(isAlienSorted(words, order));
+    }
+
     /**
      * Time: O(c) where c = total number of chars in all words
      * Space: O(1)
@@ -43,14 +49,15 @@ public class VerifyAlienDict {
     int[] mapping = new int[26];
 
     public boolean isAlienSorted(String[] words, String order) {
-        for (int i = 0; i < order.length(); i++)
+        for (int i = 0; i < order.length(); i++) {
             mapping[order.charAt(i) - 'a'] = i;
-
+        }
         //one less word as we compare pair
         for (int i = 0; i < words.length - 1; i++) {
             //compare neighbouring words
-            if (bigger(words[i], words[i + 1]))
+            if (bigger(words[i], words[i + 1])) {
                 return false;
+            }
         }
         return true;
     }
@@ -63,7 +70,7 @@ public class VerifyAlienDict {
                 return mapping[s1.charAt(i) - 'a'] > mapping[s2.charAt(i) - 'a'];
             }
         }
-        //if first string is bigger than second then not in order.
+        //there are no differing chars, so check if first string is bigger than second then not in order.
         return n > m;
     }
 }

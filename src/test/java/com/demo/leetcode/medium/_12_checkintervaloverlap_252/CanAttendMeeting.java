@@ -9,8 +9,8 @@ import org.junit.jupiter.api.Test;
 
 /**
  * [252. Meeting Rooms - MEDIUM](https://leetcode.com/problems/meeting-rooms/)
- * https://www.lintcode.com/problem/920
  *
+ * - https://www.lintcode.com/problem/920
  * - Check if intervals overlap
  * - PRACTICE: P1
  *

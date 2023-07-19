@@ -9,9 +9,10 @@ import org.junit.jupiter.api.Test;
 
 /**
  * [271. Encode and Decode Strings - MEDIUM](https://leetcode.com/problems/encode-and-decode-strings/)
- * https://www.lintcode.com/problem/659/
  *
+ * - https://www.lintcode.com/problem/659/
  * - count and delimiter
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=B1k_sxOSgv8&ab_channel=NeetCode
  */
@@ -43,8 +44,9 @@ public class EncodeDecodeString {
         // Encodes a list of strings to a single string.
         public String encode(List<String> strs) {
             StringBuilder encoded = new StringBuilder();
-            for (String s : strs)
+            for (String s : strs) {
                 encoded.append(s.length()).append('/').append(s);
+            }
             return encoded.toString();
         }
 

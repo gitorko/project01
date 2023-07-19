@@ -38,7 +38,6 @@ public class GameOfLife {
         board = input;
         rowLen = board.length;
         colLen = board[0].length;
-
         for (int i = 0; i < rowLen; i++) {
             for (int j = 0; j < colLen; j++) {
                 int neighbourCount = countNeighbours(i, j);
@@ -53,7 +52,6 @@ public class GameOfLife {
                 }
             }
         }
-
         for (int i = 0; i < rowLen; i++) {
             for (int j = 0; j < colLen; j++) {
                 if (board[i][j] == 1) {
@@ -63,15 +61,15 @@ public class GameOfLife {
                 }
             }
         }
-
     }
 
     private int countNeighbours(int r, int c) {
         int neighbourCount = 0;
         for (int i = r - 1; i < r + 2; i++) {
             for (int j = c - 1; j < c + 2; j++) {
-                if ((i == r && j == c) || i < 0 || j < 0 || i == rowLen || j == colLen)
+                if ((i == r && j == c) || i < 0 || j < 0 || i == rowLen || j == colLen) {
                     continue;
+                }
                 if (board[i][j] == 1 || board[i][j] == 3) {
                     neighbourCount++;
                 }

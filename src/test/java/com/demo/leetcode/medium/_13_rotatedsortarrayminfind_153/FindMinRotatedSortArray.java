@@ -8,15 +8,14 @@ import org.junit.jupiter.api.Test;
  *
  * - binary search
  * - SIMILAR_TO: [154. Find Minimum in Rotated Sorted Array II - HARD](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/)
- *
- * PRACTICE
+ * - PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=nIVW4P8b1VA&ab_channel=NeetCode
  */
 public class FindMinRotatedSortArray {
 
     @Test
-    public void test() {
+    public void test1() {
         int nums[] = {3, 4, 5, 1, 2};
         Assertions.assertEquals(1, findMin(nums));
     }
@@ -24,6 +23,12 @@ public class FindMinRotatedSortArray {
     @Test
     public void test2() {
         int nums[] = {2, 1};
+        Assertions.assertEquals(1, findMin(nums));
+    }
+
+    @Test
+    public void test3() {
+        int nums[] = {3, 1, 2};
         Assertions.assertEquals(1, findMin(nums));
     }
 
@@ -41,12 +46,12 @@ public class FindMinRotatedSortArray {
         int right = nums.length - 1;
         while (left < right) {
             int mid = (left + right) / 2;
-            if (nums[mid] >= nums[right])
+            if (nums[mid] > nums[right]) {
                 left = mid + 1;
-            else
+            } else {
                 right = mid;
+            }
         }
         return nums[left];
     }
-
 }

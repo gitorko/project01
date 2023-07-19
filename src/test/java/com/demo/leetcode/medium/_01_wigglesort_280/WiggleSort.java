@@ -5,8 +5,8 @@ import org.junit.jupiter.api.Test;
 
 /**
  * [280. Wiggle Sort - MEDIUM](https://leetcode.com/problems/wiggle-sort/)
- * https://www.lintcode.com/problem/508/
  *
+ * - https://www.lintcode.com/problem/508/
  * - wiggle Sort
  * - start from 1, even odd
  * - SIMILAR_TO: [1968. Array With Elements Not Equal to Average of Neighbors - MEDIUM](https://leetcode.com/problems/array-with-elements-not-equal-to-average-of-neighbors/)

@@ -28,8 +28,8 @@ public class InterleavingString {
     }
 
     /**
-     * Time: O(mn)
-     * Space: O(mn)
+     * Time: O(m*n)
+     * Space: O(m*n)
      */
     public boolean isInterleave(String s1, String s2, String s3) {
         int s1Len = s1.length();
@@ -37,10 +37,8 @@ public class InterleavingString {
         if (s1Len + s2Len != s3.length()) {
             return false;
         }
-
         boolean[][] dp = new boolean[s1Len + 1][s2Len + 1];
         dp[s1Len][s2Len] = true;
-
         for (int i = s1Len; i >= 0; i--) {
             for (int j = s2Len; j >= 0; j--) {
                 //first char
