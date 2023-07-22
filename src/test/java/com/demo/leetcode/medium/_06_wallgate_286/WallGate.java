@@ -29,8 +29,8 @@ public class WallGate {
     }
 
     /**
-     * Time: O(mn)
-     * Space: O(mn)
+     * Time: O(m*n)
+     * Space: O(m*n)
      *
      * 0 is gate
      * -1 is wall

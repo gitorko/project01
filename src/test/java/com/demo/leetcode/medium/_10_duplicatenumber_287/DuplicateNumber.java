@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
  * [287. Find the Duplicate Number - MEDIUM](https://leetcode.com/problems/find-the-duplicate-number/)
  *
  * - floyd cycle
- * - cyclic sort
  * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=wjYnzkAhcNk&ab_channel=NeetCode
@@ -33,13 +32,11 @@ public class DuplicateNumber {
     public int findDuplicate(int[] nums) {
         int slow = 0;
         int fast = 0;
-
         while (true) {
             slow = nums[slow];
             fast = nums[nums[fast]];
             if (slow == fast) break;
         }
-
         slow = 0;
         while (true) {
             slow = nums[slow];

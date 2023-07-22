@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 /**
  * [778. Swim in Rising Water - HARD](https://leetcode.com/problems/swim-in-rising-water/)
  *
- * - dijkstra algo min heap
+ * - Min heap
  * - SIMILAR_TO: [743. Network Delay Time - MEDIUM](https://leetcode.com/problems/network-delay-time/)
  * - PRACTICE: P2
  *
@@ -30,19 +30,17 @@ public class SwimInRisingWater {
     }
 
     /**
-     * Time: O(n^2 log (n))
+     * Time: O(n^2 log(n))
      * Space: O(n)
      */
     public int swimInWater(int[][] grid) {
         int n = grid.length;
-        int[] dirs = {0, 1, 0, -1, 0};
-        // [height, row, col]
+        int[][] directions = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
+        // [maxHeight, row, col]
         Queue<int[]> minHeap = new PriorityQueue<>((a, b) -> a[0] - b[0]);
         boolean[][] visited = new boolean[n][n];
-
         minHeap.offer(new int[]{grid[0][0], 0, 0});
         visited[0][0] = true;
-
         while (!minHeap.isEmpty()) {
             int[] poll = minHeap.poll();
             int height = poll[0];
@@ -53,9 +51,9 @@ public class SwimInRisingWater {
                 return height;
             }
             //check all directions
-            for (int k = 0; k < 4; k++) {
-                int x = i + dirs[k];
-                int y = j + dirs[k + 1];
+            for (int[] dir : directions) {
+                int x = i + dir[0];
+                int y = j + dir[1];
                 if (x < 0 || y < 0 || x == n || y == n || visited[x][y]) {
                     continue;
                 }
@@ -65,5 +63,4 @@ public class SwimInRisingWater {
         }
         return -1;
     }
-
 }

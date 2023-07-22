@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Map;
+import java.util.Queue;
 import java.util.Set;
 
 import org.junit.jupiter.api.Assertions;
@@ -13,7 +14,7 @@ import org.junit.jupiter.api.Test;
 /**
  * [1553. Minimum Number of Days to Eat N Oranges - HARD](https://leetcode.com/problems/minimum-number-of-days-to-eat-n-oranges/)
  *
- * - bfs
+ * - dp or bfs
  * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=LziQ6Qx9sks&ab_channel=NeetCode
@@ -26,12 +27,12 @@ public class MinDaysEatNOranges {
         Assertions.assertEquals(4, minDays2(10));
     }
 
-    Map<Integer, Integer> dp;
-
     /**
      * Time: O(log(n))
      * Space: O(n)
      */
+    Map<Integer, Integer> dp;
+
     public int minDays(int n) {
         dp = new HashMap();
         dp.put(0, 0);
@@ -55,12 +56,11 @@ public class MinDaysEatNOranges {
      * Space: O(n)
      */
     public int minDays2(int n) {
-        Deque<Integer> queue = new LinkedList<>();
+        Queue<Integer> queue = new LinkedList<>();
         Set<Integer> visited = new HashSet<>();
         queue.offer(n);
         visited.add(n);
         int step = 1;
-
         while (!queue.isEmpty()) {
             int size = queue.size();
             while (size > 0) {

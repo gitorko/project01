@@ -39,23 +39,21 @@ public class NQueen {
         for (int i = 0; i < n; i++) {
             Arrays.fill(board[i], '.');
         }
-
         result = new ArrayList<>();
         dfs(0);
         return result;
     }
 
-    private void dfs(int colIndex) {
-        if (colIndex == board.length) {
+    private void dfs(int col) {
+        if (col == board.length) {
             result.add(construct());
             return;
         }
-
-        for (int i = 0; i < board.length; i++) {
-            if (validate(i, colIndex)) {
-                board[i][colIndex] = 'Q';
-                dfs(colIndex + 1);
-                board[i][colIndex] = '.';
+        for (int row = 0; row < board.length; row++) {
+            if (validate(row, col)) {
+                board[row][col] = 'Q';
+                dfs(col + 1);
+                board[row][col] = '.';
             }
         }
     }

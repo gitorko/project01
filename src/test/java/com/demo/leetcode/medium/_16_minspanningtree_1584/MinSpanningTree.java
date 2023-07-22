@@ -33,18 +33,17 @@ public class MinSpanningTree {
      * Space: O(n + e)
      */
     public int minCostConnectPoints(int[][] points) {
-        int pointLen = points.length;
-        //[node1, node2, cost]
+        int n = points.length;
+        //[node1, node2, distance]
         Map<Integer, Map<Integer, Integer>> adjacencyMap = new HashMap<>();
-        for (int i = 0; i < pointLen; i++) {
+        for (int i = 0; i < n; i++) {
             adjacencyMap.putIfAbsent(i, new HashMap<>());
         }
-
-        //adjacency list
-        for (int i = 0; i < pointLen; i++) {
+        //adjacency list, every point connected to all points. O(n^2)
+        for (int i = 0; i < n; i++) {
             int x1 = points[i][0];
             int y1 = points[i][1];
-            for (int j = i + 1; j < pointLen; j++) {
+            for (int j = i + 1; j < n; j++) {
                 int x2 = points[j][0];
                 int y2 = points[j][1];
                 int dist = Math.abs(x1 - x2) + Math.abs(y1 - y2);
@@ -52,21 +51,19 @@ public class MinSpanningTree {
                 adjacencyMap.get(j).put(i, dist);
             }
         }
-
-        //[cost, point]
+        //[distance, point]
         Queue<int[]> minHeap = new PriorityQueue<>((a, b) -> (a[0] - b[0]));
         Set<Integer> visited = new HashSet<>();
         int result = 0;
         minHeap.add(new int[]{0, 0});
-
-        while (visited.size() < pointLen) {
+        //loop till all nodes are not visited
+        while (visited.size() < n) {
             int[] cur = minHeap.poll();
             int cost = cur[0];
             int point = cur[1];
             if (visited.contains(point)) {
                 continue;
             }
-
             visited.add(point);
             result += cost;
             for (Map.Entry<Integer, Integer> next : adjacencyMap.get(point).entrySet()) {

@@ -41,17 +41,14 @@ public class ConnectedComponents {
         adjacencyMap = new HashMap<>();
         visited = new HashSet<>();
         int result = 0;
-
         for (int i = 0; i < n; i++) {
             adjacencyMap.putIfAbsent(i, new HashSet<>());
         }
-
         //adjacency list
         for (int[] c : edges) {
             adjacencyMap.get(c[0]).add(c[1]);
             adjacencyMap.get(c[1]).add(c[0]);
         }
-
         for (int i = 0; i < n; i++) {
             if (!visited.contains(i)) {
                 visited.add(i);
@@ -72,7 +69,7 @@ public class ConnectedComponents {
     }
 
     /**
-     * Union Find - forrest of tress
+     * Union Find - forrest of trees
      */
     int[] parent;
     int[] rank;
@@ -84,6 +81,7 @@ public class ConnectedComponents {
             parent[i] = i;
             rank[i] = 1;
         }
+        //at the beginning all nodes are not connected hence result is n. reduce each time 2 nodes are connected.
         int result = n;
         for (int[] edge : edges) {
             result -= union(edge[0], edge[1]);

@@ -39,9 +39,9 @@ public class SubArraySumK {
     public int subarraySum(int[] nums, int k) {
         int curSum = 0;
         int result = 0;
+        //[prefixSum, count]
         Map<Integer, Integer> preSum = new HashMap<>();
         preSum.put(0, 1);
-
         for (int i = 0; i < nums.length; i++) {
             curSum += nums[i];
             int diff = curSum - k;

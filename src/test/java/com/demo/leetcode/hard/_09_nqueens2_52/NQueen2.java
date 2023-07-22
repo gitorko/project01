@@ -40,16 +40,16 @@ public class NQueen2 {
         return result;
     }
 
-    private void dfs(int colIndex) {
-        if (colIndex == board.length) {
+    private void dfs(int col) {
+        if (col == board.length) {
             result++;
             return;
         }
-        for (int i = 0; i < board.length; i++) {
-            if (validate(i, colIndex)) {
-                board[i][colIndex] = 'Q';
-                dfs(colIndex + 1);
-                board[i][colIndex] = '.';
+        for (int row = 0; row < board.length; row++) {
+            if (validate(row, col)) {
+                board[row][col] = 'Q';
+                dfs(col + 1);
+                board[row][col] = '.';
             }
         }
     }

@@ -23,8 +23,8 @@ public class DailyTemperature {
     }
 
     /**
-     * Time: O(N)
-     * Space: O(N)
+     * Time: O(n)
+     * Space: O(n)
      */
     public int[] dailyTemperatures(int[] temperatures) {
         Stack<Integer> stack = new Stack<>();

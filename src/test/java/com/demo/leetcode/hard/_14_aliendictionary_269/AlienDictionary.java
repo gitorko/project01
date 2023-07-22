@@ -35,6 +35,12 @@ public class AlienDictionary {
         Assertions.assertEquals("zyx", alienOrder(words));
     }
 
+    @Test
+    public void test3() {
+        String[] words = {"a", "ba", "bc", "c"};
+        Assertions.assertEquals("abc", alienOrder(words));
+    }
+
     /**
      * Time: O(num of chars)
      */
@@ -70,9 +76,7 @@ public class AlienDictionary {
                 char c1 = first.charAt(j);
                 char c2 = second.charAt(j);
                 if (c1 != c2) {
-                    if (!adjacencyMap.get(c1).contains(c2)) {
-                        adjacencyMap.get(c1).add(c2);
-                    }
+                    adjacencyMap.get(c1).add(c2);
                     break; // later characters' order are meaningless
                 }
             }
@@ -82,7 +86,6 @@ public class AlienDictionary {
                 return "";
             }
         }
-
         StringBuilder sb = new StringBuilder();
         for (Character ch : visitedSet) {
             sb.append(ch);
@@ -91,7 +94,6 @@ public class AlienDictionary {
     }
 
     private boolean dfs(Character c) {
-        Set<Character> neighbours = adjacencyMap.getOrDefault(c, Collections.emptySet());
         if (cycleSet.contains(c)) {
             return false;
         }
@@ -99,6 +101,7 @@ public class AlienDictionary {
             return true;
         }
         cycleSet.add(c);
+        Set<Character> neighbours = adjacencyMap.getOrDefault(c, Collections.emptySet());
         for (Character neighbour : neighbours) {
             if (!dfs(neighbour)) {
                 return false;

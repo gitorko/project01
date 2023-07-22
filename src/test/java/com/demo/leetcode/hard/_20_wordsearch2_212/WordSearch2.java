@@ -33,27 +33,28 @@ public class WordSearch2 {
     TrieNode root;
     List<String> result;
     boolean[][] visited;
+    char[][] board;
 
     public List<String> findWords(char[][] board, String[] words) {
+        this.board = board;
         root = new TrieNode();
         result = new ArrayList<>();
         visited = new boolean[board.length][board[0].length];
-        for (String word : words){
-            insert(word);
+        for (String word : words) {
+            insertTrie(word);
         }
-
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[0].length; j++) {
-                dfs(board, i, j, root);
+                dfs(i, j, root);
             }
         }
         return result;
     }
 
-    private void insert(String word) {
+    private void insertTrie(String word) {
         TrieNode node = root;
         for (char c : word.toCharArray()) {
-            if (node.children[c - 'a'] == null){
+            if (node.children[c - 'a'] == null) {
                 node.children[c - 'a'] = new TrieNode();
             }
             node = node.children[c - 'a'];
@@ -61,26 +62,24 @@ public class WordSearch2 {
         node.word = word;
     }
 
-    private void dfs(char[][] board, int i, int j, TrieNode node) {
+    private void dfs(int i, int j, TrieNode node) {
         if (i < 0 || j < 0 || i == board.length || j == board[0].length || visited[i][j]) {
             return;
         }
-
         char c = board[i][j];
         TrieNode child = node.children[c - 'a'];
-        if (child == null){
+        if (child == null) {
             return;
         }
         if (child.word != null) {
             result.add(child.word);
             child.word = null;
         }
-
         visited[i][j] = true;
-        dfs(board, i + 1, j, child);
-        dfs(board, i - 1, j, child);
-        dfs(board, i, j + 1, child);
-        dfs(board, i, j - 1, child);
+        dfs(i + 1, j, child);
+        dfs(i - 1, j, child);
+        dfs(i, j + 1, child);
+        dfs(i, j - 1, child);
         visited[i][j] = false;
     }
 

@@ -22,8 +22,8 @@ public class CountSubIslands {
     }
 
     /**
-     * Time: O(mn)
-     * Space: O(mn)
+     * Time: O(m*n)
+     * Space: O(m*n)
      */
     int[][] grid1;
     int[][] grid2;
@@ -35,7 +35,6 @@ public class CountSubIslands {
         this.grid2 = grid2;
         rowLen = grid2.length;
         colLen = grid2[0].length;
-
         int result = 0;
         for (int i = 0; i < rowLen; i++) {
             for (int j = 0; j < colLen; j++) {
@@ -54,7 +53,6 @@ public class CountSubIslands {
         }
         // mark 2 as visited
         grid2[i][j] = 2;
-
         return dfs(i + 1, j) &
                 dfs(i - 1, j) &
                 dfs(i, j + 1) &

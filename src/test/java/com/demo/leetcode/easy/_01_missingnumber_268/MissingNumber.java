@@ -62,7 +62,7 @@ public class MissingNumber {
     }
 
     /**
-     * Sort, and binary search. mid element will be offset if there is missing number, so search only one side.
+     * Sort, and binary search. mid-element will be offset if there is missing number, so search only one side.
      * Time: O(n * log(n))
      * Time: O(log(n)) if array already sorted.
      * Space: O(1)

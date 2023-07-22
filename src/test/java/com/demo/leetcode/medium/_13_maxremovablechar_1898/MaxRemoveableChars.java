@@ -22,16 +22,18 @@ public class MaxRemoveableChars {
     }
 
     /**
-     * Time: O(n log(k))
+     * Time: O(n*log(k)), n is the length of string, k is size of removable array.
      * Space: O(n)
      */
+    int[] removable;
+
     public int maximumRemovals(String s, String p, int[] removable) {
+        this.removable = removable;
         int left = 0;
         int right = removable.length - 1;
-
         while (left <= right) {
             int mid = (left + right) / 2;
-            String removed = remove(s, removable, mid + 1);
+            String removed = remove(s, mid + 1);
             if (isSubsequence(p, removed)) {
                 left = mid + 1;
             } else {
@@ -41,7 +43,7 @@ public class MaxRemoveableChars {
         return left;
     }
 
-    private String remove(String s, int[] removable, int k) {
+    private String remove(String s, int k) {
         StringBuilder sb = new StringBuilder(s);
         for (int i = 0; i < k; i++) {
             sb.setCharAt(removable[i], '*');
@@ -50,7 +52,9 @@ public class MaxRemoveableChars {
     }
 
     private boolean isSubsequence(String s, String t) {
-        if (s.length() == 0) return true;
+        if (s.length() == 0) {
+            return true;
+        }
         int i = 0;
         int j = 0;
         while (i < s.length() && j < t.length()) {

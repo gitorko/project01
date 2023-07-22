@@ -25,12 +25,14 @@ public class DetectLoopInLinkList {
 
     /**
      * Floyd algo, fast and slow pointer
-     * Time: O(N)
+     * Time: O(n)
      * Space: O(1)
      */
     public Boolean hasCycle(ListNode head) {
         ListNode slow = head;
         ListNode fast = head;
+        //for even length list fast pointer will reach last node.
+        //for odd length list fast pointer will reach null node.
         while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
