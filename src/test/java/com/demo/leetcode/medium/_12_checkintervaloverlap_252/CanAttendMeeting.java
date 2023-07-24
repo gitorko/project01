@@ -49,10 +49,8 @@ public class CanAttendMeeting {
         if (intervals.length == 0) {
             return false;
         }
-
         // Sort by ascending starting point
         Arrays.sort(intervals, (i1, i2) -> i1[0] - i2[0]);
-
         int previousEnd = intervals[0][1];
         //start from 2nd interval
         for (int i = 1; i < intervals.length; i++) {

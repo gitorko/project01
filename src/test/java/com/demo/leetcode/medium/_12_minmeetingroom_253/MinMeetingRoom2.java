@@ -97,7 +97,7 @@ public class MinMeetingRoom2 {
         //iterate from 2nd interval
         for (int i = 1; i < intervals.length; i++) {
             //if top of heap (end time) is less than start time of new meeting
-            if (minHeap.peek() <= intervals[i][0]) {
+            while (!minHeap.isEmpty() && minHeap.peek() <= intervals[i][0]) {
                 minHeap.remove();
             }
             minHeap.add(intervals[i][1]);
@@ -115,15 +115,13 @@ public class MinMeetingRoom2 {
     public int minMeetingRoom2(int[][] intervals) {
         int starts[] = new int[intervals.length];
         int ends[] = new int[intervals.length];
-
         for (int i = 0; i < intervals.length; i++) {
             starts[i] = intervals[i][0];
             ends[i] = intervals[i][1];
         }
         Arrays.sort(starts);
         Arrays.sort(ends);
-
-        int result = 0;
+        int maxRooms = 0;
         int rooms = 0;
         int end = 0;
         int start = 0;
@@ -135,9 +133,8 @@ public class MinMeetingRoom2 {
                 end++;
                 rooms--;
             }
-            result = Math.max(result, rooms);
+            maxRooms = Math.max(maxRooms, rooms);
         }
-        return result;
+        return maxRooms;
     }
-
 }

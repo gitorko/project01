@@ -47,6 +47,6 @@ public class BinaryTreeMaxPathSum {
         //with fork
         maxValue = Math.max(maxValue, left + right + node.val);
         //without fork
-        return Math.max(left, right) + node.val;
+        return node.val + Math.max(left, right);
     }
 }

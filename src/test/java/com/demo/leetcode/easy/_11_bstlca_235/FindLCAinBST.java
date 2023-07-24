@@ -24,7 +24,6 @@ public class FindLCAinBST {
         TreeNodeUtil.printTree(root);
         Assertions.assertEquals(8, lowestCommonAncestor(root, new TreeNode(7), new TreeNode(9)).val);
         Assertions.assertEquals(8, lowestCommonAncestorIterative(root, new TreeNode(7), new TreeNode(9)).val);
-
         Assertions.assertEquals(6, lowestCommonAncestor(root, new TreeNode(7), new TreeNode(4)).val);
         Assertions.assertEquals(6, lowestCommonAncestorIterative(root, new TreeNode(7), new TreeNode(4)).val);
     }

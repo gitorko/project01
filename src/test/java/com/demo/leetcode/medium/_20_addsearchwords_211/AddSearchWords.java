@@ -7,9 +7,8 @@ import org.junit.jupiter.api.Test;
  * [211. Design Add and Search Words Data Structure - MEDIUM](https://leetcode.com/problems/design-add-and-search-words-data-structure/)
  *
  * - prefix tree
- * - dfs search because of the . case in search
- * - SIMILAR_TO: [208. Implement Trie (Prefix Tree)](https://leetcode.com/problems/implement-trie-prefix-tree/)
- * - PRACTICE: P3
+ * - SIMILAR_TO: [208. Implement Trie, Prefix Tree - EASY](https://leetcode.com/problems/implement-trie-prefix-tree/)
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=BTf05gs_8iU&ab_channel=NeetCode
  */
@@ -34,11 +33,10 @@ public class AddSearchWords {
         public void addWord(String word) {
             TrieNode current = root;
             for (char c : word.toCharArray()) {
-                int i = c - 'a';
-                if (current.children[i] == null) {
-                    current.children[i] = new TrieNode();
+                if (current.children[c - 'a'] == null) {
+                    current.children[c - 'a'] = new TrieNode();
                 }
-                current = current.children[i];
+                current = current.children[c - 'a'];
             }
             current.isWord = true;
         }
@@ -52,17 +50,16 @@ public class AddSearchWords {
             if (startIndex == word.length()) {
                 return node.isWord;
             }
-
-            if (word.charAt(startIndex) != '.') {
-                TrieNode next = node.children[word.charAt(startIndex) - 'a'];
-                return next == null ? false : dfs(word, startIndex + 1, next);
-            } else {
+            if (word.charAt(startIndex) == '.') {
                 // word.charAt(startIndex) == '.' -> search all 26 children
                 for (int i = 0; i < 26; i++) {
                     if (node.children[i] != null && dfs(word, startIndex + 1, node.children[i])) {
                         return true;
                     }
                 }
+            } else {
+                TrieNode next = node.children[word.charAt(startIndex) - 'a'];
+                return next == null ? false : dfs(word, startIndex + 1, next);
             }
             return false;
         }

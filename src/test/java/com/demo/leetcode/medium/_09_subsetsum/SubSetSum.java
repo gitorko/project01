@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
  *
  * - Given a set of non-negative integers, and a value sum, determine if there is a subset of the given set with sum equal to the given sum.
  * - SIMILAR_TO: [0/1 knapsack - MEDIUM]()
- * - SIMILAR_TO: [40. Combination Sum II - MEDIUM](https://leetcode.com/problems/combination-sum-ii/)
+ * - SIMILAR_TO: [416. Partition Equal Subset Sum - MEDIUM](https://leetcode.com/problems/partition-equal-subset-sum/)
  * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=s6FhG--P7z0&ab_channel=TusharRoy-CodingMadeSimple
@@ -56,7 +56,6 @@ public class SubSetSum {
         for (int i = 0; i < arr.length + 1; i++) {
             dp[i][0] = true;
         }
-
         for (int i = 1; i < arr.length + 1; i++) {
             for (int j = 1; j < target + 1; j++) {
                 int currVal = arr[i - 1];

@@ -38,16 +38,18 @@ public class JumpGame7 {
      * Space: O(n)
      */
     public boolean canReach(String s, int minJump, int maxJump) {
+        //[indexes]
         Queue<Integer> queue = new LinkedList<>();
         queue.add(0);
         int farthest = 0;
         while (!queue.isEmpty()) {
             int i = queue.poll();
             int start = Math.max(i + minJump, farthest + 1);
-            int end = Math.min(i + maxJump + 1, s.length());
-            for (int j = start; j < end; j++) {
+            int end = Math.min(i + maxJump, s.length());
+            for (int j = start; j < end + 1; j++) {
                 if (s.charAt(j) == '0') {
                     queue.offer(j);
+                    //reached the end.
                     if (j == s.length() - 1) {
                         return true;
                     }
@@ -59,7 +61,8 @@ public class JumpGame7 {
     }
 
     /**
-     * Time: O(n)
+     * dp approach
+     * Time: O(n * j) n is number of position, j is range of jump
      * Space: O(n)
      */
     public boolean canReach2(String s, int minJump, int maxJump) {

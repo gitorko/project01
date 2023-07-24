@@ -29,18 +29,23 @@ public class GasStation {
         Assertions.assertEquals(-1, canCompleteCircuit(gas, cost));
     }
 
+    @Test
+    public void test3() {
+        int[] gas = {1, 0, 0, 0, 6};
+        int[] cost = {2, 1, 1, 1, 1};
+        Assertions.assertEquals(4, canCompleteCircuit(gas, cost));
+    }
+
     /**
      * Time: O(n)
      * Space: O(1)
      */
     public int canCompleteCircuit(int[] gas, int[] cost) {
-
         int totalGas = Arrays.stream(gas).sum();
         int totalCost = Arrays.stream(cost).sum();
-        if (totalGas < totalCost) {
+        if (totalCost > totalGas) {
             return -1;
         }
-
         int total = 0;
         int start = 0;
         for (int i = 0; i < gas.length; i++) {

@@ -35,18 +35,15 @@ public class PartitionKEqualSubset {
     public boolean canPartitionKSubsets(int[] input, int k) {
         nums = input;
         int sum = Arrays.stream(nums).sum();
-
         //optimization
         nums = Arrays.stream(nums)
                 .boxed()
                 .sorted(Comparator.reverseOrder())
                 .mapToInt(Integer::intValue)
                 .toArray();
-
         if (sum % k != 0) {
             return false;
         }
-
         target = sum / k; // each subset's target sum
         seen = new boolean[nums.length];
         return backtrack(0, k, 0);

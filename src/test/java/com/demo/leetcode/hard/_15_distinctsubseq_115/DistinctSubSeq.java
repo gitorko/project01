@@ -33,23 +33,23 @@ public class DistinctSubSeq {
      * Space: O(m * n)
      */
     public int numDistinct(String s, String t) {
-
         int[][] dp = new int[t.length() + 1][s.length() + 1];
-
-        // First row & first column indicate that no selection so will always match.
-        for (int j = 0; j <= s.length(); j++) {
+        // First row means no selection so will always match.
+        for (int j = 0; j < s.length() + 1; j++) {
             dp[0][j] = 1;
         }
-
-        for (int i = 0; i < t.length(); i++) {
-            for (int j = 0; j < s.length(); j++) {
-                if (t.charAt(i) == s.charAt(j)) {
-                    dp[i + 1][j + 1] = dp[i][j] + dp[i + 1][j];
+        for (int i = 1; i < t.length() + 1; i++) {
+            for (int j = 1; j < s.length() + 1; j++) {
+                if (t.charAt(i - 1) == s.charAt(j - 1)) {
+                    //previous exact match + previous without match
+                    dp[i][j] = dp[i - 1][j - 1] + dp[i][j - 1];
                 } else {
-                    dp[i + 1][j + 1] = dp[i + 1][j];
+                    //previous without match
+                    dp[i][j] = dp[i][j - 1];
                 }
             }
         }
         return dp[t.length()][s.length()];
     }
+
 }

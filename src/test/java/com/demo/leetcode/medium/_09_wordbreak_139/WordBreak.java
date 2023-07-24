@@ -43,13 +43,15 @@ public class WordBreak {
     }
 
     /**
-     * Time: O(n * m * n)
+     * Time: O(n * m * n), n is string length, m is size of word dict
+     * Space: O(n)
      */
     public boolean wordBreak(String s, List<String> wordDict) {
-        boolean[] dp = new boolean[s.length() + 1];
+        int n = s.length();
+        boolean[] dp = new boolean[n + 1];
         //base case
-        dp[s.length()] = true;
-        for (int i = s.length() - 1; i >= 0; i--) {
+        dp[n] = true;
+        for (int i = n - 1; i >= 0; i--) {
             for (String word : wordDict) {
                 if (i + word.length() <= s.length() && s.substring(i, i + word.length()).equals(word)) {
                     dp[i] = dp[i + word.length()];
@@ -90,17 +92,14 @@ public class WordBreak {
      */
     public boolean wordBreak3(String s, List<String> wordDict) {
         Set<String> dict = new HashSet<>(wordDict);
-
         //when the whole word is present in dict
         if (dict.contains(s)) {
             return true;
         }
-
         Queue<Integer> queue = new LinkedList<>();
-        queue.offer(0);
-        // use a set to record checked index to avoid repeated work.
         Set<Integer> visited = new HashSet<>();
         visited.add(0);
+        queue.offer(0);
         while (!queue.isEmpty()) {
             int index = queue.poll();
             for (int i = index + 1; i <= s.length(); i++) {
@@ -108,8 +107,9 @@ public class WordBreak {
                     continue;
                 }
                 if (dict.contains(s.substring(index, i))) {
-                    if (i == s.length())
+                    if (i == s.length()) {
                         return true;
+                    }
                     queue.offer(i);
                     visited.add(i);
                 }
@@ -117,5 +117,4 @@ public class WordBreak {
         }
         return false;
     }
-
 }

@@ -43,7 +43,7 @@ public class CountingBits {
      */
     public int[] countBits2(int n) {
         int[] result = new int[n + 1];
-        for (int i = 0; i < n + 1; i++) {
+        for (int i = 1; i < n + 1; i++) {
             int count = 0;
             int num = i;
             while (num > 0) {
@@ -55,6 +55,5 @@ public class CountingBits {
             result[i] = count;
         }
         return result;
-
     }
 }

@@ -26,9 +26,6 @@ public class ClimbStairs {
      * Bottom up, Iterative, with memoization
      */
     public int climbStairsBottomUpIterative(int n) {
-        if (n == 1) {
-            return 1;
-        }
         int[] dp = new int[n + 1];
         dp[1] = 1;
         dp[2] = 2;

@@ -31,34 +31,33 @@ public class ProcessTaskServer {
      */
     public int[] assignTasks(int[] servers, int[] tasks) {
         int[] result = new int[tasks.length];
-
         // [end time, index]
         PriorityQueue<int[]> used = new PriorityQueue<>((a, b) -> a[0] == b[0] ? (servers[a[1]] == servers[b[1]] ? a[1] - b[1] : servers[a[1]] - servers[b[1]]) : a[0] - b[0]);
-
         // [weight, index]
         PriorityQueue<int[]> unused = new PriorityQueue<>((a, b) -> a[0] == b[0] ? a[1] - b[1] : a[0] - b[0]);
-
         for (int i = 0; i < servers.length; i++) {
             unused.add(new int[]{servers[i], i});
         }
-
-        for (int time = 0; time < tasks.length; time++) {
-            while (!used.isEmpty() && used.peek()[0] <= time) {
+        for (int i = 0; i < tasks.length; i++) {
+            //check if any server in used are free to add back to unused.
+            while (!used.isEmpty() && used.peek()[0] <= i) {
                 int index = used.poll()[1];
                 unused.add(new int[]{servers[index], index});
             }
             // check is any server is available
             if (unused.size() > 0) {
-                int index = unused.poll()[1];
-                used.add(new int[]{time + tasks[time], index});
-                result[time] = index;
+                int[] obj = unused.poll();
+                int endTime = i + tasks[i];
+                int index = obj[1];
+                used.add(new int[]{endTime, index});
+                result[i] = index;
             } else {
                 // if no server available
                 int[] obj = used.poll();
-                int newStart = obj[0];
+                int endTime = obj[0] + tasks[i];
                 int index = obj[1];
-                result[time] = index;
-                used.add(new int[]{newStart + tasks[time], index});
+                used.add(new int[]{endTime, index});
+                result[i] = index;
             }
         }
         return result;

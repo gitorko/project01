@@ -68,18 +68,16 @@ public class TopKFrequentElementInArray {
 
     /**
      * Bucket Sort, with count as bucket index, this approach doesnt require sorting.
-     * Time: O(N)
-     * Space: O(N)
+     * Time: O(n)
+     * Space: O(n)
      */
     public int[] topKFrequent2(int[] nums, int k) {
         List<Integer>[] bucket = new List[nums.length + 1];
         Map<Integer, Integer> frequencyMap = new HashMap<>();
-
         //Create frequency map
         for (int n : nums) {
             frequencyMap.put(n, frequencyMap.getOrDefault(n, 0) + 1);
         }
-
         //Populate bucket
         for (int key : frequencyMap.keySet()) {
             int frequency = frequencyMap.get(key);
@@ -88,15 +86,14 @@ public class TopKFrequentElementInArray {
             }
             bucket[frequency].add(key);
         }
-
         //pick from reverse
-        List<Integer> res = new ArrayList<>();
-        for (int i = bucket.length - 1; i >= 0 && res.size() < k; i--) {
+        List<Integer> result = new ArrayList<>();
+        for (int i = bucket.length - 1; i >= 0 && result.size() < k; i--) {
             if (bucket[i] != null) {
-                res.addAll(bucket[i]);
+                result.addAll(bucket[i]);
             }
         }
-        return res.stream().mapToInt(Integer::intValue).toArray();
+        return result.stream().mapToInt(Integer::intValue).toArray();
     }
 
 }

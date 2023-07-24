@@ -37,12 +37,13 @@ public class KokoBannana {
         //range starts at 1..max(pile)
         int left = 1;
         int right = Arrays.stream(piles).max().getAsInt();
-
         while (left < right) {
             int mid = (left + right) / 2;
             if (findHours(piles, mid) <= h) {
+                //need to eat at slower rate
                 right = mid;
             } else {
+                //need to eat at faster rate
                 left = mid + 1;
             }
         }

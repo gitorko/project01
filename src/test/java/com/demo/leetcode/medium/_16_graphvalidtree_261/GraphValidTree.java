@@ -66,24 +66,20 @@ public class GraphValidTree {
         if (n == 0 || edges.length != n - 1) {
             return false;
         }
-
-        //below code just checks if node is connected.
-        Queue<Integer> queue = new LinkedList<>();
-        Set<Integer> visited = new HashSet<>();
         Map<Integer, Set<Integer>> adjacencyMap = new HashMap<>();
-        visited.add(0);
-        queue.add(0);
-
         for (int i = 0; i < n; i++) {
             adjacencyMap.putIfAbsent(i, new HashSet<>());
         }
-
         //adjacency list
         for (int[] c : edges) {
             adjacencyMap.get(c[0]).add(c[1]);
             adjacencyMap.get(c[1]).add(c[0]);
         }
-
+        //below code checks if node is connected.
+        Queue<Integer> queue = new LinkedList<>();
+        Set<Integer> visited = new HashSet<>();
+        visited.add(0);
+        queue.add(0);
         while (!queue.isEmpty()) {
             int parent = queue.poll();
             for (int child : adjacencyMap.get(parent))

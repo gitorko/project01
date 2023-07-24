@@ -42,15 +42,21 @@ public class MinFlipBinaryAlternating {
         int diff2 = 0;
         int left = 0;
         for (int right = 0; right < s.length(); right++) {
-            if (s.charAt(right) != alt1[right]) diff1++;
-            if (s.charAt(right) != alt2[right]) diff2++;
-
+            if (s.charAt(right) != alt1[right]) {
+                diff1++;
+            }
+            if (s.charAt(right) != alt2[right]) {
+                diff2++;
+            }
             if (right - left + 1 > n) {
-                if (s.charAt(left) != alt1[left]) diff1--;
-                if (s.charAt(left) != alt2[left]) diff2--;
+                if (s.charAt(left) != alt1[left]) {
+                    diff1--;
+                }
+                if (s.charAt(left) != alt2[left]) {
+                    diff2--;
+                }
                 left++;
             }
-
             if (right - left + 1 == n) {
                 result = Math.min(Math.min(result, diff1), diff2);
             }

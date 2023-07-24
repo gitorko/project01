@@ -33,7 +33,6 @@ public class HandOfStraights {
         for (int card : hand) {
             countMap.put(card, countMap.getOrDefault(card, 0) + 1);
         }
-
         for (int start : countMap.keySet()) {
             int value = countMap.get(start);
             if (value > 0) {

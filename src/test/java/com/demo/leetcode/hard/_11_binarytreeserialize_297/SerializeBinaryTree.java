@@ -42,19 +42,17 @@ public class SerializeBinaryTree {
 
     public TreeNode deserialize(String data) {
         Queue<String> queue = new LinkedList<>(Arrays.asList(data.split(",")));
-        return helper(queue);
+        return dfs(queue);
     }
 
-    private TreeNode helper(Queue<String> queue) {
+    private TreeNode dfs(Queue<String> queue) {
         String val = queue.poll();
-
         if (val.equals("#")) {
             return null;
         }
-
         TreeNode root = new TreeNode(Integer.valueOf(val));
-        root.left = helper(queue);
-        root.right = helper(queue);
+        root.left = dfs(queue);
+        root.right = dfs(queue);
         return root;
     }
 }

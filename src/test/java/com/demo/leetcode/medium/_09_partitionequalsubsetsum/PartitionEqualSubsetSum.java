@@ -1,4 +1,4 @@
-package com.demo.leetcode.medium._09_partitionsubsetsum;
+package com.demo.leetcode.medium._09_partitionequalsubsetsum;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -18,10 +18,17 @@ import org.junit.jupiter.api.Test;
  *
  * https://www.youtube.com/watch?v=IsvocB5BJhw&ab_channel=NeetCode
  */
-public class PartitionSubsetSum {
+public class PartitionEqualSubsetSum {
 
     @Test
-    public void test() {
+    public void test1() {
+        int[] nums = {5, 3, 8};
+        Assertions.assertTrue(canPartition(nums));
+        Assertions.assertTrue(canPartition2(nums));
+    }
+
+    @Test
+    public void test2() {
         int[] nums = {1, 5, 11, 5};
         Assertions.assertTrue(canPartition(nums));
         Assertions.assertTrue(canPartition2(nums));
@@ -54,8 +61,8 @@ public class PartitionSubsetSum {
     }
 
     /**
-     * Time: O(nk)
-     * Space: O(nk)
+     * Time: O(n * k) ,k is target
+     * Space: O(n * k)
      */
     public boolean canPartition2(int[] nums) {
         int sum = Arrays.stream(nums).sum();
@@ -68,15 +75,16 @@ public class PartitionSubsetSum {
     private boolean knapsack(int[] nums, int subsetSum) {
         int n = nums.length;
         boolean[][] dp = new boolean[n + 1][subsetSum + 1];
-        dp[0][0] = true;
-
-        for (int i = 1; i <= n; i++) {
-            int num = nums[i - 1];
-            for (int j = 0; j <= subsetSum; j++) {
-                if (j < num) {
+        for (int i = 0; i < nums.length + 1; i++) {
+            dp[i][0] = true;
+        }
+        for (int i = 1; i < n + 1; i++) {
+            for (int j = 0; j < subsetSum + 1; j++) {
+                int currVal = nums[i - 1];
+                if (currVal > j) {
                     dp[i][j] = dp[i - 1][j];
                 } else {
-                    dp[i][j] = dp[i - 1][j] || dp[i - 1][j - num];
+                    dp[i][j] = dp[i - 1][j] || dp[i - 1][j - currVal];
                 }
             }
         }

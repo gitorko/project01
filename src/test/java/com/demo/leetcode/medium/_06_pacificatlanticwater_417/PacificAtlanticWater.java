@@ -27,8 +27,8 @@ public class PacificAtlanticWater {
     }
 
     /**
-     * Time: O(mn)
-     * Space: O(mn)
+     * Time: O(m*n)
+     * Space: O(m*n)
      */
     int[][] heights;
     int rowLen;
@@ -41,19 +41,17 @@ public class PacificAtlanticWater {
         List<List<Integer>> result = new ArrayList<>();
         boolean[][] visitedP = new boolean[rowLen][colLen];
         boolean[][] visitedA = new boolean[rowLen][colLen];
-
         //first column, last column, height is 0 as it can flow to ocean
         for (int i = 0; i < rowLen; i++) {
             dfs(i, 0, 0, visitedP);
             dfs(i, colLen - 1, 0, visitedA);
         }
-
         //first row, last row, height is 0 as it can flow to ocean
         for (int j = 0; j < colLen; j++) {
             dfs(0, j, 0, visitedP);
             dfs(rowLen - 1, j, 0, visitedA);
         }
-
+        //if present in both visited set then add to result
         for (int i = 0; i < rowLen; i++) {
             for (int j = 0; j < colLen; j++) {
                 if (visitedP[i][j] && visitedA[i][j]) {
@@ -61,7 +59,6 @@ public class PacificAtlanticWater {
                 }
             }
         }
-
         return result;
     }
 
@@ -69,7 +66,6 @@ public class PacificAtlanticWater {
         if (i < 0 || j < 0 || i == rowLen || j == colLen || visited[i][j] || heights[i][j] < h) {
             return;
         }
-
         visited[i][j] = true;
         dfs(i + 1, j, heights[i][j], visited);
         dfs(i - 1, j, heights[i][j], visited);

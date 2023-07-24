@@ -22,21 +22,21 @@ public class ProductOfArray {
     }
 
     /**
-     * Time: O(N)
+     * Time: O(n)
      * Space: O(1)
      */
     public int[] productExceptSelf(int[] nums) {
-        int[] res = new int[nums.length];
+        int[] result = new int[nums.length];
         int prefix = 1;
         for (int i = 0; i < nums.length; i++) {
-            res[i] = prefix;
+            result[i] = prefix;
             prefix = prefix * nums[i];
         }
         int postfix = 1;
         for (int i = nums.length - 1; i >= 0; i--) {
-            res[i] = res[i] * postfix;
+            result[i] = result[i] * postfix;
             postfix = postfix * nums[i];
         }
-        return res;
+        return result;
     }
 }

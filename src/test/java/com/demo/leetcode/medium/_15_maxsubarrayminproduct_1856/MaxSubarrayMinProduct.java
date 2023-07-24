@@ -33,12 +33,10 @@ public class MaxSubarrayMinProduct {
         //stack holds index
         Stack<Integer> stack = new Stack<>();
         long[] prefix = new long[nums.length + 1];
-
         //prefix sum
         for (int i = 0; i < nums.length; i++) {
             prefix[i + 1] = prefix[i] + nums[i];
         }
-
         for (int i = 0; i < nums.length; i++) {
             while (!stack.isEmpty() && nums[stack.peek()] > nums[i]) {
                 int minVal = nums[stack.pop()];
