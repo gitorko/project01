@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Test;
 /**
  * [120. Triangle - MEDIUM](https://leetcode.com/problems/triangle/)
  *
- * - dynamic program, from bottom
  * - min of bottom
  * - SIMILAR_TO: [118. Pascal's Triangle - EASY](https://leetcode.com/problems/pascals-triangle/)
  * - PRACTICE: P2
@@ -31,11 +30,12 @@ public class Triangle {
      * Space: O(1)
      */
     public int minimumTotal(List<List<Integer>> triangle) {
+        //start form last but one row
         for (int i = triangle.size() - 2; i >= 0; i--) {
-            for (int j = 0; j <= i; j++) {
+            for (int j = 0; j < i + 1; j++) {
                 List<Integer> curRow = triangle.get(i);
-                List<Integer> nextRow = triangle.get(i + 1);
-                curRow.set(j, curRow.get(j) + Math.min(nextRow.get(j), nextRow.get(j + 1)));
+                List<Integer> botRow = triangle.get(i + 1);
+                curRow.set(j, curRow.get(j) + Math.min(botRow.get(j), botRow.get(j + 1)));
             }
         }
         return triangle.get(0).get(0);

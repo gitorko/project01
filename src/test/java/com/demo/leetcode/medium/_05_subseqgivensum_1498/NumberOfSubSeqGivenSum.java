@@ -12,7 +12,6 @@ import org.junit.jupiter.api.Test;
  * - two pointer (left is min, right is max)
  * - math pre-calculated powers
  * - PRACTICE: P1
- * - MISTAKES: Likely to forget mod
  *
  * https://www.youtube.com/watch?v=xCsIkPLS4Ls&ab_channel=NeetCode
  */
@@ -30,23 +29,21 @@ public class NumberOfSubSeqGivenSum {
      * Space: O(n)
      */
     public int numSubseq(int[] nums, int target) {
-        int kMod = (int) 1e9 + 7;
+        int mod = (int) 1e9 + 7;
         int result = 0;
-
         //2^n power lookup table
-        int[] pows = new int[nums.length];
-        pows[0] = 1;
+        int[] power = new int[nums.length];
+        power[0] = 1;
         for (int i = 1; i < nums.length; i++) {
-            pows[i] = pows[i - 1] * 2 % kMod;
+            power[i] = power[i - 1] * 2 % mod;
         }
-
         Arrays.sort(nums);
         int left = 0;
         int right = nums.length - 1;
         while (left <= right) {
             if (nums[left] + nums[right] <= target) {
-                result += pows[right - left];
-                result %= kMod;
+                result += power[right - left];
+                result %= mod;
                 left++;
             } else {
                 right--;

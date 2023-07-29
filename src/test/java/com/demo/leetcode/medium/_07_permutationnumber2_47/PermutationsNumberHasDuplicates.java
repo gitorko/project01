@@ -50,9 +50,12 @@ public class PermutationsNumberHasDuplicates {
         } else {
             for (int i = 0; i < nums.length; i++) {
                 if (!visited[i]) {
-                    //case to avoid duplicates.
-                    if (i > 0 && nums[i] == nums[i - 1] && !visited[i - 1]) continue;
-
+                    // case to avoid duplicates.
+                    // if the numbers are same, if previous identical number is used, then use the current number.
+                    // if the numbers are same, if previous identical number was not used, then cant use current number.
+                    if (i > 0 && nums[i] == nums[i - 1] && !visited[i - 1]) {
+                        continue;
+                    }
                     tempList.add(nums[i]);
                     visited[i] = true;
                     backtrack(tempList);

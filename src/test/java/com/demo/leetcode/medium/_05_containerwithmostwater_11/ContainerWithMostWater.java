@@ -6,8 +6,8 @@ import org.junit.jupiter.api.Test;
 /**
  * [11. Container With Most Water - MEDIUM](https://leetcode.com/problems/container-with-most-water/)
  *
- * - two pointer, sliding window
- * - start from both ends
+ * - sliding window
+ * - SIMILAR_TO: [42. Trapping Rain Water - HARD](https://leetcode.com/problems/trapping-rain-water/)
  *
  * https://www.youtube.com/watch?v=UuiTKBwPgAo&ab_channel=NeetCode
  */

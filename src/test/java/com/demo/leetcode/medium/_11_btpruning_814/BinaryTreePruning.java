@@ -13,7 +13,6 @@ import org.junit.jupiter.api.Test;
  *
  * - pre-order traversal
  * - PRACTICE: P3
- * - MISTAKES: Likely to miss edge case when all nodes are 0.
  */
 public class BinaryTreePruning {
 

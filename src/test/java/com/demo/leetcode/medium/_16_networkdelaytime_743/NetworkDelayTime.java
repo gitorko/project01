@@ -39,41 +39,38 @@ public class NetworkDelayTime {
 
     /**
      * Time: O(e * log(v)) , where v is nodes, e is edges
-     * Space: O(n + e)
+     * Space: O(v + e)
      */
     public int networkDelayTime(int[][] times, int n, int k) {
         //[source, target, cost]
         Map<Integer, Map<Integer, Integer>> adjacencyMap = new HashMap<>();
-
         //adjacency map
         for (int[] time : times) {
             adjacencyMap.putIfAbsent(time[0], new HashMap<>());
             adjacencyMap.get(time[0]).put(time[1], time[2]);
         }
-
         //[cost, node]
         Queue<int[]> minHeap = new PriorityQueue<>((a, b) -> (a[0] - b[0]));
         Set<Integer> visited = new HashSet<>();
         int result = 0;
         minHeap.add(new int[]{0, k});
-
         while (!minHeap.isEmpty()) {
             int[] cur = minHeap.poll();
             int curCost = cur[0];
             int curNode = cur[1];
-            if (visited.contains(curNode)){
+            if (visited.contains(curNode)) {
                 continue;
             }
-
-            visited.add(curNode);
-            result = curCost;
-            n--;
+            // add neighbours
             if (adjacencyMap.containsKey(curNode)) {
                 for (Map.Entry<Integer, Integer> next : adjacencyMap.get(curNode).entrySet()) {
                     minHeap.add(new int[]{curCost + next.getValue(), next.getKey()});
                 }
             }
+            // add to visited
+            visited.add(curNode);
+            result = curCost;
         }
-        return n == 0 ? result : -1;
+        return visited.size() == n ? result : -1;
     }
 }

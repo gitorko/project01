@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
  * [538. Convert BST to Greater Tree - MEDIUM](https://leetcode.com/problems/convert-bst-to-greater-tree/)
  *
  * - reverse inorder (right -> root -> left)
- * - PRACTICE: P4
+ * - PRACTICE: P3
  *
  * https://www.youtube.com/watch?v=7vVEJwVvAlI&ab_channel=NeetCode
  */

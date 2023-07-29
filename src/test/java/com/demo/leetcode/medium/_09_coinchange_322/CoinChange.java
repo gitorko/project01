@@ -76,8 +76,9 @@ public class CoinChange {
         //base case
         if (rem < 0) return -1; // not valid
         if (rem == 0) return 0; // completed
-        if (dp[rem - 1] != 0) return dp[rem - 1]; // already computed, so reuse
-
+        if (dp[rem - 1] != 0) {
+            return dp[rem - 1]; // already computed, so reuse
+        }
         int min = Integer.MAX_VALUE;
         for (int coin : coins) {
             int res = helper(rem - coin);

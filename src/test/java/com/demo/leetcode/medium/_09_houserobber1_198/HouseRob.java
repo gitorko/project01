@@ -11,7 +11,6 @@ import org.junit.jupiter.api.Test;
  * - rob = max (arr[0] + rob(2..n), rob(1..n))
  * - SIMILAR_TO: [213. House Robber II - MEDIUM](https://leetcode.com/problems/house-robber-ii/)
  * - PRACTICE: P1
- * - MISTAKES: Likely to miss edge case when there is just 1/0 element.
  *
  * https://www.youtube.com/watch?v=73r3KWiEvyk&ab_channel=NeetCode
  */
@@ -40,14 +39,16 @@ public class HouseRob {
 
     public int robBottomUp(int[] nums) {
         //edge case when 0/1 elements
-        if (nums.length == 0) return 0;
-        if (nums.length == 1) return nums[0];
-
+        if (nums.length == 0) {
+            return 0;
+        }
+        if (nums.length == 1) {
+            return nums[0];
+        }
         int[] dp = new int[nums.length];
         //first and second house
         dp[0] = nums[0];
         dp[1] = Math.max(nums[0], nums[1]);
-
         //Start from 2nd house
         for (int i = 2; i < nums.length; i++) {
             dp[i] = Math.max(nums[i] + dp[i - 2], dp[i - 1]);
@@ -60,7 +61,8 @@ public class HouseRob {
      * Based on robBottomUp you only need last 2 values hence just 2 variable are enough
      */
     public int robBottomUpNSteps(int[] nums) {
-        int rob1 = 0, rob2 = 0;
+        int rob1 = 0;
+        int rob2 = 0;
         //[rob1, rob2, n, n+1]
         for (int n : nums) {
             int temp = Math.max(n + rob1, rob2);
@@ -82,10 +84,12 @@ public class HouseRob {
     }
 
     private int robTopDownHelper(int[] nums, int i) {
-        if (i == 0)
+        if (i == 0) {
             return nums[0];
-        if (i == 1)
+        }
+        if (i == 1) {
             return Math.max(nums[0], nums[1]);
+        }
         if (dp[i] >= 0) {
             return dp[i];
         }

@@ -44,15 +44,12 @@ public class RootToLeafSumBT {
         if(root == null) {
             return 0;
         }
-
         //base case
         if(root.left == null && root.right == null) {
             return sum + root.val;
         }
-
         int leftSum = sumTree(root.left, (sum + root.val) * 10);
         int rightSum = sumTree(root.right, (sum + root.val) * 10);
-
         return leftSum + rightSum;
     }
 }

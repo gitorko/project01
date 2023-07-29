@@ -60,15 +60,12 @@ public class SwapNodeLinkList {
         while (curr.next != null && curr.next.next != null) {
             ListNode first = curr.next;
             ListNode second = curr.next.next;
-
             //swap logic
             first.next = second.next;
             curr.next = second;
             second.next = first;
-
             //double jump
             curr = curr.next.next;
-
         }
         return dummy.next;
     }
@@ -79,8 +76,9 @@ public class SwapNodeLinkList {
      * Space: O(1)
      */
     public ListNode swapPairsRecursion(ListNode head) {
-        if ((head == null) || (head.next == null))
+        if ((head == null) || (head.next == null)) {
             return head;
+        }
         ListNode tempNext = head.next;
         //double jump
         head.next = swapPairs(head.next.next);

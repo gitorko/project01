@@ -27,12 +27,13 @@ public class DiameterBT {
 
     /**
      * Time: O(n)
+     * Space: O(1)
      */
-    int max = 0;
+    int maxVal = 0;
 
     public int diameterOfBinaryTree(TreeNode root) {
         maxDepth(root);
-        return max;
+        return maxVal;
     }
 
     private int maxDepth(TreeNode root) {
@@ -41,9 +42,7 @@ public class DiameterBT {
         }
         int left = maxDepth(root.left);
         int right = maxDepth(root.right);
-
-        max = Math.max(max, left + right);
-
+        maxVal = Math.max(maxVal, left + right);
         return Math.max(left, right) + 1;
     }
 }

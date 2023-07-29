@@ -22,9 +22,12 @@ public class IsSubsequence {
 
     /**
      * Time: O(s+t)
+     * Space: O(1)
      */
     public boolean isSubsequence(String s, String t) {
-        if (s.length() == 0) return true;
+        if (s.length() == 0) {
+            return true;
+        }
         int left = 0;
         int right = 0;
         while (left < s.length() && right < t.length()) {

@@ -32,8 +32,7 @@ public class FirstLastElement {
 
     /**
      * Time: O(log n)
-     * run binary search twice
-     * better approach if all nums are target.
+     * Run binary search twice, Better approach if all nums are target.
      */
     public int[] searchRange(int[] nums, int target) {
         int start = binarySearch(nums, target, true);
@@ -77,8 +76,12 @@ public class FirstLastElement {
     public int[] expandCenter(int[] arr, int index, int target) {
         int left = index;
         int right = index;
-        while (left - 1 >= 0 && arr[left - 1] == target) left--;
-        while (right + 1 < arr.length && arr[right + 1] == target) right++;
+        while (left - 1 >= 0 && arr[left - 1] == target) {
+            left--;
+        }
+        while (right + 1 < arr.length && arr[right + 1] == target) {
+            right++;
+        }
         return new int[]{left, right};
     }
 
@@ -87,7 +90,9 @@ public class FirstLastElement {
         int right = arr.length - 1;
         while (left <= right) {
             int mid = (left + right) / 2;
-            if (arr[mid] == k) return mid;
+            if (arr[mid] == k) {
+                return mid;
+            }
             if (arr[mid] < k) {
                 left = mid + 1;
             } else {

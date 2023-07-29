@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 /**
  * [535. Encode and Decode TinyURL - MEDIUM](https://leetcode.com/problems/encode-and-decode-tinyurl/)
  *
- *  - two map, while loop
+ *  - two map, while loop to avoid collision
  *  - PRACTICE: P3
  *
  * https://www.youtube.com/watch?v=VyBOaboQLGc&ab_channel=NeetCode
@@ -28,8 +28,7 @@ public class EncodeDecodeTinyUrl {
 
     class Codec {
 
-        private String alphabets =
-                "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        private String alphabets = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         private Map<String, String> urlToCode = new HashMap<>();
         private Map<String, String> codeToUrl = new HashMap<>();
         private Random rand = new Random();
@@ -59,6 +58,5 @@ public class EncodeDecodeTinyUrl {
             }
             return sb.toString();
         }
-
     }
 }

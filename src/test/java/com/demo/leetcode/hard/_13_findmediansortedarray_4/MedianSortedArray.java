@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Test;
  * - binary search
  * - option1: merge 2 array and find median. Time: O(m+n), Space: O(m+n)
  * - option2: binary search O(log(m+n))
- * - SIMILAR_TO: [295. Find Median from Data Stream - HARD](https://leetcode.com/problems/find-median-from-data-stream/)
  * - PRACTICE: P3
  *
  * https://www.youtube.com/watch?v=q6IEA26hvXc&ab_channel=NeetCode
@@ -24,37 +23,38 @@ public class MedianSortedArray {
     }
 
     /**
-     * Time: O(log(len(m,n))
+     * Time: O(log(min(m,n))
      */
     public double findMedianSortedArrays(int[] X, int[] Y) {
         if (X.length > Y.length) {
             return findMedianSortedArrays(Y, X);
         }
-
-        int x = X.length;
-        int y = Y.length;
-        int low = 0;
-        int high = x;
+        int xLen = X.length;
+        int yLen = Y.length;
+        int left = 0;
+        int right = xLen;
         double median = 0.0;
-        while (low <= high) {
-            int midX = (low + high) / 2;
-            int midY = ((x + y + 1) / 2) - midX;
+        while (left <= right) {
+            int halfVal = ((xLen + yLen + 1) / 2);
+            int midX = (left + right) / 2;
+            int midY = halfVal - midX;
             int maxLeftX = (midX == 0) ? Integer.MIN_VALUE : X[midX - 1];
             int maxLeftY = (midY == 0) ? Integer.MIN_VALUE : Y[midY - 1];
-            int minRightX = (midX == x) ? Integer.MAX_VALUE : X[midX];
-            int minRightY = (midY == y) ? Integer.MAX_VALUE : Y[midY];
+            int minRightX = (midX == xLen) ? Integer.MAX_VALUE : X[midX];
+            int minRightY = (midY == yLen) ? Integer.MAX_VALUE : Y[midY];
             if (maxLeftX <= minRightY && maxLeftY <= minRightX) {
-                //even length array
-                if ((x + y) % 2 == 0) {
+                if ((xLen + yLen) % 2 == 0) {
+                    //even length array
                     median = (Math.max(maxLeftX, maxLeftY) + Math.min(minRightX, minRightY)) / 2.0;
                 } else {
+                    //odd length array
                     median = Math.max(maxLeftX, maxLeftY);
                 }
                 break;
             } else if (maxLeftX > minRightY) {
-                high = midX - 1;
+                right = midX - 1;
             } else {
-                low = midX + 1;
+                left = midX + 1;
             }
         }
         return median;

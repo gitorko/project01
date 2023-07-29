@@ -27,12 +27,13 @@ public class SearchRotatedSortArray {
     public int search(int[] nums, int target) {
         int left = 0;
         int right = nums.length - 1;
-        while (left < right) {
+        while (left <= right) {
             int mid = (left + right) / 2;
-            if (nums[mid] == target) return mid;
-
-            //right portion
+            if (nums[mid] == target) {
+                return mid;
+            }
             if (nums[mid] < nums[right]) {
+                //You are inside right portion
                 if (target > nums[mid] && target <= nums[right]) {
                     left = mid + 1;
                 } else {
@@ -46,7 +47,7 @@ public class SearchRotatedSortArray {
                 }
             }
         }
-        return nums[left] == target ? left : -1;
+        return -1;
     }
 
 }

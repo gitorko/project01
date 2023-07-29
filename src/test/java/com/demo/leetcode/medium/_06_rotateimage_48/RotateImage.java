@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
  * [48. Rotate Image - MEDIUM](https://leetcode.com/problems/rotate-image/)
  *
  * - transpose swap(matrix[i][j], matrix[j][i]) + flip the matrix horizontally.
- * - PRACTICE: P3
  *
  * https://www.youtube.com/watch?v=fMSJSS7eO1w&ab_channel=NeetCode
  */

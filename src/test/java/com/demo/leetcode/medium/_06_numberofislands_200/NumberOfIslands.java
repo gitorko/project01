@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
  * [200. Number of Islands - MEDIUM](https://leetcode.com/problems/number-of-islands/)
  *
  * - dfs
- * - no need of visited, use same grid mark as '0'
  * - SIMILAR_TO: [695. Max Area of Island - MEDIUM](https://leetcode.com/problems/max-area-of-island/)
  * - PRACTICE: P3
  *
@@ -27,8 +26,8 @@ public class NumberOfIslands {
     }
 
     /**
-     * Alternately, we could set up a duplicate matrix to record this information at the cost of increasing
-     * the space complexity from O(L) to O(M * N + L)
+     * Time: O(m * n)
+     * Space: (1)
      */
     int rowLen;
     int colLen;
@@ -36,23 +35,24 @@ public class NumberOfIslands {
 
     public int numIslands(char[][] input) {
         this.grid = input;
-        int count = 0;
+        int result = 0;
         rowLen = grid.length;
         colLen = grid[0].length;
         for (int i = 0; i < rowLen; i++) {
             for (int j = 0; j < colLen; j++) {
                 if (grid[i][j] == '1') {
                     dfs(i, j);
-                    count++;
+                    result++;
                 }
             }
         }
-        return count;
+        return result;
     }
 
     private void dfs(int i, int j) {
-        if (i < 0 || j < 0 || i >= rowLen || j >= colLen || grid[i][j] != '1')
+        if (i < 0 || j < 0 || i >= rowLen || j >= colLen || grid[i][j] != '1') {
             return;
+        }
         //prevent land cells from being traversed and counted more than once.
         grid[i][j] = '0';
         dfs(i + 1, j);

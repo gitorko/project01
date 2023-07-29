@@ -20,8 +20,9 @@ public class LongContinuousIncreasingSubSeq {
     public int findLengthOfLCIS(int[] nums) {
         int result = 0;
         for (int left = 0, right = 0; right < nums.length; right++) {
-            if (right > 0 && nums[right] <= nums[right - 1])
+            if (right > 0 && nums[right] <= nums[right - 1]) {
                 left = right;
+            }
             result = Math.max(result, right - left + 1);
         }
         return result;

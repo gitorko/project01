@@ -10,7 +10,6 @@ import org.junit.jupiter.api.Test;
  *
  * - dummy node, two pointer
  * - PRACTICE: P3
- * - MISTAKES: Likely to find length and then iterate instead of using 2 pointers
  *
  * https://www.youtube.com/watch?v=XVuQxVej6y8&ab_channel=NeetCode
  */
@@ -35,19 +34,16 @@ public class RemoveNNodeLinkList {
         //prev will be one node behind the actual node to delete
         ListNode prev = dummy;
         ListNode curr = head;
-
         //move curr pointer n positions
         while (n > 0 && curr != null) {
             curr = curr.next;
             n--;
         }
-
         //move both pointers till curr pointer reaches end.
         while (curr != null) {
             prev = prev.next;
             curr = curr.next;
         }
-
         //delete the desired node
         prev.next = prev.next.next;
         return dummy.next;
@@ -65,7 +61,6 @@ public class RemoveNNodeLinkList {
         if (head == null) {
             return null;
         }
-
         head.next = removeNthFromEnd2(head.next, n);
         count++;
         if (count == n) {

@@ -30,6 +30,7 @@ public class PalindromePartition {
      */
     List<List<String>> result;
     String s;
+
     public List<List<String>> partition(String s) {
         this.s = s;
         result = new ArrayList<>();
@@ -53,9 +54,11 @@ public class PalindromePartition {
 
     public boolean isPalindrome(int left, int right) {
         while (left < right) {
-            if (s.charAt(left++) != s.charAt(right--)) {
+            if (s.charAt(left) != s.charAt(right)) {
                 return false;
             }
+            left++;
+            right--;
         }
         return true;
     }

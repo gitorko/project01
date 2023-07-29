@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
  *
  * - dfs, set to -1 for already visited
  * - edge case to return 0 when grid[i][j] is -1
+ * - SIMILAR_TO: [200. Number of Islands - MEDIUM](https://leetcode.com/problems/number-of-islands/)
  * - PRACTICE: P3
  *
  * https://www.youtube.com/watch?v=fISIuAFRM2s&ab_channel=NeetCode
@@ -47,15 +48,12 @@ public class IslandPerimeter {
         if (i < 0 || j < 0 || i >= rowLen || j >= colLen || grid[i][j] == 0) {
             return 1;
         }
-
         //return if edge is -1 as already processed.
         if (grid[i][j] == -1) {
             return 0;
         }
-
         //set to -1 so that we don't count the perimeter, if we set to 0 then it will add to perimeter.
         grid[i][j] = -1;
-
         int count = 0;
         count += dfs(i - 1, j, grid);
         count += dfs(i, j - 1, grid);

@@ -14,6 +14,7 @@ import org.junit.jupiter.api.Test;
  * [133. Clone Graph - MEDIUM](https://leetcode.com/problems/clone-graph/)
  *
  * - bfs, visited map
+ * - SIMILAR_TO: [138. Copy List with Random Pointer - MEDIUM](https://leetcode.com/problems/copy-list-with-random-pointer/)
  * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=mQeF6bN8hMk&ab_channel=NeetCode
@@ -29,21 +30,18 @@ public class CloneGraph {
     }
 
     /**
-     * Time: O(∣V∣+∣E∣)
-     * Space: O(∣V∣+∣E∣)
+     * Time: O(∣v∣+∣e∣)
+     * Space: O(∣v∣+∣e∣)
      */
     public Node cloneGraph(Node node) {
         if (node == null) {
             return null;
         }
-
         Node newNode = new Node(node.val);
         Map<Integer, Node> visited = new HashMap();
         visited.put(node.val, newNode);
-
         Queue<Node> queue = new LinkedList();
         queue.add(node);
-
         while (!queue.isEmpty()) {
             Node currNode = queue.poll();
             for (Node neighbor : currNode.neighbors) {

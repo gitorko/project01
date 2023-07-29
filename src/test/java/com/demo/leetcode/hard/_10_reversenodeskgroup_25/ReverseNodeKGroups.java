@@ -30,14 +30,12 @@ public class ReverseNodeKGroups {
         dummy.next = head;
         ListNode currGroupStart = dummy;
         ListNode nextGroupStart;
-
         while (true) {
             ListNode kthNode = getKth(currGroupStart, k);
             if (kthNode == null) {
                 break;
             }
             nextGroupStart = kthNode.next;
-
             //reverse
             ListNode prev = nextGroupStart;
             ListNode curr = currGroupStart.next;
@@ -48,7 +46,7 @@ public class ReverseNodeKGroups {
                 prev = curr;
                 curr = temp;
             }
-
+            //confusing part, currGroupStart needs to go one node behind the nextGroupStart
             temp = currGroupStart.next;
             currGroupStart.next = kthNode;
             currGroupStart = temp;

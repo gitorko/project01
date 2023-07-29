@@ -32,7 +32,7 @@ public class GroupAnagrams {
     }
 
     /**
-     * Time: O(m * n * 26) - m is number of string, n is avg length of each string
+     * Time: O(m * n) - m is number of string, n is avg length of each string
      * Space: O(m * n)
      */
     public List<List<String>> groupAnagrams(String[] strs) {

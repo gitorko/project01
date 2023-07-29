@@ -12,15 +12,20 @@ import org.junit.jupiter.api.Test;
  *
  * - find middle, reverse 2nd half, compare both half
  * - PRACTICE: P2
- * - MISTAKES: Doing a full reverse will take O(n) space
  *
  * https://www.youtube.com/watch?v=yOzXms1J6Nk&ab_channel=NeetCode
  */
 public class PalindromeLinkList {
 
     @Test
-    public void test() {
+    public void test1() {
         ListNode root = ListNodeUtil.create(Arrays.asList(1, 2, 2, 1));
+        Assertions.assertTrue(isPalindrome(root));
+    }
+
+    @Test
+    public void test2() {
+        ListNode root = ListNodeUtil.create(Arrays.asList(1, 2, 3, 2, 1));
         Assertions.assertTrue(isPalindrome(root));
     }
 
@@ -36,27 +41,24 @@ public class PalindromeLinkList {
             fast = fast.next.next;
             slow = slow.next;
         }
-
         //reverse 2nd half
         ListNode mid = slow;
         ListNode prev = null;
         while (mid != null) {
-            ListNode next = mid.next;
+            ListNode temp = mid.next;
             mid.next = prev;
             prev = mid;
-            mid = next;
+            mid = temp;
         }
-
-        ListNode l2 = prev;
-        ListNode l1 = head;
-
-        //check if palindrome
-        while (l2 != null) {
-            if (l1.val != l2.val) {
+        ListNode left = head;
+        ListNode right = prev;
+        //check if palindrome, will handle both even and odd length palindrome
+        while (right != null) {
+            if (right.val != left.val) {
                 return false;
             }
-            l1 = l1.next;
-            l2 = l2.next;
+            right = right.next;
+            left = left.next;
         }
         return true;
     }

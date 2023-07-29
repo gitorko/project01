@@ -47,7 +47,6 @@ public class TrappingRainWater {
                 max = height[i];
             }
         }
-
         //max right height
         max = 0;
         for (int i = height.length - 1; i >= 0; i--) {
@@ -56,19 +55,16 @@ public class TrappingRainWater {
                 max = height[i];
             }
         }
-
         //min array
         for (int i = 0; i < height.length; i++) {
             minArr[i] = Math.min(maxLeft[i], maxRight[i]);
         }
-
         for (int i = 0; i < height.length; i++) {
             int diff = minArr[i] - height[i];
             if (diff > 0) {
                 result[i] = diff;
             }
         }
-
         return Arrays.stream(result).sum();
     }
 
@@ -84,13 +80,15 @@ public class TrappingRainWater {
         int result = 0;
         while (left < right) {
             if (leftMax < rightMax) {
-                result += leftMax - height[left];
                 left++;
                 leftMax = Math.max(leftMax, height[left]);
+                //will never be negative because of max above.
+                result += leftMax - height[left];
             } else {
-                result += rightMax - height[right];
                 right--;
                 rightMax = Math.max(rightMax, height[right]);
+                //will never be negative because of max above.
+                result += rightMax - height[right];
             }
         }
         return result;

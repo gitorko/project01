@@ -14,7 +14,6 @@ import org.junit.jupiter.api.Test;
  * [230. Kth Smallest Element in a BST - MEDIUM](https://leetcode.com/problems/kth-smallest-element-in-a-bst/)
  *
  * - Iterative in-order traversal using stack
- * - brute force: in-order traversal and the kth element in sorted array is result.
  * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=5LUXSvjmGCw&ab_channel=NeetCode
@@ -41,10 +40,13 @@ public class KthSmallestBST {
                 root = root.left;
             }
             root = stack.pop();
-            if (--k == 0) break;
+            k--;
+            if (k == 0) {
+                return root.val;
+            }
             root = root.right;
         }
-        return root.val;
+        return -1;
     }
 
     /**
@@ -57,6 +59,7 @@ public class KthSmallestBST {
 
     public List<Integer> inorderTraversal(TreeNode root, int k) {
         List<Integer> numLst = new ArrayList<>();
+        //early return when k is reached
         if (root != null && numLst.size() < k) {
             numLst.addAll(inorderTraversal(root.left, k));
             numLst.add(root.val);

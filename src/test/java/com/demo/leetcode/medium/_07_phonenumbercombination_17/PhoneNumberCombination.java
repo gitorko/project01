@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 /**
  * [17. Letter Combinations of a Phone Number - MEDIUM](https://leetcode.com/problems/letter-combinations-of-a-phone-number/)
  *
- * - backtrack
+ * - backtracking
  * - PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=0snEunUacZY&ab_channel=NeetCode
@@ -58,10 +58,9 @@ public class PhoneNumberCombination {
     }
 
     private void backtrack(int i, String currStr) {
-        //when current string length is same as input add to result
+        //base case
         if (currStr.length() == digits.length()) {
             result.add(currStr);
-            //remember to return
             return;
         }
         char digit = digits.charAt(i);

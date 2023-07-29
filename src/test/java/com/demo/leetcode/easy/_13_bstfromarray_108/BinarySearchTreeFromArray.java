@@ -30,19 +30,22 @@ public class BinarySearchTreeFromArray {
      * Time: O(n)
      * Space: O(log(n))
      */
+    int[] nums;
+
     public TreeNode sortedArrayToBST(int[] nums) {
-        return helper(nums, 0, nums.length - 1);
+        this.nums = nums;
+        return helper(0, nums.length - 1);
     }
 
-    private TreeNode helper(int[] nums, int left, int right) {
+    private TreeNode helper(int left, int right) {
         //base case
         if (left > right) {
             return null;
         }
         int mid = (left + right) / 2;
         TreeNode node = new TreeNode(nums[mid]);
-        node.left = helper(nums, left, mid - 1);
-        node.right = helper(nums, mid + 1, right);
+        node.left = helper(left, mid - 1);
+        node.right = helper(mid + 1, right);
         return node;
     }
 }

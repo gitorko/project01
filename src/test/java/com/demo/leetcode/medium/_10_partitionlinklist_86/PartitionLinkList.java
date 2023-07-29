@@ -11,7 +11,6 @@ import org.junit.jupiter.api.Test;
  * [86. Partition List - MEDIUM](https://leetcode.com/problems/partition-list/)
  *
  * - 4 dummy node
- * - set rightTail.next to null
  * - PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=KT1iUciJr4g&ab_channel=NeetCode
@@ -26,12 +25,15 @@ public class PartitionLinkList {
         Assertions.assertArrayEquals(expected, ListNodeUtil.toArray(partition));
     }
 
+    /**
+     * Time: O(n)
+     * Space: O(1)
+     */
     public ListNode partition(ListNode head, int x) {
-        ListNode leftStart = new ListNode();
-        ListNode rightStart = new ListNode();
-        ListNode leftTail = leftStart;
-        ListNode rightTail = rightStart;
-
+        ListNode leftHead = new ListNode();
+        ListNode rightHead = new ListNode();
+        ListNode leftTail = leftHead;
+        ListNode rightTail = rightHead;
         while (head != null) {
             if (head.val < x) {
                 leftTail.next = head;
@@ -42,10 +44,10 @@ public class PartitionLinkList {
             }
             head = head.next;
         }
-        leftTail.next = rightStart.next;
+        leftTail.next = rightHead.next;
         //Break the link and set to null
         rightTail.next = null;
-        return leftStart.next;
+        return leftHead.next;
 
     }
 }

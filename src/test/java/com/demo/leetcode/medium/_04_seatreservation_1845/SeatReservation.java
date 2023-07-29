@@ -1,6 +1,7 @@
 package com.demo.leetcode.medium._04_seatreservation_1845;
 
 import java.util.PriorityQueue;
+import java.util.Queue;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -36,25 +37,17 @@ public class SeatReservation {
     }
 
     class SeatManager {
-        PriorityQueue<Integer> minHeap;
-        int count;
-        int maxSeats;
+        Queue<Integer> minHeap;
 
         public SeatManager(int n) {
-            count = 0;
-            maxSeats = n;
             minHeap = new PriorityQueue();
+            for (int i = 1; i < n + 1; i++) {
+                minHeap.add(i);
+            }
         }
 
         public int reserve() {
-            if (count > maxSeats) {
-                return -1;
-            }
-            if (minHeap.isEmpty()) {
-                return ++count;
-            } else {
-                return minHeap.poll();
-            }
+            return minHeap.poll();
         }
 
         public void unreserve(int seatNumber) {

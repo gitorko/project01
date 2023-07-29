@@ -56,13 +56,13 @@ public class CheckIfValidBST {
         if (leftMin != null && root.val <= leftMin || rightMax != null && root.val >= rightMax) {
             return false;
         }
-        return isValidBST(root.right, root.val, rightMax) && isValidBST(root.left, leftMin, root.val);
+        return isValidBST(root.left, leftMin, root.val) && isValidBST(root.right, root.val, rightMax);
     }
 
 
     /**
      * Iterative
-     * in-order traversal give array in sorted order, so neighbour will be increasing order.
+     * in-order traversal on BST gives sorted array, so neighbour will be increasing.
      *
      * Time: O(n)
      * Space: O(n)
@@ -80,7 +80,9 @@ public class CheckIfValidBST {
             }
             root = stack.pop();
             //check if previous is less than current, in-order ascending
-            if (previous != null && root.val <= previous.val) return false;
+            if (previous != null && root.val <= previous.val) {
+                return false;
+            }
             previous = root;
             root = root.right;
         }

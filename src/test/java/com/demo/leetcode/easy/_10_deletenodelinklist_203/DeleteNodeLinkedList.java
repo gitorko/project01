@@ -9,8 +9,7 @@ import org.junit.jupiter.api.Test;
  * [203. Remove Linked List Elements - EASY](https://leetcode.com/problems/remove-linked-list-elements/)
  *
  * - dummy node
- * - node is first node, node is last node, node is null, all nodes same
- * - PRACTICE: P4
+ * - PRACTICE: P3
  *
  * https://www.youtube.com/watch?v=JI71sxtHTng&ab_channel=NeetCode
  */
@@ -66,12 +65,10 @@ public class DeleteNodeLinkedList {
      * Space: O(1)
      */
     public ListNode removeElements(ListNode head, int val) {
-        ListNode dummy = new ListNode(-1);
+        ListNode dummy = new ListNode();
         dummy.next = head;
-
         ListNode curr = head;
         ListNode prev = dummy;
-
         while (curr != null) {
             if (curr.val == val) {
                 prev.next = curr.next;

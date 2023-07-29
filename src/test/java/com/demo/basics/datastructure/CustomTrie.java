@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 /**
  * [208. Implement Trie, Prefix Tree - EASY](https://leetcode.com/problems/implement-trie-prefix-tree/)
  *
- * - current node
  * - SIMILAR_TO: [211. Design Add and Search Words Data Structure - MEDIUM](https://leetcode.com/problems/design-add-and-search-words-data-structure/)
  * - PRACTICE: P2
  *
@@ -44,11 +43,10 @@ public class CustomTrie {
         public boolean search(String word) {
             TrieNode curr = root;
             for (char c : word.toCharArray()) {
-                int i = c - 'a';
-                if (curr.children[i] == null) {
+                if (curr.children[c - 'a'] == null) {
                     return false;
                 }
-                curr = curr.children[i];
+                curr = curr.children[c - 'a'];
             }
             return curr.isWord;
         }
@@ -57,10 +55,10 @@ public class CustomTrie {
             TrieNode curr = root;
             for (char c : prefix.toCharArray()) {
                 int i = c - 'a';
-                if (curr.children[i] == null) {
+                if (curr.children[c - 'a'] == null) {
                     return false;
                 }
-                curr = curr.children[i];
+                curr = curr.children[c - 'a'];
             }
             return true;
         }

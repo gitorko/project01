@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
  *
  * - 0..n-2,1..n-1
  * - rob = max (num[i] + rob(i-2), rob(i-1))
+ * - SIMILAR_TO: [198. House Robber - MEDIUM](https://leetcode.com/problems/house-robber/)
  * - PRACTICE: P3
  *
  * https://www.youtube.com/watch?v=rWAJCfYYOvM&ab_channel=NeetCode
@@ -28,8 +29,12 @@ public class HouseRob2 {
 
     public int rob(int[] nums) {
         this.nums = nums;
-        if (nums.length == 0) return 0;
-        if (nums.length == 1) return nums[0];
+        if (nums.length == 0) {
+            return 0;
+        }
+        if (nums.length == 1) {
+            return nums[0];
+        }
         return Math.max(robBottomUp(0, nums.length - 2), robBottomUp(1, nums.length - 1));
     }
 
@@ -37,7 +42,7 @@ public class HouseRob2 {
         int rob1 = 0;
         int rob2 = 0;
         //[rob1, rob2, n, n+1]
-        for (int i = left; i <= right; i++) {
+        for (int i = left; i < right + 1; i++) {
             int temp = Math.max(nums[i] + rob1, rob2);
             rob1 = rob2;
             rob2 = temp;

@@ -4,9 +4,8 @@ import java.util.Deque;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
+import java.util.Objects;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -14,8 +13,7 @@ import org.junit.jupiter.api.Test;
  * [146. LRU Cache - MEDIUM](https://leetcode.com/problems/lru-cache/)
  *
  * - double linked list + map
- * - use deque, it is not optimized for remove. Will time out for large set.
- * - the solution below is for understanding concept only.
+ * - if you use deque, it is not optimized for remove. Will time out for large set.
  *
  * https://www.youtube.com/watch?v=7ABFKPK2hD4&ab_channel=NeetCode
  */
@@ -43,47 +41,70 @@ public class LRUCacheConcept {
     class LRUCache {
         int capacity;
         Map<Integer, Node> map;
-        Deque<Node> dq;
+        Deque<Node> queue;
 
         public LRUCache(int capacity) {
             this.capacity = capacity;
-            dq = new LinkedList<>();
+            queue = new LinkedList<>();
             map = new HashMap<>();
         }
 
         public int get(int key) {
-            if (!map.containsKey(key))
+            if (!map.containsKey(key)) {
                 return -1;
+            }
             Node curr = map.get(key);
-            // Take O(n) time. Not optimized for remove.
-            dq.remove(curr);
-            dq.addFirst(curr);
+            //Takes O(n) time. Not optimized for remove.
+            queue.remove(curr);
+            queue.addFirst(curr);
             return curr.value;
         }
 
         public void put(int key, int value) {
-            Node curr = map.containsKey(key) ? map.get(key) : null;
+            Node curr = map.get(key);
             if (curr == null) {
                 curr = new Node(key, value);
-                dq.addFirst(curr);
+                queue.addFirst(curr);
                 map.put(key, curr);
             } else {
                 curr.value = value;
-                dq.remove(curr);
-                dq.addFirst(curr);
+                //Takes O(n) time. Not optimized for remove.
+                queue.remove(curr);
+                queue.addFirst(curr);
             }
             if (map.size() > capacity) {
-                curr = dq.removeLast();
+                curr = queue.removeLast();
                 map.remove(curr.key);
             }
         }
     }
 
-    @Data
-    @AllArgsConstructor
     class Node {
         int key;
         int value;
+
+        public Node(int key, int value) {
+            this.key = key;
+            this.value = value;
+        }
+
+        //Need to override equals & hashcode for queue.remove to work correctly
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) {
+                return true;
+            }
+            if (o == null || getClass() != o.getClass()) {
+                return false;
+            }
+            Node node = (Node) o;
+            return key == node.key && value == node.value;
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(key, value);
+        }
     }
 
 }

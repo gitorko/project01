@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Test;
  * - two pointer, start from reverse
  * - left over elements
  * - PRACTICE: P1
- * - MISTAKE: Likely to check i >=0 instead of tail >= 0
  *
  * https://www.youtube.com/watch?v=P1Ic85RarKY&ab_channel=NeetCode
  */

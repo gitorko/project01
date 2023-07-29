@@ -31,9 +31,7 @@ public class RelativePath {
                 if (!stack.isEmpty()) {
                     stack.pop();
                 }
-            } else if (token.equals(".")) {
-                //do nothing
-            } else if (token.equals("")) {
+            } else if (token.equals(".") || token.equals("")) {
                 //do nothing
             } else {
                 stack.push(token);

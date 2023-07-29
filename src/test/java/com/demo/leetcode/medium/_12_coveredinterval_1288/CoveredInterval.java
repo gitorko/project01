@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
  * [1288. Remove Covered Intervals - MEDIUM](https://leetcode.com/problems/remove-covered-intervals/)
  *
  * - sort, if starting equal then use ending
- * - PRACTICE: P4
+ * - PRACTICE: P3
  *
  * https://www.youtube.com/watch?v=nhAsMabiVkM&ab_channel=NeetCode
  */

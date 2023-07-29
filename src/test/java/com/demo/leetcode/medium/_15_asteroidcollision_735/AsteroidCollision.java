@@ -75,6 +75,8 @@ public class AsteroidCollision {
                 // if both are equal they destroy each other
                 else if (stack.peek() == Math.abs(a)) {
                     stack.pop();
+                } else {
+                    // do nothing
                 }
             }
         }

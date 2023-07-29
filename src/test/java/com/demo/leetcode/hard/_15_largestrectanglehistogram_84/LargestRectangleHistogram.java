@@ -9,11 +9,9 @@ import org.junit.jupiter.api.Test;
  * [84. Largest Rectangle in Histogram - HARD](https://leetcode.com/problems/largest-rectangle-in-histogram/)
  *
  * - monotonic stack
- * - process left over elements in stack
  * - SIMILAR_TO: [85. Maximal Rectangle - HARD](https://leetcode.com/problems/maximal-rectangle/)
  * - SIMILAR_TO: [1856. Maximum Subarray Min-Product - MEDIUM](https://leetcode.com/problems/maximum-subarray-min-product/)
  * - PRACTICE: P1
- * - MISTAKES: Likely to calculate width wrongly, missing the stack empty case
  *
  * https://www.youtube.com/watch?v=zx5Sw9130L0&ab_channel=NeetCode
  */
@@ -49,7 +47,7 @@ public class LargestRectangleHistogram {
      */
     public int largestRectangleArea(int[] heights) {
         int maxArea = 0;
-        //stores index only
+        //[index]
         Stack<Integer> stack = new Stack<>();
         for (int i = 0; i < heights.length; i++) {
             while (!stack.isEmpty() && heights[stack.peek()] > heights[i]) {
@@ -65,7 +63,6 @@ public class LargestRectangleHistogram {
         while (!stack.isEmpty()) {
             int index = stack.pop();
             int h = heights[index];
-            //Don't forget to take full length
             int w = stack.isEmpty() ? heights.length : heights.length - stack.peek() - 1;
             maxArea = Math.max(maxArea, h * w);
         }

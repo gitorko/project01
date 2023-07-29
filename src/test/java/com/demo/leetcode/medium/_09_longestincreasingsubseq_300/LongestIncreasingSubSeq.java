@@ -30,15 +30,15 @@ public class LongestIncreasingSubSeq {
         int[] dp = new int[nums.length];
         //as number itself counts as one value
         Arrays.fill(dp, 1);
-        int maxLen = 1;
+        int result = 1;
         for (int i = nums.length - 1; i >= 0; i--) {
             for (int j = i + 1; j < nums.length; j++) {
                 if (nums[i] < nums[j]) {
                     dp[i] = Math.max(dp[i], 1 + dp[j]);
-                    maxLen = Math.max(maxLen, dp[i]);
+                    result = Math.max(result, dp[i]);
                 }
             }
         }
-        return maxLen;
+        return result;
     }
 }

@@ -61,17 +61,15 @@ public class SetMatrixZero {
         int rowLen = matrix.length;
         int colLen = matrix[0].length;
         boolean rowZero = false;
-
         for (int i = 0; i < rowLen; i++) {
             for (int j = 0; j < colLen; j++) {
                 if (matrix[i][j] == 0) {
-                    //rowLen
                     matrix[0][j] = 0;
-                    //colLen
-                    if (i > 0) {
-                        matrix[i][0] = 0;
-                    } else {
+                    //to zero out first row set the flag
+                    if (i == 0) {
                         rowZero = true;
+                    } else {
+                        matrix[i][0] = 0;
                     }
                 }
             }
@@ -84,14 +82,12 @@ public class SetMatrixZero {
                 }
             }
         }
-
         //handle first column
         if (matrix[0][0] == 0) {
             for (int i = 0; i < rowLen; i++) {
                 matrix[i][0] = 0;
             }
         }
-
         //handle first row
         if (rowZero) {
             for (int j = 0; j < colLen; j++) {
@@ -112,7 +108,6 @@ public class SetMatrixZero {
         int colZero[] = new int[colLength];
         Arrays.fill(rowZero, 1);
         Arrays.fill(colZero, 1);
-
         for (int i = 0; i < rowLength; i++) {
             for (int j = 0; j < colLength; j++) {
                 if (matrix[i][j] == 0) {
@@ -128,7 +123,6 @@ public class SetMatrixZero {
                 }
             }
         }
-
         for (int i = 0; i < colZero.length; i++) {
             if (colZero[i] == 0) {
                 for (int j = 0; j < rowLength; j++) {

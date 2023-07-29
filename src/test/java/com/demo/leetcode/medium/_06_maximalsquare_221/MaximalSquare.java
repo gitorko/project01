@@ -29,7 +29,7 @@ public class MaximalSquare {
 
     /**
      * Time: O(m*n)
-     * Space: O(m*n)
+     * Space: O(m*n), can be reduced to O(1) if matrix is used dp.
      */
     public int maximalSquare(char[][] matrix) {
         int rowLen = matrix.length;
@@ -39,8 +39,10 @@ public class MaximalSquare {
         for (int i = rowLen - 1; i >= 0; i--) {
             for (int j = colLen - 1; j >= 0; j--) {
                 //last row or last column case or if cell is zero case
-                if (i == rowLen - 1 || j == colLen - 1 || matrix[i][j] == '0') {
-                    dp[i][j] = matrix[i][j] == '1' ? 1 : 0;
+                if (matrix[i][j] == '0') {
+                    dp[i][j] = 0;
+                } else if (i == rowLen - 1 || j == colLen - 1) {
+                    dp[i][j] = 1;
                 } else {
                     dp[i][j] = 1 + Math.min(dp[i + 1][j + 1], Math.min(dp[i + 1][j], dp[i][j + 1]));
                 }
@@ -84,7 +86,6 @@ public class MaximalSquare {
             int down = dfs(i + 1, j);
             int right = dfs(i, j + 1);
             int diag = dfs(i + 1, j + 1);
-
             if (matrix[i][j] == '1') {
                 //remember to add +1
                 dp[i][j] = 1 + Math.min(diag, Math.min(right, down));

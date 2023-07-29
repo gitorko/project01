@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
  * [606. Construct String from Binary Tree - EASY](https://leetcode.com/problems/construct-string-from-binary-tree/)
  *
  * - pre-order traversal
- * - PRACTICE: P4
+ * - PRACTICE: P3
  *
  * https://www.youtube.com/watch?v=b1WpYxnuebQ&ab_channel=NeetCode
  */

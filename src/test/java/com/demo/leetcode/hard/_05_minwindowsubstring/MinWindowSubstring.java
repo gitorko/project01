@@ -30,10 +30,9 @@ public class MinWindowSubstring {
      */
     public String minWindow(String s, String t) {
         int[] countT = new int[128];
-        int[] window = new int[128];
+        int[] windowS = new int[128];
         int need = 0;
         int have = 0;
-
         for (char c : t.toCharArray()) {
             countT[c]++;
             //each char counts once for need, exact count is matched later.
@@ -41,28 +40,30 @@ public class MinWindowSubstring {
                 need++;
             }
         }
-
         int leftStart = -1;
-        int minLength = s.length() + 1;
-
+        int smallestWindowSize = s.length() + 1;
         for (int left = 0, right = 0; right < s.length(); right++) {
             Character c = s.charAt(right);
-            window[c]++;
-            if (countT[c] != 0 && window[c] == countT[c]) {
+            windowS[c]++;
+            if (countT[c] != 0 && windowS[c] == countT[c]) {
                 have++;
             }
             while (have == need) {
-                if (right - left + 1 < minLength) {
+                //find new min window size
+                int newWindowSize = right - left + 1;
+                if (newWindowSize < smallestWindowSize) {
+                    smallestWindowSize = newWindowSize;
                     leftStart = left;
-                    minLength = right - left + 1;
                 }
-                window[s.charAt(left)]--;
-                if (countT[c] != 0 && window[s.charAt(left)] < countT[s.charAt(left)]) {
+                //remove left pointer char from window
+                windowS[s.charAt(left)]--;
+                //update have count
+                if (countT[c] != 0 && windowS[s.charAt(left)] < countT[s.charAt(left)]) {
                     have--;
                 }
                 left++;
             }
         }
-        return leftStart == -1 ? "" : s.substring(leftStart, leftStart + minLength);
+        return leftStart == -1 ? "" : s.substring(leftStart, leftStart + smallestWindowSize);
     }
 }

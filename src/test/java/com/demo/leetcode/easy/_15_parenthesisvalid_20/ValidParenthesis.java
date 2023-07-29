@@ -41,7 +41,7 @@ public class ValidParenthesis {
      * Time: O(n)
      * Space: O(n)
      */
-    public boolean isValid3(String s) {
+    public boolean isValid(String s) {
         Stack<Character> stack = new Stack<>();
         for (char c : s.toCharArray()) {
             if (c == '(') {
@@ -63,7 +63,7 @@ public class ValidParenthesis {
      * Time: O(n)
      * Space: O(n)
      */
-    public boolean isValid(String s) {
+    public boolean isValid2(String s) {
         Map<Character, Character> map = new HashMap<>();
         map.put('{', '}');
         map.put('(', ')');

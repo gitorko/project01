@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
  *
  * - dfs + visited, backtracking
  * - remember to remove from visited
+ * - SIMILAR_TO: [212. Word Search II - HARD](https://leetcode.com/problems/word-search-ii/)
  * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=pfiQ_PS1g8E&ab_channel=NeetCode
@@ -23,7 +24,7 @@ public class WordSearch {
 
     /**
      * Time: O(m * n * 4^len(word)) - 4 branches
-     * Space: O(mn)
+     * Space: O(m * n)
      */
     char[][] board;
     int rowLen;
@@ -37,7 +38,6 @@ public class WordSearch {
         rowLen = board.length;
         colLen = board[0].length;
         visited = new boolean[rowLen][colLen];
-
         for (int i = 0; i < rowLen; i++) {
             for (int j = 0; j < colLen; j++) {
                 if (board[i][j] == word.charAt(0)) {

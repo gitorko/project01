@@ -36,15 +36,18 @@ public class RightViewBT {
         if (root == null) {
             return result;
         }
-
         queue.offer(root);
         while (!queue.isEmpty()) {
             int size = queue.size();
             while (size > 0) {
                 TreeNode node = queue.poll();
                 rightNode = node;
-                if (node.left != null) queue.offer(node.left);
-                if (node.right != null) queue.offer(node.right);
+                if (node.left != null) {
+                    queue.offer(node.left);
+                }
+                if (node.right != null) {
+                    queue.offer(node.right);
+                }
                 size--;
             }
             result.add(rightNode.val);

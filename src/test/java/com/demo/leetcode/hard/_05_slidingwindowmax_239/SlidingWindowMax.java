@@ -35,9 +35,9 @@ public class SlidingWindowMax {
 
     @Test
     public void test3() {
-        int nums[] = {7,2,4};
+        int nums[] = {7, 2, 4};
         int k = 2;
-        int expected[] = {7,4};
+        int expected[] = {7, 4};
         Assertions.assertArrayEquals(expected, maxSlidingWindow(nums, k));
     }
 
@@ -56,12 +56,14 @@ public class SlidingWindowMax {
                 dequeue.pollLast();
             }
             dequeue.offer(right);
-            //If left value is out of bound remove it from beginning of queue.
+            //confusing part: remove left index from beginning of queue.
+            //peek contains the index of max value.
             if (left > dequeue.peek()) {
                 dequeue.poll();
             }
             //window is size k
-            if (right - left + 1 == k) {
+            int windowSize = right - left + 1;
+            if (windowSize == k) {
                 result[left] = nums[dequeue.peek()];
                 left++;
             }

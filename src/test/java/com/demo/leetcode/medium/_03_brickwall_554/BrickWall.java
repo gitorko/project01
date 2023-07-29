@@ -29,18 +29,18 @@ public class BrickWall {
 
     /**
      * Time: O(n)
+     * Space: O(1)
      */
     public int leastBricks(List<List<Integer>> wall) {
         int maxFreq = 0;
-        Map<Integer, Integer> countGap = new HashMap<>();
-
+        Map<Integer, Integer> gapCountMap = new HashMap<>();
         for (List<Integer> row : wall) {
             int position = 0;
             for (int i = 0; i < row.size() - 1; i++) {
                 position += row.get(i);
-                countGap.put(position, countGap.getOrDefault(position, 0) + 1);
+                gapCountMap.put(position, gapCountMap.getOrDefault(position, 0) + 1);
                 //max gaps
-                maxFreq = Math.max(maxFreq, countGap.get(position));
+                maxFreq = Math.max(maxFreq, gapCountMap.get(position));
             }
         }
         return wall.size() - maxFreq;

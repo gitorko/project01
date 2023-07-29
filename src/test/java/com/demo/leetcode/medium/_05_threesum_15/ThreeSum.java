@@ -11,10 +11,9 @@ import org.junit.jupiter.api.Test;
  * [15. 3Sum - MEDIUM](https://leetcode.com/problems/3sum/)
  *
  * - sort, two pointer needs sorted array
- * - outer loop till i-2, skip duplicate
  * - SIMILAR_TO: [16. 3Sum Closest - MEDIUM](https://leetcode.com/problems/3sum-closest/)
+ * - SIMILAR_TO: [18. 4Sum - MEDIUM](https://leetcode.com/problems/4sum/)
  * - PRACTICE: P1
- * - MISTAKES: Check i-1 for duplicates, inner while loop to remove duplicates
  *
  * https://www.youtube.com/watch?v=jzZsG8n2R9A&ab_channel=NeetCode
  */
@@ -54,11 +53,11 @@ public class ThreeSum {
                 int threeSum = nums[i] + nums[left] + nums[right];
                 if (threeSum == 0) {
                     result.add(Arrays.asList(nums[i], nums[left], nums[right]));
-                    //Since there are duplicates the left number can be same.
-                    while (left < right && nums[left] == nums[left + 1]) left++;
-                    while (left < right && nums[right] == nums[right - 1]) right--;
                     left++;
-                    right--;
+                    //Since there are duplicates the left number can be same.
+                    while (left < right && nums[left] == nums[left - 1]) {
+                        left++;
+                    }
                 } else if (threeSum > 0) {
                     right--;
                 } else {

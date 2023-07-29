@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
  * - dummy node
  * - carry, mod 10, divide by 10
  * - SIMILAR_TO: [67. Add Binary - EASY](https://leetcode.com/problems/add-binary/)
- * - PRACTICE: P4
+ * - PRACTICE: P3
  *
  * https://www.youtube.com/watch?v=wgFPrzTjm7s&ab_channel=NeetCode
  */
@@ -61,7 +61,6 @@ public class AddTwoNumbers {
         int carry = 0;
         ListNode dummy = new ListNode();
         ListNode curr = dummy;
-
         while (l1 != null || l2 != null || carry != 0) {
             if (l1 != null) {
                 carry += l1.val;

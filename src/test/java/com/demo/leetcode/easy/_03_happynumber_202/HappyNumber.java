@@ -25,7 +25,7 @@ public class HappyNumber {
         Assertions.assertFalse(isHappy(2));
     }
 
-    Set<Integer> seen = new HashSet<>();
+    Set<Integer> visited = new HashSet<>();
 
     public boolean isHappy(int n) {
         int sum = 0;
@@ -34,10 +34,11 @@ public class HappyNumber {
             sum += val * val;
             n = n / 10;
         }
-        if (seen.contains(sum)) {
+        //will cause a loop
+        if (visited.contains(sum)) {
             return false;
         }
-        seen.add(sum);
+        visited.add(sum);
         if (sum == 1) {
             return true;
         } else {

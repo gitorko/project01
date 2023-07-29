@@ -35,10 +35,9 @@ public class BTFromPreInOrder {
      */
     public TreeNode buildTree(int[] preorder, int[] inorder) {
         //base case
-        if (preorder == null || inorder == null || inorder.length == 0 || preorder.length == 0) {
+        if (inorder.length == 0 || preorder.length == 0) {
             return null;
         }
-
         //first element in preorder is root
         TreeNode root = new TreeNode(preorder[0]);
         int midIndex = -1;

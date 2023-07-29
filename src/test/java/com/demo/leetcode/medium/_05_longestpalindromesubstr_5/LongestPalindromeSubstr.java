@@ -38,9 +38,9 @@ public class LongestPalindromeSubstr {
      */
     public String longestPalindrome(String s) {
         //edge case
-        if (s == null || s.length() <= 1)
+        if (s == null || s.length() <= 1) {
             return s;
-
+        }
         String result = "";
         for (int i = 0; i < s.length(); i++) {
             String odd = expandAroundCenter(s, i, i);

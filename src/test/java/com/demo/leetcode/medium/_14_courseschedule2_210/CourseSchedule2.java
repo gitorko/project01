@@ -41,7 +41,8 @@ public class CourseSchedule2 {
     }
 
     /**
-     * Time: O(E + V)
+     * Time: O(e + v)
+     * Space: O(e + v)
      */
     Set<Integer> cycleSet;
     Set<Integer> visitedSet;
@@ -60,7 +61,9 @@ public class CourseSchedule2 {
             adjacencyMap.put(course1, courses);
         }
         for (int i = 0; i < numCourses; i++) {
-            if (!dfs(i)) return new int[]{};
+            if (dfs(i) == false) {
+                return new int[]{};
+            }
         }
         return visitedSet.stream()
                 .mapToInt(Integer::intValue)
@@ -77,7 +80,7 @@ public class CourseSchedule2 {
         }
         cycleSet.add(course);
         for (Integer preReq : preReqs) {
-            if (!dfs(preReq)) {
+            if (dfs(preReq) == false) {
                 return false;
             }
         }
@@ -85,5 +88,4 @@ public class CourseSchedule2 {
         visitedSet.add(course);
         return true;
     }
-
 }

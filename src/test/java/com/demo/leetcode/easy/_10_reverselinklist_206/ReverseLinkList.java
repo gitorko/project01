@@ -51,7 +51,7 @@ public class ReverseLinkList {
      * Space: O(n)
      */
     public ListNode reverseListRecursion(ListNode head) {
-        //base case
+        //base case, when one node or zero nodes are given
         if (head == null || head.next == null) {
             return head;
         }

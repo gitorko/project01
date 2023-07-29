@@ -22,7 +22,6 @@ public class MedianFromDataStream {
         MedianFinder medianFinder = new MedianFinder();
         medianFinder.addNum(1);
         medianFinder.addNum(2);
-
         Assertions.assertEquals(1.5, medianFinder.findMedian());
         medianFinder.addNum(3);
         Assertions.assertEquals(2.0, medianFinder.findMedian());
@@ -32,27 +31,27 @@ public class MedianFromDataStream {
      * adding to heap O(log n), removing is also O(log n), find is O(1)
      */
     class MedianFinder {
-        //max heap
-        PriorityQueue<Integer> leftHeap = new PriorityQueue<>(Collections.reverseOrder());
-        //min heap
-        PriorityQueue<Integer> rightHeap = new PriorityQueue<>();
+        //max heap, left side
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
+        //min heap, right side
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
         boolean even = true;
 
         public double findMedian() {
             if (even) {
-                return (leftHeap.peek() + rightHeap.peek()) / 2.0;
+                return (maxHeap.peek() + minHeap.peek()) / 2.0;
             } else {
-                return leftHeap.peek();
+                return maxHeap.peek();
             }
         }
 
         public void addNum(int num) {
             if (even) {
-                rightHeap.offer(num);
-                leftHeap.offer(rightHeap.poll());
+                minHeap.offer(num);
+                maxHeap.offer(minHeap.poll());
             } else {
-                leftHeap.offer(num);
-                rightHeap.offer(leftHeap.poll());
+                maxHeap.offer(num);
+                minHeap.offer(maxHeap.poll());
             }
             even = !even;
         }

@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
  *
  * - start from reverse
  * - important to ask and confirm if array has positive integers
- * - PRACTICE: P4
+ * - PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=ZHjKhUjcsaU&ab_channel=NeetCode
  */

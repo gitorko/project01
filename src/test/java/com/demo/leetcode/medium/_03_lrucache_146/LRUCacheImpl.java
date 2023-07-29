@@ -40,12 +40,14 @@ public class LRUCacheImpl {
         public LRUCache(int capacity) {
             this.map = new HashMap<>();
             this.capacity = capacity;
-            front = rear = null;
+            front = null;
+            rear = null;
         }
 
         public int get(int key) {
-            if (!map.containsKey(key))
+            if (!map.containsKey(key)) {
                 return -1;
+            }
             Node curr = map.get(key);
             remove(curr);
             addFirst(curr);
@@ -53,7 +55,7 @@ public class LRUCacheImpl {
         }
 
         public void put(int key, int value) {
-            Node curr = map.containsKey(key) ? map.get(key) : null;
+            Node curr = map.get(key);
             if (curr == null) {
                 curr = new Node(key, value);
                 addFirst(curr);
@@ -70,6 +72,7 @@ public class LRUCacheImpl {
         }
 
         private void addFirst(Node curr) {
+            //when list is empty
             if (front == null) {
                 front = rear = curr;
                 return;
@@ -80,15 +83,18 @@ public class LRUCacheImpl {
         }
 
         private void remove(Node curr) {
+            //only one node case
             if (front == curr && rear == curr) {
                 front = rear = null;
                 return;
             }
+            //when front node is curr
             if (front == curr) {
                 front = front.right;
                 front.left = null;
                 return;
             }
+            //when rear node is curr
             if (rear == curr) {
                 rear = rear.left;
                 rear.right = null;
@@ -101,6 +107,7 @@ public class LRUCacheImpl {
         }
 
         private Node removeLast() {
+            //only one node case
             if (front == rear) {
                 Node temp = front;
                 front = rear = null;
@@ -121,9 +128,9 @@ public class LRUCacheImpl {
             public Node(int key, int value) {
                 this.value = value;
                 this.key = key;
-                left = right = null;
+                left = null;
+                right = null;
             }
-
         }
     }
 

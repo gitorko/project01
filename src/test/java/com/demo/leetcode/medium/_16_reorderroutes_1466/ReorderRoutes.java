@@ -14,9 +14,7 @@ import org.junit.jupiter.api.Test;
  * [1466. Reorder Routes to Make All Paths Lead to the City Zero - MEDIUM](https://leetcode.com/problems/reorder-routes-to-make-all-paths-lead-to-the-city-zero/)
  *
  * - bfs
- * - Set(edge), Map(connections), Set(visited)
- * - PRACTICE: P3
- * - MISTAKES: Will probably miss considering the visited set ending up in infinite loop
+ * - PRACTICE: P1
  *
  *  https://www.youtube.com/watch?v=m17yOR5_PpI&ab_channel=NeetCode
  */
@@ -35,32 +33,30 @@ public class ReorderRoutes {
      */
     public int minReorder(int n, int[][] connections) {
         Set<String> edgeSet = new HashSet<>();
-        Map<Integer, Set<Integer>> adjMap = new HashMap<>();
+        Map<Integer, Set<Integer>> adjacencyMap = new HashMap<>();
         for (int[] c : connections) {
-            //set contains the edge for quick lookup
             edgeSet.add(c[0] + "," + c[1]);
-            adjMap.putIfAbsent(c[0], new HashSet<>());
-            adjMap.putIfAbsent(c[1], new HashSet<>());
-            //important to add both nodes in both adjacency list.
-            adjMap.get(c[0]).add(c[1]);
-            adjMap.get(c[1]).add(c[0]);
+            adjacencyMap.putIfAbsent(c[0], new HashSet<>());
+            adjacencyMap.putIfAbsent(c[1], new HashSet<>());
+            //important to add both nodes in both adjacency list, even though input is mono directional edge.
+            adjacencyMap.get(c[0]).add(c[1]);
+            adjacencyMap.get(c[1]).add(c[0]);
         }
-
-        Queue<Integer> q = new LinkedList<>();
-        q.add(0);
+        Queue<Integer> queue = new LinkedList<>();
+        queue.add(0);
         int result = 0;
         Set<Integer> visited = new HashSet<>();
         visited.add(0);
-
-        while (!q.isEmpty()) {
-            int parent = q.poll();
+        while (!queue.isEmpty()) {
+            int parent = queue.poll();
             visited.add(parent);
-            for (int neighbour : adjMap.get(parent)) {
+            for (int neighbour : adjacencyMap.get(parent)) {
                 if (!visited.contains(neighbour)) {
+                    //from parent to neighbour indicates outgoing edge
                     if (edgeSet.contains(parent + "," + neighbour)) {
                         result++;
                     }
-                    q.add(neighbour);
+                    queue.add(neighbour);
                 }
             }
         }

@@ -10,7 +10,6 @@ import org.junit.jupiter.api.Test;
  * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=dJ7sWiOoK7g&ab_channel=NeetCode
- * https://www.youtube.com/watch?v=cETfFsSTGJI&ab_channel=TusharRoy-CodingMadeSimple
  */
 public class JumpGame2 {
 
@@ -28,8 +27,8 @@ public class JumpGame2 {
         int jumps = 0;
         int left = 0;
         int right = 0;
+        int farthest = 0;
         while (right < nums.length - 1) {
-            int farthest = 0;
             for (int i = left; i < right + 1; i++) {
                 farthest = Math.max(farthest, i + nums[i]);
             }

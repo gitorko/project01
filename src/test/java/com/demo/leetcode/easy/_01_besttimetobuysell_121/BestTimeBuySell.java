@@ -30,8 +30,6 @@ public class BestTimeBuySell {
 
     /**
      * This will handle negative values as well.
-     * Similar to max subarray problem.
-     *
      * Kadane's Algorithm
      */
     public int maxProfit(int[] prices) {
@@ -59,7 +57,8 @@ public class BestTimeBuySell {
         int left = 0;
         for (int right = 1; right < prices.length; right++) {
             if (prices[left] < prices[right]) {
-                maxProfit = Math.max(prices[right] - prices[left], maxProfit);
+                int profit = prices[right] - prices[left];
+                maxProfit = Math.max(profit, maxProfit);
             } else {
                 left = right;
             }

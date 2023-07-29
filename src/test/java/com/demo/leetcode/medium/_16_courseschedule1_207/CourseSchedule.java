@@ -16,7 +16,7 @@ import org.junit.jupiter.api.Test;
  *
  * - dfs, adjacency list
  * - SIMILAR_TO: [210. Course Schedule II - MEDIUM](https://leetcode.com/problems/course-schedule-ii/)
- * - PRACTICE: P2
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=EgI5nU9etnU&ab_channel=NeetCode
  */
@@ -51,44 +51,47 @@ public class CourseSchedule {
     }
 
     /**
-     * Time: O(n+p)
+     * Time: O(n+e)
+     * Space: O(n+e)
      */
-    Set<Integer> visitedSet;
+    Set<Integer> cycleSet;
     Map<Integer, List<Integer>> adjacencyMap;
 
     public boolean canFinish(int numCourses, int[][] prerequisites) {
         adjacencyMap = new HashMap<>();
-        visitedSet = new HashSet<>();
+        cycleSet = new HashSet<>();
         for (int i = 0; i < prerequisites.length; i++) {
-            Integer course1 = prerequisites[i][0];
-            Integer course2 = prerequisites[i][1];
+            int course1 = prerequisites[i][0];
+            int course2 = prerequisites[i][1];
             List<Integer> courses = adjacencyMap.getOrDefault(course1, new ArrayList<>());
             courses.add(course2);
             adjacencyMap.put(course1, courses);
         }
-
         for (int i = 0; i < numCourses; i++) {
-            if (!dfs(i)) return false;
+            if (dfs(i) == false) {
+                return false;
+            }
         }
         return true;
     }
 
     public boolean dfs(Integer course) {
         List<Integer> preReqs = adjacencyMap.getOrDefault(course, Collections.emptyList());
-
         //already visited.
-        if (visitedSet.contains(course)) {
+        if (cycleSet.contains(course)) {
             return false;
         }
-        //no other pre requisite
+        //no other pre-requisite
         if (preReqs.isEmpty()) {
             return true;
         }
-        visitedSet.add(course);
+        cycleSet.add(course);
         for (Integer preReq : preReqs) {
-            if (!dfs(preReq)) return false;
+            if (dfs(preReq) == false) {
+                return false;
+            }
         }
-        visitedSet.remove(course);
+        cycleSet.remove(course);
         //remember to set the preReq to empty, will run into timeout exception on large data set if not cleared.
         adjacencyMap.put(course, Collections.emptyList());
         return true;

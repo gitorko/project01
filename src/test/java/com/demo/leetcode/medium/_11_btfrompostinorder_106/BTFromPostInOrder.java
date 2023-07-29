@@ -27,9 +27,9 @@ public class BTFromPostInOrder {
     }
 
     public TreeNode buildTree(int[] inorder, int[] postorder) {
-        if (postorder == null || inorder == null || inorder.length == 0 || postorder.length == 0)
+        if (inorder.length == 0 || postorder.length == 0) {
             return null;
-
+        }
         //last element in postorder is root
         TreeNode root = new TreeNode(postorder[postorder.length - 1]);
         int midIndex = -1;

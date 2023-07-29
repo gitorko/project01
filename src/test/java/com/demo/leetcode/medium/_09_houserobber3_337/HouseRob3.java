@@ -47,10 +47,14 @@ public class HouseRob3 {
         return new Result(withRoot, withoutRoot);
     }
 
-    @AllArgsConstructor
     class Result {
         int withRoot;
         int withoutRoot;
+
+        public Result(int withRoot, int withoutRoot) {
+            this.withRoot = withRoot;
+            this.withoutRoot = withoutRoot;
+        }
     }
 }
 

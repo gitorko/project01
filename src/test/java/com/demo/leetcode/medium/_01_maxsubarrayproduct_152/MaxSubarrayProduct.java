@@ -38,21 +38,23 @@ public class MaxSubarrayProduct {
      *
      * Case1 : All the elements are positive - Then answer is product of all the elements
      * Case2 : Array have positive and negative elements both :
-     *  - If the number of negative elements is even multiplying all the negative numbers it will become positive.
-     *  - If the number of negative elements is odd then you have to remove just one negative element.
+     *  - If the number of negative elements is even, multiplying all the negative numbers it will become positive.
+     *  - If the number of negative elements is odd, then you have to remove just one negative element.
      * Case3 : Array also contains 0 - array will be divided into subarray around that 0.
      *
      * Time: O(n)
      * Space: O(1)
      */
     public int maxProduct(int[] nums) {
-        if (nums == null || nums.length == 0)
+        if (nums == null || nums.length == 0) {
             return 0;
+        }
         int result = nums[0];
         int min = nums[0];
         int max = nums[0];
         //start from 2nd element
         for (int i = 1; i < nums.length; i++) {
+            //swap
             if (nums[i] < 0) {
                 int temp = max;
                 max = min;
