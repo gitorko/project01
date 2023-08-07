@@ -1,12 +1,15 @@
 package com.demo.leetcode.medium._25_browserbackforward;
 
+import java.util.Stack;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 /**
  * [1472. Design Browser History - MEDIUM](https://leetcode.com/problems/design-browser-history/)
  *
- * - doubly linked list
+ * - 2 stack
+ * - limitation: back and forward are O(n)
  *
  * https://www.youtube.com/watch?v=i1G-kKnBu8k&ab_channel=NeetCodeIO
  */
@@ -14,55 +17,52 @@ public class BrowserHistoryLeet2 {
 
     @Test
     public void test1() {
-        BrowserHistory browser = new BrowserHistory("web1");
-        browser.visit("web2");
-        browser.visit("web3");
-        Assertions.assertEquals("web3", browser.getCurr());
-        Assertions.assertEquals("web2", browser.back(1));
-        Assertions.assertEquals("web1", browser.back(1));
-        Assertions.assertEquals("web1", browser.back(1));
-        Assertions.assertEquals("web1", browser.getCurr());
-        Assertions.assertEquals("web2", browser.forward(1));
-        Assertions.assertEquals("web3", browser.forward(1));
-        Assertions.assertEquals("web3", browser.forward(1));
+        BrowserHistory browserHistory = new BrowserHistory("leetcode.com");
+        browserHistory.visit("google.com");
+        browserHistory.visit("facebook.com");
+        browserHistory.visit("youtube.com");
+        Assertions.assertEquals("facebook.com", browserHistory.back(1));
+        Assertions.assertEquals("google.com", browserHistory.back(1));
+        Assertions.assertEquals("facebook.com", browserHistory.forward(1));
+        browserHistory.visit("linkedin.com");
+        Assertions.assertEquals("linkedin.com", browserHistory.forward(2));
+        Assertions.assertEquals("google.com", browserHistory.back(2));
+        Assertions.assertEquals("leetcode.com", browserHistory.back(7));
     }
 
     class BrowserHistory {
-        int MAX_STEPS = 101;
-        String[] history;
-        int curr = 0;
-        int last = 0;
-
-        public String getCurr() {
-            return history[curr];
-        }
+        Stack<String> backwardStack = new Stack<>();
+        Stack<String> forwardStack = new Stack<>();
 
         public BrowserHistory(String homepage) {
-            history = new String[MAX_STEPS];
-            history[curr] = homepage;
+            backwardStack.push(homepage);
         }
 
         public void visit(String url) {
-            curr++;
-            history[curr] = url;
-            last = curr;
+            backwardStack.push(url);
+            //Throw away remaining items.
+            forwardStack.clear();
         }
 
         public String back(int steps) {
-            curr -= steps;
-            if (curr < 0) {
-                curr = 0;
+            String url = "";
+            //back history will always have one item
+            while (backwardStack.size() > 1 && steps > 0) {
+                url = backwardStack.pop();
+                forwardStack.push(url);
+                steps--;
             }
-            return history[curr];
+            return backwardStack.isEmpty() ? "" : backwardStack.peek();
         }
 
         public String forward(int steps) {
-            curr += steps;
-            if (curr > last) {
-                curr = last;
+            String url = "";
+            while (!forwardStack.isEmpty() && steps > 0) {
+                url = forwardStack.pop();
+                backwardStack.push(url);
+                steps--;
             }
-
-            return history[curr];
+            return backwardStack.isEmpty() ? "" : backwardStack.peek();
         }
     }
 }

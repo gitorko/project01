@@ -35,14 +35,11 @@ public class ShortBridge {
         matrix = input;
         rowLen = matrix.length;
         colLen = matrix[0].length;
-
         //paint one island with int 2
         paint();
-
         //queue contains coordinates to do bfs
         Queue<int[]> queue = new LinkedList<>();
         boolean[][] visited = new boolean[rowLen][colLen];
-
         //initialize queue with all coordinates with number 2
         for (int i = 0; i < rowLen; i++) {
             for (int j = 0; j < colLen; j++) {
@@ -52,7 +49,6 @@ public class ShortBridge {
                 }
             }
         }
-
         int level = 0;
         //level order bfs
         while (!queue.isEmpty()) {

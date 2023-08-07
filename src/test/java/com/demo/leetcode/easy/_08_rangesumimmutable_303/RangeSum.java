@@ -8,10 +8,9 @@ import org.junit.jupiter.api.Test;
  *
  * - prefix sum
  * - SIMILAR_TO: [Ones in Range - MEDIUM]()
+ * - PRACTICE: P1
  *
- * PRACTICE: P1
- *
- * https://www.youtube.com/watch?v=FoLSpCsQ0rA&ab_channel=jayatitiwari
+ * https://www.youtube.com/watch?v=2pndAmo_sMA&ab_channel=NeetCodeIO
  */
 public class RangeSum {
 
@@ -34,12 +33,15 @@ public class RangeSum {
         public NumArray(int[] nums) {
             preSum = new int[nums.length];
             preSum[0] = nums[0];
-            for (int i = 1; i < preSum.length; i++)
+            for (int i = 1; i < preSum.length; i++) {
                 preSum[i] = nums[i] + preSum[i - 1];
+            }
         }
 
         public int sumRange(int left, int right) {
-            if (left == 0) return preSum[right];
+            if (left == 0) {
+                return preSum[right];
+            }
             return preSum[right] - preSum[left - 1];
         }
     }

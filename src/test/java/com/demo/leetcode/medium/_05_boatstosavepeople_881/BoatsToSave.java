@@ -23,7 +23,7 @@ public class BoatsToSave {
     }
 
     /**
-     * Time: O(n * log(n))
+     * Time: O(n*log(n))
      * Space: O(1)
      */
     public int numRescueBoats(int[] people, int limit) {
@@ -31,7 +31,6 @@ public class BoatsToSave {
         int result = 0;
         int left = 0;
         int right = people.length - 1;
-
         while (left <= right) {
             int remain = limit - people[right];
             right--;

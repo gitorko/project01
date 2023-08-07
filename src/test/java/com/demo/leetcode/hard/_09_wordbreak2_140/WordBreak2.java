@@ -42,11 +42,10 @@ public class WordBreak2 {
     }
 
     private List<String> wordBreakHelper(String s) {
-        if (memo.containsKey(s))
+        if (memo.containsKey(s)) {
             return memo.get(s);
-
+        }
         List<String> result = new ArrayList<>();
-
         // start from 2nd char
         for (int i = 1; i < s.length(); i++) {
             String prefix = s.substring(0, i);
@@ -57,11 +56,10 @@ public class WordBreak2 {
                 }
             }
         }
-
         // contains whole string, so don't add any space
-        if (wordSet.contains(s))
+        if (wordSet.contains(s)) {
             result.add(s);
-
+        }
         memo.put(s, result);
         return result;
     }

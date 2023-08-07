@@ -21,7 +21,9 @@ public class IntegerToWords {
     private final String[] belowHundred = new String[]{"", "Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"};
 
     public String numberToWords(int num) {
-        if (num == 0) return "Zero";
+        if (num == 0) {
+            return "Zero";
+        }
         return helper(num);
     }
 

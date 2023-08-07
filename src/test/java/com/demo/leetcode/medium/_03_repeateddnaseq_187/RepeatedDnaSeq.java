@@ -30,13 +30,13 @@ public class RepeatedDnaSeq {
      */
     public List<String> findRepeatedDnaSequences(String s) {
         Set<String> result = new HashSet<>();
-        Set<String> seen = new HashSet<>();
-        for (int i = 0; i <= s.length() - 10; i++) {
+        Set<String> visited = new HashSet<>();
+        for (int i = 0; i < s.length() - 9; i++) {
             String seq = s.substring(i, i + 10);
-            if (seen.contains(seq)) {
+            if (visited.contains(seq)) {
                 result.add(seq);
             }
-            seen.add(seq);
+            visited.add(seq);
         }
         return new ArrayList<>(result);
     }

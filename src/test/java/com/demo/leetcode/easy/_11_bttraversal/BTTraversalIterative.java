@@ -42,7 +42,7 @@ public class BTTraversalIterative {
 
     /**
      * One stack, 2 while loop
-     * Time: O(N)
+     * Time: O(n)
      * Space: O(h)
      */
     public List<Integer> inOrderIterative(TreeNode root) {

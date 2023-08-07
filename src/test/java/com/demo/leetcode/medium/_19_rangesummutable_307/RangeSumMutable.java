@@ -10,8 +10,7 @@ import org.junit.jupiter.api.Test;
  * - option2: fenwick tree (BIT binary index tree)
  * - option3: sqrt Decomposition.
  * - SIMILAR_TO: [303. Range Sum Query - Immutable - EASY](https://leetcode.com/problems/range-sum-query-immutable/)
- *
- * PRACTICE: P1
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=CWDQJGaN1gY&ab_channel=TusharRoy-CodingMadeSimple
  */
@@ -47,8 +46,9 @@ public class RangeSumMutable {
         public NumArray(int[] nums) {
             this.nums = nums;
             bit = new BIT(nums.length);
-            for (int i = 0; i < nums.length; ++i)
+            for (int i = 0; i < nums.length; ++i) {
                 bit.addValue(i + 1, nums[i]);
+            }
         }
 
         public void update(int index, int val) {
@@ -71,8 +71,9 @@ public class RangeSumMutable {
 
         int getSum(int idx) { // Get sum in range [1..idx]
             int sum = 0;
-            for (; idx > 0; idx -= idx & (-idx))
+            for (; idx > 0; idx -= idx & (-idx)) {
                 sum += bit[idx];
+            }
             return sum;
         }
 

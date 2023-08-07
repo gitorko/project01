@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
  * [96. Unique Binary Search Trees - MEDIUM](https://leetcode.com/problems/unique-binary-search-trees/)
  *
  * - nothing to do with BST, it's a DP problem
+ * - SIMILAR_TO: [95. Unique Binary Search Trees II - MEDIUM](https://leetcode.com/problems/unique-binary-search-trees-ii/)
  * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=Ox0TenN3Zpg&ab_channel=NeetCode

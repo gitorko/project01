@@ -2,6 +2,7 @@ package com.demo.leetcode.medium._04_carpooling_1094;
 
 import java.util.Arrays;
 import java.util.PriorityQueue;
+import java.util.Queue;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -66,14 +67,14 @@ public class CarPooling {
     }
 
     /**
-     * Time: O(n log(n))
+     * Time: O(n*log(n))
      * Space: O(n)
      */
     public boolean carPooling(int[][] trips, int capacity) {
         //[person count, start, end] Sort by ascending starting point
         Arrays.sort(trips, (i1, i2) -> i1[1] - i2[1]);
         //[person count, end]
-        PriorityQueue<int[]> queue = new PriorityQueue<>((i1, i2) -> i1[1] - i2[1]);
+        Queue<int[]> queue = new PriorityQueue<>((i1, i2) -> i1[1] - i2[1]);
         queue.add(new int[]{trips[0][0], trips[0][2]});
         int passenger = trips[0][0];
         if (passenger > capacity) {
@@ -106,7 +107,6 @@ public class CarPooling {
             passChange[t[1]] += t[0];
             passChange[t[2]] -= t[0];
         }
-
         int currPassenger = 0;
         for (int i = 0; i < 1001; i++) {
             currPassenger += passChange[i];

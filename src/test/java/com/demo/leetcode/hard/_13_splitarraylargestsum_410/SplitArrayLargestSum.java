@@ -26,13 +26,15 @@ public class SplitArrayLargestSum {
      * Time: O(n * log(Σ∣nums∣))
      * Space: O(1)
      */
+    int[] nums;
+
     public int splitArray(int[] nums, int m) {
+        this.nums = nums;
         int left = Arrays.stream(nums).max().getAsInt();
         int right = Arrays.stream(nums).sum();
-
         while (left <= right) {
             int mid = (left + right) / 2;
-            if (numGroups(nums, mid) > m) {
+            if (numGroups(mid) > m) {
                 left = mid + 1;
             } else {
                 right = mid - 1;
@@ -41,7 +43,7 @@ public class SplitArrayLargestSum {
         return left;
     }
 
-    private int numGroups(int[] nums, int maxSumInGroup) {
+    private int numGroups(int maxSumInGroup) {
         int groupCount = 1;
         int curSum = 0;
         for (int num : nums) {

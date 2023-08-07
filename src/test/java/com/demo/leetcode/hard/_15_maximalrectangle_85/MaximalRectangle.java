@@ -28,13 +28,15 @@ public class MaximalRectangle {
      * Space: O(n)
      */
     public int maximalRectangle(char[][] matrix) {
-        if (matrix.length == 0)
+        if (matrix.length == 0) {
             return 0;
+        }
         int result = 0;
         int[] hist = new int[matrix[0].length];
         for (char[] row : matrix) {
-            for (int j = 0; j < row.length; j++)
+            for (int j = 0; j < row.length; j++) {
                 hist[j] = row[j] == '0' ? 0 : hist[j] + 1;
+            }
             result = Math.max(result, largestRectangleArea(hist));
         }
         return result;
@@ -42,7 +44,7 @@ public class MaximalRectangle {
 
     private int largestRectangleArea(int[] heights) {
         int maxArea = 0;
-        //stores index only
+        //[index]
         Stack<Integer> stack = new Stack<>();
         for (int i = 0; i < heights.length; i++) {
             while (!stack.isEmpty() && heights[stack.peek()] > heights[i]) {

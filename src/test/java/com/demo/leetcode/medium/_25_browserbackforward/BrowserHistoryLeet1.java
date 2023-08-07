@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
  * [1472. Design Browser History - MEDIUM](https://leetcode.com/problems/design-browser-history/)
  *
  * - doubly linked list
+ * - limitation: back and forward are O(n)
  *
  * https://www.youtube.com/watch?v=i1G-kKnBu8k&ab_channel=NeetCodeIO
  */
@@ -14,17 +15,17 @@ public class BrowserHistoryLeet1 {
 
     @Test
     public void test1() {
-        BrowserHistory browser = new BrowserHistory("web1");
-        browser.visit("web2");
-        browser.visit("web3");
-        Assertions.assertEquals("web3", browser.curr.url);
-        Assertions.assertEquals("web2", browser.back(1));
-        Assertions.assertEquals("web1", browser.back(1));
-        Assertions.assertEquals("web1", browser.back(1));
-        Assertions.assertEquals("web1", browser.curr.url);
-        Assertions.assertEquals("web2", browser.forward(1));
-        Assertions.assertEquals("web3", browser.forward(1));
-        Assertions.assertEquals("web3", browser.forward(1));
+        BrowserHistory browserHistory = new BrowserHistory("leetcode.com");
+        browserHistory.visit("google.com");
+        browserHistory.visit("facebook.com");
+        browserHistory.visit("youtube.com");
+        Assertions.assertEquals("facebook.com", browserHistory.back(1));
+        Assertions.assertEquals("google.com", browserHistory.back(1));
+        Assertions.assertEquals("facebook.com", browserHistory.forward(1));
+        browserHistory.visit("linkedin.com");
+        Assertions.assertEquals("linkedin.com", browserHistory.forward(2));
+        Assertions.assertEquals("google.com", browserHistory.back(2));
+        Assertions.assertEquals("leetcode.com", browserHistory.back(7));
     }
 
     class BrowserHistory {
@@ -46,11 +47,17 @@ public class BrowserHistoryLeet1 {
             curr = new HistoryNode(homepage, null, null);
         }
 
+        /**
+         * Time: O(1)
+         */
         public void visit(String url) {
             curr.forward = new HistoryNode(url, curr, null);
             curr = curr.forward;
         }
 
+        /**
+         * Time: O(n)
+         */
         public String back(int steps) {
             while (curr.previous != null && steps > 0) {
                 curr = curr.previous;
@@ -59,6 +66,9 @@ public class BrowserHistoryLeet1 {
             return curr.url;
         }
 
+        /**
+         * Time: O(n)
+         */
         public String forward(int steps) {
             while (curr.forward != null && steps > 0) {
                 curr = curr.forward;

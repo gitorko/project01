@@ -13,8 +13,9 @@ import org.junit.jupiter.api.Test;
  * [101. Symmetric Tree - EASY](https://leetcode.com/problems/symmetric-tree/)
  *
  * - dfs, recursion
+ * - PRACTICE: P1
  *
- * PRACTICE
+ * https://www.youtube.com/watch?v=Mao9uzxwvmc&ab_channel=NeetCodeIO
  */
 public class SymmetricTree {
 

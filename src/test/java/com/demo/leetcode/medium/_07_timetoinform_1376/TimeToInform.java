@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
 /**
  * [1376. Time Needed to Inform All Employees - MEDIUM](https://leetcode.com/problems/time-needed-to-inform-all-employees/)
  *
- * - BFS
+ * - bfs
  *
  * https://www.youtube.com/watch?v=zdBYi0p4L5Q&ab_channel=NeetCodeIO
  */

@@ -8,8 +8,7 @@ import org.junit.jupiter.api.Test;
  *
  * - segment tree
  * - SIMILAR_TO: [303. Range Sum Query - Immutable - EASY](https://leetcode.com/problems/range-sum-query-immutable/)
- *
- * PRACTICE: P1
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=ZBHKZF5w4YU&ab_channel=TusharRoy-CodingMadeSimple
  */
@@ -42,10 +41,12 @@ public class RangeSumMutableSegTree {
         }
 
         private void buildTree(int[] nums) {
-            for (int i = n, j = 0; i < 2 * n; i++, j++)
+            for (int i = n, j = 0; i < 2 * n; i++, j++) {
                 tree[i] = nums[j];
-            for (int i = n - 1; i > 0; --i)
+            }
+            for (int i = n - 1; i > 0; --i) {
                 tree[i] = tree[i * 2] + tree[i * 2 + 1];
+            }
         }
 
         void update(int pos, int val) {

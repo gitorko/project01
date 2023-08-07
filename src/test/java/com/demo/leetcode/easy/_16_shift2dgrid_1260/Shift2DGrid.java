@@ -26,15 +26,16 @@ public class Shift2DGrid {
         Assertions.assertEquals(expected, shiftGrid(grid, k));
     }
 
+    /**
+     * Time: O(n*m)
+     * Space: O(n*m)
+     */
     public List<List<Integer>> shiftGrid(int[][] grid, int k) {
         int rowLen = grid.length;
         int colLen = grid[0].length;
-
         int[][] arr = new int[rowLen][colLen];
-
         //cases when k is bigger than row*col
         k %= rowLen * colLen;
-
         for (int i = 0; i < rowLen; i++) {
             for (int j = 0; j < colLen; j++) {
                 int index = (i * colLen + j + k) % (rowLen * colLen);
@@ -43,12 +44,10 @@ public class Shift2DGrid {
                 arr[x][y] = grid[i][j];
             }
         }
-
         List<List<Integer>> result = new ArrayList<>();
         for (int[] row : arr) {
             result.add(Arrays.stream(row).boxed().collect(Collectors.toList()));
         }
-
         return result;
     }
 }

@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
  *
  * - num > nums[i - 2]
  *
- * PRACTICE
+ * https://www.youtube.com/watch?v=ycAq8iqh0TI&ab_channel=NeetCodeIO
  */
 public class RemoveDuplicates {
 
@@ -20,9 +20,11 @@ public class RemoveDuplicates {
 
     public int removeDuplicates(int[] nums) {
         int i = 0;
-        for (int num : nums)
-            if (i < 2 || num > nums[i - 2])
+        for (int num : nums) {
+            if (i < 2 || num > nums[i - 2]) {
                 nums[i++] = num;
+            }
+        }
         return i;
     }
 }

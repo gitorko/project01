@@ -8,8 +8,7 @@ import com.demo.common.TreeNode;
  *
  * - find mid
  * - recursion
- *
- * PRACTICE
+ * - PRACTICE: P1
  */
 public class LinkListToBST {
 
@@ -18,11 +17,12 @@ public class LinkListToBST {
      * Space: O(log(n))
      */
     public TreeNode sortedListToBST(ListNode head) {
-        if (head == null)
+        if (head == null) {
             return null;
-        if (head.next == null)
+        }
+        if (head.next == null) {
             return new TreeNode(head.val);
-
+        }
         ListNode mid = findMid(head);
         TreeNode root = new TreeNode(mid.val);
         root.left = sortedListToBST(head);

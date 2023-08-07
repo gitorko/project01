@@ -35,7 +35,7 @@ public class RemoveAdjacentDuplicate {
      * Space: O(n)
      */
     public String removeDuplicates(String s, int k) {
-        Stack<CustomPair> stack = new Stack<>();
+        Stack<Pair> stack = new Stack<>();
         for (char c : s.toCharArray()) {
             if (!stack.isEmpty() && stack.peek().c == c) {
                 stack.peek().count++;
@@ -43,10 +43,9 @@ public class RemoveAdjacentDuplicate {
                     stack.pop();
                 }
             } else {
-                stack.add(new CustomPair(c, 1));
+                stack.add(new Pair(c, 1));
             }
         }
-
         StringBuilder sb = new StringBuilder();
         stack.forEach(e -> {
             sb.append(String.valueOf(e.c).repeat(e.count));
@@ -54,11 +53,11 @@ public class RemoveAdjacentDuplicate {
         return sb.toString();
     }
 
-    class CustomPair {
+    class Pair {
         private char c;
         private int count;
 
-        public CustomPair(char c, int count) {
+        public Pair(char c, int count) {
             this.c = c;
             this.count = count;
         }

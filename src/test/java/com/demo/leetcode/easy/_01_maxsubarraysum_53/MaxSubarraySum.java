@@ -40,6 +40,7 @@ public class MaxSubarraySum {
      * Space: O(1)
      */
     private int maxSubArray(int[] nums) {
+        //remember to initialize max to first element. edge case when all are negatives
         int maxSum = nums[0];
         int curSum = 0;
         for (int n : nums) {

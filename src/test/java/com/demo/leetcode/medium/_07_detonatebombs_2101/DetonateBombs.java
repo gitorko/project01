@@ -15,7 +15,7 @@ import org.junit.jupiter.api.Test;
 /**
  * [2101. Detonate the Maximum Bombs - MEDIUM](https://leetcode.com/problems/detonate-the-maximum-bombs/description/)
  *
- * - BFS
+ * - bfs
  *
  * https://www.youtube.com/watch?v=8NPbAvVXKR4&ab_channel=NeetCodeIO
  */

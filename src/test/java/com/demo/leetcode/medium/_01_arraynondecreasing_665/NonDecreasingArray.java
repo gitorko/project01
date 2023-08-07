@@ -39,13 +39,20 @@ public class NonDecreasingArray {
         Assertions.assertTrue(checkPossibility(nums));
     }
 
+    @Test
+    public void test5() {
+        //only one violation visible, but cant fix
+        int[] nums = {3, 4, 2, 3};
+        Assertions.assertFalse(checkPossibility(nums));
+    }
+
     /**
      * Time: O(n)
      * Space: O(1)
      */
     public boolean checkPossibility(int[] nums) {
         int violation = 0;
-        //the number of changes
+        //start from 2nd element
         for (int i = 1; i < nums.length && violation <= 1; i++) {
             if (nums[i - 1] > nums[i]) {
                 violation++;

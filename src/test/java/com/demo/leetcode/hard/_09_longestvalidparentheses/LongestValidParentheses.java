@@ -10,8 +10,6 @@ import org.junit.jupiter.api.Test;
  *
  * - stack with index
  *
- * PRACTICE
- *
  * https://www.youtube.com/watch?v=VdQuwtEd10M&ab_channel=AlgorithmsMadeEasy
  */
 public class LongestValidParentheses {

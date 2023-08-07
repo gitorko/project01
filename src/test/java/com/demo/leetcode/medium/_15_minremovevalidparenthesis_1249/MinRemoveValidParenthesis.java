@@ -9,8 +9,7 @@ import org.junit.jupiter.api.Test;
  * [1249. Minimum Remove to Make Valid Parentheses - MEDIUM](https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/)
  *
  * - stack holds index
- *
- * PRACTICE
+ * - PRACTICE: P1
  *
  * https://www.youtube.com/watch?v=sClFsx12VgM&ab_channel=AlgorithmsMadeEasy
  */
@@ -24,21 +23,21 @@ public class MinRemoveValidParenthesis {
     public String minRemoveToMakeValid(String s) {
         Stack<Integer> stack = new Stack<>(); // unpaired '(' indices
         StringBuilder sb = new StringBuilder(s);
-
         for (int i = 0; i < s.length(); ++i) {
             if (sb.charAt(i) == '(') {
                 stack.push(i); // record unpaired '(' index
             } else if (sb.charAt(i) == ')') {
-                if (stack.isEmpty())
+                if (stack.isEmpty()) {
                     sb.setCharAt(i, '#'); // mark unpaired ')' as '#'
-                else
+                } else {
                     stack.pop(); // find a pair!
+                }
             }
         }
         // mark unpaired '(' as '#'
-        while (!stack.isEmpty())
+        while (!stack.isEmpty()) {
             sb.setCharAt(stack.pop(), '#');
-
+        }
         return sb.toString().replaceAll("#", "");
     }
 }

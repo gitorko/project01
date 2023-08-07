@@ -16,10 +16,7 @@ import org.junit.jupiter.api.Test;
  * - index left is 2*i , right is 2*i+1
  * - deque
  *
- * PRACTICE
- *
- * https://www.youtube.com/watch?v=YP_wb6pX0lk&ab_channel=AlgorithmsMadeEasy
- * https://www.youtube.com/watch?v=Y2CKCnQfHJQ&t=16s&ab_channel=AyushiSharma
+ * https://www.youtube.com/watch?v=FPzLE2L7uHs&ab_channel=NeetCodeIO
  */
 public class BTWidth {
 

@@ -13,11 +13,11 @@ import org.junit.jupiter.api.Test;
  *
  * - left and right pointer
  */
-public class DoublyLinkedList {
+public class CustomDoublyLinkedList {
 
     @Test
     public void test() {
-        MyDoubleLinkList dl = new MyDoubleLinkList();
+        DoubleLinkList dl = new DoubleLinkList();
         for (int i = 1; i < 3; i++) {
             dl.addFirst(i);
         }
@@ -34,7 +34,7 @@ public class DoublyLinkedList {
 
     @Test
     public void test2() {
-        MyDoubleLinkList dl = new MyDoubleLinkList();
+        DoubleLinkList dl = new DoubleLinkList();
         dl.addFirst(10);
         Assertions.assertEquals(Arrays.asList(10), dl.getValues());
         dl.deleteLast();
@@ -42,7 +42,7 @@ public class DoublyLinkedList {
         Assertions.assertEquals(0, dl.counter);
     }
 
-    class MyDoubleLinkList {
+    class DoubleLinkList {
         Node leftPointer;
         Node rightPointer;
         int counter;

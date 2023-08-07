@@ -22,23 +22,20 @@ public class ValidPalindrome {
      * Time: O(n)
      * Space: O(1)
      */
-    public boolean validPalindrome(String s) {
-        int left = 0;
-        int right = s.length() - 1;
+    boolean firstTime;
 
-        while (left < right) {
-            if (s.charAt(left) != s.charAt(right)) {
-                return validPalindrome(s, left + 1, right) || validPalindrome(s, left, right - 1);
-            }
-            left++;
-            right--;
-        }
-        return true;
+    public boolean validPalindrome(String s) {
+        firstTime = true;
+        return validPalindrome(s, 0, s.length() - 1);
     }
 
     private boolean validPalindrome(String s, int left, int right) {
         while (left < right) {
             if (s.charAt(left) != s.charAt(right)) {
+                if (firstTime) {
+                    firstTime = false;
+                    return validPalindrome(s, left + 1, right) || validPalindrome(s, left, right - 1);
+                }
                 return false;
             }
             left++;

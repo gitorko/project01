@@ -1,6 +1,5 @@
 package com.demo.leetcode.medium._02_pushdomino_838;
 
-
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -46,7 +45,8 @@ public class PushDomino {
             }
             if (c == 'R') {
                 if (i + 1 < d.length && d[i + 1] == '.') {
-                    //two cases
+                    //case1: R.L
+                    //case2: R..
                     if (i + 2 < d.length && d[i + 2] == 'L') {
                         //remove the left domino
                         queue.poll();

@@ -2,6 +2,7 @@ package com.demo.leetcode.hard._04_maxperformanceteam_1383;
 
 import java.util.Arrays;
 import java.util.PriorityQueue;
+import java.util.Queue;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -12,7 +13,7 @@ import org.junit.jupiter.api.Test;
  * - heap
  * - PRACTICE: P1
  *
- * https://www.youtube.com/watch?v=Y7UTvogADH0
+ * https://www.youtube.com/watch?v=Y7UTvogADH0&ab_channel=NeetCode
  */
 public class MaxPerformanceTeam {
 
@@ -30,26 +31,27 @@ public class MaxPerformanceTeam {
      * Space: O(k)
      */
     public int maxPerformance(int n, int[] speed, int[] efficiency, int k) {
-        int modVal = (int) (1e9 + 7);
-        int[][] ord = new int[n][2];
+        int mod = (int) (1e9 + 7);
+        int[][] pairs = new int[n][2];
         for (int i = 0; i < n; i++) {
-            ord[i] = new int[]{efficiency[i], speed[i]};
+            pairs[i] = new int[]{efficiency[i], speed[i]};
         }
         //Sort in descending order of efficiency
-        Arrays.sort(ord, (a, b) -> b[0] - a[0]);
-        //Stores the speed in min heap
-        PriorityQueue<Integer> pQueue = new PriorityQueue<>();
+        Arrays.sort(pairs, (a, b) -> b[0] - a[0]);
+        //[speed]
+        Queue<Integer> minHeap = new PriorityQueue<>();
         long totalSpeed = 0;
         long result = 0;
-        for (int[] pair : ord) {
+        for (int[] pair : pairs) {
             int curSpeed = pair[1];
-            pQueue.add(curSpeed);
-            if (pQueue.size() > k) {
-                totalSpeed = totalSpeed - pQueue.poll();
+            int currEfficiency = pair[0];
+            minHeap.add(curSpeed);
+            if (minHeap.size() > k) {
+                totalSpeed = totalSpeed - minHeap.poll();
             }
             totalSpeed += curSpeed;
-            result = Math.max(result, totalSpeed * pair[0]);
+            result = Math.max(result, totalSpeed * currEfficiency);
         }
-        return (int) (result % modVal);
+        return (int) (result % mod);
     }
 }

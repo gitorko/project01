@@ -10,11 +10,11 @@ import org.junit.jupiter.api.Test;
  * [904. Fruit Into Baskets - MEDIUM](https://leetcode.com/problems/fruit-into-baskets/)
  *
  * - sliding window + map
- * - longest subarray with 2 distinct elements.
- * - map with size = 2
  * - SIMILAR_TO: [340. Longest Substring with At Most K Distinct Characters - MEDIUM](https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters/)
+ * - SIMILAR_TO: [longest subarray with 2 distinct elements]
+ * - PRACTICE: P1
  *
- * PRACTICE: P1
+ * https://www.youtube.com/watch?v=yYtaV0G3mWQ&ab_channel=NeetCodeIO
  */
 public class FruitsInBasket {
 
@@ -29,22 +29,24 @@ public class FruitsInBasket {
      * Space: O(n)
      */
     public int totalFruit(int[] fruits) {
-        Map<Integer, Integer> map = new HashMap<>();
-        int total = 0;
+        Map<Integer, Integer> fruitMap = new HashMap<>();
+        int result = 0;
         int left = 0;
         for (int right = 0; right < fruits.length; right++) {
-            map.put(fruits[right], map.getOrDefault(fruits[right], 0) + 1);
-            //moment map has more than 2 distinct element check
-            while (map.size() > 2) {
+            fruitMap.put(fruits[right], fruitMap.getOrDefault(fruits[right], 0) + 1);
+            //moment fruitMap has more than 2 distinct element check
+            while (fruitMap.size() > 2) {
                 //reduce the count of the left side tree
-                map.put(fruits[left], map.get(fruits[left]) - 1);
-                //after reducing the count if it becomes 0 remove from the map.
-                if (map.get(fruits[left]) == 0) map.remove(fruits[left]);
+                fruitMap.put(fruits[left], fruitMap.get(fruits[left]) - 1);
+                //after reducing the count if it becomes 0 remove from the fruitMap.
+                if (fruitMap.get(fruits[left]) == 0) {
+                    fruitMap.remove(fruits[left]);
+                }
                 //slide the left window forward.
                 left++;
             }
-            total = Math.max(total, right - left + 1);
+            result = Math.max(result, right - left + 1);
         }
-        return total;
+        return result;
     }
 }

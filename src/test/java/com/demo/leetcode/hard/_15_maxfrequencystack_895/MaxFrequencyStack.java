@@ -42,21 +42,21 @@ public class MaxFrequencyStack {
     class FreqStack {
         int maxFreq = 0;
         //[val, sum]
-        Map<Integer, Integer> count = new HashMap<>();
+        Map<Integer, Integer> freqMap = new HashMap<>();
         //[sum, values]
         Map<Integer, Stack<Integer>> countToStack = new HashMap<>();
 
         public void push(int val) {
-            count.put(val, count.getOrDefault(val, 0) + 1);
-            maxFreq = Math.max(maxFreq, count.get(val));
-            countToStack.putIfAbsent(count.get(val), new Stack<>());
-            countToStack.get(count.get(val)).push(val);
+            freqMap.put(val, freqMap.getOrDefault(val, 0) + 1);
+            maxFreq = Math.max(maxFreq, freqMap.get(val));
+            countToStack.putIfAbsent(freqMap.get(val), new Stack<>());
+            countToStack.get(freqMap.get(val)).push(val);
         }
 
         public int pop() {
             int val = countToStack.get(maxFreq).pop();
-            count.put(val, count.getOrDefault(val, 0) - 1);
-            if (countToStack.get(maxFreq).isEmpty()){
+            freqMap.put(val, freqMap.getOrDefault(val, 0) - 1);
+            if (countToStack.get(maxFreq).isEmpty()) {
                 maxFreq--;
             }
             return val;

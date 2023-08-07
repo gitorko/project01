@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
  * - 2D DP
  * - SIMILAR_TO: [1143. Longest Common Subsequence - MEDIUM](https://leetcode.com/problems/longest-common-subsequence/)
  *
- * https://youtu.be/-RDzMJ33nx8
+ * https://www.youtube.com/watch?v=-RDzMJ33nx8&ab_channel=NeetCode
  */
 public class DistinctSubSeq {
 

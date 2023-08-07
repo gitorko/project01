@@ -16,8 +16,9 @@ import org.junit.jupiter.api.Test;
  * [721. Accounts Merge - MEDIUM](https://leetcode.com/problems/accounts-merge/)
  *
  * - bfs
+ * - PRACTICE: P1
  *
- * PRACTICE
+ * https://www.youtube.com/watch?v=6st4IxEF-90&ab_channel=NeetCodeIO
  */
 public class AccountMerge {
 
@@ -44,27 +45,22 @@ public class AccountMerge {
         for (List<String> account : accounts) {
             String name = account.get(0);
             String email = account.get(1);
-
             graph.putIfAbsent(email, new LinkedList<>());
             emailName.put(email, name);
-
             for (int i = 2; i < account.size(); i++) {
                 String newEmail = account.get(i);
-
                 emailName.put(newEmail, name);
                 graph.putIfAbsent(newEmail, new LinkedList<>());
-
                 graph.get(newEmail).add(email);
                 graph.get(email).add(newEmail);
             }
         }
-
         List<List<String>> result = new LinkedList<>();
         HashSet<String> visited = new HashSet<>();
-
         for (String email : graph.keySet()) {
-            if (visited.contains(email)) continue;
-
+            if (visited.contains(email)) {
+                continue;
+            }
             visited.add(email);
             String name = emailName.get(email);
             List<String> emails = new LinkedList<>();

@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 /**
  * [116. Populating Next Right Pointers in Each Node - MEDIUM](https://leetcode.com/problems/populating-next-right-pointers-in-each-node/)
  *
- * - dfs
+ * - non-bfs
  * - PRACTICE: P2
  *
  * https://www.youtube.com/watch?v=U4hFQCa1Cq0&ab_channel=NeetCode

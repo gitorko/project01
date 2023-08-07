@@ -1,21 +1,19 @@
 package com.demo.leetcode.medium._13_capcitytoshippackages_1011;
 
-/**
- * [1011. Capacity To Ship Packages Within D Days - MEDIUM](https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/)
- *
- * - binary search
- * - SIMILAR_TO: [875. Koko Eating Bananas - MEDIUM](https://leetcode.com/problems/koko-eating-bananas/)
- *
- * PRACTICE
- *
- * https://www.youtube.com/watch?v=hpF87ioNqjA&ab_channel=CodewithAlisha
- */
-
 import java.util.Arrays;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+/**
+ * [1011. Capacity To Ship Packages Within D Days - MEDIUM](https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/)
+ *
+ * - binary search
+ * - SIMILAR_TO: [875. Koko Eating Bananas - MEDIUM](https://leetcode.com/problems/koko-eating-bananas/)
+ * - PRACTICE: P1
+ *
+ * https://www.youtube.com/watch?v=ER_oLmdc-nw&ab_channel=NeetCodeIO
+ */
 public class CapacityToShipPackages {
 
     @Test
@@ -32,13 +30,13 @@ public class CapacityToShipPackages {
     public int shipWithinDays(int[] weights, int days) {
         int left = Arrays.stream(weights).max().getAsInt();
         int right = Arrays.stream(weights).sum();
-
         while (left < right) {
             int mid = (left + right) / 2;
-            if (shipDays(weights, mid) <= days)
+            if (shipDays(weights, mid) <= days) {
                 right = mid;
-            else
+            } else {
                 left = mid + 1;
+            }
         }
         return left;
     }
