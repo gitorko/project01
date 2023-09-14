@@ -29,7 +29,7 @@ public class MaximalSquare {
 
     /**
      * Time: O(m*n)
-     * Space: O(m*n), can be reduced to O(1) if matrix is used dp.
+     * Space: O(m*n), can be reduced to O(1) if matrix is used dp, hence we start from reverse.
      */
     public int maximalSquare(char[][] matrix) {
         int rowLen = matrix.length;

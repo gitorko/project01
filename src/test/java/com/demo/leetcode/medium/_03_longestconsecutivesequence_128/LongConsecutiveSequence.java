@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 /**
  * [128. Longest Consecutive Sequence - MEDIUM](https://leetcode.com/problems/longest-consecutive-sequence/)
  *
- * - Set, check previous, number line
+ * - set, check previous, number line
  * - SIMILAR_TO: [674. Longest Continuous Increasing Subsequence - EASY](https://leetcode.com/problems/longest-continuous-increasing-subsequence/)
  * - PRACTICE: P1
  *
@@ -44,7 +44,7 @@ public class LongConsecutiveSequence {
      * Space: O(n)
      */
     public int longestConsecutive(int[] nums) {
-        //iterate over nums and assign to numSet.
+        //iterate over nums and assign to set.
         Set<Integer> numSet = Arrays.stream(nums).boxed().collect(Collectors.toSet());
         int maxCount = 0;
         for (int num : nums) {
@@ -64,6 +64,7 @@ public class LongConsecutiveSequence {
     }
 
     /**
+     * sorting
      * Time: O(n*log(n))
      * Space: O(1)
      */

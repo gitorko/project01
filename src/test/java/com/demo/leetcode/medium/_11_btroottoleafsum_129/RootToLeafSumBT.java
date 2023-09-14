@@ -44,7 +44,7 @@ public class RootToLeafSumBT {
         if(root == null) {
             return 0;
         }
-        //base case
+        //base case, don't want to multiply 10 for this
         if(root.left == null && root.right == null) {
             return sum + root.val;
         }

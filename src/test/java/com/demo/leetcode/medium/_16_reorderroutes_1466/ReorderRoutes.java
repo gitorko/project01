@@ -38,7 +38,7 @@ public class ReorderRoutes {
             edgeSet.add(c[0] + "," + c[1]);
             adjacencyMap.putIfAbsent(c[0], new HashSet<>());
             adjacencyMap.putIfAbsent(c[1], new HashSet<>());
-            //important to add both nodes in both adjacency list, even though input is mono directional edge.
+            //important to add both nodes in both adjacency list, even though input is uni directional edge.
             adjacencyMap.get(c[0]).add(c[1]);
             adjacencyMap.get(c[1]).add(c[0]);
         }

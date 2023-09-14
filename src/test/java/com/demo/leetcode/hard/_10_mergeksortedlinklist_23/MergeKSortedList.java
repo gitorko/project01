@@ -35,26 +35,32 @@ public class MergeKSortedList {
      * Time: O(n*log(k))
      * Space: O(1)
      */
+    ListNode[] lists;
+
     public ListNode mergeKLists(ListNode[] lists) {
+        this.lists = lists;
         if (lists == null || lists.length == 0) {
             return null;
         }
-        return mergeKLists(lists, 0, lists.length - 1);
+        return mergeKLists(0, lists.length - 1);
     }
 
-    private ListNode mergeKLists(ListNode[] lists, int start, int end) {
+    private ListNode mergeKLists(int start, int end) {
         if (start == end) {
             return lists[start];
         } else if (start < end) {
             int mid = (start + end) / 2;
-            ListNode leftList = mergeKLists(lists, start, mid);
-            ListNode rightList = mergeKLists(lists, mid + 1, end);
+            ListNode leftList = mergeKLists(start, mid);
+            ListNode rightList = mergeKLists(mid + 1, end);
             return mergeTwoLists(leftList, rightList);
         } else {
             return null;
         }
     }
 
+    /**
+     * Recursive
+     */
     private ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         if (l1 == null) {
             return l2;

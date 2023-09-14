@@ -43,11 +43,11 @@ public class UniqueBST {
         //base case set to 1.
         dp[0] = 1;
         dp[1] = 1;
-        for (int level = 2; level < n + 1; level++) {
-            for (int root = 1; root < level + 1; root++) {
+        for (int node = 2; node < n + 1; node++) {
+            for (int root = 1; root < node + 1; root++) {
                 int left = root - 1;
-                int right = level - root;
-                dp[level] += dp[left] * dp[right];
+                int right = node - root;
+                dp[node] += dp[left] * dp[right];
             }
         }
         return dp[n];

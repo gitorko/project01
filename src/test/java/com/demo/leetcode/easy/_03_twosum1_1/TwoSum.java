@@ -9,8 +9,8 @@ import org.junit.jupiter.api.Test;
 /**
  * [1. Two Sum - EASY](https://leetcode.com/problems/two-sum/)
  *
- *  - option 1: use hashmap - two pass, edge case to check if complement is number itself.
- *  - option 2: use hashmap - one pass, complement.
+ *  - option 1: use hashmap - two pass, edge case to check if diff is number itself.
+ *  - option 2: use hashmap - one pass, diff.
  *  - SIMILAR_TO: [167. Two Sum II - Input Array Is Sorted - MEDIUM](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)
  *  - PRACTICE: P3
  *
@@ -46,7 +46,7 @@ class TwoSum {
 
     /**
      * Two Pass
-     * Beware that the complement must not be nums[i] itself!
+     * Beware that the diff must not be nums[i] itself!
      * eg: [2,1,5,3], target=4
      * 4-2=2, but 2 is present only once. Hence one pass is better.
      *
@@ -60,10 +60,10 @@ class TwoSum {
             diffMap.put(nums[i], i);
         }
         for (int i = 0; i < nums.length; i++) {
-            int complement = target - nums[i];
-            //Extra check to see if the complement is not the number itself.
-            if (diffMap.containsKey(complement) && diffMap.get(complement) != i) {
-                return new int[]{i, diffMap.get(complement)};
+            int diff = target - nums[i];
+            //Extra check to see if the diff is not the number itself.
+            if (diffMap.containsKey(diff) && diffMap.get(diff) != i) {
+                return new int[]{i, diffMap.get(diff)};
             }
         }
         return new int[]{};

@@ -75,11 +75,11 @@ public class LRUCacheImpl {
             //when list is empty
             if (front == null) {
                 front = rear = curr;
-                return;
+            } else {
+                front.left = curr;
+                curr.right = front;
+                front = curr;
             }
-            front.left = curr;
-            curr.right = front;
-            front = curr;
         }
 
         private void remove(Node curr) {

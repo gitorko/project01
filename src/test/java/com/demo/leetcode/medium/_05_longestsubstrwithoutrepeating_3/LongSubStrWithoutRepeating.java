@@ -44,7 +44,7 @@ public class LongSubStrWithoutRepeating {
         //left and right pointer
         int left = 0;
         int right = 0;
-        int max = 0;
+        int result = 0;
         while (right < s.length()) {
             char rightChar = s.charAt(right);
             while (charSet.contains(rightChar)) {
@@ -54,10 +54,10 @@ public class LongSubStrWithoutRepeating {
             }
             charSet.add(rightChar);
             int window = right - left + 1;
-            max = Math.max(max, window);
+            result = Math.max(result, window);
             right++;
         }
-        return max;
+        return result;
     }
 
 }

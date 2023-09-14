@@ -31,8 +31,7 @@ public class ArrangeCoins {
             long coins = (mid * (mid + 1)) / 2;
             if (coins == n) {
                 return (int) mid;
-            }
-            if (coins > n) {
+            } else if (coins > n) {
                 right = mid - 1;
             } else {
                 left = mid + 1;
