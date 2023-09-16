@@ -32,7 +32,7 @@ public class Triangle {
     public int minimumTotal(List<List<Integer>> triangle) {
         //start form last but one row
         for (int i = triangle.size() - 2; i >= 0; i--) {
-            for (int j = 0; j < i + 1; j++) {
+            for (int j = 0; j < triangle.get(i).size(); j++) {
                 List<Integer> curRow = triangle.get(i);
                 List<Integer> botRow = triangle.get(i + 1);
                 curRow.set(j, curRow.get(j) + Math.min(botRow.get(j), botRow.get(j + 1)));

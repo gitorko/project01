@@ -30,7 +30,7 @@ public class MinWindowSubstring {
      */
     public String minWindow(String s, String t) {
         int[] countT = new int[128];
-        int[] windowS = new int[128];
+        int[] countS = new int[128];
         int need = 0;
         int have = 0;
         for (char c : t.toCharArray()) {
@@ -44,8 +44,8 @@ public class MinWindowSubstring {
         int smallestWindowSize = s.length() + 1;
         for (int left = 0, right = 0; right < s.length(); right++) {
             Character c = s.charAt(right);
-            windowS[c]++;
-            if (countT[c] != 0 && windowS[c] == countT[c]) {
+            countS[c]++;
+            if (countT[c] != 0 && countS[c] == countT[c]) {
                 have++;
             }
             while (have == need) {
@@ -56,9 +56,9 @@ public class MinWindowSubstring {
                     leftStart = left;
                 }
                 //remove left pointer char from window
-                windowS[s.charAt(left)]--;
+                countS[s.charAt(left)]--;
                 //update have count
-                if (countT[c] != 0 && windowS[s.charAt(left)] < countT[s.charAt(left)]) {
+                if (countT[c] != 0 && countS[s.charAt(left)] < countT[s.charAt(left)]) {
                     have--;
                 }
                 left++;

@@ -33,6 +33,13 @@ public class CoinChange {
         Assertions.assertEquals(0, coinChange2(coins, amount));
     }
 
+    @Test
+    public void test3() {
+        int coins[] = {2}, amount = 3;
+        Assertions.assertEquals(-1, coinChange(coins, amount));
+        Assertions.assertEquals(-1, coinChange2(coins, amount));
+    }
+
     /**
      * Bottom up - iterative
      * Time: O(amount * len(coins)).

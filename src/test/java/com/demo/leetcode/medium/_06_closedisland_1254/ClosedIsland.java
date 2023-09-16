@@ -17,7 +17,7 @@ public class ClosedIsland {
                 {1, 0, 1, 0, 1, 1, 1, 0},
                 {1, 0, 0, 0, 0, 1, 0, 1},
                 {1, 1, 1, 1, 1, 1, 1, 0}};
-        Assertions.assertEquals(0, closedIsland(grid));
+        Assertions.assertEquals(2, closedIsland(grid));
     }
 
     int[][] dir = new int[][]{{1, 0}, {-1, 0}, {0, 1}, {0, -1}};

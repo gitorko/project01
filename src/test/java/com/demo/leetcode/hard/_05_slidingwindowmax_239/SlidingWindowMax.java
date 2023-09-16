@@ -56,8 +56,7 @@ public class SlidingWindowMax {
                 dequeue.pollLast();
             }
             dequeue.offer(right);
-            //confusing part: remove left index from beginning of queue.
-            //peek contains the index of max value.
+            //confusing part: if left pointer has crossed our left most value in the queue then remove it
             if (left > dequeue.peek()) {
                 dequeue.poll();
             }
