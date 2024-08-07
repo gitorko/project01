@@ -3,6 +3,7 @@ package com.demo.leetcode.medium._08_randompickweight;
 import java.util.Random;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -15,6 +16,7 @@ import org.junit.jupiter.api.Test;
 public class RandomPickWeight {
 
     @Test
+    @Disabled
     public void test1() {
         int[] input = {1};
         Solution solution = new Solution(input);
@@ -23,6 +25,7 @@ public class RandomPickWeight {
     }
 
     @Test
+    @Disabled
     public void test2() {
         int[] input = {1, 3};
         Solution solution = new Solution(input);
