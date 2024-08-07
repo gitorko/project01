@@ -1,13 +1,19 @@
 plugins {
-    id 'org.springframework.boot' version '2.7.2'
-    id 'io.spring.dependency-management' version '1.0.12.RELEASE'
     id 'java'
-    id 'org.jetbrains.kotlin.jvm' version '1.7.20'
+    id 'org.springframework.boot' version '3.2.2'
+    id 'io.spring.dependency-management' version '1.1.6'
+    id 'org.jetbrains.kotlin.jvm' version '1.9.24'
+    id 'org.jetbrains.kotlin.plugin.spring' version '1.9.24'
 }
 
 group = 'com.demo.tutor'
 version = '1.0.0'
-sourceCompatibility = '17'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
 
 configurations {
     compileOnly {
@@ -21,19 +27,23 @@ repositories {
 
 dependencies {
     compileOnly 'org.projectlombok:lombok'
-    annotationProcessor 'org.projectlombok:lombok'
     testCompileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
     testAnnotationProcessor 'org.projectlombok:lombok'
+    implementation 'org.jetbrains.kotlin:kotlin-reflect'
     implementation 'org.springframework.boot:spring-boot-starter-test'
-    implementation 'com.fasterxml.jackson.core:jackson-core:2.13.1'
-    implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.1'
-    implementation 'commons-codec:commons-codec:1.10'
-    implementation 'org.jsoup:jsoup:1.14.3'
-    implementation 'commons-lang:commons-lang:2.6'
-    implementation 'org.apache.commons:commons-collections4:4.4'
-    implementation 'com.google.guava:guava:21.0'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
-    testImplementation 'org.jetbrains.kotlin:kotlin-test'
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.15.2'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
+    implementation 'commons-codec:commons-codec:1.16.0'
+    implementation 'org.jsoup:jsoup:1.15.3'
+    implementation 'org.apache.commons:commons-lang3:3.13.0'
+    implementation 'org.apache.commons:commons-collections4:4.4'
+    implementation 'com.google.guava:guava:32.0.1-jre'
+    implementation 'org.jetbrains.kotlin:kotlin-test'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.jetbrains.kotlin:kotlin-test-junit5'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
 }
 
@@ -49,14 +59,8 @@ jar {
     enabled = false
 }
 
-compileKotlin {
-    kotlinOptions {
-        jvmTarget = "17"
-    }
-}
-
-compileTestKotlin {
-    kotlinOptions {
-        jvmTarget = "17"
+kotlin {
+    compilerOptions {
+        freeCompilerArgs.addAll '-Xjsr305=strict'
     }
 }
