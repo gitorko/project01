@@ -10,7 +10,7 @@ Check version
 
 ```bash
 $java --version
-openjdk 17.0.3 2022-04-19 LTS
+openjdk version "21.0.3" 2024-04-16 LTS
 ```
 
 ### Online code editor
