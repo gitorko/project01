@@ -1,5 +1,7 @@
 package com.demo.basics.concurrency._06_scheduler;
 
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -34,6 +36,23 @@ public class ScheduledExecutorTest {
         TimeUnit.SECONDS.sleep(5);
         executor.shutdown();
         executor.awaitTermination(5, TimeUnit.SECONDS);
+        System.out.println("Complete!");
+    }
+
+    @SneakyThrows
+    @Test
+    public void test2() {
+        var task = new TimerTask() {
+            @SneakyThrows
+            @Override
+            public void run() {
+                System.out.println("Task1 after 1 second");
+            }
+        };
+        var timer = new Timer();
+        timer.scheduleAtFixedRate(task, 0, 1000);
+        TimeUnit.SECONDS.sleep(5);
+        task.cancel();
         System.out.println("Complete!");
     }
 }

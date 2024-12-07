@@ -161,4 +161,12 @@ public class FileOps {
         }
     }
 
+    @SneakyThrows
+    @Test
+    public void test_listSubDir() {
+        Path path = Paths.get("src");
+        Files.newDirectoryStream(path)
+                .forEach(System.out::println);
+    }
+
 }
