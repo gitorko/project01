@@ -6,7 +6,7 @@ import java.util.stream.Stream;
 
 import org.junit.jupiter.api.Test;
 
-public class StreamGen {
+public class StreamGenOps {
     @Test
     public void test() {
         Stream.generate(() -> "Hello World!")

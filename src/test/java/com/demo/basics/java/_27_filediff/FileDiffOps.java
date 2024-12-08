@@ -7,7 +7,7 @@ import lombok.SneakyThrows;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-public class FileDiff {
+public class FileDiffOps {
 
     @SneakyThrows
     @Test

@@ -5,7 +5,7 @@ import java.time.Duration;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class InfiniteLoop {
+public class InfiniteLoopOps {
 
     @Test
     public void test_timeout() {

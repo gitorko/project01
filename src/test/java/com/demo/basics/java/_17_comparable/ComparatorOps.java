@@ -9,7 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.junit.jupiter.api.Test;
 
-public class ComparatorDemo {
+public class ComparatorOps {
 
     @Test
     public void test() {

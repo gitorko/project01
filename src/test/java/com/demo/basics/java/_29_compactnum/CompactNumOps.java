@@ -5,7 +5,7 @@ import java.util.Locale;
 
 import org.junit.jupiter.api.Test;
 
-public class CompactNum {
+public class CompactNumOps {
     @Test
     public void test() {
         var number = 10000000;

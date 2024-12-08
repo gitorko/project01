@@ -4,7 +4,7 @@ import java.util.AbstractMap;
 
 import org.junit.jupiter.api.Test;
 
-public class PairTest {
+public class PairTestOps {
 
     @Test
     public void test() {

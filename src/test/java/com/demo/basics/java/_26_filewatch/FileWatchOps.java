@@ -10,7 +10,7 @@ import lombok.SneakyThrows;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-public class FileWatch {
+public class FileWatchOps {
 
     @SneakyThrows
     @Test

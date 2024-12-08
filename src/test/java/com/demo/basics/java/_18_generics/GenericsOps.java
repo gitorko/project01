@@ -4,9 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import lombok.AllArgsConstructor;
+import org.junit.jupiter.api.Test;
 
-public class Main {
-    public static void main(String[] args) {
+public class GenericsOps {
+
+    @Test
+    public void test() {
         List<Building> buildingList = new ArrayList<>();
         buildingList.add(new Building("b1"));
         buildingList.add(new Building("b1"));

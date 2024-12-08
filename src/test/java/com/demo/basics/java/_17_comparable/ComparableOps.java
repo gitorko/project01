@@ -8,7 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.junit.jupiter.api.Test;
 
-public class ComparableDemo {
+public class ComparableOps {
 
     @Test
     public void test() {

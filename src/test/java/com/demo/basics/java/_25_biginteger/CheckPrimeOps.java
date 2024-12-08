@@ -5,7 +5,7 @@ import java.math.BigInteger;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class CheckPrime {
+public class CheckPrimeOps {
 
     BigInteger zero = new BigInteger("0");
     BigInteger one = new BigInteger("1");

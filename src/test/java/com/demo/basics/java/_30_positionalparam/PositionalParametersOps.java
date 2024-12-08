@@ -1,10 +1,11 @@
 package com.demo.basics.java._30_positionalparam;
 
 import java.util.Date;
+import java.util.stream.IntStream;
 
 import org.junit.jupiter.api.Test;
 
-public class PositionalParameters {
+public class PositionalParametersOps {
     @Test
     public void test() {
         var payload = """
@@ -28,5 +29,12 @@ public class PositionalParameters {
                 .findAny()
                 .orElse("Not Found!");
         System.out.println(result);
+    }
+
+    @Test
+    public void test3() {
+        IntStream.range(0, 10)
+                .mapToObj("%03d"::formatted)
+                .forEach(System.out::println);
     }
 }
