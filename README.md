@@ -1,8 +1,9 @@
 # Project 01
 
-Data Structure & Algorithms
+Data Structure & Algorithms & Design Patterns
 
 [https://gitorko.github.io/grokking-the-coding-interview/](https://gitorko.github.io/grokking-the-coding-interview/)
+[https://gitorko.github.io/design-patterns/](https://gitorko.github.io/design-patterns/)
 
 ### Version
 
