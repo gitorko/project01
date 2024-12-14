@@ -11,7 +11,7 @@ interface AnimalFactory {
     Animal createAnimal();
 }
 
-public class AnimalAbstractFactoryPatternTest {
+public class AbstractFactoryPatternTest {
 
     @Test
     public void test() {
