@@ -24,4 +24,38 @@ public class SwitchOps {
 
     record Customer(String name, int age, String country) {
     }
+
+    @Test
+    void test2() {
+        String input = "CASE1";
+        switch (input) {
+            case "CASE1" -> {
+                System.out.println("Case1");
+            }
+            case "CASE2" -> {
+                System.out.println("Case2");
+            }
+            default -> System.out.println("Default");
+        }
+    }
+
+    @Test
+    void test3() {
+        Animal animal = new Dog();
+        switch (animal) {
+            case Dog dog -> {
+                System.out.println("dog");
+            }
+            case Cat cat -> {
+                System.out.println("cat");
+            }
+            default -> System.out.println("unknown");
+        }
+    }
 }
+
+interface Animal {
+}
+
+class Dog implements Animal {}
+class Cat implements Animal {}

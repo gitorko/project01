@@ -2,6 +2,7 @@ package com.demo.basics.designpatterns._20_visitor;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 interface Visitable {
@@ -20,11 +21,14 @@ public class VisitorPatternTest {
 
         Visitor taxCalculator = new TaxVisitor();
         Liquor liquor = new Liquor("Vodka", 12.00d);
-        System.out.println("Price of liquor: " + liquor.accept(taxCalculator));
+        double liquorPriceAfterTax = liquor.accept(taxCalculator);
+        System.out.println("Price of liquor: " + liquorPriceAfterTax);
+        Assertions.assertEquals(15.6, liquorPriceAfterTax);
 
         Grocery grocery = new Grocery("Potato Chips", 12.00d);
-        System.out.println("Price of grocery: " + grocery.accept(taxCalculator));
-
+        double groceryPriceAfterTax = grocery.accept(taxCalculator);
+        System.out.println("Price of grocery: " + groceryPriceAfterTax);
+        Assertions.assertEquals(13.2, groceryPriceAfterTax);
     }
 }
 
